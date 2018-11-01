@@ -27,7 +27,7 @@ import sys # To caclulate memory usaage
 import os
 # dir = 'C:\Research\Google Search Volume'
 dir = 'E:\Research\Equity Premium and Machine Learning'
-dir = "C:/Users/vonNe/Google Drive/Data Science/Projects/Equity Premium and Machine Learning"
+#dir = "C:/Users/vonNe/Google Drive/Data Science/Projects/Equity Premium and Machine Learning"
 #dir = 'D:/Ravenpack'
 os.chdir(dir)
 os.makedirs(dir + '/temp', exist_ok = True)
@@ -89,18 +89,9 @@ X[X.columns]= scaler.fit_transform(X[X.columns])
 
 #%% 
 ''' Lasso model selection: Cross-Validation / AIC / BIC'''
-
-"""
-X /= np.sqrt(np.sum(X ** 2, axis=0))
-x = pd.DataFrame([2,3,2,1,4,5])
-x /= np.sqrt(np.sum(x ** 2, axis=0))
-"""
-'''
-from sklearn.model_selection import KFold
-kf = KFold(n_splits=10)
-for train, test in kf.split(X):
-    print("%s %s" % (train, test))
-'''
+from sklearn import linear_model
+reg = linear_model.LinearRegression()
+model_ols = reg.fit(X,y)
 
 # LassoCV: coordinate descent
 # Compute paths
@@ -312,6 +303,7 @@ plt.legend()
 plt.axis('tight')
 plt.savefig(dir+"/out/lassopath")
 #%%
+''' Interpret the model output'''
 #A helper method for pretty-printing linear models
 def pretty_print_linear(coefs, names = None, sort = False):
     if np.sum(names == None):
@@ -324,3 +316,27 @@ def pretty_print_linear(coefs, names = None, sort = False):
 print("Linear model:", pretty_print_linear(model_lasso.coef_[model_lasso.coef_>0], names =  X.columns[model_lasso.coef_>0] ))
 
 #print("Linear model:", pretty_print_linear(model_enet.coef_, names =  X.columns ))
+
+#%%
+''' Performance Metrics'''
+from sklearn.metrics import mean_squared_error, r2_score
+def r2_adj_score(y, yhat, n, p):
+    r2 =  r2_score(y, yhat)
+    return 1 - (1-r2)*(n-1)/(n-p-1)
+
+yhat_ols = model_ols.predict(X)
+yhat_lasso = model_lasso.predict(X)
+yhat_enet = model_enet.predict(X)
+print("R2_adj:")
+print(r2_adj_score(y, yhat_ols,n = y.shape[0],  p = X.shape[1]))
+print(r2_adj_score(y, yhat_lasso,n = y.shape[0],  p = X.shape[1]))
+print(r2_adj_score(y, yhat_enet,n = y.shape[0],  p = X.shape[1]))
+print("MSE:")
+print(mean_squared_error(y, yhat_ols))
+print(mean_squared_error(y, yhat_lasso))
+print(mean_squared_error(y, yhat_enet))
+'''
+--> OLS performs the best in-sample
+'''
+#%%
+
