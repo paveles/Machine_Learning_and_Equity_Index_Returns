@@ -84,11 +84,11 @@ y = df['lnsp500_rf']
 
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
-X2 = X
+Xo = X
 X[X.columns]= scaler.fit_transform(X[X.columns])
-
+# #############################################################################
 #%% 
-''' Lasso model selection: Cross-Validation / AIC / BIC'''
+''' Lasso model selection: Cross-Validation'''
 from sklearn import linear_model
 reg = linear_model.LinearRegression()
 model_ols = reg.fit(X,y)
@@ -97,7 +97,7 @@ model_ols = reg.fit(X,y)
 # Compute paths
 
 from sklearn.linear_model import LassoCV, LassoLarsCV, LassoLarsIC, ElasticNetCV
-# #############################################################################
+
 # LassoCV: coordinate descent
 
 print("Computing regularization path using the coordinate descent lasso...")
@@ -130,7 +130,7 @@ print(alpha_lasso)
 #ymin, ymax = 2300, 3800
 #plt.ylim(ymin, ymax)
 #%%
-# #############################################################################
+# ###
 # .ElasticNetCV: coordinate descent
 
 print("Computing regularization path using the coordinate descent lasso...")
@@ -165,7 +165,7 @@ print(alpha_enet)
 
 
 '''
-# #############################################################################
+####
 # LassoLarsCV: least angle regression
 print("Computing regularization path using the Lars lasso...")
 t1 = time.time()
@@ -194,7 +194,7 @@ plt.axis('tight')
 
 print(-np.log10(model.alpha_))
 
-# #############################################################################
+#####
 # LassoLarsIC: least angle regression with BIC/AIC criterion
 
 model_bic = LassoLarsIC(criterion='bic')
@@ -227,6 +227,7 @@ plt.legend()
 plt.title('Information-criterion for model selection (training time %.3fs)'
           % t_bic)
 '''
+# #############################################################################
 #%%
 ''' Lasso and Elastic Net - Paths'''
 
@@ -242,12 +243,12 @@ from sklearn import datasets
 eps = 5e-2  # the smaller it is the longer is the path
 
 print("Computing regularization path using the lasso...")
-alphas_lasso, coefs_lasso, _ = lasso_path(X, y, eps, fit_intercept=False)
+alphas_lasso, coefs_lasso, _ = lasso_path(X, y, eps, fit_intercept=True)
 
 
 print("Computing regularization path using the elastic net...")
 alphas_enet, coefs_enet, _ = enet_path(
-    X, y, eps=eps, l1_ratio=0.8, fit_intercept=False)
+    X, y, eps=eps, l1_ratio=0.8, fit_intercept=True)
 
 
 
@@ -282,7 +283,7 @@ from sklearn import datasets
 eps = 5e-2  # the smaller it is the longer is the path
 
 print("Computing regularization path using the lasso...")
-alphas_lasso, coefs_lasso, _ = lasso_path(X, y, eps, fit_intercept=False)
+alphas_lasso, coefs_lasso, _ = lasso_path(X, y, eps, fit_intercept=True)
 
 
 
@@ -303,6 +304,7 @@ plt.legend()
 plt.axis('tight')
 plt.savefig(dir+"/out/lassopath")
 #%%
+#################################################
 ''' Interpret the model output'''
 #A helper method for pretty-printing linear models
 def pretty_print_linear(coefs, names = None, sort = False):
@@ -318,7 +320,7 @@ print("Linear model:", pretty_print_linear(model_lasso.coef_[model_lasso.coef_>0
 #print("Linear model:", pretty_print_linear(model_enet.coef_, names =  X.columns ))
 
 #%%
-''' Performance Metrics'''
+''' Performance Metrics - In-Sample Comparison'''
 from sklearn.metrics import mean_squared_error, r2_score
 def r2_adj_score(y, yhat, n, p):
     r2 =  r2_score(y, yhat)
@@ -338,5 +340,53 @@ print(mean_squared_error(y, yhat_enet))
 '''
 --> OLS performs the best in-sample
 '''
+
+        
+#%%
+''' Performance Metrics - Out-of-Sample Comparison - CV = 10'''
+from sklearn import linear_model
+from sklearn.cross_validation import cross_val_score, cross_val_predict
+from sklearn import metrics
+
+K = 10
+def test_model(model, model_name, K):
+    #model = ols_model
+    #model_name = 'OLS'
+    scores = cross_val_score(model, X, y, cv=K)
+    predictions = cross_val_predict(model, X, y, cv=K)
+    accuracy = metrics.r2_score(y, predictions)
+    MSE = metrics.mean_squared_error(y,predictions)
+    print("Model:{}".format(model_name))
+    print("Cross-Predicted R2:{}".format(accuracy))
+    print("Cross-Predicted MSE:{}".format(MSE))
+    #plt.scatter(y, predictions)
+
+
+ols_model = linear_model.LinearRegression(fit_intercept=True)
+lasso_model = linear_model.Lasso(alpha = alpha_lasso, fit_intercept=True)
+enet_model = linear_model.ElasticNet(alpha=alpha_enet, l1_ratio=0.8, fit_intercept=True)
+
+test_model(ols_model,"OLS", K)
+test_model(lasso_model,"Lasso", K)
+test_model(enet_model,"Enet", K)
+'''
+--> ENET and LASSO  perform better our-of-sample but R2 negative
+'''
+
+#%%
+#%%
+''' Potential Alternative Approach '''
+from sklearn.model_selection import cross_validate
+### Define Scorer
+from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
+r2_scorer = make_scorer(r2_score)
+mean_squared_error_scorer = make_scorer(mean_squared_error)
+scoring = {'MSE': mean_squared_error_scorer, 'r2': make_scorer(r2_score)}
+# cv=TimeSeriesSplit(n_splits=5).split(X)
+### Cross-Validation
+cv_results = cross_validate(lasso_model, X, y, cv  = 5 , return_train_score=True, scoring = scoring )
+df_cv = pd.DataFrame.from_dict(cv_results)
+df_avg = df_cv.mean(axis = 0)
+print(df_avg)
 #%%
 
