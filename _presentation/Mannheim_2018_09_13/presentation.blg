@@ -1,0 +1,42 @@
+[0] Config.pm:354> INFO - This is Biber 2.7
+[0] Config.pm:357> INFO - Logfile is 'presentation.blg'
+[53] biber-MSWIN64:303> INFO - === 
+[79] Biber.pm:359> INFO - Reading 'presentation.bcf'
+[213] Biber.pm:835> INFO - Found 15 citekeys in bib section 0
+[230] Biber.pm:3670> INFO - Processing section 0
+[249] Biber.pm:3840> INFO - Looking for bibtex format file 'Lit_mod.bib' for section 0
+[276] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[325] bibtex.pm:1292> INFO - Found BibTeX data source 'Lit_mod.bib'
+[328] Utils.pm:164> WARN - Duplicate entry key: 'jank_dissecting_2016' in file 'Lit_mod.bib', skipping ...
+[334] Utils.pm:164> WARN - Duplicate entry key: 'Shleifer1997' in file 'Lit_mod.bib', skipping ...
+[335] Utils.pm:164> WARN - Duplicate entry key: 'Stambaugh2012a' in file 'Lit_mod.bib', skipping ...
+[347] Utils.pm:164> WARN - month field 'oct' in entry 'Stambaugh2015' is not an integer - this will probably not sort properly.
+[355] Utils.pm:164> WARN - month field 'may' in entry 'Stambaugh2012a' is not an integer - this will probably not sort properly.
+[358] Utils.pm:164> WARN - month field 'apr' in entry 'Hanson2014' is not an integer - this will probably not sort properly.
+[363] Utils.pm:164> WARN - month field 'oct' in entry 'Pontiff2006' is not an integer - this will probably not sort properly.
+[365] Utils.pm:164> WARN - month field 'may' in entry 'Drechsler2016' is not an integer - this will probably not sort properly.
+[367] Utils.pm:164> WARN - month field 'nov' in entry 'Akbas2015' is not an integer - this will probably not sort properly.
+[391] Utils.pm:164> WARN - ISBN '1540-6261' in entry 'Mclean2016' is invalid - run biber with '--validate_datamodel' for details.
+[393] Utils.pm:164> WARN - month field 'aug' in entry 'Baker2006' is not an integer - this will probably not sort properly.
+[398] Biber.pm:3840> INFO - Looking for bibtex format file 'Surprise_Lit.bib' for section 0
+[411] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[431] bibtex.pm:1292> INFO - Found BibTeX data source 'Surprise_Lit.bib'
+[431] Utils.pm:164> WARN - Duplicate entry key: 'jones_quarterly_1970' in file 'Surprise_Lit.bib', skipping ...
+[432] Utils.pm:164> WARN - Duplicate entry key: 'ball_empirical_1968' in file 'Surprise_Lit.bib', skipping ...
+[432] Utils.pm:164> WARN - Duplicate entry key: 'bernard_evidence_1990' in file 'Surprise_Lit.bib', skipping ...
+[432] Utils.pm:164> WARN - Duplicate entry key: 'engelberg_short_2016' in file 'Surprise_Lit.bib', skipping ...
+[433] Utils.pm:164> WARN - Duplicate entry key: 'jank_dissecting_2016' in file 'Surprise_Lit.bib', skipping ...
+[435] Utils.pm:164> WARN - Duplicate entry key: 'drechsler_shorting_2016' in file 'Surprise_Lit.bib', skipping ...
+[436] Utils.pm:164> WARN - Duplicate entry key: 'engelberg_anomalies_2015' in file 'Surprise_Lit.bib', skipping ...
+[439] Utils.pm:164> WARN - Duplicate entry key: 'hanson_growth_2014' in file 'Surprise_Lit.bib', skipping ...
+[444] Utils.pm:164> WARN - Duplicate entry key: 'de_long_noise_1990' in file 'Surprise_Lit.bib', skipping ...
+[476] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[477] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[477] Biber.pm:3499> INFO - Sorting list 'nyt/global/' of type 'entry' with scheme 'nyt' and locale 'en-US'
+[477] Biber.pm:3505> INFO - No sort tailoring available for locale 'en-US'
+[495] bbl.pm:608> INFO - Writing 'presentation.bbl' with encoding 'ascii'
+[498] Utils.pm:164> WARN - The entry 'Akbas2015' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[499] Utils.pm:164> WARN - The entry 'desai_investigation_2002' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[503] Utils.pm:164> WARN - The entry 'Pontiff2006' has characters which cannot be encoded in 'ascii'. Recoding problematic characters into macros.
+[505] bbl.pm:712> INFO - Output to presentation.bbl
+[507] Biber.pm:109> INFO - WARNINGS: 23

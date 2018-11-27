@@ -1,0 +1,704 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nyt/global/}
+    \entry{Akbas2015}{article}{}
+      \name{author}{4}{}{%
+        {{hash=74a1b4410b4348a966a9d613024430e3}{%
+           family={Akbas},
+           familyi={A\bibinitperiod},
+           given={Ferhat},
+           giveni={F\bibinitperiod}}}%
+        {{hash=bd51eb1308701815074580e90cbd1113}{%
+           family={Armstrong},
+           familyi={A\bibinitperiod},
+           given={Will\bibnamedelima J.},
+           giveni={W\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=f332063ac98bd60e5fad220cbdc85b1d}{%
+           family={Sorescu},
+           familyi={S\bibinitperiod},
+           given={Sorin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=315ef5c7b5156dd3a1d71b3c727117fd}{%
+           family={Subrahmanyam},
+           familyi={S\bibinitperiod},
+           given={Avanidhar},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6916bf6f00335260e1e34fa919489832}
+      \strng{fullhash}{b4c30734ca644b998d727a0e989d8123}
+      \strng{authornamehash}{6916bf6f00335260e1e34fa919489832}
+      \strng{authorfullhash}{b4c30734ca644b998d727a0e989d8123}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We investigate the dual notions that \x{fffd}\x{fffd}\x{fffd}dumb money\x{fffd}\x{fffd}\x{fffd} exacerbates well-known stock return anomalies and \x{fffd}\x{fffd}\x{fffd}smart money\x{fffd}\x{fffd}\x{fffd} attenuates these anomalies. We find that aggregate flows to mutual funds (dumb money) appear to exacerbate cross-sectional mispricing, particularly for growth, accrual, and momentum anomalies. In contrast, hedge fund flows (smart money) appear to attenuate aggregate mispricing. Our results suggest that aggregate flows to mutual funds can have real adverse allocation effects in the stock market and that aggregate flows to hedge funds contribute to the correction of cross-sectional mispricing.}
+      \field{annotation}{http://www.sciencedirect.com/science/article/pii/S0304405X15001385/pdfft?md5={\&}pid=1-s2.0-S0304405X15001385-main.pdf Contents * Introduction Data and variable construction Measuring mispricing Measuring aggregate mutual fund flow Measuring aggregate hedge fund flow Control variables Descriptive statistics The effect of flows on individual anomalies The effects of flows on mispricing Contemporaneous relation between fund flows and mispricing Separating aggregate inflows and outflows Robustness checks and corroborating evidence Forward predictability and subsequent return reversal Changes in aggregate mispricing rank The role of funds' share in equity markets Extending the sample period using ICI data Index versus non-index mutual fund flows Retail versus institutional mutual fund flows Impact of economic conditions De-trended and orthogonalized fund flows Predicted versus residual fund flows Implied volatility and sentiment Longer predictive horizons Summary and conclusion Appendix References----------Akbas et al{\_}2015{\_}Smart money, dumb money, and capital market anomalies.pdf Contents * Introduction Data and variable construction Measuring mispricing Measuring aggregate mutual fund flow Measuring aggregate hedge fund flow Control variables Descriptive statistics The effect of flows on individual anomalies The effects of flows on mispricing Contemporaneous relation between fund flows and mispricing Separating aggregate inflows and outflows Robustness checks and corroborating evidence Forward predictability and subsequent return reversal Changes in aggregate mispricing rank The role of funds' share in equity markets Extending the sample period using ICI data Index versus non-index mutual fund flows Retail versus institutional mutual fund flows Impact of economic conditions De-trended and orthogonalized fund flows Predicted versus residual fund flows Implied volatility and sentiment Longer predictive horizons Summary and conclusion Appendix References}
+      \field{issn}{0304-405X}
+      \field{journaltitle}{Journal of Financial Economics}
+      \field{month}{11}
+      \field{number}{2}
+      \field{title}{{Smart money, dumb money, and capital market anomalies}}
+      \field{volume}{118}
+      \field{year}{2015}
+      \field{pages}{355\bibrangedash 382}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.1016/j.jfineco.2015.07.003
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Akbas et al. - 2015 - Smart money, dumb money, and capital market anomalies.pdf:pdf;:C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Akbas et al. - 2015 - Smart money, dumb money, and capital market anomalies.html:html
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0304405X15001385%20http://www.sciencedirect.com/science/article/pii/S0304405X15001385/pdfft?md5=be804d85a96d73e1fececc0e2ba4c368%7B%5C&%7Dpid=1-s2.0-S0304405X15001385-main.pdf
+      \endverb
+      \keyw{Hedge funds,Mispricing,Stock return anomalies,fund flows,mutual funds}
+    \endentry
+    \entry{Baker2006}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ea81fcdd9f9956f47bcacdcc401eab2d}{%
+           family={Baker},
+           familyi={B\bibinitperiod},
+           given={Malcolm},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b7e0411fd16ab16a3f6e3e2677fbed4e}{%
+           family={Wurgler},
+           familyi={W\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{295d1825bb391d34cb03d80cd64a4b92}
+      \strng{fullhash}{295d1825bb391d34cb03d80cd64a4b92}
+      \strng{authornamehash}{295d1825bb391d34cb03d80cd64a4b92}
+      \strng{authorfullhash}{295d1825bb391d34cb03d80cd64a4b92}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We study how investor sentiment affects the cross-section of stock returns. We predict that a wave of investor sentiment has larger effects on securities whose valuations are highly subjective and difficult to arbitrage. Consistent with this prediction, we find that when beginning-of-period proxies for sentiment are low, subsequent returns are relatively high for small stocks, young stocks, high volatility stocks, unprofitable stocks, non-dividend-paying stocks, extreme growth stocks, and distressed stocks. When sentiment is high, on the other hand, these categories of stock earn relatively low subsequent returns.}
+      \field{issn}{1540-6261}
+      \field{journaltitle}{The Journal of Finance}
+      \field{month}{8}
+      \field{number}{4}
+      \field{title}{{Investor Sentiment and the Cross-Section of Stock Returns}}
+      \field{volume}{61}
+      \field{year}{2006}
+      \field{pages}{1645\bibrangedash 1680}
+      \range{pages}{36}
+      \verb{doi}
+      \verb 10.1111/j.1540-6261.2006.00885.x
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Baker, Wurgler - 2006 - Investor Sentiment and the Cross-Section of Stock Returns.pdf:pdf;:C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Baker, Wurgler - 2006 - Investor Sentiment and the Cross-Section of Stock Returns.html:html
+      \endverb
+      \verb{url}
+      \verb http://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2006.00885.x/abstract%20http://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2006.00885.x/full%20http://onlinelibrary.wiley.com/store/10.1111/j.1540-6261.2006.00885.x/asset/j.1540-6261.2006.00885.x.pdf?
+      \endverb
+    \endentry
+    \entry{boehmer_which_2008}{article}{}
+      \name{author}{3}{}{%
+        {{hash=bf0896735818a607702e2686babafee5}{%
+           family={Boehmer},
+           familyi={B\bibinitperiod},
+           given={Ekkehart},
+           giveni={E\bibinitperiod}}}%
+        {{hash=897025dc00c603d4fc1d8d51580b8002}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Charles\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=5b996621da6e0ca32bcc27f9c7ceaed4}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiaoyan},
+           giveni={X\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{afb1d98963254fd59970d8596968a6f8}
+      \strng{fullhash}{afb1d98963254fd59970d8596968a6f8}
+      \strng{authornamehash}{afb1d98963254fd59970d8596968a6f8}
+      \strng{authorfullhash}{afb1d98963254fd59970d8596968a6f8}
+      \field{sortinit}{B}
+      \field{sortinithash}{5f6fa000f686ee5b41be67ba6ff7962d}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We construct a long daily panel of short sales using proprietary NYSE order data. From 2000 to 2004, shorting accounts for more than 12.9\% of NYSE volume, suggesting that shorting constraints are not widespread. As a group, these short sellers are well informed. Heavily shorted stocks underperform lightly shorted stocks by a risk-adjusted average of 1.16\% over the following 20 trading days (15.6\% annualized). Institutional nonprogram short sales are the most informative; stocks heavily shorted by institutions underperform by 1.43\% the next month (19.6\% annualized). The results indicate that, on average, short sellers are important contributors to efficient stock prices.}
+      \field{issn}{1540-6261}
+      \field{journaltitle}{The Journal of Finance}
+      \field{month}{4}
+      \field{number}{2}
+      \field{title}{Which {Shorts} {Are} {Informed}?}
+      \field{urlday}{9}
+      \field{urlmonth}{10}
+      \field{urlyear}{2015}
+      \field{volume}{63}
+      \field{year}{2008}
+      \field{urldateera}{ce}
+      \field{pages}{491\bibrangedash 527}
+      \range{pages}{37}
+      \verb{doi}
+      \verb 10.1111/j.1540-6261.2008.01324.x
+      \endverb
+      \verb{file}
+      \verb Boehmer et al_2008_Which Shorts Are Informed.pdf:C\:\\Courses\\Education Mannheim\\Zotero Database\\storage\\G3EJPQCA\\Boehmer et al_2008_Which Shorts Are Informed.pdf:application/pdf;Snapshot:C\:\\Courses\\Education Mannheim\\Zotero Database\\storage\\UWGBT6PE\\abstract.html:text/html
+      \endverb
+      \keyw{shortselling}
+    \endentry
+    \entry{Chu2016}{article}{}
+      \name{author}{3}{}{%
+        {{hash=997a35c1d4ab4a141a7f0703000f9b9e}{%
+           family={Chu},
+           familyi={C\bibinitperiod},
+           given={Yongqiang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=8dae54e1e4ab0db00e73f56228fdded4}{%
+           family={Hirshleifer},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1391405e7ab63fb890ccba34bb328853}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Liang},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{65aca19b5c7838b64bb264f650ead0e1}
+      \strng{fullhash}{65aca19b5c7838b64bb264f650ead0e1}
+      \strng{authornamehash}{65aca19b5c7838b64bb264f650ead0e1}
+      \strng{authorfullhash}{65aca19b5c7838b64bb264f650ead0e1}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We examine the causal effect of limits to arbitrage on ten well-known asset pricing anomalies using Regulation SHO, which relaxes short-sale constraints for a random set of pilot stocks, as a natural experiment. We find that the anomalies become sub- stantially weaker on portfolios constructed with pilot stocks during the pilot period. Regulation SHO reduces the combined anomaly long-short portfolio returns by 77 ba- sis points per month, a difference which survives risk adjustment with standard factor models. The effect comes only from the short legs of the anomaly portfolios}
+      \field{journaltitle}{Working Paper}
+      \field{title}{{The Causal Effect of Limits to Arbitrage on Asset Pricing Anomalies}}
+      \field{year}{2016}
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Chu, Hirshleifer, Ma - 2016 - The Causal Effect of Limits to Arbitrage on Asset Pricing Anomalies.pdf:pdf
+      \endverb
+      \keyw{anomalies,chu,david hirshleifer,department of finance,edu,email,g12,g18,growth,jel classification,limits to arbitrage,merage chair in business,merage school of busi-,moore,moore school of business,regulation sho,sc,short sale constraints,university of south carolina,yongqiang,yongqiang chu}
+    \endentry
+    \entry{desai_investigation_2002}{article}{}
+      \name{author}{4}{}{%
+        {{hash=0823cdb1072eb58d9ab61d119ed9bc2a}{%
+           family={Desai},
+           familyi={D\bibinitperiod},
+           given={Hemang},
+           giveni={H\bibinitperiod}}}%
+        {{hash=2f8e083a06db527807ef91756fda72ee}{%
+           family={Ramesh},
+           familyi={R\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=b75cc22acd3b619e6249414f71677088}{%
+           family={Thiagarajan},
+           familyi={T\bibinitperiod},
+           given={S.\bibnamedelimi Ramu},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=9cd02225917474f0a3d1583720782d5e}{%
+           family={Balachandran},
+           familyi={B\bibinitperiod},
+           given={Bala\bibnamedelima V.},
+           giveni={B\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{c597940db8634d28ffe0264fd862b0ea}
+      \strng{fullhash}{f304e8c2a38b61a07ec8be63e0d3f623}
+      \strng{authornamehash}{c597940db8634d28ffe0264fd862b0ea}
+      \strng{authorfullhash}{f304e8c2a38b61a07ec8be63e0d3f623}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper examines the relationship between the level of short interest and stock returns in the Nasdaq market from June 1988 through December 1994. We find that heavily shorted firms experience significant negative abnormal returns ranging from \x{fffd}\x{fffd}\x{fffd}0.76 to \x{fffd}\x{fffd}\x{fffd}1.13 percent per month after controlling for the market, size, book\x{fffd}\x{fffd}\x{fffd}to\x{fffd}\x{fffd}\x{fffd}market, and momentum factors. These negative returns increase with the level of short interest, indicating that a higher level of short interest is a stronger bearish signal. We find that heavily shorted firms are more likely to be delisted compared to their size, book\x{fffd}\x{fffd}\x{fffd}to\x{fffd}\x{fffd}\x{fffd}market, and momentum matched control firms.}
+      \field{issn}{1540-6261}
+      \field{journaltitle}{The Journal of Finance}
+      \field{month}{10}
+      \field{number}{5}
+      \field{title}{An {Investigation} of the {Informational} {Role} of {Short} {Interest} in the {Nasdaq} {Market}}
+      \field{urlday}{14}
+      \field{urlmonth}{10}
+      \field{urlyear}{2015}
+      \field{volume}{57}
+      \field{year}{2002}
+      \field{urldateera}{ce}
+      \field{pages}{2263\bibrangedash 2287}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1111/0022-1082.00495
+      \endverb
+      \verb{file}
+      \verb Desai et al_2002_An Investigation of the Informational Role of Short Interest in the Nasdaq.pdf:C\:\\Courses\\Education Mannheim\\Zotero Database\\storage\\U6F9X435\\Desai et al_2002_An Investigation of the Informational Role of Short Interest in the Nasdaq.pdf:application/pdf;Snapshot:C\:\\Courses\\Education Mannheim\\Zotero Database\\storage\\WDQW8H8P\\abstract.html:text/html
+      \endverb
+      \keyw{shortselling}
+    \endentry
+    \entry{diether_short-sale_2009}{article}{}
+      \name{author}{3}{}{%
+        {{hash=d735d7d4b9735b1ea4e19991d1bd69e7}{%
+           family={Diether},
+           familyi={D\bibinitperiod},
+           given={Karl\bibnamedelima B.},
+           giveni={K\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=4481f878acb8a758864ea9238f63ff4b}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Kuan-Hui},
+           giveni={K\bibinithyphendelim H\bibinitperiod}}}%
+        {{hash=2f2c1204604b1f8b2485ae651813c7de}{%
+           family={Werner},
+           familyi={W\bibinitperiod},
+           given={Ingrid\bibnamedelima M.},
+           giveni={I\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{85ff51e831bde81f5f2f987f8f04499b}
+      \strng{fullhash}{85ff51e831bde81f5f2f987f8f04499b}
+      \strng{authornamehash}{85ff51e831bde81f5f2f987f8f04499b}
+      \strng{authorfullhash}{85ff51e831bde81f5f2f987f8f04499b}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We examine short selling in US stocks based on new SEC-mandated data for 2005. There is a tremendous amount of short selling in our sample: short sales represent 24\% of NYSE and 31\% of Nasdaq share volume. Short sellers increase their trading following positive returns and they correctly predict future negative abnormal returns. These patterns are robust to controlling for voluntary liquidity provision and for opportunistic risk-bearing by short sellers. The results are consistent with short sellers trading on short-term overreaction of stock prices. A trading strategy based on daily short-selling activity generates significant positive returns during the sample period.}
+      \field{issn}{0893-9454, 1465-7368}
+      \field{journaltitle}{Review of Financial Studies}
+      \field{month}{2}
+      \field{number}{2}
+      \field{title}{Short-{Sale} {Strategies} and {Return} {Predictability}}
+      \field{urlday}{9}
+      \field{urlmonth}{10}
+      \field{urlyear}{2015}
+      \field{volume}{22}
+      \field{year}{2009}
+      \field{urldateera}{ce}
+      \field{pages}{575\bibrangedash 607}
+      \range{pages}{33}
+      \verb{doi}
+      \verb 10.1093/rfs/hhn047
+      \endverb
+      \verb{file}
+      \verb Diether et al_2009_Short-Sale Strategies and Return Predictability.pdf:C\:\\Courses\\Education Mannheim\\Zotero Database\\storage\\UFJG97NZ\\Diether et al_2009_Short-Sale Strategies and Return Predictability.pdf:application/pdf;Snapshot:C\:\\Courses\\Education Mannheim\\Zotero Database\\storage\\QGJAKJRS\\575.html:text/html
+      \endverb
+      \keyw{G12,G14,shortselling}
+    \endentry
+    \entry{Drechsler2016}{article}{}
+      \name{author}{2}{}{%
+        {{hash=8259acb148983897bf0f637d3a6dae29}{%
+           family={Drechsler},
+           familyi={D\bibinitperiod},
+           given={Itamar},
+           giveni={I\bibinitperiod}}}%
+        {{hash=75640722f2d3c3c8a36ea6672522a4d8}{%
+           family={Drechsler},
+           familyi={D\bibinitperiod},
+           given={Qingyi\bibnamedelimb (Freda)\bibnamedelima Song},
+           giveni={Q\bibinitperiod\bibinitdelim (\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b2f9d8ecffeb8aa38fcee77a092290e6}
+      \strng{fullhash}{b2f9d8ecffeb8aa38fcee77a092290e6}
+      \strng{authornamehash}{b2f9d8ecffeb8aa38fcee77a092290e6}
+      \strng{authorfullhash}{b2f9d8ecffeb8aa38fcee77a092290e6}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Short rebate fees are a strong predictor of the cross-section of stock returns, both gross and net of fees. We document a large "shorting premium": the cheap-minus-expensive-to-short (CME) portfolio of stocks has a monthly average gross return of 1.31{\%}, a net-of-fees return of 0.78{\%}, and a 1.44{\%} four-factor alpha. We show that short fees interact strongly with the returns to eight of the largest and most well-known cross-sectional anomalies. The anomalies effectively disappear within the 80{\%} of stocks that have low fees, but are especially large among the high-fee stocks, even net of fees. We propose an explanation for these findings: the shorting premium is arbitrageurs' compensation for the concentrated risk they bear in shorting overpriced stocks. Because this risk is on the short side, a larger premium means a more overpriced stock. We proxy for shorting risk using stocks' covariance with the CME portfolio, and demonstrate that a Fama-French CME factor model largely captures the anomalies' returns within both high- and low-fee stocks.}
+      \field{journaltitle}{Worikng Paper}
+      \field{month}{5}
+      \field{title}{{The Shorting Premium and Asset Pricing Anomalies}}
+      \field{type}{SSRN Working Paper}
+      \field{year}{2016}
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Drechsler, Drechsler - 2014 - The Shorting Premium and Asset Pricing Anomalies.html:html;:C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Drechsler, Drechsler - 2014 - The Shorting Premium and Asset Pricing Anomalies.pdf:pdf
+      \endverb
+      \keyw{Differences of opinion,Idiosyncratic volatility,Momentum,Stock returns,Value,anomalies,asset pricing,concentrated risk,cross-section,lending fees,net share issuance,segmentation,shorting,shorting premium}
+    \endentry
+    \entry{Hanson2014}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c373c6f9162c79df476337780dafefed}{%
+           family={Hanson},
+           familyi={H\bibinitperiod},
+           given={Samuel\bibnamedelima G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=8d3cdac936e4c3319328dd8951e2bba6}{%
+           family={Sunderam},
+           familyi={S\bibinitperiod},
+           given={Adi},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{32c750ea9d2c8f507fa61d5ac789f8a1}
+      \strng{fullhash}{32c750ea9d2c8f507fa61d5ac789f8a1}
+      \strng{authornamehash}{32c750ea9d2c8f507fa61d5ac789f8a1}
+      \strng{authorfullhash}{32c750ea9d2c8f507fa61d5ac789f8a1}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We develop a novel methodology to infer the amount of capital allocated to quantitative equity arbitrage strategies. Using this methodology, which exploits time-variation in the cross-section of short interest, we document that the amount of capital devoted to value and momentum strategies has grown significantly since the late 1980s. We provide evidence that this increase in capital has resulted in lower strategy returns. However, consistent with theories of limited arbitrage, we show that strategy-level capital flows are influenced by past strategy returns and strategy return volatility and that arbitrage capital is most limited during times when strategies perform best. This suggests that the growth of arbitrage capital may not completely eliminate returns to these strategies.}
+      \field{issn}{0893-9454, 1465-7368}
+      \field{journaltitle}{Review of Financial Studies}
+      \field{month}{4}
+      \field{number}{4}
+      \field{shorttitle}{The Growth and Limits of Arbitrage}
+      \field{title}{{The Growth and Limits of Arbitrage: Evidence from Short Interest}}
+      \field{volume}{27}
+      \field{year}{2014}
+      \field{pages}{1238\bibrangedash 1286}
+      \range{pages}{49}
+      \verb{doi}
+      \verb 10.1093/rfs/hht066
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hanson, Sunderam - 2014 - The Growth and Limits of Arbitrage Evidence from Short Interest.pdf:pdf;:C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Hanson, Sunderam - 2014 - The Growth and Limits of Arbitrage Evidence from Short Interest.html:html
+      \endverb
+      \verb{url}
+      \verb http://rfs.oxfordjournals.org/content/27/4/1238%20http://rfs.oxfordjournals.org/content/27/4/1238.full.pdf%20http://rfs.oxfordjournals.org/content/27/4/1238.short%20https://academic.oup.com/rfs/article-lookup/doi/10.1093/rfs/hht066
+      \endverb
+      \keyw{Folder - !Surprise In Short Interest,Folder - shortselling,G02,G12,G14,G23}
+    \endentry
+    \entry{Jacobs2016}{article}{}
+      \name{author}{1}{}{%
+        {{hash=e7711175de06cf9c12b37e4725dd93d6}{%
+           family={Jacobs},
+           familyi={J\bibinitperiod},
+           given={Heiko},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier B.V.}%
+      }
+      \strng{namehash}{e7711175de06cf9c12b37e4725dd93d6}
+      \strng{fullhash}{e7711175de06cf9c12b37e4725dd93d6}
+      \strng{authornamehash}{e7711175de06cf9c12b37e4725dd93d6}
+      \strng{authorfullhash}{e7711175de06cf9c12b37e4725dd93d6}
+      \field{sortinit}{J}
+      \field{sortinithash}{c86bd6cced82a15683b396c2169909ef}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Relying on the Stambaugh, Yu, and Yuan (2015) mispricing score and on 45 countries between 1994 and 2013, I document economically meaningful and statistically significant cross-sectional stock return predictability around the globe. In contrast to the widely held belief, mispricing associated with the 11 long/short anomalies underlying the composite ranking measure appears to be at least as prevalent in developed markets as in emerging markets. Additional support for this conjecture is obtained, among others, from tests for biased expectations based on the behavior of anomaly spreads surrounding earnings announcements as well as from within-country variation in development.}
+      \field{issn}{0304405X}
+      \field{journaltitle}{Journal of Financial Economics}
+      \field{number}{2}
+      \field{title}{{Market maturity and mispricing}}
+      \field{volume}{122}
+      \field{year}{2016}
+      \field{pages}{270\bibrangedash 287}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1016/j.jfineco.2016.01.030
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Jacobs - 2016 - Market maturity and mispricing(2).pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/j.jfineco.2016.01.030
+      \endverb
+      \keyw{Anomalies,Asset pricing,Behavioral finance,Emerging markets,International stock markets}
+    \endentry
+    \entry{Mclean2016}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ed6bcdb8ae51975582ea915bb346eb77}{%
+           family={Mclean},
+           familyi={M\bibinitperiod},
+           given={R.\bibnamedelimi David},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=42c0336cd65dc5f89c0733b376ae4851}{%
+           family={Pontiff},
+           familyi={P\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb3932ff486662fb6e54f4613bcad48a}
+      \strng{fullhash}{bb3932ff486662fb6e54f4613bcad48a}
+      \strng{authornamehash}{bb3932ff486662fb6e54f4613bcad48a}
+      \strng{authorfullhash}{bb3932ff486662fb6e54f4613bcad48a}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We study the out-of-sample and post-publication return-predictability of 82 characteristics that are identified in published academic studies. The average out-of-sample decay due to statistical bias is about 10{\%}, but not statistically different from zero. The average post-publication decay, which we attribute to both statistical bias and price pressure from aware investors, is about 35{\%}, and statistically different from both 0{\%} and 100{\%}. Our findings point to mispricing as the source of predictability. Consistent with informed trading, after publication, stocks in characteristic portfolios experience higher volume, variance, and short interest, and higher correlations with portfolios that are based on published characteristics. Consistent with costly (limited) arbitrage, post-publication return declines are greater for characteristic portfolios that consist of stocks with low idiosyncratic risk.}
+      \field{isbn}{1540-6261}
+      \field{issn}{15406261}
+      \field{journaltitle}{Journal of Finance}
+      \field{number}{1}
+      \field{title}{{Does Academic Research Destroy Stock Return Predictability?}}
+      \field{volume}{71}
+      \field{year}{2016}
+      \field{pages}{5\bibrangedash 32}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.1111/jofi.12365
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Mclean, Pontiff - 2016 - Does Academic Research Destroy Stock Return Predictability.pdf:pdf
+      \endverb
+    \endentry
+    \entry{Pontiff2006}{article}{}
+      \name{author}{1}{}{%
+        {{hash=42c0336cd65dc5f89c0733b376ae4851}{%
+           family={Pontiff},
+           familyi={P\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{42c0336cd65dc5f89c0733b376ae4851}
+      \strng{fullhash}{42c0336cd65dc5f89c0733b376ae4851}
+      \strng{authornamehash}{42c0336cd65dc5f89c0733b376ae4851}
+      \strng{authorfullhash}{42c0336cd65dc5f89c0733b376ae4851}
+      \field{sortinit}{P}
+      \field{sortinithash}{24100cef455d7974167575052c29146e}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Transaction and holding costs make arbitrage costly. Mispricing exists to the extent that arbitrage costs prevent rational traders from fully eliminating inefficiencies. Although the relation between mispricing and transaction costs is well-known, the relation between mispricing and holding costs is misunderstood. One holding cost, idiosyncratic risk, is particularly misunderstood. Various myths are debunked, including the common myth that idiosyncratic risk matters because arbitrageurs only have access to a small number of projects [Shleifer and Vishny, 1997. The limits of arbitrage. The Journal of Finance 52, 35\x{fffd}\x{fffd}\x{fffd}55.]. The literature demonstrates that idiosyncratic risk is the single largest cost faced by arbitrageurs.}
+      \field{annotation}{http://www.sciencedirect.com/science/article/pii/S0165410106000280/pdfft?md5={\&}pid=1-s2.0-S0165410106000280-main.pdf Contents * Introduction Costly arbitrage and market efficiency Arbitrage costs and mispricing The role of idiosyncratic risk: the parable of the Sahara free ace coupon The role of idiosyncratic risk: example with portfolio optimization Testing costly arbitrage Conclusion Costly arbitrage and dividends Price level mean reversion Relative level mean reversion References ---------- Pontiff{\_}2006{\_}Costly arbitrage and the myth of idiosyncratic risk.pdf Contents * Introduction Costly arbitrage and market efficiency Arbitrage costs and mispricing The role of idiosyncratic risk: the parable of the Sahara free ace coupon The role of idiosyncratic risk: example with portfolio optimization Testing costly arbitrage Conclusion Costly arbitrage and dividends Price level mean reversion Relative level mean reversion References}
+      \field{issn}{0165-4101}
+      \field{journaltitle}{Journal of Accounting and Economics}
+      \field{month}{10}
+      \field{number}{1\x{fffd}\x{fffd}\x{fffd}2}
+      \field{series}{Conference Issue on Implications of Changing Financial Reporting Standards}
+      \field{title}{{Costly arbitrage and the myth of idiosyncratic risk}}
+      \field{volume}{42}
+      \field{year}{2006}
+      \field{pages}{35\bibrangedash 52}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1016/j.jacceco.2006.04.002
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Pontiff - 2006 - Costly arbitrage and the myth of idiosyncratic risk.pdf:pdf;:C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Pontiff - 2006 - Costly arbitrage and the myth of idiosyncratic risk.html:html
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0165410106000280%20http://www.sciencedirect.com/science/article/pii/S0165410106000280/pdfft?md5=274802544d40b70c3c0ee36f34dc057b%7B%5C&%7Dpid=1-s2.0-S0165410106000280-main.pdf
+      \endverb
+      \keyw{Capital markets,Costly arbitrage,Idiosyncratic risk,Market efficiency}
+    \endentry
+    \entry{Shleifer1997}{article}{}
+      \name{author}{2}{}{%
+        {{hash=73d7bf2d3105674f373111fc7356eec3}{%
+           family={Shleifer},
+           familyi={S\bibinitperiod},
+           given={Andrei},
+           giveni={A\bibinitperiod}}}%
+        {{hash=22d72ed559fd54022a13cbcf78876152}{%
+           family={Vishny},
+           familyi={V\bibinitperiod},
+           given={Robert\bibnamedelima W.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{9cda9a3e38c5c3e426caa1cf5d446de5}
+      \strng{fullhash}{9cda9a3e38c5c3e426caa1cf5d446de5}
+      \strng{authornamehash}{9cda9a3e38c5c3e426caa1cf5d446de5}
+      \strng{authorfullhash}{9cda9a3e38c5c3e426caa1cf5d446de5}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Textbook arbitrage in financial markets requires no capital and entails no risk. In reality, almost all arbitrage requires capital, and is typically risky. Moreover, professional arbitrage is conducted by a relatively small number of highly specialized investors using other people's capital. Such professional arbitrage has a number of interesting implications for security pricing, including the possibility that arbitrage becomes ineffective in extreme circumstances, when prices diverge far from fundamental values. The model also suggests where anomalies in financial markets are likely to appear, and why arbitrage fails to eliminate them.}
+      \field{issn}{1540-6261}
+      \field{journaltitle}{The Journal of Finance}
+      \field{number}{1}
+      \field{title}{{The Limits of Arbitrage}}
+      \field{volume}{52}
+      \field{year}{1997}
+      \field{pages}{35\bibrangedash 55}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1111/j.1540-6261.1997.tb03807.x
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Shleifer, Vishny - 1997 - The Limits of Arbitrage.pdf:pdf;:C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Shleifer, Vishny - 1997 - The Limits of Arbitrage.html:html
+      \endverb
+      \verb{url}
+      \verb http://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.1997.tb03807.x/abstract%20http://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.1997.tb03807.x/full%20http://onlinelibrary.wiley.com/store/10.1111/j.1540-6261.1997.tb03807.x/asset/j.1540-6261.1997.tb0380
+      \endverb
+      \keyw{Folder - !Surprise In Short Interest,Folder - Mutual Funds and tail risk}
+    \endentry
+    \entry{Stambaugh2012a}{article}{}
+      \name{author}{3}{}{%
+        {{hash=789f3d41eb553110cb8370364c49b206}{%
+           family={Stambaugh},
+           familyi={S\bibinitperiod},
+           given={Robert\bibnamedelima F.},
+           giveni={R\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=ca270b7ab9c330b7b62869c590fdbdc5}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Jianfeng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3ea39e6dc6ef47029ae996c7e63f1a48}{%
+           family={Yuan},
+           familyi={Y\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{4ed6e9e0a42bacf7b51fc3cea06489f7}
+      \strng{fullhash}{4ed6e9e0a42bacf7b51fc3cea06489f7}
+      \strng{authornamehash}{4ed6e9e0a42bacf7b51fc3cea06489f7}
+      \strng{authorfullhash}{4ed6e9e0a42bacf7b51fc3cea06489f7}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This study explores the role of investor sentiment in a broad set of anomalies in cross-sectional stock returns. We consider a setting in which the presence of market-wide sentiment is combined with the argument that overpricing should be more prevalent than underpricing, due to short-sale impediments. Long-short strategies that exploit the anomalies exhibit profits consistent with this setting. First, each anomaly is stronger (its long-short strategy is more profitable) following high levels of sentiment. Second, the short leg of each strategy is more profitable following high sentiment. Finally, sentiment exhibits no relation to returns on the long legs of the strategies.}
+      \field{annotation}{From Duplicate 1 (The short of it: Investor sentiment and anomalies - Stambaugh, Robert F.; Yu, Jianfeng; Yuan, Yu) http://www.sciencedirect.com/science/article/pii/S0304405X11002649/pdfft?md5={\&}pid=1-s2.0-S0304405X11002649-main.pdf Contents * Introduction Motivation Market-wide sentiment and short-sale impediments Empirical implications Data: investor sentiment and anomalies Investor sentiment Anomalies Long-short strategies Empirical analysis: sentiment and returns Average returns: low versus high sentiment Predictive regressions Asymmetry in pricing or asymmetry in sentiment? Factor-related long-short spreads Controlling for additional macrovariables Conclusions Supplementary results References----------Stambaugh et al{\_}2012{\_}The short of it.pdf Contents * Introduction Motivation Market-wide sentiment and short-sale impediments Empirical implications Data: investor sentiment and anomalies Investor sentiment Anomalies Long-short strategies Empirical analysis: sentiment and returns Average returns: low versus high sentiment Predictive regressions Asymmetry in pricing or asymmetry in sentiment? Factor-related long-short spreads Controlling for additional macrovariables Conclusions Supplementary results References From Duplicate 2 (The short of it: Investor sentiment and anomalies - Stambaugh, Robert F.; Yu, Jianfeng; Yuan, Yu) http://www.sciencedirect.com/science/article/pii/S0304405X11002649/pdfft?md5={\&}pid=1-s2.0-S0304405X11002649-main.pdf Contents * Introduction Motivation Market-wide sentiment and short-sale impediments Empirical implications Data: investor sentiment and anomalies Investor sentiment Anomalies Long-short strategies Empirical analysis: sentiment and returns Average returns: low versus high sentiment Predictive regressions Asymmetry in pricing or asymmetry in sentiment? Factor-related long-short spreads Controlling for additional macrovariables Conclusions Supplementary results References ---------- Stambaugh et al{\_}2012{\_}The short of it.pdf Contents * Introduction Motivation Market-wide sentiment and short-sale impediments Empirical implications Data: investor sentiment and anomalies Investor sentiment Anomalies Long-short strategies Empirical analysis: sentiment and returns Average returns: low versus high sentiment Predictive regressions Asymmetry in pricing or asymmetry in sentiment? Factor-related long-short spreads Controlling for additional macrovariables Conclusions Supplementary results References}
+      \field{issn}{0304-405X}
+      \field{journaltitle}{Journal of Financial Economics}
+      \field{month}{5}
+      \field{number}{2}
+      \field{series}{Special Issue on Investor Sentiment}
+      \field{shorttitle}{The short of it}
+      \field{title}{{The short of it: Investor sentiment and anomalies}}
+      \field{volume}{104}
+      \field{year}{2012}
+      \field{pages}{288\bibrangedash 302}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1016/j.jfineco.2011.12.001
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Stambaugh, Yu, Yuan - 2012 - The short of it Investor sentiment and anomalies.pdf:pdf;:C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Stambaugh, Yu, Yuan - 2012 - The short of it Investor sentiment and anomalies.html:html
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/S0304405X11002649%20http://www.sciencedirect.com/science/article/pii/S0304405X11002649/pdfft?md5=eaf9df573c40819223503661568a2928%7B%5C&%7Dpid=1-s2.0-S0304405X11002649-main.pdf
+      \endverb
+      \keyw{Folder - !Surprise In Short Interest,anomalies,investor sentiment}
+    \endentry
+    \entry{Stambaugh2015}{article}{}
+      \name{author}{3}{}{%
+        {{hash=789f3d41eb553110cb8370364c49b206}{%
+           family={Stambaugh},
+           familyi={S\bibinitperiod},
+           given={Robert\bibnamedelima F.},
+           giveni={R\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=ca270b7ab9c330b7b62869c590fdbdc5}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Jianfeng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3ea39e6dc6ef47029ae996c7e63f1a48}{%
+           family={Yuan},
+           familyi={Y\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{4ed6e9e0a42bacf7b51fc3cea06489f7}
+      \strng{fullhash}{4ed6e9e0a42bacf7b51fc3cea06489f7}
+      \strng{authornamehash}{4ed6e9e0a42bacf7b51fc3cea06489f7}
+      \strng{authorfullhash}{4ed6e9e0a42bacf7b51fc3cea06489f7}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Buying is easier than shorting for many equity investors. Combining this arbitrage asymmetry with the arbitrage risk represented by idiosyncratic volatility (IVOL) explains the negative relation between IVOL and average return. The IVOL-return relation is negative among overpriced stocks but positive among underpriced stocks, with mispricing determined by combining 11 return anomalies. Consistent with arbitrage asymmetry, the negative relation among overpriced stocks is stronger, especially for stocks less easily shorted, so the overall IVOL-return relation is negative. Further supporting our explanation, high investor sentiment weakens the positive relation among underpriced stocks and, especially, strengthens the negative relation among overpriced stocks.}
+      \field{issn}{1540-6261}
+      \field{journaltitle}{The Journal of Finance}
+      \field{month}{10}
+      \field{number}{5}
+      \field{title}{{Arbitrage Asymmetry and the Idiosyncratic Volatility Puzzle}}
+      \field{volume}{70}
+      \field{year}{2015}
+      \field{pages}{1903\bibrangedash 1948}
+      \range{pages}{46}
+      \verb{doi}
+      \verb 10.1111/jofi.12286
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Stambaugh, Yu, Yuan - 2015 - Arbitrage Asymmetry and the Idiosyncratic Volatility Puzzle.pdf:pdf;:C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Stambaugh, Yu, Yuan - 2015 - Arbitrage Asymmetry and the Idiosyncratic Volatility Puzzle.html:html
+      \endverb
+      \verb{url}
+      \verb http://onlinelibrary.wiley.com/doi/10.1111/jofi.12286/abstract%20http://onlinelibrary.wiley.com/store/10.1111/jofi.12286/asset/jofi12286.pdf?v=1%7B%5C&%7Dt=imywmz6b%7B%5C&%7Ds=a0cd7a7f
+      \endverb
+      \keyw{Folder - !Surprise In Short Interest}
+    \endentry
+    \entry{Wu2014}{article}{}
+      \name{author}{2}{}{%
+        {{hash=129acf2ce94e2c98785117a94aae6573}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Juan\bibnamedelima Julie},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=2ac21c3db9ff2855eb5fe3b3c59f36ec}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Andrew\bibnamedelima (Jianzhong)},
+           giveni={A\bibinitperiod\bibinitdelim (\bibinitperiod}}}%
+      }
+      \strng{namehash}{925e0b56d64d832e0be03b9d8fa186b6}
+      \strng{fullhash}{925e0b56d64d832e0be03b9d8fa186b6}
+      \strng{authornamehash}{925e0b56d64d832e0be03b9d8fa186b6}
+      \strng{authorfullhash}{925e0b56d64d832e0be03b9d8fa186b6}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1556-5068}
+      \field{journaltitle}{SSRN Working Paper}
+      \field{title}{{Have Short Sellers Become More Sophisticated? Evidence from Market Anomalies}}
+      \field{year}{2014}
+      \verb{doi}
+      \verb 10.2139/ssrn.2440922
+      \endverb
+      \verb{file}
+      \verb :C$\backslash$:/Users/Administrator/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Wu, Zhang - 2014 - Have Short Sellers Become More Sophisticated Evidence from Market Anomalies.pdf:pdf
+      \endverb
+      \verb{url}
+      \verb http://www.ssrn.com/abstract=2440922
+      \endverb
+      \keyw{andrew,department of finance,edu,email address,financial market anomaly,g12,g14,jel classification,jianzhong,juan,julie,juliewu,short arbitrage,terry college of business,trading strategies,uga,university of georgia,university of nevada las,vegas,wu is at the,zhang is at the}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
