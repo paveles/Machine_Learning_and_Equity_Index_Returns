@@ -93,24 +93,37 @@ X[X.columns]= scaler.fit_transform(X[X.columns])
 from sklearn import linear_model
 reg = linear_model.LinearRegression()
 model_ols = reg.fit(X,y)
-
+''' Constant model'''
 from sklearn import linear_model
 reg = linear_model.LinearRegression(fit_intercept = False)
 Ones = pd.DataFrame(np.ones(y.shape[0]))
 model_c = reg.fit(Ones,y)
+#%%
+''' PCA'''
+from sklearn.decomposition import PCA
+pca = PCA().fit(X)
+plt.plot(np.cumsum(pca.explained_variance_ratio_))
+plt.xlabel('number of components')
+plt.ylabel('cumulative explained variance');
+
+reg = linear_model.LinearRegression()
+pca = PCA(n_components=4)
+X_pca = pca.fit_transform(X)
+model_pca = reg.fit(X_pca,y)
+#%%
 
 ''' Lasso model selection: Cross-Validation'''
 # LassoCV: coordinate descent
 # Compute paths
 
-from sklearn.linear_model import LassoCV, LassoLarsCV, LassoLarsIC, ElasticNetCV
+from sklearn.linear_model import  RidgeCV, LassoCV, LassoLarsCV, LassoLarsIC, ElasticNetCV
 
 # LassoCV: coordinate descent
 
 print("Computing regularization path using the coordinate descent lasso...")
 t1 = time.time()
 model = LassoCV(cv=10).fit(X, y)
-
+#print(model.alphas_)
 model_lasso = model
 t_lasso_cv = time.time() - t1
 alpha_lasso = -np.log10(model.alpha_)
@@ -118,6 +131,7 @@ lambda_lasso = model.alpha_
 
 # Display results
 m_log_alphas = -np.log10(model.alphas_)
+
 
 plt.figure()
 
@@ -137,6 +151,39 @@ plt.axis('tight')
 print(alpha_lasso)
 #ymin, ymax = 2300, 3800
 #plt.ylim(ymin, ymax)
+#%%
+print("Computing regularization path using the coordinate descent ridge...")
+t1 = time.time()
+ridge_alphas = np.logspace(-4, 2, 50)
+model = ElasticNetCV(alphas = ridge_alphas, l1_ratio = 0, cv=10).fit(X, y)
+
+model_ridge = model
+t_ridge_cv = time.time() - t1
+alpha_ridge = -np.log10(model.alpha_)
+lambda_ridge = model.alpha_
+
+# Display results
+m_log_alphas = -np.log10(model.alphas_)
+
+plt.figure()
+
+plt.plot(m_log_alphas, model.mse_path_, ':')
+plt.plot(m_log_alphas, model.mse_path_.mean(axis=-1), 'k',
+         label='Average across the folds', linewidth=2)
+plt.axvline(-np.log10(model.alpha_), linestyle='--', color='k',
+            label='alpha = %f: CV estimate' % alpha_ridge)
+
+plt.legend()
+
+plt.xlabel('-log(alpha)')
+plt.ylabel('Mean square error')
+plt.title('Ridge - Mean square error on each fold: coordinate descent '
+          '(train time: %.2fs)' % t_ridge_cv)
+plt.axis('tight')
+print(alpha_ridge)
+#ymin, ymax = 2300, 3800
+#plt.ylim(ymin, ymax)
+
 #%%
 # ###
 # .ElasticNetCV: coordinate descent
@@ -328,9 +375,10 @@ def pretty_print_linear(coefs, names = None, sort = False):
     if sort:
         lst = sorted(lst, key = lambda x:-np.abs(x[0]))
     return " + ".join("%s * %s" % (round(coef, 3), name) for coef, name in lst)
-
 print("")
-print("Linear model:", pretty_print_linear(model_ols.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
+print("OLS model:", pretty_print_linear(model_ols.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
+print("")
+print("Ridge model:", pretty_print_linear(model_ridge.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
 print("")
 print("Lasso model:", pretty_print_linear(model_lasso.coef_[abs(model_lasso.coef_)>0], names =  X.columns[abs(model_lasso.coef_)>0] ))
 print("")
@@ -340,10 +388,12 @@ print("Enet model:", pretty_print_linear(model_enet.coef_[abs(model_enet.coef_)>
 '''Coefficients Plot''' 
 plt.figure()
 #plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
-plt.plot(model_enet.coef_, color='b', linewidth=2,
-         label='Elastic net coefficients', alpha = 0.6)
+plt.plot(model_ridge.coef_, color='g', linewidth=2,
+         label='Ridge coefficients', alpha = 0.6)
 plt.plot(model_lasso.coef_, color='r', linewidth=2,
          label='Lasso coefficients', alpha = 0.6)
+plt.plot(model_enet.coef_, color='b', linewidth=2,
+         label='Elastic net coefficients', alpha = 0.6)
 plt.axhline(y=0,linestyle = '--', color='k')
 plt.legend(loc='best')
 plt.title("OLS, Lasso, Elastic Net")
@@ -359,10 +409,12 @@ def r2_adj_score(y, yhat, n, p):
 
 yhat_c = model_c.predict(Ones)
 yhat_ols = model_ols.predict(X)
+yhat_pca = model_ols.predict(X)
+yhat_ridge = model_ridge.predict(X)
 yhat_lasso = model_lasso.predict(X)
 yhat_enet = model_enet.predict(X)
 
-model_list = ['ols','lasso','enet']
+
 print("R2:")
 print(r2_score(y, yhat_c))
 print(r2_score(y, yhat_ols))
@@ -397,6 +449,9 @@ def test_model(model, model_name, K):
     if model == c_model:
             scores = cross_val_score(model, Ones, y, cv=K)
             predictions = cross_val_predict(model, Ones, y, cv=K)
+    elif model == pca_model:
+            scores = cross_val_score(model, X_pca, y, cv=K)
+            predictions = cross_val_predict(model, X_pca, y, cv=K)    
     else:
         scores = cross_val_score(model, X, y, cv=K)
         predictions = cross_val_predict(model, X, y, cv=K)
@@ -412,11 +467,15 @@ def test_model(model, model_name, K):
 
 c_model = linear_model.LinearRegression(fit_intercept=False)
 ols_model = linear_model.LinearRegression(fit_intercept=True)
+pca_model = linear_model.LinearRegression(fit_intercept=True)
+ridge_model = linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True)
 lasso_model = linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True)
 enet_model = linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True)
 
 test_model(c_model,"Constant", K)
 test_model(ols_model,"OLS", K)
+test_model(pca_model,"PCA", K)
+test_model(ridge_model,"Ridge", K)
 test_model(lasso_model,"Lasso", K)
 test_model(enet_model,"Enet", K)
 '''
@@ -435,11 +494,13 @@ mean_squared_error_scorer = make_scorer(mean_squared_error)
 scoring = {'MSE': mean_squared_error_scorer, 'r2': make_scorer(r2_score)}
 # cv=TimeSeriesSplit(n_splits=5).split(X)
 ### Cross-Validation
-models = [c_model, ols_model, lasso_model, enet_model]
-models_names = ['c_model','ols_model', 'lasso_model', 'enet_model']
+models = [c_model,  ols_model, pca_model, ridge_model, lasso_model, enet_model]
+models_names = ['c_model', 'ols_model','pca_model','ridge_model', 'lasso_model', 'enet_model']
 for k in range(len(models)):
     if models_names[k] == "c_model":
         cv_results = cross_validate(models[k], Ones, y, cv  = 10 , return_train_score=True, scoring = scoring )
+    elif models_names[k] == "pca_model":
+        cv_results = cross_validate(models[k], X_pca, y, cv  = 10 , return_train_score=True, scoring = scoring )
     else:
         cv_results = cross_validate(models[k], X, y, cv  = 10 , return_train_score=True, scoring = scoring )
     df_cv = pd.DataFrame.from_dict(cv_results)
