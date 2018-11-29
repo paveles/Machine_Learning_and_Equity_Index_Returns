@@ -1,3 +1,5 @@
+import warnings
+import sys
 #%matplotlib inline 
 import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = [15, 10]
@@ -26,7 +28,7 @@ import sys # To caclulate memory usaage
 
 import os
 # dir = 'C:\Research\Google Search Volume'
-dir = 'E:\Research\Equity Premium and Machine Learning'
+dir = 'E:/Research/Equity Premium and Machine Learning'
 #dir = "C:/Users/vonNe/Google Drive/Data Science/Projects/Equity Premium and Machine Learning"
 #dir = 'D:/Ravenpack'
 os.chdir(dir)
@@ -35,11 +37,14 @@ os.makedirs(dir + '/out/temp', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
 
 # Cross-validation Parameter
-K = 5
+K = 10
 #  Share of Sample as Test
-test_size= 1/30
+TsizeInv = 15
+test_size= 1/TsizeInv
 # Add interactions or not
-Poly = 1
+Poly = 0
+# Period
+Period  = 1974
 #%%
 
 df = pd.read_csv('in/rapach_2013.csv', na_values = ['NaN'])
@@ -62,10 +67,31 @@ vars = ['recessionD', 'dp', 'dy', 'ep', 'de', \
 df[vars] = df[vars].shift(1)
 
 #%%
+"""
+Define variables
+"""
+other = ['ewsi']
+state = ['recessionD', 'sent']
+macro = [ 'dp', 'dy', 'ep', 'de', 'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tms', 'dfy', 'dfr', 'infl'] 
+tech = ['ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
+       'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
+       'vol_3_12']
+# predictors = macro+ tech + other  + state
+#%%
 """Sample Cut"""
 
 df_full = df
-df = df[(df['date'].dt.year >= 1951)]
+if Period == 1974:
+    df = df[(df['date'].dt.year >= 1974)&(df['date'].dt.year <= 2010)]
+    predictors = macro + tech + other  + state
+elif Period == 1928:
+    df = df[(df['date'].dt.year >= 1928)]
+    predictors = macro
+elif Period == 1951:
+    df = df[(df['date'].dt.year >= 1951)]
+    predictors = macro+ tech
+else:
+    sys.exit("Wrong Sample")
 # df[pd.isnull(df["ewsi"])!= 1]['date'].describe()
 #%%
 """Provide a Description of the Data"""
@@ -75,16 +101,7 @@ df.describe().T.to_csv("out/temp/descriptive.csv")
 """
 df.describe().T
 
-#%%
-"""
-Define variables
-"""
-state = ['recessionD', 'sent']
-macro = [ 'dp', 'dy', 'ep', 'de', 'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tms', 'dfy', 'dfr', 'infl'] 
-tech = ['ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
-       'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
-       'vol_3_12']
-predictors = macro+ tech 
+
 #%%
 # Add interaction variables
 #%%
@@ -99,12 +116,24 @@ X, X_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = F
 
 #%%
 '''Standardize Data'''
-from sklearn.preprocessing import StandardScaler,MinMaxScaler
+from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
 scaler = StandardScaler().fit(X)
 X = pd.DataFrame(scaler.transform(X),  index=X.index, columns=X.columns )
 X_test = pd.DataFrame(scaler.transform(X_test),  index=X_test.index, columns=X_test.columns )
-
-
+#%%
+''' Interaction Terms'''
+from sklearn.preprocessing import PolynomialFeatures
+if Poly == 1:
+    poly = PolynomialFeatures(interaction_only=True,include_bias = False)
+    Xp = poly.fit_transform(X)
+    Xp_test = poly.fit_transform(X_test)
+elif Poly == 2:
+    poly = PolynomialFeatures(degree = 2,include_bias = False)
+    Xp = poly.fit_transform(X)
+    Xp_test = poly.fit_transform(X_test)
+else:
+    Xp = X
+    Xp_test = X_test
 # #############################################################################
 #%% 
 ''' OLS model'''
@@ -143,7 +172,7 @@ from sklearn.linear_model import  RidgeCV, LassoCV, LassoLarsCV, LassoLarsIC, El
 
 print("Computing regularization path using the coordinate descent lasso...")
 t1 = time.time()
-model = LassoCV(cv=K).fit(X, y)
+model = LassoCV(cv=K).fit(Xp, y)
 #print(model.alphas_)
 model_lasso = model
 t_lasso_cv = time.time() - t1
@@ -176,7 +205,7 @@ print(alpha_lasso)
 print("Computing regularization path using the coordinate descent ridge...")
 t1 = time.time()
 ridge_alphas = np.logspace(-4, 2, 50)
-model = ElasticNetCV(alphas = ridge_alphas, l1_ratio = 0, cv=K).fit(X, y)
+model = ElasticNetCV(alphas = ridge_alphas, l1_ratio = 0, cv=K).fit(Xp, y)
 
 model_ridge = model
 t_ridge_cv = time.time() - t1
@@ -211,7 +240,7 @@ print(alpha_ridge)
 
 print("Computing regularization path using the coordinate descent lasso...")
 t1 = time.time()
-model = ElasticNetCV(cv=K).fit(X, y)
+model = ElasticNetCV(cv=K).fit(Xp, y)
 
 model_enet = model
 t_enet_cv = time.time() - t1
@@ -374,8 +403,8 @@ labels = X.columns
 plt.figure()
 #colors = cycle(['b', 'r', 'g', 'c', 'k','m','y'])
 neg_log_alphas_lasso = -np.log10(alphas_lasso)
-K = coefs_lasso.shape[0]
-for k in range(K):
+C = coefs_lasso.shape[0]
+for k in range(C):
     l1 = plt.plot(neg_log_alphas_lasso, coefs_lasso[k], label = labels[k])
 
 plt.axvline(x=alpha_lasso, color='k', linestyle='--')
@@ -396,18 +425,28 @@ def pretty_print_linear(coefs, names = None, sort = False):
     if sort:
         lst = sorted(lst, key = lambda x:-np.abs(x[0]))
     return " + ".join("%s * %s" % (round(coef, 3), name) for coef, name in lst)
-print("")
-print("OLS model:", pretty_print_linear(model_ols.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
-print("")
-print("Ridge model:", pretty_print_linear(model_ridge.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
-print("")
-print("Lasso model:", pretty_print_linear(model_lasso.coef_[abs(model_lasso.coef_)>0], names =  X.columns[abs(model_lasso.coef_)>0] ))
-print("")
-print("Enet model:", pretty_print_linear(model_enet.coef_[abs(model_enet.coef_)>0], names =  X.columns[abs(model_enet.coef_)>0] ))
+#print("")
+#print("OLS model:", pretty_print_linear(model_ols.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
+#print("")
+#print("Ridge model:", pretty_print_linear(model_ridge.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
+#print("")
+#print("Lasso model:", pretty_print_linear(model_lasso.coef_[abs(model_lasso.coef_)>0], names =  X.columns[abs(model_lasso.coef_)>0] ))
+#print("")
+#print("Enet model:", pretty_print_linear(model_enet.coef_[abs(model_enet.coef_)>0], names =  X.columns[abs(model_enet.coef_)>0] ))
 
 #%%
 '''Coefficients Plot''' 
 plt.figure()
+#labels = list(X.columns)
+##labels.insert(0,'cons')
+#if Poly ==0:
+#    plt.plot(labels,model_ridge.coef_, color='g', linewidth=2,
+#             label='Ridge coefficients', alpha = 0.6)
+#    plt.plot( labels, model_lasso.coef_, color='r', linewidth=2,
+#             label='Lasso coefficients', alpha = 0.6)
+#    plt.plot( labels, model_enet.coef_, color='b', linewidth=2,
+#             label='Elastic net coefficients', alpha = 0.6)
+#else:
 #plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
 plt.plot(model_ridge.coef_, color='g', linewidth=2,
          label='Ridge coefficients', alpha = 0.6)
@@ -417,7 +456,7 @@ plt.plot(model_enet.coef_, color='b', linewidth=2,
          label='Elastic net coefficients', alpha = 0.6)
 plt.axhline(y=0,linestyle = '--', color='k')
 plt.legend(loc='best')
-plt.title("OLS, Lasso, Elastic Net")
+plt.title("Ridge, Lasso, Elastic Net")
 plt.show()
 plt.savefig(dir+"/out/Coefficients")
  #%%
@@ -431,9 +470,9 @@ def r2_adj_score(y, yhat, n, p):
 yhat_c = model_c.predict(Ones)
 yhat_ols = model_ols.predict(X)
 yhat_pca = model_pca.predict(X_pca)
-yhat_ridge = model_ridge.predict(X)
-yhat_lasso = model_lasso.predict(X)
-yhat_enet = model_enet.predict(X)
+yhat_ridge = model_ridge.predict(Xp)
+yhat_lasso = model_lasso.predict(Xp)
+yhat_enet = model_enet.predict(Xp)
 
 
 print("R2:")
@@ -472,9 +511,9 @@ def r2_adj_score(y, yhat, n, p):
 yhat_c = model_c.predict(Ones)
 yhat_ols = model_ols.predict(X)
 yhat_pca = model_pca.predict(X_pca)
-yhat_ridge = model_ridge.predict(X)
-yhat_lasso = model_lasso.predict(X)
-yhat_enet = model_enet.predict(X)
+yhat_ridge = model_ridge.predict(Xp)
+yhat_lasso = model_lasso.predict(Xp)
+yhat_enet = model_enet.predict(Xp)
 
 
 print("R2:")
@@ -486,8 +525,8 @@ print(r2_score(y, yhat_enet))
 print("R2_adj:")
 print(r2_adj_score(y, yhat_c,n = y.shape[0],  p = X.shape[1]))
 print(r2_adj_score(y, yhat_ols,n = y.shape[0],  p = X.shape[1]))
-print(r2_adj_score(y, yhat_lasso,n = y.shape[0],  p = X.shape[1]))
-print(r2_adj_score(y, yhat_enet,n = y.shape[0],  p = X.shape[1]))
+print(r2_adj_score(y, yhat_lasso,n = y.shape[0],  p = Xp.shape[1]))
+print(r2_adj_score(y, yhat_enet,n = y.shape[0],  p = Xp.shape[1]))
 print("MSE:")
 print(mean_squared_error(y, yhat_c))
 print(mean_squared_error(y, yhat_ols))
@@ -564,11 +603,13 @@ models = [c_model,  ols_model, pca_model, ridge_model, lasso_model, enet_model]
 models_names = ['c_model', 'ols_model','pca_model','ridge_model', 'lasso_model', 'enet_model']
 for k in range(len(models)):
     if models_names[k] == "c_model":
-        cv_results = cross_validate(models[k], Ones, y, cv  = 10 , return_train_score=True, scoring = scoring )
+        cv_results = cross_validate(models[k], Ones, y, cv  = K , return_train_score=True, scoring = scoring )
+    elif models_names[k] == "ols_model":
+        cv_results = cross_validate(models[k], X, y, cv  = K , return_train_score=True, scoring = scoring )
     elif models_names[k] == "pca_model":
-        cv_results = cross_validate(models[k], X_pca, y, cv  = 10 , return_train_score=True, scoring = scoring )
+        cv_results = cross_validate(models[k], X_pca, y, cv  = K , return_train_score=True, scoring = scoring )
     else:
-        cv_results = cross_validate(models[k], X, y, cv  = 10 , return_train_score=True, scoring = scoring )
+        cv_results = cross_validate(models[k], Xp, y, cv  = K , return_train_score=True, scoring = scoring )
     df_cv = pd.DataFrame.from_dict(cv_results)
     df_avg = df_cv.mean(axis = 0)
     print("")
@@ -578,17 +619,16 @@ for k in range(len(models)):
 
  #%%
 # Multicollinearity
-# 
+ 
 #corr=np.corrcoef(X,rowvar=0)
 #corr
 #W,V=np.linalg.eig(corr)
-#W
-#
+#print(W)
 #list(X)
 #Xcorr = X.corr()
 #sns.heatmap(Xcorr, annot=True)
-#
-##--> Multicollinearity in data
+
+#--> Multicollinearity in data
 
  #%%
 ''' Performance Metrics - Out_of-Sample Comparison'''
@@ -601,9 +641,9 @@ def r2_adj_score(y, yhat, n, p):
 yhat_c = model_c.predict(Ones_test)
 yhat_ols = model_ols.predict(X_test)
 yhat_pca = model_pca.predict(X_test_pca)
-yhat_ridge = model_ridge.predict(X_test)
-yhat_lasso = model_lasso.predict(X_test)
-yhat_enet = model_enet.predict(X_test)
+yhat_ridge = model_ridge.predict(Xp_test)
+yhat_lasso = model_lasso.predict(Xp_test)
+yhat_enet = model_enet.predict(Xp_test)
 
 
 
@@ -624,3 +664,19 @@ print(mean_squared_error(y_test, yhat_enet))
 '''
 --> OLS performs the best in-sample
 '''
+os.makedirs(dir+"out/oos/",exist_ok = True)
+f = open(dir+"/out/oos/K{}_TsizeInv{}_Poly{}_Period{}.txt".format(K,TsizeInv,Poly,Period), 'w')
+f.write("MSE:")
+f.write("mean_squared_error(y_test, yhat_c})\n")
+f.write("{}\n".format(mean_squared_error(y_test, yhat_c)))
+f.write("mean_squared_error(y_test, yhat_ols})\n")
+f.write("{}\n".format(mean_squared_error(y_test, yhat_ols)))
+f.write("mean_squared_error(y_test, yhat_pca})\n")
+f.write("{}\n".format(mean_squared_error(y_test, yhat_pca)))
+f.write("mean_squared_error(y_test, yhat_ridge})\n")
+f.write("{}\n".format(mean_squared_error(y_test, yhat_ridge)))
+f.write("mean_squared_error(y_test, yhat_lasso})\n")
+f.write("{}\n".format(mean_squared_error(y_test, yhat_lasso)))
+f.write("mean_squared_error(y_test, yhat_enet})\n")
+f.write("{}\n".format(mean_squared_error(y_test, yhat_enet)))
+f.close()
