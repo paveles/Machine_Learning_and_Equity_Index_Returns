@@ -42,7 +42,7 @@ K = 10
 TsizeInv = 15
 test_size= 1/TsizeInv
 # Add interactions or not
-Poly = 0
+Poly = 2
 # Period
 Period  = 1974
 #%%
@@ -65,7 +65,10 @@ vars = ['recessionD', 'dp', 'dy', 'ep', 'de', \
        'vol_3_12', 'sento ', 'sent', 'dsento', 'dsent', 'ewsi']
 # Important! Lagging by 1
 df[vars] = df[vars].shift(1)
-
+#%%
+df2 = pd.DataFrame(np.random.randint(low=0, high=10, size=(5, 5)),
+                   columns=['a', 'b', 'c', 'd', 'e'])
+df2['a']=df2['a'].shift(1)
 #%%
 """
 Define variables
@@ -425,40 +428,46 @@ def pretty_print_linear(coefs, names = None, sort = False):
     if sort:
         lst = sorted(lst, key = lambda x:-np.abs(x[0]))
     return " + ".join("%s * %s" % (round(coef, 3), name) for coef, name in lst)
-#print("")
-#print("OLS model:", pretty_print_linear(model_ols.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
-#print("")
-#print("Ridge model:", pretty_print_linear(model_ridge.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
-#print("")
-#print("Lasso model:", pretty_print_linear(model_lasso.coef_[abs(model_lasso.coef_)>0], names =  X.columns[abs(model_lasso.coef_)>0] ))
-#print("")
-#print("Enet model:", pretty_print_linear(model_enet.coef_[abs(model_enet.coef_)>0], names =  X.columns[abs(model_enet.coef_)>0] ))
+if Poly ==0:
+    print("")
+    print("OLS model:", pretty_print_linear(model_ols.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
+    print("")
+    print("Ridge model:", pretty_print_linear(model_ridge.coef_[abs(model_ols.coef_)>0], names =  X.columns[abs(model_ols.coef_)>0] ))
+    print("")
+    print("Lasso model:", pretty_print_linear(model_lasso.coef_[abs(model_lasso.coef_)>0], names =  X.columns[abs(model_lasso.coef_)>0] ))
+    print("")
+    print("Enet model:", pretty_print_linear(model_enet.coef_[abs(model_enet.coef_)>0], names =  X.columns[abs(model_enet.coef_)>0] ))
 
 #%%
 '''Coefficients Plot''' 
 plt.figure()
-#labels = list(X.columns)
-##labels.insert(0,'cons')
-#if Poly ==0:
-#    plt.plot(labels,model_ridge.coef_, color='g', linewidth=2,
-#             label='Ridge coefficients', alpha = 0.6)
-#    plt.plot( labels, model_lasso.coef_, color='r', linewidth=2,
-#             label='Lasso coefficients', alpha = 0.6)
-#    plt.plot( labels, model_enet.coef_, color='b', linewidth=2,
-#             label='Elastic net coefficients', alpha = 0.6)
-#else:
-#plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
-plt.plot(model_ridge.coef_, color='g', linewidth=2,
-         label='Ridge coefficients', alpha = 0.6)
-plt.plot(model_lasso.coef_, color='r', linewidth=2,
-         label='Lasso coefficients', alpha = 0.6)
-plt.plot(model_enet.coef_, color='b', linewidth=2,
-         label='Elastic net coefficients', alpha = 0.6)
+#labels.insert(0,'cons')
+if Poly ==0:
+    labels = list(X.columns)
+
+    plt.plot(np.arange(len(labels)),model_ridge.coef_, color='g', linewidth=2,
+             label='Ridge coefficients', alpha = 0.6)
+    plt.plot(np.arange(len(labels)), model_lasso.coef_, color='r', linewidth=2,
+             label='Lasso coefficients', alpha = 0.6)
+    plt.plot(np.arange(len(labels)), model_enet.coef_, color='b', linewidth=2,
+             label='Elastic net coefficients', alpha = 0.6)
+    plt.xticks(range(len(labels)), labels, rotation=45)
+    #ax[1].set_xticklabels(labels)
+
+else:
+ #   plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
+    plt.plot(model_ridge.coef_, color='g', linewidth=2,
+             label='Ridge coefficients', alpha = 0.6)
+    plt.plot(model_lasso.coef_, color='r', linewidth=2,
+             label='Lasso coefficients', alpha = 0.6)
+    plt.plot(model_enet.coef_, color='b', linewidth=2,
+             label='Elastic net coefficients', alpha = 0.6)
 plt.axhline(y=0,linestyle = '--', color='k')
 plt.legend(loc='best')
-plt.title("Ridge, Lasso, Elastic Net")
+plt.title("Ridge, Lasso, Elastic Net Coefficients")
 plt.show()
 plt.savefig(dir+"/out/Coefficients")
+
  #%%
 ''' Performance Metrics - In-Sample Comparison'''
 print("''' Performance Metrics - In-Sample Comparison'''")
@@ -645,38 +654,52 @@ yhat_ridge = model_ridge.predict(Xp_test)
 yhat_lasso = model_lasso.predict(Xp_test)
 yhat_enet = model_enet.predict(Xp_test)
 
-
-
+yhats = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
+yhats_names = ['c_model','pca_model', 'ols_model','ridge_model', 'lasso_model', 'enet_model']
 print("MSE:")
-print("mean_squared_error(y_test, yhat_c)")
-print(mean_squared_error(y_test, yhat_c))
-print("mean_squared_error(y_test, yhat_ols)")
-print(mean_squared_error(y_test, yhat_ols))
-print("mean_squared_error(y_test, yhat_pca)")
-print(mean_squared_error(y_test, yhat_pca))
-print("mean_squared_error(y_test, yhat_ridge)")
-print(mean_squared_error(y_test, yhat_ridge))
-print("mean_squared_error(y_test, yhat_lasso)")
-print(mean_squared_error(y_test, yhat_lasso))
-print("mean_squared_error(y_test, yhat_enet)")
-print(mean_squared_error(y_test, yhat_enet))
+for yh,yh_n in zip(yhats,yhats_names):
+    print("mean_squared_error(y_test, {})".format(yh_n))
+    print(mean_squared_error(y_test, yh))
 
 '''
 --> OLS performs the best in-sample
 '''
+
+## Print the Results
 os.makedirs(dir+"out/oos/",exist_ok = True)
 f = open(dir+"/out/oos/K{}_TsizeInv{}_Poly{}_Period{}.txt".format(K,TsizeInv,Poly,Period), 'w')
 f.write("MSE:")
-f.write("mean_squared_error(y_test, yhat_c})\n")
-f.write("{}\n".format(mean_squared_error(y_test, yhat_c)))
-f.write("mean_squared_error(y_test, yhat_ols})\n")
-f.write("{}\n".format(mean_squared_error(y_test, yhat_ols)))
-f.write("mean_squared_error(y_test, yhat_pca})\n")
-f.write("{}\n".format(mean_squared_error(y_test, yhat_pca)))
-f.write("mean_squared_error(y_test, yhat_ridge})\n")
-f.write("{}\n".format(mean_squared_error(y_test, yhat_ridge)))
-f.write("mean_squared_error(y_test, yhat_lasso})\n")
-f.write("{}\n".format(mean_squared_error(y_test, yhat_lasso)))
-f.write("mean_squared_error(y_test, yhat_enet})\n")
-f.write("{}\n".format(mean_squared_error(y_test, yhat_enet)))
+for yh,yh_n in zip(yhats,yhats_names):
+    f.write("mean_squared_error(y_test, {})\n".format(yh_n))
+    f.write("{}\n".format(mean_squared_error(y_test, yh)))
 f.close()
+#%%
+'''Prediction Plot''' 
+plt.figure()
+x= np.array(df['ym'].loc[y_test.index]).astype(int)
+#plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
+colors = cycle(['b', 'r', 'g', 'c', 'k','m','y'])
+yhats = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
+yhats_names = ['c_model','pca_model', 'ols_model','ridge_model', 'lasso_model', 'enet_model']
+plt.plot(np.arange(len(x)),y_test,'--', color='k', linewidth=1,
+             label='Realized Return')
+for yh,yh_n,color in zip(yhats,yhats_names,colors):
+    plt.plot(np.arange(len(x)),yh, linewidth=2, color = color)
+#label="{} prediction".format(yh_n)
+#    
+#    plt.plot(x,yhat_ols,'--', color='r', linewidth=2,
+#             label='OLS prediction')
+#    plt.plot(x,yhat_c, '--',color='b', linewidth=2,
+#             label='Constant prediction')
+#    plt.plot(x,yhat_lasso,'--', color='y', linewidth=2,
+#             label='Lasso prediction')
+#    plt.plot(x,yhat_pca, '--', linewidth=2,
+#             label='PCA prediction')
+#    plt.plot(x,yhat_ridge,'--', linewidth=2,
+#             label='Ridge prediction')
+plt.xticks(range(len(x)), x, rotation=45)
+yhats_names.insert(0,'Realized Return')
+plt.legend(yhats_names)
+plt.title("Predicted")
+plt.show()
+plt.savefig(dir+"/out/Prediction")

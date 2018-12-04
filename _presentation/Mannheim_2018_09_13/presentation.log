@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.15)  12 SEP 2018 16:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.15)  30 NOV 2018 16:34
 entering extended mode
 **./presentation.tex
 (presentation.tex
@@ -1496,15 +1496,7 @@ Package biblatex Warning: Patching footnotes failed.
 
 \@quotelevel=\count477
 \@quotereset=\count478
-(presentation.aux
-
-LaTeX Warning: Label `tab:SHO_misp_graph' multiply defined.
-
-
-LaTeX Warning: Label `tab:misp_evolution_profitability_yq_sentiment' multiply d
-efined.
-
-)
+(presentation.aux)
 \openout1 = `presentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
@@ -1681,18 +1673,45 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'presentation.bbl' found.
- (presentation.bbl)
+ (presentation.bbl
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                Jacobs2016
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                Stambaugh2015
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                Stambaugh2012a
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                Hanson2014
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+)
 Package biblatex Info: Reference section=0 on input line 122.
 Package biblatex Info: Reference segment=0 on input line 122.
  (presentation.nav)
 \c__siunitx_mathsf_int=\count486
 LaTeX Font Info:    Try loading font information for U+msa on input line 122.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 122.
-
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1712,332 +1731,31 @@ thkerncmss.
 
 ] [3
 
-] [4
+])
+Runaway argument?
+\let \AtEndDocument \@firstofone \@enddocumenthook \@checkend {docume\ETC.
+! File ended while scanning use of \beamer@collect@@body.
+<inserted text> 
+                \par 
+<*> ./presentation.tex
+                      
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
 
-] [5
+! Emergency stop.
+<*> ./presentation.tex
+                      
+*** (job aborted, no legal \end found)
 
-] [6
-
-]
-
-pdfTeX warning: pdflatex (file ./figures/misp_sr_by_decile_fe.pdf): PDF inclusi
-on: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/misp_sr_by_decile_fe.pdf, id=87, 397.485pt x 289.08pt>
-File: figures/misp_sr_by_decile_fe.pdf Graphic file (type pdf)
-<use figures/misp_sr_by_decile_fe.pdf>
-Package pdftex.def Info: figures/misp_sr_by_decile_fe.pdf  used on input line 2
-70.
-(pdftex.def)             Requested size: 272.61662pt x 196.73363pt.
-[7
-
- <./figures/misp_sr_by_decile_fe.pdf>] [8
-
-] (tables/sentiment_misp_short.tex)
-Overfull \vbox (13.34117pt too high) detected at line 362
- []
-
-[9
-
-] [10
-
-] [11
-
-]
-<figures/motivation_ivol.jpg, id=146, 371.9496pt x 183.5658pt>
-File: figures/motivation_ivol.jpg Graphic file (type jpg)
-<use figures/motivation_ivol.jpg>
-Package pdftex.def Info: figures/motivation_ivol.jpg  used on input line 402.
-(pdftex.def)             Requested size: 332.94481pt x 163.40094pt.
- [12
-
- <./figures/motivation_ivol.jpg>]
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
- [13
-
-] (tables/ivola_misp.tex)
-Overfull \vbox (0.44128pt too high) detected at line 458
- []
-
-[14
-
-] [15
-
-] [16
-
-]
-<figures/motivation_sho.jpg, id=184, 526.3665pt x 246.1998pt>
-File: figures/motivation_sho.jpg Graphic file (type jpg)
-<use figures/motivation_sho.jpg>
-Package pdftex.def Info: figures/motivation_sho.jpg  used on input line 586.
-(pdftex.def)             Requested size: 340.82932pt x 158.72311pt.
- [17
-
- <./figures/motivation_sho.jpg>]
-Overfull \hbox (0.53618pt too wide) detected at line 611
-\OML/cmm/m/it/8 []\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/sl/8 Pilot\OT1/cmss/m/n
-/8 ) \OMS/cmsy/m/n/8   \OML/cmm/m/it/8 []\OT1/cmss/m/n/8 (\OT1/mathkerncmss/m/
-sl/8 Control\OT1/cmss/m/n/8 ) = \OT1/mathkerncmss/m/sl/8 b[]preD[] \OT1/cmss/m/
-n/8 + \OT1/mathkerncmss/m/sl/8 b[]announcementD[] \OT1/cmss/m/n/8 + \OT1/mathke
-rncmss/m/sl/8 b[]duringD[] \OT1/cmss/m/n/8 + \OT1/mathkerncmss/m/sl/8 b[]postD[
-] \OT1/cmss/m/n/8 + \OML/cmm/m/it/8 "[]
- []
-
-(tables/sho_experiment.tex) [18
-
-]
-
-pdfTeX warning: pdflatex (file ./figures/SHO_misp_graph.pdf): PDF inclusion: fo
-und PDF version <1.6>, but at most version <1.5> allowed
-<figures/SHO_misp_graph.pdf, id=201, 397.485pt x 289.08pt>
-File: figures/SHO_misp_graph.pdf Graphic file (type pdf)
-<use figures/SHO_misp_graph.pdf>
-Package pdftex.def Info: figures/SHO_misp_graph.pdf  used on input line 628.
-(pdftex.def)             Requested size: 233.67479pt x 168.63129pt.
-pdfTeX warning (ext4): destination with the same identifier (name{tab:SHO_misp_
-graph}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.628 \end{frame}
-                  [19
-
- <./figures/SHO_misp_graph.pdf>] [20
-
-] [21
-
-] [22
-
-]
-
-pdfTeX warning: pdflatex (file ./figures/misp_evolution_profitability_yq_sentim
-ent.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> all
-owed
-<figures/misp_evolution_profitability_yq_sentiment.pdf, id=236, 397.485pt x 289
-.08pt>
-File: figures/misp_evolution_profitability_yq_sentiment.pdf Graphic file (type 
-pdf)
-<use figures/misp_evolution_profitability_yq_sentiment.pdf>
-Package pdftex.def Info: figures/misp_evolution_profitability_yq_sentiment.pdf 
- used on input line 702.
-(pdftex.def)             Requested size: 272.61662pt x 196.73363pt.
-pdfTeX warning (ext4): destination with the same identifier (name{tab:misp_evol
-ution_profitability_yq_sentiment}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.702 \end{frame}
-                  [23
-
- <./figures/misp_evolution_profitability_yq_sentiment.pdf>] (tables/misp_ret_br
-eaks.tex) [24
-
-] (tables/swald.tex) [25
-
-]
-
-pdfTeX warning: pdflatex (file ./figures/spread_structural_wald.pdf): PDF inclu
-sion: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/spread_structural_wald.pdf, id=267, 397.485pt x 289.08pt>
-File: figures/spread_structural_wald.pdf Graphic file (type pdf)
-<use figures/spread_structural_wald.pdf>
-Package pdftex.def Info: figures/spread_structural_wald.pdf  used on input line
- 769.
-(pdftex.def)             Requested size: 276.83235pt x 200.94937pt.
-
-Overfull \vbox (8.49535pt too high) detected at line 769
- []
-
-[26
-
- <./figures/spread_structural_wald.pdf>] (tables/break_anomalies.tex)
-[27
-
-] (tables/misp_timing.tex) [28
-
-] [29
-
-] [30
-
-] [31
-
-] (tables/summary.tex) [32
-
-]
-
-pdfTeX warning: pdflatex (file ./figures/size_sr_by_decile_fe.pdf): PDF inclusi
-on: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/size_sr_by_decile_fe.pdf, id=336, 397.485pt x 289.08pt>
-File: figures/size_sr_by_decile_fe.pdf Graphic file (type pdf)
-<use figures/size_sr_by_decile_fe.pdf>
-Package pdftex.def Info: figures/size_sr_by_decile_fe.pdf  used on input line 9
-28.
-(pdftex.def)             Requested size: 272.61662pt x 196.73363pt.
-[33
-
- <./figures/size_sr_by_decile_fe.pdf>]
-
-pdfTeX warning: pdflatex (file ./figures/bm_sr_by_decile_fe.pdf): PDF inclusion
-: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/bm_sr_by_decile_fe.pdf, id=355, 397.485pt x 289.08pt>
-File: figures/bm_sr_by_decile_fe.pdf Graphic file (type pdf)
-<use figures/bm_sr_by_decile_fe.pdf>
-Package pdftex.def Info: figures/bm_sr_by_decile_fe.pdf  used on input line 942
-.
-(pdftex.def)             Requested size: 272.61662pt x 196.73363pt.
-[34
-
- <./figures/bm_sr_by_decile_fe.pdf>] (tables/sr_by_decile_short.tex)
-[35
-
-]
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no ™ in font cmss10!
- [36
-
-]
-
-pdfTeX warning: pdflatex (file ./figures/misp_event_time_sr_dec1.pdf): PDF incl
-usion: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/misp_event_time_sr_dec1.pdf, id=385, 397.485pt x 289.08pt>
-File: figures/misp_event_time_sr_dec1.pdf Graphic file (type pdf)
-<use figures/misp_event_time_sr_dec1.pdf>
-Package pdftex.def Info: figures/misp_event_time_sr_dec1.pdf  used on input lin
-e 1036.
-(pdftex.def)             Requested size: 171.3155pt x 124.5931pt.
-
-
-pdfTeX warning: pdflatex (file ./figures/misp_event_time_sr_dec10.pdf): PDF inc
-lusion: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/misp_event_time_sr_dec10.pdf, id=386, 397.485pt x 289.08pt>
-File: figures/misp_event_time_sr_dec10.pdf Graphic file (type pdf)
-<use figures/misp_event_time_sr_dec10.pdf>
-Package pdftex.def Info: figures/misp_event_time_sr_dec10.pdf  used on input li
-ne 1036.
-(pdftex.def)             Requested size: 171.3155pt x 124.5931pt.
-
-Underfull \hbox (badness 2165) in paragraph at lines 1036--1036
-\OT1/cmss/m/n/10.95 30% and bot-tom 30% IVOL
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1036
-\OT1/cmss/m/n/10.95 en-ter-ing ex-treme un-der-priced
- []
-
-
-Overfull \vbox (4.5094pt too high) detected at line 1036
- []
-
-[37
-
- <./figures/misp_event_time_sr_dec1.pdf> <./figures/misp_event_time_sr_dec10.pd
-f>] (tables/aum_spread_correlate.tex) [38
-
-]
-\tf@nav=\write8
-\openout8 = `presentation.nav'.
-
-\tf@toc=\write9
-\openout9 = `presentation.toc'.
-
-\tf@snm=\write10
-\openout10 = `presentation.snm'.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1066.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1066.
- (presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1066.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1066.
-
-Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: B13063934C6E561E3196D273CE87111E;178.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package logreq Info: Writing requests to 'presentation.run.xml'.
-\openout1 = `presentation.run.xml'.
-
- ) 
+ 
 Here is how much of TeX's memory you used:
- 35735 strings out of 493312
- 708298 string characters out of 3138874
- 1114209 words of memory out of 3000000
- 38516 multiletter control sequences out of 15000+200000
- 559388 words of font info for 110 fonts, out of 3000000 for 9000
+ 35217 strings out of 493312
+ 696634 string characters out of 3138874
+ 1101985 words of memory out of 3000000
+ 38172 multiletter control sequences out of 15000+200000
+ 551971 words of font info for 91 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,55p,10386b,1715s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{cite.0@Wu2014} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Baker2006} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Mclean2016} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Akbas2015} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Drechsler2016} has been referenced but does 
-not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Pontiff2006} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Shleifer1997} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Chu2016} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Hanson2014} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Jacobs2016} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Stambaugh2012a} has been referenced but does
- not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@Stambaugh2015} has been referenced but does 
-not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@diether_short-sale_2009} has been referenced
- but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@boehmer_which_2008} has been referenced but 
-does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{cite.0@desai_investigation_2002} has been reference
-d but does not exist, replaced by a fixed one
-
- <C:\Users\Administrator\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
-pi600\ecso0800.pk> <C:\Users\Administrator\AppData\Local\MiKTeX\2.9\fonts\pk\lj
-four\jknappen\ec\dpi600\ecso1000.pk> <C:\Users\Administrator\AppData\Local\MiKT
-eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi657\ecso1000.pk><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-mextra/cmmib8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmssi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-msy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on presentation.pdf (38 pages, 1202291 bytes).
-PDF statistics:
- 531 PDF objects out of 1000 (max. 8388607)
- 120 named destinations out of 1000 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 56i,11n,55p,10386b,1172s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

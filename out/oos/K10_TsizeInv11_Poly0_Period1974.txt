@@ -1,0 +1,12 @@
+MSE:mean_squared_error(y_test, yhat_c})
+37.598982558593036
+mean_squared_error(y_test, yhat_ols})
+45.91252752744033
+mean_squared_error(y_test, yhat_pca})
+35.840417372922715
+mean_squared_error(y_test, yhat_ridge})
+36.56310097637187
+mean_squared_error(y_test, yhat_lasso})
+37.598982558593036
+mean_squared_error(y_test, yhat_enet})
+37.598982558593036
