@@ -42,7 +42,7 @@ K = 10
 TsizeInv = 15
 test_size= 1/TsizeInv
 # Add interactions or not
-Poly = 2
+Poly = 1
 # Period
 Period  = 1974
 #%%
@@ -153,16 +153,17 @@ model_c = reg.fit(Ones,y)
 ''' PCA'''
 from sklearn.decomposition import PCA
 pca = PCA().fit(X)
-plt.plot(np.cumsum(pca.explained_variance_ratio_))
-plt.xlabel('number of components')
-plt.ylabel('cumulative explained variance');
+
+#plt.plot(np.cumsum(pca.explained_variance_ratio_))
+#plt.xlabel('number of components')
+#plt.ylabel('cumulative explained variance');
 
 reg = linear_model.LinearRegression()
 pca = PCA(n_components=4)
-pca.fit(X)
-X_pca = pca.transform(X)
+pca.fit(Xp)
+X_pca = pca.transform(Xp)
 model_pca = reg.fit(X_pca,y)
-X_test_pca = pca.transform(X_test)
+X_test_pca = pca.transform(Xp_test)
 #%%
 
 ''' Lasso model selection: Cross-Validation'''
@@ -188,22 +189,22 @@ m_log_alphas = -np.log10(model.alphas_)
 
 plt.figure()
 
-plt.plot(m_log_alphas, model.mse_path_, ':')
-plt.plot(m_log_alphas, model.mse_path_.mean(axis=-1), 'k',
+plt.plot(model.alphas_, model.mse_path_, ':')
+plt.plot(model.alphas_, model.mse_path_.mean(axis=-1), 'k',
          label='Average across the folds', linewidth=2)
-plt.axvline(-np.log10(model.alpha_), linestyle='--', color='k',
-            label='alpha = %f: CV estimate' % alpha_lasso)
+plt.axvline(model.alpha_, linestyle='--', color='k',
+            label='alpha = %f: CV estimate' % lambda_lasso)
 
 plt.legend()
 
-plt.xlabel('-log(alpha)')
+plt.xlabel('$\lambda$')
 plt.ylabel('Mean square error')
-plt.title('LASSO - Mean square error on each fold: coordinate descent '
-          '(train time: %.2fs)' % t_lasso_cv)
+plt.title('LASSO - Mean square error on each fold: coordinate descent ')
 plt.axis('tight')
 print(alpha_lasso)
 #ymin, ymax = 2300, 3800
 #plt.ylim(ymin, ymax)
+plt.savefig(dir+"/out/lasso_cv")
 #%%
 print("Computing regularization path using the coordinate descent ridge...")
 t1 = time.time()
@@ -259,10 +260,10 @@ lambda_enet = (model.alpha_)
 
 plt.figure()
 
-plt.plot(m_log_alphas, model.mse_path_, ':')
-plt.plot(m_log_alphas, model.mse_path_.mean(axis=-1), 'k',
+plt.plot(model.alphas_, model.mse_path_, ':')
+plt.plot(model.alphas_, model.mse_path_.mean(axis=-1), 'k',
          label='Average across the folds', linewidth=2)
-plt.axvline(-np.log10(model.alpha_), linestyle='--', color='k',
+plt.axvline(model.alpha_, linestyle='--', color='k',
             label='alpha =%f : CV estimate' % lambda_enet ) 
 
 plt.legend()
@@ -405,13 +406,13 @@ alphas_lasso, coefs_lasso, _ = lasso_path(X, y, eps, fit_intercept=True)
 labels = X.columns
 plt.figure()
 #colors = cycle(['b', 'r', 'g', 'c', 'k','m','y'])
-neg_log_alphas_lasso = -np.log10(alphas_lasso)
+log_alphas_lasso = np.log10(alphas_lasso)
 C = coefs_lasso.shape[0]
 for k in range(C):
-    l1 = plt.plot(neg_log_alphas_lasso, coefs_lasso[k], label = labels[k])
+    l1 = plt.plot(alphas_lasso, coefs_lasso[k], label = labels[k],)
 
-plt.axvline(x=alpha_lasso, color='k', linestyle='--')
-plt.xlabel('-Log(alpha)')
+plt.axvline(x=lambda_lasso, color='k', linestyle='--')
+plt.xlabel('$\lambda$')
 plt.ylabel('Coefficients')
 plt.title('Lasso Path')
 plt.legend()
@@ -462,11 +463,15 @@ else:
              label='Lasso coefficients', alpha = 0.6)
     plt.plot(model_enet.coef_, color='b', linewidth=2,
              label='Elastic net coefficients', alpha = 0.6)
+    
 plt.axhline(y=0,linestyle = '--', color='k')
 plt.legend(loc='best')
 plt.title("Ridge, Lasso, Elastic Net Coefficients")
-plt.show()
+plt.xlabel('Variables')
+plt.ylabel('Coefficients')
+#plt.show()
 plt.savefig(dir+"/out/Coefficients")
+
 
  #%%
 ''' Performance Metrics - In-Sample Comparison'''
@@ -675,12 +680,12 @@ for yh,yh_n in zip(yhats,yhats_names):
 f.close()
 #%%
 '''Prediction Plot''' 
-plt.figure()
+plt.figure(figsize=(15,7.5))
 x= np.array(df['ym'].loc[y_test.index]).astype(int)
 #plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
-colors = cycle(['b', 'r', 'g', 'c', 'k','m','y'])
+colors = cycle(['c','m','y', 'g', 'r','b', 'k'])
 yhats = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
-yhats_names = ['c_model','pca_model', 'ols_model','ridge_model', 'lasso_model', 'enet_model']
+yhats_names = ['Const', 'PCA',	'OLS',	'Ridge', 'Lasso', 'Enet']
 plt.plot(np.arange(len(x)),y_test,'--', color='k', linewidth=1,
              label='Realized Return')
 for yh,yh_n,color in zip(yhats,yhats_names,colors):
@@ -699,7 +704,7 @@ for yh,yh_n,color in zip(yhats,yhats_names,colors):
 #             label='Ridge prediction')
 plt.xticks(range(len(x)), x, rotation=45)
 yhats_names.insert(0,'Realized Return')
+plt.xlabel('Date')
+plt.ylabel('Monthly Return in %')
 plt.legend(yhats_names)
-plt.title("Predicted")
-plt.show()
 plt.savefig(dir+"/out/Prediction")

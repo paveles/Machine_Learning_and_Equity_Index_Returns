@@ -1,0 +1,53 @@
+c_model
+fit_time       0.000000
+score_time     0.001562
+test_MSE      19.427529
+test_r2       -0.033657
+train_MSE     19.396035
+train_r2       0.000000
+dtype: float64
+
+ols_model
+fit_time       0.000000
+score_time     0.001562
+test_MSE      21.022193
+test_r2       -0.152315
+train_MSE     16.659065
+train_r2       0.141214
+dtype: float64
+
+pca_model
+fit_time       0.000000
+score_time     0.001562
+test_MSE      19.479248
+test_r2       -0.041138
+train_MSE     19.130560
+train_r2       0.013719
+dtype: float64
+
+ridge_model
+fit_time       0.003124
+score_time     0.000000
+test_MSE      20.720212
+test_r2       -0.138721
+train_MSE     16.728988
+train_r2       0.137572
+dtype: float64
+
+lasso_model
+fit_time       0.000200
+score_time     0.003139
+test_MSE      19.382333
+test_r2       -0.035554
+train_MSE     18.339998
+train_r2       0.054358
+dtype: float64
+
+enet_model
+fit_time       0.001773
+score_time     0.000100
+test_MSE      19.346245
+test_r2       -0.034598
+train_MSE     18.325051
+train_r2       0.055149
+dtype: float64
