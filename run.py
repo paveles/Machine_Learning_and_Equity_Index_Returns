@@ -152,7 +152,7 @@ model_c = reg.fit(Ones,y)
 #%%
 ''' PCA'''
 from sklearn.decomposition import PCA
-pca = PCA().fit(X)
+#pca = PCA().fit(X)
 
 #plt.plot(np.cumsum(pca.explained_variance_ratio_))
 #plt.xlabel('number of components')
@@ -160,10 +160,10 @@ pca = PCA().fit(X)
 
 reg = linear_model.LinearRegression()
 pca = PCA(n_components=4)
-pca.fit(Xp)
-X_pca = pca.transform(Xp)
+pca.fit(X)
+X_pca = pca.transform(X)
 model_pca = reg.fit(X_pca,y)
-X_test_pca = pca.transform(Xp_test)
+X_test_pca = pca.transform(X_test)
 #%%
 
 ''' Lasso model selection: Cross-Validation'''
