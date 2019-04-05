@@ -1,3 +1,6 @@
+#%% [markdown]
+## Equity Premium and Machine Learning
+#%%
 import warnings
 import sys
 #%matplotlib inline 
@@ -100,9 +103,7 @@ else:
 #%%
 """Provide a Description of the Data"""
 df.describe().T.to_csv("out/temp/descriptive.csv")
-"""
---> Data is the same is in the paper Rapach et al 2013
-"""
+#""" --> Data is the same is in the paper Rapach et al 2013"""
 df.describe().T
 
 
