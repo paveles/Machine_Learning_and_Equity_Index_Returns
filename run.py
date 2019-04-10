@@ -1,8 +1,8 @@
-#%% [markdown]
+#%% [markdown] #--------------------------------------------------
 ## Equity Premium and Machine Learning
-#%%
+#%% #--------------------------------------------------
+
 import warnings
-import sys
 #%matplotlib inline 
 import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = [15, 10]
@@ -12,23 +12,11 @@ import datetime
 import pandas as pd
 import numpy as np
 import matplotlib as mpl
-from sklearn import linear_model
 mpl.rcParams['patch.force_edgecolor'] = True
-# %matplotlib inline
-
 import seaborn as sns
-#plt.style.use('ggplot')
 sns.set()
-#sns.set_style("whitegrid")
-
-
-
 from pandas.tseries.offsets import MonthEnd # To Determine the End of the Corresponding Month
-#pd.set_option('display.max_rows', 500)
-#pd.set_option('display.max_columns', 100)
-
-import sys # To caclulate memory usaage
-
+import sys # To caclulate memory usage
 import os
 # dir = 'C:\Research\Google Search Volume'
 dir = 'E:/Research/Equity Premium and Machine Learning'
@@ -49,7 +37,7 @@ Poly = 1
 # Period
 Period  = 1974
 #Test New Line
-#%%
+#%% #--------------------------------------------------
 
 df = pd.read_csv('in/rapach_2013.csv', na_values = ['NaN'])
 df.rename( index=str, columns={"date": "ym"}, inplace=True)
@@ -58,7 +46,7 @@ df['sp500_rf'] = df['sp500_rf'] * 100
 df['lnsp500_rf'] = df['lnsp500_rf'] * 100
 df.sort_values(by=['ym'])
 
-#%%
+#%% #--------------------------------------------------
 #"""Lagging predictive  variables"""
 
 df['recessionD_c'] = df['recessionD']
@@ -69,7 +57,7 @@ vars = ['recessionD', 'dp', 'dy', 'ep', 'de', \
        'vol_3_12', 'sento ', 'sent', 'dsento', 'dsent', 'ewsi']
 # Important! Lagging by 1
 df[vars] = df[vars].shift(1)
-#%%
+#%% #--------------------------------------------------
 """
 Define variables
 """
@@ -80,7 +68,7 @@ tech = ['ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', 
        'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
        'vol_3_12']
 # predictors = macro+ tech + other  + state
-#%%
+#%% #--------------------------------------------------
 """
 Sample Cut
 """
@@ -98,16 +86,16 @@ elif Period == 1951:
 else:
     sys.exit("Wrong Sample")
 # df[pd.isnull(df["ewsi"])!= 1]['date'].describe()
-#%%
+#%% #--------------------------------------------------
 #"""Provide a Description of the Data"""
 df.describe().T.to_csv("out/temp/descriptive.csv")
 #""" --> Data is the same is in the paper Rapach et al 2013"""
 df.describe().T
 
 
-#%%
+#%% #--------------------------------------------------
 # Add interaction variables
-#%%
+#%% #--------------------------------------------------
 #''' Train and Test Samples'''
 from sklearn.model_selection import train_test_split
 Xo= df[predictors]
@@ -117,13 +105,13 @@ yo = df['lnsp500_rf']
 X, X_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = False )
 
 
-#%%
+#%% #--------------------------------------------------
 #'''Standardize Data'''
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
 scaler = StandardScaler().fit(X)
 X = pd.DataFrame(scaler.transform(X),  index=X.index, columns=X.columns )
 X_test = pd.DataFrame(scaler.transform(X_test),  index=X_test.index, columns=X_test.columns )
-#%%
+#%% #--------------------------------------------------
 #''' Interaction Terms'''
 from sklearn.preprocessing import PolynomialFeatures
 if Poly == 1:
@@ -138,7 +126,7 @@ else:
     Xp = X
     Xp_test = X_test
 # #############################################################################
-#%% 
+#%% #-------------------------------------------------- 
 #''' OLS model'''
 from sklearn import linear_model
 reg = linear_model.LinearRegression()
@@ -149,7 +137,7 @@ reg = linear_model.LinearRegression(fit_intercept = False)
 Ones = pd.DataFrame(np.ones(y.shape[0]))
 Ones_test = pd.DataFrame(np.ones(y_test.shape[0]))
 model_c = reg.fit(Ones,y)
-#%%
+#%% #--------------------------------------------------
 #''' PCA'''
 from sklearn.decomposition import PCA
 #pca = PCA().fit(X)
@@ -164,7 +152,7 @@ pca.fit(X)
 X_pca = pca.transform(X)
 model_pca = reg.fit(X_pca,y)
 X_test_pca = pca.transform(X_test)
-#%%
+#%% #--------------------------------------------------
 
 #''' Lasso model selection: Cross-Validation'''
 # LassoCV: coordinate descent
@@ -207,7 +195,7 @@ print(alpha_lasso)
 
 plt.savefig(dir+"/out/lasso_cv")
 
-#%%
+#%% #--------------------------------------------------
 print("Computing regularization path using the coordinate descent ridge...")
 t1 = time.time()
 ridge_alphas = np.logspace(-4, 2, 50)
@@ -240,7 +228,7 @@ print(alpha_ridge)
 #ymin, ymax = 2300, 3800
 #plt.ylim(ymin, ymax)
 
-#%%
+#%% #--------------------------------------------------
 # ###
 # .ElasticNetCV: coordinate descent
 
@@ -343,7 +331,7 @@ plt.title('Information-criterion for model selection (training time %.3fs)'
           % t_bic)
 '''
 # #############################################################################
-#%%
+#%% #--------------------------------------------------
 #''' Lasso and Elastic Net - Paths'''
 from sklearn.linear_model import ElasticNetCV
 from itertools import cycle
@@ -385,7 +373,7 @@ plt.title('Lasso and Elastic-Net Paths')
 plt.legend((l1[-1], l2[-1]), ('Lasso', 'Elastic-Net'), loc='lower left')
 plt.axis('tight')
 plt.savefig(dir+"/out/lasso_enet_paths")
-#%%
+#%% #--------------------------------------------------
 #''' Lasso Path - Labels'''
 sns.set_palette("husl", 28)
 from itertools import cycle
@@ -420,7 +408,7 @@ plt.title('Lasso Path')
 plt.legend()
 plt.axis('tight')
 plt.savefig(dir+"/out/lassopath")
-#%%
+#%% #--------------------------------------------------
 #################################################
 #''' Interpret the model output'''
 #A helper method for pretty-printing linear models
@@ -441,7 +429,7 @@ if Poly ==0:
     print("")
     print("Enet model:", pretty_print_linear(model_enet.coef_[abs(model_enet.coef_)>0], names =  X.columns[abs(model_enet.coef_)>0] ))
 
-#%%
+#%% #--------------------------------------------------
 #'''Coefficients Plot''' 
 plt.figure()
 #labels.insert(0,'cons')
@@ -475,7 +463,7 @@ plt.ylabel('Coefficients')
 plt.savefig(dir+"/out/Coefficients")
 
 
- #%%
+ #%% #--------------------------------------------------
 #''' Performance Metrics - In-Sample Comparison'''
 print("''' Performance Metrics - In-Sample Comparison'''")
 from sklearn.metrics import mean_squared_error, r2_score
@@ -516,7 +504,7 @@ print(mean_squared_error(y, yhat_enet))
 '''
 --> OLS performs the best in-sample
 '''
- #%%
+ #%% #--------------------------------------------------
 #''' Performance Metrics - In-Sample Comparison'''
 print("''' Performance Metrics - In-Sample Comparison'''")
 from sklearn.metrics import mean_squared_error, r2_score
@@ -554,7 +542,7 @@ print(mean_squared_error(y, yhat_enet))
 
 
         
-#%%
+#%% #--------------------------------------------------
 #''' Performance Metrics - Cross-Validated Comparison - CV = 10'''
 print("Performance Metrics - Cross-Validated  Comparison - CV = {}".format(K))
 from sklearn import linear_model
@@ -600,10 +588,10 @@ test_model(enet_model,"Enet", K)
 '''
 --> ENET and LASSO  perform better our-of-sample but R2 negative
 '''
-#%%
+#%% #--------------------------------------------------
 
-#%%
-#%%
+#%% #--------------------------------------------------
+#%% #--------------------------------------------------
 #'''Potential Alternative Approach '''
 
 print("Potential Alternative Approach")
@@ -631,9 +619,9 @@ for k in range(len(models)):
     print("")
     print(models_names[k])
     print(df_avg)
-#%%
+#%% #--------------------------------------------------
 
- #%%
+ #%% #--------------------------------------------------
 # Multicollinearity
  
 #corr=np.corrcoef(X,rowvar=0)
@@ -646,7 +634,7 @@ for k in range(len(models)):
 
 #--> Multicollinearity in data
 
- #%%
+ #%% #--------------------------------------------------
 #''' Performance Metrics - Out_of-Sample Comparison'''
 print("''' Performance Metrics - Out_of-Sample Comparison'''")
 from sklearn.metrics import mean_squared_error, r2_score
@@ -680,7 +668,7 @@ for yh,yh_n in zip(yhats,yhats_names):
     f.write("mean_squared_error(y_test, {})\n".format(yh_n))
     f.write("{}\n".format(mean_squared_error(y_test, yh)))
 f.close()
-#%%
+#%% #--------------------------------------------------
 #'''Prediction Plot''' 
 plt.figure(figsize=(15,7.5))
 x= np.array(df['ym'].loc[y_test.index]).astype(int)
@@ -710,4 +698,4 @@ plt.xlabel('Date')
 plt.ylabel('Monthly Return in %')
 plt.legend(yhats_names)
 plt.savefig(dir+"/out/Prediction")
-#%%
+#%% #--------------------------------------------------
