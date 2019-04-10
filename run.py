@@ -1,11 +1,10 @@
-#%% [markdown] #--------------------------------------------------
+#%% [markdown] #----------dfd----------------------------------------
 ## Equity Premium and Machine Learning
 #%% #--------------------------------------------------
 
 import warnings
-#%matplotlib inline 
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = [15, 10]
+plt.rcParams['figure.figsize'] = [10, 5]
 import math
 import time
 import datetime
@@ -44,7 +43,7 @@ df.rename( index=str, columns={"date": "ym"}, inplace=True)
 df['date'] = pd.to_datetime(df['ym'],format='%Y%m') + MonthEnd(1)
 df['sp500_rf'] = df['sp500_rf'] * 100
 df['lnsp500_rf'] = df['lnsp500_rf'] * 100
-df.sort_values(by=['ym'])
+df.sort_values(by=['ym']);
 
 #%% #--------------------------------------------------
 #"""Lagging predictive  variables"""
@@ -95,16 +94,12 @@ df.describe().T
 
 #%% #--------------------------------------------------
 # Add interaction variables
-#%% #--------------------------------------------------
 #''' Train and Test Samples'''
 from sklearn.model_selection import train_test_split
 Xo= df[predictors]
 yo = df['lnsp500_rf']
 
-
 X, X_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = False )
-
-
 #%% #--------------------------------------------------
 #'''Standardize Data'''
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
@@ -142,9 +137,9 @@ model_c = reg.fit(Ones,y)
 from sklearn.decomposition import PCA
 #pca = PCA().fit(X)
 
-#plt.plot(np.cumsum(pca.explained_variance_ratio_))
-#plt.xlabel('number of components')
-#plt.ylabel('cumulative explained variance');
+# plt.plot(np.cumsum(pca.explained_variance_ratio_))
+# plt.xlabel('number of components')
+# plt.ylabel('cumulative explained variance');
 
 reg = linear_model.LinearRegression()
 pca = PCA(n_components=4)
@@ -267,69 +262,6 @@ print('\n')
 print(alpha_enet)
 
 
-'''
-####
-# LassoLarsCV: least angle regression
-print("Computing regularization path using the Lars lasso...")
-t1 = time.time()
-model = LassoLarsCV(cv=20).fit(X, y)
-t_lasso_lars_cv = time.time() - t1
-
-# Display results
-m_log_alphas = -np.log10(model.cv_alphas_)
-
-plt.figure()
-plt.plot(m_log_alphas, model.mse_path_, ':')
-plt.plot(m_log_alphas, model.mse_path_.mean(axis=-1), 'k',
-         label='Average across the folds', linewidth=2)
-plt.axvline(-np.log10(model.alpha_), linestyle='--', color='k',
-            label='alpha CV')
-plt.legend()
-
-plt.xlabel('-log(alpha)')
-plt.ylabel('Mean square error')
-plt.title('Mean square error on each fold: Lars (train time: %.2fs)'
-          % t_lasso_lars_cv)
-plt.axis('tight')
-#plt.ylim(ymin, ymax)
-
-
-
-print(-np.log10(model.alpha_))
-
-#####
-# LassoLarsIC: least angle regression with BIC/AIC criterion
-
-model_bic = LassoLarsIC(criterion='bic')
-t1 = time.time()
-model_bic.fit(X, y)
-t_bic = time.time() - t1
-alpha_bic_ = model_bic.alpha_
-
-model_aic = LassoLarsIC(criterion='aic')
-model_aic.fit(X, y)
-alpha_aic_ = model_aic.alpha_
-
-plt.show()
-
-def plot_ic_criterion(model, name, color):
-    alpha_ = model.alpha_
-    alphas_ = model.alphas_
-    criterion_ = model.criterion_
-    plt.plot(-np.log10(alphas_), criterion_, '--', color=color,
-             linewidth=3, label='%s criterion' % name)
-    plt.axvline(-np.log10(alpha_), color=color, linewidth=3,
-                label='alpha: %s estimate' % name)
-    plt.xlabel('-log(alpha)')
-    plt.ylabel('criterion')
-
-plt.figure()
-plot_ic_criterion(model_aic, 'AIC', 'b')
-plot_ic_criterion(model_bic, 'BIC', 'r')
-plt.legend()
-plt.title('Information-criterion for model selection (training time %.3fs)'
-          % t_bic)
-'''
 # #############################################################################
 #%% #--------------------------------------------------
 #''' Lasso and Elastic Net - Paths'''
@@ -588,9 +520,6 @@ test_model(enet_model,"Enet", K)
 '''
 --> ENET and LASSO  perform better our-of-sample but R2 negative
 '''
-#%% #--------------------------------------------------
-
-#%% #--------------------------------------------------
 #%% #--------------------------------------------------
 #'''Potential Alternative Approach '''
 
