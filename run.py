@@ -18,7 +18,8 @@ from pandas.tseries.offsets import MonthEnd # To Determine the End of the Corres
 import sys # To caclulate memory usage
 import os
 # dir = 'C:\Research\Google Search Volume'
-dir = 'E:/Research/Equity Premium and Machine Learning'
+dir = os.getcwd()
+#'E:/Research/Equity Premium and Machine Learning'
 #dir = "C:/Users/vonNe/Google Drive/Data Science/Projects/Equity Premium and Machine Learning"
 #dir = 'D:/Ravenpack'
 os.chdir(dir)
