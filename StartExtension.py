@@ -30,6 +30,15 @@ def data_transform(df):
             'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
             'vol_3_12']
     return df, macro, tech, state, other
+#?''' Train and Test Samples'''
+from sklearn.model_selection import train_test_split
+def train_test(df):
+    Xo= df[predictors]
+    yo = df['lnsp500_rf']
+    X, X_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = False )
+    return X, X_test, y, y_test
+
+
 #? Cut Sample Period
 def sample_cut(df, period = None):
 """
@@ -49,6 +58,22 @@ Sample Cut
     else:
         sys.exit("Wrong Sample")
     return df, predictors
+
+from sklearn.preprocessing import PolynomialFeatures
+#''' Interaction Terms'''
+def generate_interaction(X, X_test):
+    if Poly == 1:
+        poly = PolynomialFeatures(interaction_only=True,include_bias = False)
+        Xp = poly.fit_transform(X)
+        Xp_test = poly.fit_transform(X_test)
+    elif Poly == 2:
+        poly = PolynomialFeatures(degree = 2,include_bias = False)
+        Xp = poly.fit_transform(X)
+        Xp_test = poly.fit_transform(X_test)
+    else:
+        Xp = X
+        Xp_test = X_test
+    return Xp, Xp_test
 #%% #--------------------------------------------------
 #! Import Libraries and Do Settings
 import warnings
@@ -76,7 +101,6 @@ os.makedirs(dir + '/in', exist_ok = True)
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
 from sklearn.preprocessing import PolynomialFeatures
-
 #%% #--------------------------------------------------
 #! Global Parameters
 #* Cross-validation Parameter
@@ -88,6 +112,38 @@ test_size= 1/TsizeInv
 Poly = 1
 #* Period
 Period  = 1974
+#%% #--------------------------------------------------
+#! Define Models 
+#?''' OLS model'''
+from sklearn import linear_model
+ols = linear_model.LinearRegression()
+
+#? Constant Need to change! as  Scikit- Learn Model
+#c = linear_model.LinearRegression(fit_intercept = False)
+
+#? PCA model - Also as a scikit-learn model + Optimal number of Comp
+from sklearn.decomposition import PCA
+# reg = linear_model.LinearRegression()
+# pca = PCA(n_components=4)
+# pca.fit(X)
+# X_pca = pca.transform(X)
+# model_pca = reg.fit(X_pca,y)
+# X_test_pca = pca.transform(X_test)
+
+#? LassoCV
+from sklearn.linear_model import  LassoCV
+lasso = LassoCV(cv=K)
+
+#? RidgeCV
+from sklearn.linear_model import  RidgeCV
+ridge = ElasticNetCV(alphas = ridge_alphas, l1_ratio = 0, cv=K)
+
+#? ElasticNetCV
+from sklearn.linear_model import ElasticNetCV
+enet = ElasticNetCV(cv=K)
+
+#? XGBoost
+from xgboost import XGBRegressor
 
 #%% #--------------------------------------------------
 #! Analysis Sequence
@@ -100,15 +156,10 @@ df, predictors = sample_cut(df, period = Period)
 df.describe().T 
 #""" --> Data is the same is in the paper Rapach et al 2013"""
 #%% #--------------------------------------------------
-#?''' Train and Test Samples'''
-from sklearn.model_selection import train_test_split
-Xo= df[predictors]
-yo = df['lnsp500_rf']
-X, X_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = False )
+#? Split and Prepare
+X, X_test, y, y_test = train_test(df)
+Xp, Xp_test = generate_interaction(X, X_test)
+#%% #--------------------------------------------------
+#? 
 
 
-
-
-
-
-#%%
