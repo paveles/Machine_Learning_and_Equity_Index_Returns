@@ -1,4 +1,4 @@
-#%% [markdown] #----------dfd----------------------------------------
+#%% [markdown] #--------------------------------------------------
 ## Equity Premium and Machine Learning
 #%% #--------------------------------------------------
 
@@ -94,7 +94,6 @@ df.describe().T
 
 
 #%% #--------------------------------------------------
-# Add interaction variables
 #''' Train and Test Samples'''
 from sklearn.model_selection import train_test_split
 Xo= df[predictors]
