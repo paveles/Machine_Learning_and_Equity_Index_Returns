@@ -12,8 +12,8 @@ def data_read(path):
     df.sort_values(by=['ym']);
     return df
 
-#? Data Transformation
-def data_transform(df):
+#? Data Prepare
+def data_prepare(df):
     # Important! Lagging by 1
     df['recessionD_c'] = df['recessionD']
     vars = ['recessionD', 'dp', 'dy', 'ep', 'de', \
@@ -60,8 +60,8 @@ Sample Cut
     return df, predictors
 
 from sklearn.preprocessing import PolynomialFeatures
-#''' Interaction Terms'''
-def generate_interaction(X, X_test):
+#?''' Interaction Terms'''
+def generate_interactions(X, X_test):
     if Poly == 1:
         poly = PolynomialFeatures(interaction_only=True,include_bias = False)
         Xp = poly.fit_transform(X)
@@ -74,6 +74,13 @@ def generate_interaction(X, X_test):
         Xp = X
         Xp_test = X_test
     return Xp, Xp_test
+#? '''Standardize Data'''
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+def data_scale(X, X_test):
+    scaler = StandardScaler().fit(X)
+    X = pd.DataFrame(scaler.transform(X),  index=X.index, columns=X.columns )
+    X_test = pd.DataFrame(scaler.transform(X_test),  index=X_test.index, columns=X_test.columns )
+    return X, X_test
 #%% #--------------------------------------------------
 #! Import Libraries and Do Settings
 import warnings
@@ -135,8 +142,8 @@ from sklearn.linear_model import  LassoCV
 lasso = LassoCV(cv=K)
 
 #? RidgeCV
-from sklearn.linear_model import  RidgeCV
-ridge = ElasticNetCV(alphas = ridge_alphas, l1_ratio = 0, cv=K)
+from sklearn.linear_model import ElasticNetCV
+ridge = ElasticNetCV( l1_ratio = 0, cv=K)
 
 #? ElasticNetCV
 from sklearn.linear_model import ElasticNetCV
@@ -144,12 +151,20 @@ enet = ElasticNetCV(cv=K)
 
 #? XGBoost
 from xgboost import XGBRegressor
+#? Keras - FFN
+#? Keras - LSTM
+#? AutoML
+#? AutoSklearn
+#? TPOT
+#? Autofeat
+#? Talos
 
+models = {"ols": ols}
 #%% #--------------------------------------------------
 #! Analysis Sequence
 #?Prepare
 df = data_read('in/rapach_2013.csv')
-df, macro, tech, state, other = data_transform(df)
+df, macro, tech, state, other = data_prepare(df)
 df, predictors = sample_cut(df, period = Period)
 
 #? Describe
@@ -158,7 +173,9 @@ df.describe().T
 #%% #--------------------------------------------------
 #? Split and Prepare
 X, X_test, y, y_test = train_test(df)
-Xp, Xp_test = generate_interaction(X, X_test)
+X, X_test = data_scale(X,X_test)
+Xp, Xp_test = generate_interactions(X, X_test)
+
 #%% #--------------------------------------------------
 #? 
 
