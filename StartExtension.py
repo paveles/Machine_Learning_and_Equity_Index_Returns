@@ -21,7 +21,7 @@ def data_prepare(df):
             'ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
             'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
             'vol_3_12', 'sento ', 'sent', 'dsento', 'dsent', 'ewsi']
-    df[vars] = df[vars].shift(1)
+    #df[vars] = df[vars].shift(1) #! No Shifting
     # Define variables
     other = ['ewsi']
     state = ['recessionD', 'sent']
@@ -105,6 +105,7 @@ os.makedirs(dir + '/temp', exist_ok = True)
 os.makedirs(dir + '/out/temp', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
 
+from tsml_framework2 import * # Framework for Time Series Analysis
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
 from sklearn.preprocessing import PolynomialFeatures
@@ -175,8 +176,40 @@ df.describe().T
 X, X_test, y, y_test = train_test(df)
 X, X_test = data_scale(X,X_test)
 Xp, Xp_test = generate_interactions(X, X_test)
+X = X[macro]
+dft = pd.concat([X, y, df['date'].dt.to_period('M').astype(int)], axis=1)
+dft.columns
+#%% #--------------------------------------------------
+#? Simplest Experiment
+super_1_p = ols.fit(X,y)
+#X_1 = X.shift(1)
+Model_1_Error = super_1_p.score(X,y)
+print(super_1_p,Model_1_Error)
+#%% #--------------------------------------------------
+#? One Step Further
+from sklearn.metrics import mean_squared_error
+from sklearn.pipeline import Pipeline
+model = ols
+kf = Kfold_time(target='lnsp500_rf',date_col = 'date', 
+                   date_init=108, date_final=491)
+steps_1 = [('1_step', ToSupervised(X,y,1)),
+           ('predic_1', TimeSeriesRegressor(model=model,cv=kf, scoring = mean_squared_error))]
 
+super_1_p = Pipeline(steps_1).fit(dft)
+Model_1_Error = super_1_p.score(dft)
 #%% #--------------------------------------------------
 #? 
+model = ols
+steps_1 = [('1_step',ToSupervised(X,y,0)),
+
+]
+k =ToSupervised(X,y,1)
+k2 = k.transform(k,'lnsp500_rf')
+#k.fit()
 
 
+
+#%%
+
+%qtconsole
+#%%
