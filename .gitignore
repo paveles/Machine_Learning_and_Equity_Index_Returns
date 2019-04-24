@@ -1,2 +1,3 @@
 #! Visual Code Settings
 .vscode/*
+__pycache__/*

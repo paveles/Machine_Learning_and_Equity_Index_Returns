@@ -151,7 +151,12 @@ from sklearn.linear_model import ElasticNetCV
 enet = ElasticNetCV(cv=K)
 
 #? XGBoost
-#from xgboost import XGBRegressor
+from xgboost import XGBRegressor
+#? lightgbm
+from lightgbm import LGBMRegressor
+#? Random Forest
+from sklearn.ensemble import RandomForestRegressor
+
 #? Keras - FFN
 #? Keras - LSTM
 #? AutoML
@@ -199,6 +204,9 @@ steps_1 = [('1_step', ToSupervised(X,y,0,dropna = True)),
 ('predic_1', TimeSeriesRegressor(model=model,cv=kf, scoring = mean_squared_error))]
 
 super_1_p = Pipeline(steps_1).fit(dft)
-Model_1_Error = super_1_p.score(dft)
+#Model_1_Error = super_1_p.score(dft)
 #%% #--------------------------------------------------
+Model_1_Error
 
+
+#%%
