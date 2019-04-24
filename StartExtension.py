@@ -105,7 +105,7 @@ os.makedirs(dir + '/temp', exist_ok = True)
 os.makedirs(dir + '/out/temp', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
 
-from tsml_framework2 import * # Framework for Time Series Analysis
+from tsml_framework import * # Framework for Time Series Analysis
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
 from sklearn.preprocessing import PolynomialFeatures
@@ -177,7 +177,7 @@ X, X_test, y, y_test = train_test(df)
 X, X_test = data_scale(X,X_test)
 Xp, Xp_test = generate_interactions(X, X_test)
 X = X[macro]
-dft = pd.concat([X, y, df['date'].dt.to_period('M').astype(int)],join = 'inner', axis=1)
+dft = pd.concat([X, y, df['date'].dt.to_period('M').astype(int)], join = 'inner', axis=1)
 dft.columns
 #%% #--------------------------------------------------
 #? Simplest Experiment
@@ -187,18 +187,18 @@ Model_1_Error = super_1_p.score(X,y)
 print(super_1_p,Model_1_Error)
 #%% #--------------------------------------------------
 #? One Step Further
-from tsml_framework2 import * # Framework for Time Series Analysis
+from tsml_framework import * # Framework for Time Series Analysis
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.pipeline import Pipeline
-import numpy as np
+#import numpy as np
 model = ols
 kf = Kfold_time(target='lnsp500_rf',date_col = 'date', 
-                date_init=400, date_final=dft['date'].max())
+                date_init=450, date_final=dft['date'].max())
                 #108
-steps_1 = [('1_step', ToSupervised(X,y,0)),
-           ('predic_1', TimeSeriesRegressor(model=model,cv=kf, scoring = mean_squared_error))]
-#
+steps_1 = [('1_step', ToSupervised(X,y,0,dropna = True)), 
+('predic_1', TimeSeriesRegressor(model=model,cv=kf, scoring = mean_squared_error))]
+
 super_1_p = Pipeline(steps_1).fit(dft)
 Model_1_Error = super_1_p.score(dft)
 #%% #--------------------------------------------------
-#y.isnull().sum()
+
