@@ -1,4 +1,5 @@
 from sklearn import base
+import numpy as np
 #%% [markdown]
 # # To Supervised
 
@@ -18,9 +19,12 @@ class ToSupervised(base.BaseEstimator,base.TransformerMixin):
     
     def transform(self,X):
         tmp = self.X.copy()
-        for i in range(1,self.numLags+1):
-            tmp[str(i)+'_Week_Ago'+"_"+self.col] = tmp[self.col].shift(i) 
-        #.groupby([self.groupCol])
+        # #tmp[self.col] = tmp[self.col].shift(1)
+        # for i in range(1,self.numLags+1):
+        # #    tmp[str(i)+'_Week_Ago'+"_"+self.col] = tmp[self.col].shift(i)
+        # #    tmp[str(i)+'_Week_Ago'+"_"+self.col] = tmp[self.col].shift(i) 
+        # #.groupby([self.groupCol])
+            
 
         if self.dropna:
             tmp = tmp.dropna()
@@ -29,6 +33,56 @@ class ToSupervised(base.BaseEstimator,base.TransformerMixin):
         
             
         return tmp
+
+# # Time Series Regression
+
+#%%
+class TimeSeriesRegressor(base.BaseEstimator, base.RegressorMixin):
+    
+    def __init__(self,model,cv,scoring,verbosity=True):
+        self.model = model
+        self.cv = cv
+        self.verbosity = verbosity
+        self.scoring = scoring 
+        
+            
+    def fit(self,X,y=None):
+        return self
+        
+    
+    def predict(self,X=None):
+        
+        pred = {}
+        for indx,fold in enumerate(self.cv.split(X)):
+
+            X_train, X_test, y_train, y_test = fold    
+            self.model.fit(X_train, y_train)
+            pred[str(indx)+'_fold'] = self.model.predict(X_test)
+            
+        prediction = pd.DataFrame(pred)
+    
+        return prediction
+    
+
+    def score(self,X,y=None):
+
+
+        errors = []
+        for indx,fold in enumerate(self.cv.split(X)):
+
+            X_train, X_test, y_train, y_test = fold    
+            self.model.fit(X_train, y_train)
+            prediction = self.model.predict(X_test)
+            error = self.scoring(y_test, prediction)
+            errors.append(error)
+
+            if self.verbosity:
+                print("Fold: {}, Error: {:.4f}".format(indx,error))
+
+        if self.verbosity:
+            print('Total Error {:.4f}'.format(np.mean(errors)))
+
+        return errors
 
 
 #%%
@@ -134,61 +188,10 @@ class BaseEstimator(base.BaseEstimator, base.RegressorMixin):
     def score(self, X, y,scoring):
         
         prediction = self.predict(X)
-    
-        error =scoring(y, prediction)# np.sqrt(mean_squared_log_error(y, prediction))
+        error = scoring(y, prediction) 
         return error 
 
 #%% [markdown]
-# # Time Series Regression
-
-#%%
-class TimeSeriesRegressor(base.BaseEstimator, base.RegressorMixin):
-    
-    def __init__(self,model,cv,scoring,verbosity=True):
-        self.model = model
-        self.cv = cv
-        self.verbosity = verbosity
-        self.scoring = scoring 
-        
-            
-    def fit(self,X,y=None):
-        return self
-        
-    
-    def predict(self,X=None):
-        
-        pred = {}
-        for indx,fold in enumerate(self.cv.split(X)):
-
-            X_train, X_test, y_train, y_test = fold    
-            self.model.fit(X_train, y_train)
-            pred[str(indx)+'_fold'] = self.model.predict(X_test)
-            
-        prediction = pd.DataFrame(pred)
-    
-        return prediction
-    
-
-    def score(self,X,y=None):
-
-
-        errors = []
-        for indx,fold in enumerate(self.cv.split(X)):
-
-            X_train, X_test, y_train, y_test = fold    
-            self.model.fit(X_train, y_train)
-            prediction = self.model.predict(X_test)
-            error = self.scoring(y_test, prediction)
-            errors.append(error)
-
-            if self.verbosity:
-                print("Fold: {}, Error: {:.4f}".format(indx,error))
-
-        if self.verbosity:
-            print('Total Error {:.4f}'.format(np.mean(errors)))
-
-        return errors
-
 
 #%%
 class TimeSeriesRegressorLog(base.BaseEstimator, base.RegressorMixin):

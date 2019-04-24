@@ -21,7 +21,7 @@ def data_prepare(df):
             'ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
             'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
             'vol_3_12', 'sento ', 'sent', 'dsento', 'dsent', 'ewsi']
-    #df[vars] = df[vars].shift(1) #! No Shifting
+    df[vars] = df[vars].shift(1) #!  Shifting
     # Define variables
     other = ['ewsi']
     state = ['recessionD', 'sent']
@@ -41,9 +41,9 @@ def train_test(df):
 
 #? Cut Sample Period
 def sample_cut(df, period = None):
-"""
-Sample Cut
-"""
+# """
+# Sample Cut
+# """
     if Period is None:
         predictors = macro + tech
     elif Period == 1974:
@@ -151,7 +151,7 @@ from sklearn.linear_model import ElasticNetCV
 enet = ElasticNetCV(cv=K)
 
 #? XGBoost
-from xgboost import XGBRegressor
+#from xgboost import XGBRegressor
 #? Keras - FFN
 #? Keras - LSTM
 #? AutoML
@@ -169,7 +169,7 @@ df, macro, tech, state, other = data_prepare(df)
 df, predictors = sample_cut(df, period = Period)
 
 #? Describe
-df.describe().T 
+#df.describe().T 
 #""" --> Data is the same is in the paper Rapach et al 2013"""
 #%% #--------------------------------------------------
 #? Split and Prepare
@@ -177,39 +177,28 @@ X, X_test, y, y_test = train_test(df)
 X, X_test = data_scale(X,X_test)
 Xp, Xp_test = generate_interactions(X, X_test)
 X = X[macro]
-dft = pd.concat([X, y, df['date'].dt.to_period('M').astype(int)], axis=1)
+dft = pd.concat([X, y, df['date'].dt.to_period('M').astype(int)],join = 'inner', axis=1)
 dft.columns
 #%% #--------------------------------------------------
 #? Simplest Experiment
 super_1_p = ols.fit(X,y)
-#X_1 = X.shift(1)
+#X_1 = X.shift(1).dropna(axis = 0, how ='all')
 Model_1_Error = super_1_p.score(X,y)
 print(super_1_p,Model_1_Error)
 #%% #--------------------------------------------------
 #? One Step Further
-from sklearn.metrics import mean_squared_error
+from tsml_framework2 import * # Framework for Time Series Analysis
+from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.pipeline import Pipeline
+import numpy as np
 model = ols
 kf = Kfold_time(target='lnsp500_rf',date_col = 'date', 
-                   date_init=108, date_final=491)
-steps_1 = [('1_step', ToSupervised(X,y,1)),
+                date_init=400, date_final=dft['date'].max())
+                #108
+steps_1 = [('1_step', ToSupervised(X,y,0)),
            ('predic_1', TimeSeriesRegressor(model=model,cv=kf, scoring = mean_squared_error))]
-
+#
 super_1_p = Pipeline(steps_1).fit(dft)
 Model_1_Error = super_1_p.score(dft)
 #%% #--------------------------------------------------
-#? 
-model = ols
-steps_1 = [('1_step',ToSupervised(X,y,0)),
-
-]
-k =ToSupervised(X,y,1)
-k2 = k.transform(k,'lnsp500_rf')
-#k.fit()
-
-
-
-#%%
-
-%qtconsole
-#%%
+#y.isnull().sum()
