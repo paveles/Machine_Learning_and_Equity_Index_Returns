@@ -434,25 +434,33 @@ print(mean_squared_error(y, yhat_enet))
 '''
 
 #%% #--------------------------------------------------
-#''' Performance Metrics - Cross-Validated Comparison - CV = 10'''
+'''
+# Performance Metrics - Cross-Validated Comparison - CV = 10
 print("Performance Metrics - Cross-Validated  Comparison - CV = {}".format(K))
 from sklearn import linear_model
 from sklearn.model_selection import cross_val_score, cross_val_predict
 from sklearn import metrics
 
+models ={
+    'c_model' : linear_model.LinearRegression(fit_intercept=False),
+    'ols_model' : linear_model.LinearRegression(fit_intercept=True),
+    'pca_model' : linear_model.LinearRegression(fit_intercept=True),
+    'ridge_model' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
+    'lasso_model' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
+    'enet_model' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
+}
 #K = 10
 def test_model(model, model_name, K):
     #model = ols_model
     #model_name = 'OLS'
-    if model == c_model:
-            scores = cross_val_score(model, Ones, y, cv=K)
-            predictions = cross_val_predict(model, Ones, y, cv=K)
-    elif model == pca_model:
-            scores = cross_val_score(model, X_pca, y, cv=K)
-            predictions = cross_val_predict(model, X_pca, y, cv=K)    
+    if model_name == "c_model":
+        XX = Ones
+    elif model_name == "pca_model":
+       XX = X_pca 
     else:
-        scores = cross_val_score(model, X, y, cv=K)
-        predictions = cross_val_predict(model, X, y, cv=K)
+        XX = X
+    scores = cross_val_score(model, XX, y, cv=K)
+    predictions = cross_val_predict(model, XX, y, cv=K)   
     accuracy = metrics.r2_score(y, predictions)
     accuracy_adj = r2_adj_score(y, predictions,n = y.shape[0],  p = X.shape[1])
     MSE = metrics.mean_squared_error(y,predictions)
@@ -461,27 +469,24 @@ def test_model(model, model_name, K):
     print("Cross-Predicted R2:{}".format(accuracy))
     print("Cross-Predicted Adj R2:{}".format(accuracy_adj))
     print("Cross-Predicted MSE:{}".format(MSE))
-    #plt.scatter(y, predictions)
 
-c_model = linear_model.LinearRegression(fit_intercept=False)
-ols_model = linear_model.LinearRegression(fit_intercept=True)
-pca_model = linear_model.LinearRegression(fit_intercept=True)
-ridge_model = linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True)
-lasso_model = linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True)
-enet_model = linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True)
 
-test_model(c_model,"Constant", K)
-test_model(ols_model,"OLS", K)
-test_model(pca_model,"PCA", K)
-test_model(ridge_model,"Ridge", K)
-test_model(lasso_model,"Lasso", K)
-test_model(enet_model,"Enet", K)
+for m_name,m in models.items():
+    test_model(m,m_name, K)
+'''
 '''
 --> ENET and LASSO  perform better our-of-sample but R2 negative
 '''
 #%% #--------------------------------------------------
 #'''Potential Alternative Approach '''
-
+models ={
+    'c_model' : linear_model.LinearRegression(fit_intercept=False),
+    'ols_model' : linear_model.LinearRegression(fit_intercept=True),
+    'pca_model' : linear_model.LinearRegression(fit_intercept=True),
+    'ridge_model' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
+    'lasso_model' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
+    'enet_model' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
+}
 print("Potential Alternative Approach")
 from sklearn.model_selection import cross_validate
 ### Define Scorer
@@ -489,24 +494,49 @@ from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 
 mean_squared_error_scorer = make_scorer(mean_squared_error)
 scoring = {'MSE': mean_squared_error_scorer, 'r2': make_scorer(r2_score)}
-# cv=TimeSeriesSplit(n_splits=5).split(X)
-### Cross-Validation
-models = [c_model,  ols_model, pca_model, ridge_model, lasso_model, enet_model]
-models_names = ['c_model', 'ols_model','pca_model','ridge_model', 'lasso_model', 'enet_model']
-for k in range(len(models)):
-    if models_names[k] == "c_model":
-        cv_results = cross_validate(models[k], Ones, y, cv  = K , return_train_score=True, scoring = scoring )
-    elif models_names[k] == "ols_model":
-        cv_results = cross_validate(models[k], X, y, cv  = K , return_train_score=True, scoring = scoring )
-    elif models_names[k] == "pca_model":
-        cv_results = cross_validate(models[k], X_pca, y, cv  = K , return_train_score=True, scoring = scoring )
+
+### Cross-Validation + Test Sample
+df_results = pd.DataFrame()
+for m_name, m in models.items():
+    if m_name == 'c_model':
+        XX = Ones
+        XX_test = Ones_test
+    elif m_name == 'ols_model':
+        XX = X
+        XX_test = X_test
+    elif m_name == 'pca_model':
+       XX = X_pca 
+       XX_test = X_test_pca
     else:
-        cv_results = cross_validate(models[k], Xp, y, cv  = K , return_train_score=True, scoring = scoring )
+        XX = Xp
+        XX_test = Xp_test
+    # Cross-Validation 
+    cv_results = cross_validate(m, XX, y, cv  = K , return_train_score=True, scoring = scoring )
     df_cv = pd.DataFrame.from_dict(cv_results)
-    df_avg = df_cv.mean(axis = 0)
-    print("")
-    print(models_names[k])
-    print(df_avg)
+    df_avg = df_cv.drop(columns=['fit_time', 'score_time']).mean(axis = 0)
+    
+    df_avg = df_avg.rename(index={ "test_MSE" : "valid_MSE", "test_r2" : "valid_r2"})
+
+    
+    # Test Sample
+    yhat = m.fit(XX,y).predict(XX_test)
+    test_r2 = r2_score(y_test, yhat)
+    test_MSE = mean_squared_error(y_test, yhat)
+    df_avg = df_avg.append(pd.Series(test_r2)).rename({0 : "test_r2"}, axis = 'index')
+    df_avg = df_avg.append(pd.Series(test_MSE)).rename({0 : "test_MSE"}, axis = 'index')
+    
+    df_name = pd.Series(m_name) 
+    df_avg = df_avg.append(df_name).rename({0 : "model"}, axis = 'index')
+    
+    df_results = df_results.append(df_avg, ignore_index=True)
+
+
+print(df_results)
+df_results.to_csv("out/insample_results.csv")
+'''
+--> ENET and LASSO  perform better our-of-sample but R2 negative
+--> OLS performs the best in-sample
+'''
 #%% #--------------------------------------------------
 
  #%% #--------------------------------------------------
@@ -523,8 +553,9 @@ for k in range(len(models)):
 #--> Multicollinearity in data
 
  #%% #--------------------------------------------------
-#''' Performance Metrics - Out_of-Sample Comparison'''
-print("''' Performance Metrics - Out_of-Sample Comparison'''")
+'''
+# Performance Metrics - Out_of-Sample Comparison
+print(" Performance Metrics - Out_of-Sample Comparison")
 from sklearn.metrics import mean_squared_error, r2_score
 def r2_adj_score(y, yhat, n, p):
     r2 =  r2_score(y, yhat)
@@ -543,10 +574,9 @@ print("MSE:")
 for yh,yh_n in zip(yhats,yhats_names):
     print("mean_squared_error(y_test, {})".format(yh_n))
     print(mean_squared_error(y_test, yh))
+    print("r2_score(y_test, {})".format(yh_n))
+    print(r2_score(y_test, yh))
 
-'''
---> OLS performs the best in-sample
-'''
 
 ## Print the Results
 os.makedirs(dir+"out/oos/",exist_ok = True)
@@ -556,6 +586,7 @@ for yh,yh_n in zip(yhats,yhats_names):
     f.write("mean_squared_error(y_test, {})\n".format(yh_n))
     f.write("{}\n".format(mean_squared_error(y_test, yh)))
 f.close()
+'''
 #%% #--------------------------------------------------
 #'''Prediction Plot''' 
 plt.figure(figsize=(15,7.5))
