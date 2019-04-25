@@ -433,26 +433,6 @@ print(mean_squared_error(y, yhat_enet))
 --> OLS performs the best in-sample
 '''
 
-#%% [markdown] #--------------------------------------------------
-# # Time Series Split Modified
-
-#%% #--------------------------------------------------
-#? Add Time Series Validation
-from TimeSeriesSplitMod import *
-kf = TimeSeriesSplitMod(n_splits=len(y.index)-1, start_test_split=400)
-#%%
-from TimeSeriesSplitMod import *
-
-X = np.array([[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4]])
-y = np.array([1, 2, 3, 4, 5, 6])
-tscv = TimeSeriesSplitMod(n_splits=5,start_test_split = 4)
-print(tscv)  
-
-for train_index, test_index in tscv.split(X):
-   print("TRAIN:", train_index, "TEST:", test_index)
-   X_train, X_test = X[train_index], X[test_index]
-   y_train, y_test = y[train_index], y[test_index]
-
 #%% #--------------------------------------------------
 #''' Performance Metrics - Cross-Validated Comparison - CV = 10'''
 print("Performance Metrics - Cross-Validated  Comparison - CV = {}".format(K))
@@ -490,12 +470,12 @@ ridge_model = linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True)
 lasso_model = linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True)
 enet_model = linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True)
 
-test_model(c_model,"Constant", kf)
-test_model(ols_model,"OLS", kf)
-test_model(pca_model,"PCA", kf)
-test_model(ridge_model,"Ridge", kf)
-test_model(lasso_model,"Lasso", kf)
-test_model(enet_model,"Enet", kf)
+test_model(c_model,"Constant", K)
+test_model(ols_model,"OLS", K)
+test_model(pca_model,"PCA", K)
+test_model(ridge_model,"Ridge", K)
+test_model(lasso_model,"Lasso", K)
+test_model(enet_model,"Enet", K)
 '''
 --> ENET and LASSO  perform better our-of-sample but R2 negative
 '''
