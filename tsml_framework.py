@@ -116,7 +116,6 @@ class ToSupervisedDiff(base.BaseEstimator,base.TransformerMixin):
 
 #%% [markdown]
 # # Time Series K-Fold
-
 #%%
 from itertools import chain
 class Kfold_time(object):
