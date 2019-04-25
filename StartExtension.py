@@ -204,7 +204,7 @@ steps_1 = [('1_step', ToSupervised(X,y,0,dropna = True)),
 ('predic_1', TimeSeriesRegressor(model=model,cv=kf, scoring = mean_squared_error))]
 
 super_1_p = Pipeline(steps_1).fit(dft)
-#Model_1_Error = super_1_p.score(dft)
+Model_1_Error = super_1_p.score(dft)
 #%% #--------------------------------------------------
 Model_1_Error
 

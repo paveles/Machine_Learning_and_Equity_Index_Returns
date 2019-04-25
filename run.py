@@ -6,7 +6,7 @@
 
 import warnings
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = [10, 5]
+plt.rcParams['figure.figsize'] = [15, 10]
 import math
 import time
 import datetime
@@ -434,54 +434,25 @@ print(mean_squared_error(y, yhat_enet))
 '''
 
 #%% [markdown] #--------------------------------------------------
-# # Time Series K-Fold
-#%%
-from itertools import chain
-class Kfold_time(object):
-    
-    def __init__(self,**options):
-        
-        
-        self.target     = options.pop('target', None)
-        self.date_col   = options.pop('date_col', None)
-        self.date_init  = options.pop('date_init', None)
-        self.date_final = options.pop('date_final', None)
-
-        if options:
-            raise TypeError("Invalid parameters passed: %s" % str(options))
-            
-        if ((self.target==None )| (self.date_col==None )| (self.date_init==None ) | (self.date_final==None )):
-            raise TypeError("Incomplete inputs")
-    
-    def _train_test_split_time(self,X):
-        n_arrays = len(X)
-        if n_arrays == 0:
-            raise ValueError("At least one array required as input")
-
-        for i in range(self.date_init,self.date_final):
-
-            train = X[X[self.date_col] < i]
-            val   = X[X[self.date_col] == i]
-
-            X_train, X_test = train.drop([self.target], axis=1), val.drop([self.target], axis=1)
-            y_train, y_test = train[self.target].values, val[self.target].values
-
-            yield X_train, X_test, y_train, y_test
-
-    
-    def split(self,X):
-        cv_t = self._train_test_split_time(X)
-        return chain(cv_t)
-
+# # Time Series Split Modified
 
 #%% #--------------------------------------------------
 #? Add Time Series Validation
-dft = pd.concat([X, y, df['date'].dt.to_period('M').astype(int)], join = 'inner', axis=1)
+from TimeSeriesSplitMod import *
+kf = TimeSeriesSplitMod(n_splits=len(y.index)-1, start_test_split=400)
+#%%
+from TimeSeriesSplitMod import *
 
-kf = Kfold_time(target='lnsp500_rf',date_col = 'date', 
-                date_init=dft['date'].min() + 120,
-                date_final=dft['date'].max())
-        
+X = np.array([[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4]])
+y = np.array([1, 2, 3, 4, 5, 6])
+tscv = TimeSeriesSplitMod(n_splits=5,start_test_split = 4)
+print(tscv)  
+
+for train_index, test_index in tscv.split(X):
+   print("TRAIN:", train_index, "TEST:", test_index)
+   X_train, X_test = X[train_index], X[test_index]
+   y_train, y_test = y[train_index], y[test_index]
+
 #%% #--------------------------------------------------
 #''' Performance Metrics - Cross-Validated Comparison - CV = 10'''
 print("Performance Metrics - Cross-Validated  Comparison - CV = {}".format(K))

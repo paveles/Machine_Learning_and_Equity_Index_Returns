@@ -1,3 +1,4 @@
 #! Visual Code Settings
 .vscode/*
 __pycache__/*
+.ipynb_checkpoints/*
