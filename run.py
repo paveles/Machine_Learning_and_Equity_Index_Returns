@@ -1,3 +1,5 @@
+
+
 #%% [markdown] #--------------------------------------------------
 ## Equity Premium and Machine Learning
 #%% #--------------------------------------------------
@@ -394,52 +396,11 @@ plt.ylabel('Coefficients')
 #plt.show()
 plt.savefig(dir+"/out/Coefficients")
 
-
  #%% #--------------------------------------------------
 #''' Performance Metrics - In-Sample Comparison'''
 print("''' Performance Metrics - In-Sample Comparison'''")
 from sklearn.metrics import mean_squared_error, r2_score
-def r2_adj_score(y, yhat, n, p):
-    r2 =  r2_score(y, yhat)
-    return 1 - (1-r2)*(n-1)/(n-p-1)
 
-yhat_c = model_c.predict(Ones)
-yhat_ols = model_ols.predict(X)
-yhat_pca = model_pca.predict(X_pca)
-yhat_ridge = model_ridge.predict(Xp)
-yhat_lasso = model_lasso.predict(Xp)
-yhat_enet = model_enet.predict(Xp)
-
-
-print("R2:")
-print(r2_score(y, yhat_c))
-print(r2_score(y, yhat_ols))
-print(r2_score(y, yhat_pca))
-print(r2_score(y, yhat_ridge))
-print(r2_score(y, yhat_lasso))
-print(r2_score(y, yhat_enet))
-print("R2_adj:")
-print(r2_adj_score(y, yhat_c,n = y.shape[0],  p = Ones.shape[1]))
-print(r2_adj_score(y, yhat_ols,n = y.shape[0],  p = X.shape[1]))
-print(r2_adj_score(y, yhat_pca,n = y.shape[0],  p = X_pca.shape[1]))
-print(r2_adj_score(y, yhat_ridge,n = y.shape[0],  p = X.shape[1]))
-print(r2_adj_score(y, yhat_lasso,n = y.shape[0],  p = X.shape[1]))
-print(r2_adj_score(y, yhat_enet,n = y.shape[0],  p = X.shape[1]))
-print("MSE:")
-print(mean_squared_error(y, yhat_c))
-print(mean_squared_error(y, yhat_ols))
-print(mean_squared_error(y, yhat_pca))
-print(mean_squared_error(y, yhat_ridge))
-print(mean_squared_error(y, yhat_lasso))
-print(mean_squared_error(y, yhat_enet))
-
-'''
---> OLS performs the best in-sample
-'''
- #%% #--------------------------------------------------
-#''' Performance Metrics - In-Sample Comparison'''
-print("''' Performance Metrics - In-Sample Comparison'''")
-from sklearn.metrics import mean_squared_error, r2_score
 def r2_adj_score(y, yhat, n, p):
     r2 =  r2_score(y, yhat)
     return 1 - (1-r2)*(n-1)/(n-p-1)
@@ -472,7 +433,54 @@ print(mean_squared_error(y, yhat_enet))
 --> OLS performs the best in-sample
 '''
 
+#%% [markdown] #--------------------------------------------------
+# # Time Series K-Fold
+#%%
+from itertools import chain
+class Kfold_time(object):
+    
+    def __init__(self,**options):
+        
+        
+        self.target     = options.pop('target', None)
+        self.date_col   = options.pop('date_col', None)
+        self.date_init  = options.pop('date_init', None)
+        self.date_final = options.pop('date_final', None)
 
+        if options:
+            raise TypeError("Invalid parameters passed: %s" % str(options))
+            
+        if ((self.target==None )| (self.date_col==None )| (self.date_init==None ) | (self.date_final==None )):
+            raise TypeError("Incomplete inputs")
+    
+    def _train_test_split_time(self,X):
+        n_arrays = len(X)
+        if n_arrays == 0:
+            raise ValueError("At least one array required as input")
+
+        for i in range(self.date_init,self.date_final):
+
+            train = X[X[self.date_col] < i]
+            val   = X[X[self.date_col] == i]
+
+            X_train, X_test = train.drop([self.target], axis=1), val.drop([self.target], axis=1)
+            y_train, y_test = train[self.target].values, val[self.target].values
+
+            yield X_train, X_test, y_train, y_test
+
+    
+    def split(self,X):
+        cv_t = self._train_test_split_time(X)
+        return chain(cv_t)
+
+
+#%% #--------------------------------------------------
+#? Add Time Series Validation
+dft = pd.concat([X, y, df['date'].dt.to_period('M').astype(int)], join = 'inner', axis=1)
+
+kf = Kfold_time(target='lnsp500_rf',date_col = 'date', 
+                date_init=dft['date'].min() + 120,
+                date_final=dft['date'].max())
         
 #%% #--------------------------------------------------
 #''' Performance Metrics - Cross-Validated Comparison - CV = 10'''
@@ -511,12 +519,12 @@ ridge_model = linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True)
 lasso_model = linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True)
 enet_model = linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True)
 
-test_model(c_model,"Constant", K)
-test_model(ols_model,"OLS", K)
-test_model(pca_model,"PCA", K)
-test_model(ridge_model,"Ridge", K)
-test_model(lasso_model,"Lasso", K)
-test_model(enet_model,"Enet", K)
+test_model(c_model,"Constant", kf)
+test_model(ols_model,"OLS", kf)
+test_model(pca_model,"PCA", kf)
+test_model(ridge_model,"Ridge", kf)
+test_model(lasso_model,"Lasso", kf)
+test_model(enet_model,"Enet", kf)
 '''
 --> ENET and LASSO  perform better our-of-sample but R2 negative
 '''
