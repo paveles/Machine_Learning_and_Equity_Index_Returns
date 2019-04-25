@@ -480,12 +480,12 @@ for m_name,m in models.items():
 #%% #--------------------------------------------------
 #'''Potential Alternative Approach '''
 models ={
-    'c_model' : linear_model.LinearRegression(fit_intercept=False),
-    'ols_model' : linear_model.LinearRegression(fit_intercept=True),
-    'pca_model' : linear_model.LinearRegression(fit_intercept=True),
-    'ridge_model' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
-    'lasso_model' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
-    'enet_model' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
+    'const' : linear_model.LinearRegression(fit_intercept=False),
+    'ols' : linear_model.LinearRegression(fit_intercept=True),
+    'pca' : linear_model.LinearRegression(fit_intercept=True),
+    'ridge' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
+    'lasso' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
+    'enet' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
 }
 print("Potential Alternative Approach")
 from sklearn.model_selection import cross_validate
@@ -496,15 +496,16 @@ mean_squared_error_scorer = make_scorer(mean_squared_error)
 scoring = {'MSE': mean_squared_error_scorer, 'r2': make_scorer(r2_score)}
 
 ### Cross-Validation + Test Sample
+yhats = pd.DataFrame()
 df_results = pd.DataFrame()
 for m_name, m in models.items():
-    if m_name == 'c_model':
+    if m_name == 'c':
         XX = Ones
         XX_test = Ones_test
-    elif m_name == 'ols_model':
+    elif m_name == 'ols':
         XX = X
         XX_test = X_test
-    elif m_name == 'pca_model':
+    elif m_name == 'pca':
        XX = X_pca 
        XX_test = X_test_pca
     else:
@@ -520,6 +521,7 @@ for m_name, m in models.items():
     
     # Test Sample
     yhat = m.fit(XX,y).predict(XX_test)
+    yhats[m_name] = yhat
     test_r2 = r2_score(y_test, yhat)
     test_MSE = mean_squared_error(y_test, yhat)
     df_avg = df_avg.append(pd.Series(test_r2)).rename({0 : "test_r2"}, axis = 'index')
@@ -529,7 +531,7 @@ for m_name, m in models.items():
     df_avg = df_avg.append(df_name).rename({0 : "model"}, axis = 'index')
     
     df_results = df_results.append(df_avg, ignore_index=True)
-
+    
 
 print(df_results)
 df_results.to_csv("out/insample_results.csv")
@@ -553,7 +555,7 @@ df_results.to_csv("out/insample_results.csv")
 #--> Multicollinearity in data
 
  #%% #--------------------------------------------------
-'''
+
 # Performance Metrics - Out_of-Sample Comparison
 print(" Performance Metrics - Out_of-Sample Comparison")
 from sklearn.metrics import mean_squared_error, r2_score
@@ -586,7 +588,7 @@ for yh,yh_n in zip(yhats,yhats_names):
     f.write("mean_squared_error(y_test, {})\n".format(yh_n))
     f.write("{}\n".format(mean_squared_error(y_test, yh)))
 f.close()
-'''
+
 #%% #--------------------------------------------------
 #'''Prediction Plot''' 
 plt.figure(figsize=(15,7.5))
@@ -618,3 +620,10 @@ plt.ylabel('Monthly Return in %')
 plt.legend(yhats_names)
 plt.savefig(dir+"/out/Prediction")
 #%% #--------------------------------------------------
+
+ym_test= pd.DataFrame(df['ym'].loc[y_test.index]).astype(int).reset_index(drop=True)
+plotdata = pd.concat([ym_test,yhats],axis = 1).sort_values('ym')
+plotdata = plotdata.melt(id_vars='ym', var_name='cols',  value_name='vals')
+sns.lineplot(x='ym',y='vals', hue ='cols', data = plotdata, )
+
+#%%
