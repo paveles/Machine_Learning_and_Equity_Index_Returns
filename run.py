@@ -161,7 +161,7 @@ from sklearn.linear_model import  RidgeCV, LassoCV, LassoLarsCV, LassoLarsIC, El
 
 print("Computing regularization path using the coordinate descent lasso...")
 t1 = time.time()
-model = LassoCV(cv=K).fit(Xp, y)
+model = LassoCV(cv=K).fit(X, y)
 #print(model.alphas_)
 model_lasso = model
 t_lasso_cv = time.time() - t1
@@ -196,7 +196,7 @@ plt.savefig(dir+"/out/lasso_cv")
 print("Computing regularization path using the coordinate descent ridge...")
 t1 = time.time()
 ridge_alphas = np.logspace(-4, 2, 50)
-model = ElasticNetCV(alphas = ridge_alphas, l1_ratio = 0, cv=K).fit(Xp, y)
+model = ElasticNetCV(alphas = ridge_alphas, l1_ratio = 0, cv=K).fit(X, y)
 
 model_ridge = model
 t_ridge_cv = time.time() - t1
@@ -231,7 +231,7 @@ print(alpha_ridge)
 
 print("Computing regularization path using the coordinate descent lasso...")
 t1 = time.time()
-model = ElasticNetCV(cv=K).fit(Xp, y)
+model = ElasticNetCV(cv=K).fit(X, y)
 
 model_enet = model
 t_enet_cv = time.time() - t1
@@ -434,7 +434,7 @@ print(mean_squared_error(y, yhat_enet))
 '''
 
 #%% #--------------------------------------------------
-'''
+
 # Performance Metrics - Cross-Validated Comparison - CV = 10
 print("Performance Metrics - Cross-Validated  Comparison - CV = {}".format(K))
 from sklearn import linear_model
@@ -442,20 +442,20 @@ from sklearn.model_selection import cross_val_score, cross_val_predict
 from sklearn import metrics
 
 models ={
-    'c_model' : linear_model.LinearRegression(fit_intercept=False),
-    'ols_model' : linear_model.LinearRegression(fit_intercept=True),
-    'pca_model' : linear_model.LinearRegression(fit_intercept=True),
-    'ridge_model' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
-    'lasso_model' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
-    'enet_model' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
+    # 'model_c' : linear_model.LinearRegression(fit_intercept=False),
+    # 'model_ols' : linear_model.LinearRegression(fit_intercept=True),
+    # 'model_pca' : linear_model.LinearRegression(fit_intercept=True),
+    'model_ridge' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
+    # 'model_lasso' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
+    # 'model_enet' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
 }
 #K = 10
 def test_model(model, model_name, K):
     #model = ols_model
     #model_name = 'OLS'
-    if model_name == "c_model":
+    if model_name == "model_c":
         XX = Ones
-    elif model_name == "pca_model":
+    elif model_name == "model_pca":
        XX = X_pca 
     else:
         XX = X
@@ -473,19 +473,19 @@ def test_model(model, model_name, K):
 
 for m_name,m in models.items():
     test_model(m,m_name, K)
-'''
+
 '''
 --> ENET and LASSO  perform better our-of-sample but R2 negative
 '''
 #%% #--------------------------------------------------
 #'''Potential Alternative Approach '''
 models ={
-    'const' : linear_model.LinearRegression(fit_intercept=False),
-    'ols' : linear_model.LinearRegression(fit_intercept=True),
-    'pca' : linear_model.LinearRegression(fit_intercept=True),
-    'ridge' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
-    'lasso' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
-    'enet' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
+    'model_c' : linear_model.LinearRegression(fit_intercept=False),
+    'model_ols' : linear_model.LinearRegression(fit_intercept=True),
+    'model_pca' : linear_model.LinearRegression(fit_intercept=True),
+    'model_ridge' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
+    'model_lasso' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
+    'model_enet' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
 }
 print("Potential Alternative Approach")
 from sklearn.model_selection import cross_validate
@@ -499,18 +499,18 @@ scoring = {'MSE': mean_squared_error_scorer, 'r2': make_scorer(r2_score)}
 yhats = pd.DataFrame()
 df_results = pd.DataFrame()
 for m_name, m in models.items():
-    if m_name == 'c':
+    if m_name == 'model_c':
         XX = Ones
         XX_test = Ones_test
-    elif m_name == 'ols':
+    elif m_name == 'model_ols':
         XX = X
         XX_test = X_test
-    elif m_name == 'pca':
+    elif m_name == 'model_pca':
        XX = X_pca 
        XX_test = X_test_pca
     else:
-        XX = Xp
-        XX_test = Xp_test
+        XX = X
+        XX_test = X_test
     # Cross-Validation 
     cv_results = cross_validate(m, XX, y, cv  = K , return_train_score=True, scoring = scoring )
     df_cv = pd.DataFrame.from_dict(cv_results)
@@ -570,10 +570,10 @@ yhat_ridge = model_ridge.predict(Xp_test)
 yhat_lasso = model_lasso.predict(Xp_test)
 yhat_enet = model_enet.predict(Xp_test)
 
-yhats = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
+yhats_old = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
 yhats_names = ['c_model','pca_model', 'ols_model','ridge_model', 'lasso_model', 'enet_model']
 print("MSE:")
-for yh,yh_n in zip(yhats,yhats_names):
+for yh,yh_n in zip(yhats_old,yhats_names):
     print("mean_squared_error(y_test, {})".format(yh_n))
     print(mean_squared_error(y_test, yh))
     print("r2_score(y_test, {})".format(yh_n))
@@ -584,7 +584,7 @@ for yh,yh_n in zip(yhats,yhats_names):
 os.makedirs(dir+"out/oos/",exist_ok = True)
 f = open(dir+"/out/oos/K{}_TsizeInv{}_Poly{}_Period{}.txt".format(K,TsizeInv,Poly,Period), 'w')
 f.write("MSE:")
-for yh,yh_n in zip(yhats,yhats_names):
+for yh,yh_n in zip(yhats_old,yhats_names):
     f.write("mean_squared_error(y_test, {})\n".format(yh_n))
     f.write("{}\n".format(mean_squared_error(y_test, yh)))
 f.close()
@@ -595,11 +595,11 @@ plt.figure(figsize=(15,7.5))
 x= np.array(df['ym'].loc[y_test.index]).astype(int)
 #plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
 colors = cycle(['c','m','y', 'g', 'r','b', 'k'])
-yhats = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
+yhats_old = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
 yhats_names = ['Const', 'PCA',	'OLS',	'Ridge', 'Lasso', 'Enet']
 plt.plot(np.arange(len(x)),y_test,'--', color='k', linewidth=1,
              label='Realized Return')
-for yh,yh_n,color in zip(yhats,yhats_names,colors):
+for yh,yh_n,color in zip(yhats_old,yhats_names,colors):
     plt.plot(np.arange(len(x)),yh, linewidth=2, color = color)
 #label="{} prediction".format(yh_n)
 #    
@@ -620,10 +620,28 @@ plt.ylabel('Monthly Return in %')
 plt.legend(yhats_names)
 plt.savefig(dir+"/out/Prediction")
 #%% #--------------------------------------------------
+plt.figure(figsize=(15,7.5))
+ym_test= pd.DataFrame(df['date'].loc[y_test.index]).reset_index(drop=True)
+y_test_fig = y_test.reset_index(drop = True)
+plotdata = pd.concat([ym_test,y_test_fig,yhats],axis = 1)
+plotdata = plotdata.melt(id_vars='date', var_name='model',  value_name='return')
+sns.set_palette("deep")
+sns.lineplot(x='date',y='return', hue ='model', data = plotdata )
+plt.savefig(dir+"/out/lineplot_predict")
+plt.show()
 
-ym_test= pd.DataFrame(df['ym'].loc[y_test.index]).astype(int).reset_index(drop=True)
-plotdata = pd.concat([ym_test,yhats],axis = 1).sort_values('ym')
-plotdata = plotdata.melt(id_vars='ym', var_name='cols',  value_name='vals')
-sns.lineplot(x='ym',y='vals', hue ='cols', data = plotdata, )
+#%%
+# sns.reset_defaults()
+# g = sns.FacetGrid(plotdata, hue='model', height = 5, aspect= 2 )
+# g = g.map(plt.bar, 'date','return' , alpha=0.7)
+# g = g.add_legend()
+# plt.show()
+# plt.savefig(dir+"/out/barplot_predict")
+#%%
+%qtconsole
+
+
+#%%
+sns.set()
 
 #%%
