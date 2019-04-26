@@ -134,6 +134,7 @@ from sklearn.decomposition import PCA
 pca = PCA(n_components=4)
 pca.fit(X)
 X_pca = pca.transform(X)
+X_test_pca = pca.transform(X_test)
 # #############################################################################
 #%% #-------------------------------------------------- 
 from sklearn import linear_model
@@ -147,14 +148,14 @@ model_c = reg.fit(Ones,y)
 #''' PCA '''
 reg = linear_model.LinearRegression()
 model_pca = reg.fit(X_pca,y)
-X_test_pca = pca.transform(X_test)
+
 
 #%% #--------------------------------------------------
 #''' Lasso model selection: Cross-Validation'''
 # LassoCV: coordinate descent
 # Compute paths
 
-from sklearn.linear_model import  RidgeCV, LassoCV, LassoLarsCV, LassoLarsIC, ElasticNetCV
+from sklearn.linear_model import  RidgeCV, LassoCV, ElasticNetCV
 
 # LassoCV: coordinate descent
 model_lasso = LassoCV(cv=K).fit(X, y)
@@ -168,17 +169,91 @@ lambda_ridge = model_ridge.alpha_
 # .ElasticNetCV: coordinate descent
 model_enet = ElasticNetCV(cv=K).fit(X, y)
 lambda_enet = model_enet.alpha_
+#%% #--------------------------------------------------
 
+
+#? XGBoost
+from xgboost import XGBRegressor
+#? Random Forest
+from sklearn.ensemble import RandomForestRegressor
+
+#? Keras - FFN
+#? Keras - LSTM
+#? AutoML
+#? AutoSklearn
+#? TPOT
+#? Autofeat
+#? Talos
+
+#%% #--------------------------------------------------
+#? lightgbm
+import lightgbm as lgb
+from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
+lgtrain = lgb.Dataset(X,y ,feature_name = "auto")
+lgbm_params =  {
+    'task': 'train',
+    'boosting_type': 'gbdt',
+    'objective': 'regression',
+    'metric': 'mse',
+    "learning_rate": 0.01,
+    "num_leaves": 180,
+    "feature_fraction": 0.50,
+    "bagging_fraction": 0.50,
+    'bagging_freq': 4,
+    "max_depth": -1,
+    "reg_alpha": 0.3,
+    "reg_lambda": 0.1,
+    #"min_split_gain":0.2,
+    "min_child_weight":10,
+    'zero_as_missing': False
+                }
+# Find Optimal Parameters / Boosting Rounds
+lgb_cv = lgb.cv(
+    params = lgbm_params,
+    train_set = lgtrain,
+    num_boost_round=2000,
+    stratified=False,
+    nfold = 10,
+    verbose_eval=50,
+    seed = 23,
+    early_stopping_rounds=75)
+    
+optimal_rounds = np.argmin(lgb_cv['l2-mean'])
+best_cv_score = min(lgb_cv['l2-mean'])
+
+print("\nOptimal Round: {}\nOptimal Score: {} + {}".format(
+    optimal_rounds,best_cv_score,lgb_cv['l2-stdv'][optimal_rounds]))
+results = pd.DataFrame(columns = ["Rounds","Score","STDV", "LB", "Parameters"])
+results = results.append({"Rounds": optimal_rounds,
+                          "Score": best_cv_score,
+                          "STDV": lgb_cv['l2-stdv'][optimal_rounds],
+                          "LB": None,
+                          "Parameters": lgbm_params}, ignore_index=True)
+results
+
+final_model_params = results.iloc[results["Score"].idxmin(),:]["Parameters"]
+optimal_rounds = results.iloc[results["Score"].idxmin(),:]["Rounds"]
+print("Parameters for Final Models:\n",final_model_params)
+print("Score: {} +/- {}".format(results.iloc[results["Score"].idxmin(),:]["Score"],results.iloc[results["Score"].idxmin(),:]["STDV"]))
+print("Rounds: ", optimal_rounds)
+
+model_lgb = lgb.train(
+    final_model_params,
+    lgtrain,
+    num_boost_round = optimal_rounds + 1,
+    verbose_eval=200)
 
 #%% #--------------------------------------------------
 #'''Train-Validation-Test Prepare '''
+
 models ={
-    'model_c' : linear_model.LinearRegression(fit_intercept=False),
-    'model_ols' : linear_model.LinearRegression(fit_intercept=True),
-    'model_pca' : linear_model.LinearRegression(fit_intercept=True),
-    'model_ridge' : linear_model.Ridge(alpha = lambda_ridge,fit_intercept=True),
-    'model_lasso' : linear_model.Lasso(alpha = lambda_lasso, fit_intercept=True),
-    'model_enet' : linear_model.ElasticNet(alpha = lambda_enet, l1_ratio=0.5, fit_intercept=True),
+    'c' : model_c,
+    'ols' : model_ols,
+    'pca' : model_pca,
+    'ridge' : model_ridge,
+    'lasso' : model_lasso,
+    'enet' : model_enet,
+    'lgb' : model_lgb
 }
 print("Train-Validation-Test Performance")
 from sklearn.model_selection import cross_validate
@@ -193,28 +268,34 @@ scoring = {'MSE': mean_squared_error_scorer, 'r2': make_scorer(r2_score)}
 yhats = pd.DataFrame()
 df_results = pd.DataFrame()
 for m_name, m in models.items():
-    if m_name == 'model_c':
+    if m_name == 'c':
         XX = Ones
         XX_test = Ones_test
-    elif m_name == 'model_ols':
+    elif m_name == 'ols':
         XX = X
         XX_test = X_test
-    elif m_name == 'model_pca':
+    elif m_name == 'pca':
        XX = X_pca 
        XX_test = X_test_pca
     else:
         XX = X
         XX_test = X_test
     # Cross-Validation 
-    cv_results = cross_validate(m, XX, y, cv  = K , return_train_score=True, scoring = scoring )
-    df_cv = pd.DataFrame.from_dict(cv_results)
-    df_avg = df_cv.drop(columns=['fit_time', 'score_time']).mean(axis = 0)
+    yhat_train = m.predict(XX)
+    df_avg = pd.Series()
+    train_r2 = r2_score(y, yhat_train)
+    train_MSE = mean_squared_error(y, yhat_train)
+    df_avg = df_avg.append(pd.Series(train_r2)).rename({0 : "train_r2"}, axis = 'index')
+    df_avg = df_avg.append(pd.Series(train_MSE)).rename({0 : "train_MSE"}, axis = 'index')
     
-    df_avg = df_avg.rename(index={ "test_MSE" : "valid_MSE", "test_r2" : "valid_r2"})
+    # cv_results = cross_validate(m, XX, y, cv  = K , return_train_score=True, scoring = scoring )
+    # df_cv = pd.DataFrame.from_dict(cv_results)
+    # df_avg = df_cv.drop(columns=['fit_time', 'score_time']).mean(axis = 0)
+    # df_avg = df_avg.rename(index={ "test_MSE" : "valid_MSE", "test_r2" : "valid_r2"})
 
     
     # Test Sample
-    yhat = m.fit(XX,y).predict(XX_test)
+    yhat = m.predict(XX_test)
     yhats[m_name] = yhat
     test_r2 = r2_score(y_test, yhat)
     test_MSE = mean_squared_error(y_test, yhat)
