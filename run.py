@@ -229,7 +229,7 @@ results = results.append({"Rounds": optimal_rounds,
                           "STDV": lgb_cv['l2-stdv'][optimal_rounds],
                           "LB": None,
                           "Parameters": lgbm_params}, ignore_index=True)
-results
+print(results)
 
 final_model_params = results.iloc[results["Score"].idxmin(),:]["Parameters"]
 optimal_rounds = results.iloc[results["Score"].idxmin(),:]["Rounds"]
@@ -244,8 +244,65 @@ model_lgb = lgb.train(
     verbose_eval=200)
 
 #%% #--------------------------------------------------
-#'''Train-Validation-Test Prepare '''
+#? XGBoost
+import xgboost as xgb
+import scipy.stats as stats
+from sklearn.model_selection import RandomizedSearchCV
+from sklearn import model_selection
+from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 
+model = XGBRegressor()
+model_xgb = model.fit(X,y)
+
+
+#clf_xgb = xgb.XGBRegressor()
+# param_dist = {'n_estimators': stats.randint(150, 500),
+#               'learning_rate': stats.uniform(0.01, 0.07),
+#               'subsample': stats.uniform(0.3, 0.7),
+#               'max_depth': [3, 4, 5, 6, 7, 8, 9],
+#               'colsample_bytree': stats.uniform(0.5, 0.45),
+#               'min_child_weight': [1, 2, 3]
+#              }
+# clf = RandomizedSearchCV(clf_xgb, param_distributions = param_dist, n_iter = 25,
+#                          scoring = 'mse', error_score = 0, verbose = 3, n_jobs = -1)
+
+# numFolds = 5
+# folds = model_selection.KFold(shuffle = False, n_splits = numFolds)
+
+# estimators = []
+# results = np.zeros(len(X))
+# score = 0.0
+# for train_index, test_index in folds.split(X.index):
+#     print(test_index)
+#     print(train_index)
+#     X_train, X_test = X[train_index], X[test_index]
+#     y_train, y_test = y[train_index], y[test_index]
+#     clf.fit(X_train, y_train)
+
+#     estimators.append(clf.best_estimator_)
+#     results[test_index] = clf.predict(X_test)
+#     score += mean_squared_error(y_test, results[test_index])
+# score /= numFolds
+#%% #--------------------------------------------------
+#? Random Forest
+from sklearn.ensemble import RandomForestRegressor
+model_rf= RandomForestRegressor(n_estimators=100,random_state=2).fit(X,y)
+#%% #--------------------------------------------------
+#? 
+from sklearn.ensemble import AdaBoostRegressor
+model_adab= AdaBoostRegressor(n_estimators=100).fit(X,y)
+#%% #--------------------------------------------------
+#? TPOT
+# #! Takes around 3 min
+# from tpot import TPOTRegressor
+# from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
+# mse_scorer = make_scorer(mean_squared_error)
+# tpot = TPOTRegressor(generations=5, population_size=50, verbosity=2,
+#                      random_state = 1, template = 'Regressor') #, scoring=mse_scorer
+# model_tpot = tpot.fit(X, y).fitted_pipeline_
+#     # tpot.export('out/tpot_pipeline.py')
+#%% #--------------------------------------------------
+#? Used Models
 models ={
     'c' : model_c,
     'ols' : model_ols,
@@ -253,8 +310,31 @@ models ={
     'ridge' : model_ridge,
     'lasso' : model_lasso,
     'enet' : model_enet,
-    'lgb' : model_lgb
+    'adab' : model_adab,
+    'rf': model_rf,
+    'lgb' : model_lgb,
+    'xgb': model_xgb,
+#    'tpot': model_tpot,
 }
+
+
+#%% #--------------------------------------------------
+# #* Pickle Models
+# import pickle
+
+# with open("models.pickle","wb") as f:
+#     pickle.dump(models, f)
+
+# #%% #--------------------------------------------------
+# #* Load Pickled Models
+# import pickle
+# with open("models.pickle", "rb") as f:
+#     models = pickle.load(f)
+
+#%% #--------------------------------------------------
+#'''Train-Validation-Test Prepare '''
+
+
 print("Train-Validation-Test Performance")
 from sklearn.model_selection import cross_validate
 ### Define Scorer
@@ -316,12 +396,12 @@ df_results.to_csv("out/insample_results.csv")
 '''
 #%% #--------------------------------------------------
 #'''Prediction Plot''' 
+sns.set_palette("deep")
 plt.figure(figsize=(15,7.5))
 ym_test= pd.DataFrame(df['date'].loc[y_test.index]).reset_index(drop=True)
 y_test_fig = y_test.reset_index(drop = True)
 plotdata = pd.concat([ym_test,y_test_fig,yhats],axis = 1)
 plotdata = plotdata.melt(id_vars='date', var_name='model',  value_name='return')
-sns.set_palette("deep")
 sns.lineplot(x='date',y='return', hue ='model', data = plotdata )
 plt.savefig(dir+"/out/lineplot_predict")
 plt.show()
