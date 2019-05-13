@@ -169,21 +169,6 @@ lambda_ridge = model_ridge.alpha_
 # .ElasticNetCV: coordinate descent
 model_enet = ElasticNetCV(cv=K).fit(X, y)
 lambda_enet = model_enet.alpha_
-#%% #--------------------------------------------------
-
-
-#? XGBoost
-from xgboost import XGBRegressor
-#? Random Forest
-from sklearn.ensemble import RandomForestRegressor
-
-#? Keras - FFN
-#? Keras - LSTM
-#? AutoML
-#? AutoSklearn
-#? TPOT
-#? Autofeat
-#? Talos
 
 #%% #--------------------------------------------------
 #? lightgbm
@@ -292,6 +277,21 @@ model_rf= RandomForestRegressor(n_estimators=100,random_state=2).fit(X,y)
 from sklearn.ensemble import AdaBoostRegressor
 model_adab= AdaBoostRegressor(n_estimators=100).fit(X,y)
 #%% #--------------------------------------------------
+#? 
+from sklearn.ensemble import GradientBoostingRegressor
+model_gbr= GradientBoostingRegressor(n_estimators=100).fit(X,y)
+#%% #--------------------------------------------------
+
+#? Gradient Boosting 
+#? Keras - FFN
+#? Keras - LSTM
+#? AutoML
+#? AutoSklearn
+#? TPOT
+#? Autofeat
+#? Talos
+
+#%% #--------------------------------------------------
 #? TPOT
 # #! Takes around 3 min
 # from tpot import TPOTRegressor
@@ -312,6 +312,7 @@ models ={
     'enet' : model_enet,
     'adab' : model_adab,
     'rf': model_rf,
+    'gbr':model_gbr,
     'lgb' : model_lgb,
     'xgb': model_xgb,
 #    'tpot': model_tpot,
