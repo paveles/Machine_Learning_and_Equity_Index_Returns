@@ -317,20 +317,6 @@ models ={
 #    'tpot': model_tpot,
 }
 
-# models_names ={
-#     'c' : 'model_c',
-#     'ols' : 'model_ols',
-#     'pca' : 'model_pca',
-#     'ridge' : 'model_ridge',
-#     'lasso' : 'model_lasso',
-#     'enet' : 'model_enet',
-#     'adab' : 'model_adab',
-#     'rf': 'model_rf',
-#     'lgb' : 'model_lgb',
-#     'xgb': 'model_xgb',
-# #    'tpot': 'model_tpot',
-# }
-
 
 #%% #--------------------------------------------------
 # #* Pickle Models
