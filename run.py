@@ -317,19 +317,34 @@ models ={
 #    'tpot': model_tpot,
 }
 
+# models_names ={
+#     'c' : 'model_c',
+#     'ols' : 'model_ols',
+#     'pca' : 'model_pca',
+#     'ridge' : 'model_ridge',
+#     'lasso' : 'model_lasso',
+#     'enet' : 'model_enet',
+#     'adab' : 'model_adab',
+#     'rf': 'model_rf',
+#     'lgb' : 'model_lgb',
+#     'xgb': 'model_xgb',
+# #    'tpot': 'model_tpot',
+# }
+
 
 #%% #--------------------------------------------------
 # #* Pickle Models
-# import pickle
+import pickle
 
-# with open("models.pickle","wb") as f:
-#     pickle.dump(models, f)
+with open("models.pickle","wb") as f:
+    pickle.dump(models, f)
 
-# #%% #--------------------------------------------------
-# #* Load Pickled Models
-# import pickle
-# with open("models.pickle", "rb") as f:
-#     models = pickle.load(f)
+#%% #--------------------------------------------------
+#* Load Pickled Models
+import pickle
+if 'models' not in globals():
+    with open("models.pickle", "rb") as f:
+        models = pickle.load(f)
 
 #%% #--------------------------------------------------
 #'''Train-Validation-Test Prepare '''
