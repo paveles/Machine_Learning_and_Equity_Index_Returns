@@ -32,7 +32,7 @@ test_size= 1/TsizeInv
 # Add interactions or not
 Poly = 1
 # Starting Year
-Period  = 1974
+Period  = 1951
 
 #%% #--------------------------------------------------
 
@@ -64,7 +64,7 @@ macro = [ 'dp', 'dy', 'ep', 'de', 'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tm
 tech = ['ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
        'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
        'vol_3_12']
-# predictors = macro+ tech + other  + state
+# predictors = macro+ tech # + other  + state
 #%% #--------------------------------------------------
 """
 Sample Cut
@@ -237,21 +237,21 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn import model_selection
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 
-model = XGBRegressor()
-model_xgb = model.fit(X,y)
+# model = XGBRegressor()
+# model_xgb = model.fit(X,y)
 
 
 
-#clf_xgb = xgb.XGBRegressor()
-# param_dist = {'n_estimators': stats.randint(150, 500),
-#               'learning_rate': stats.uniform(0.01, 0.07),
-#               'subsample': stats.uniform(0.3, 0.7),
-#               'max_depth': [3, 4, 5, 6, 7, 8, 9],
-#               'colsample_bytree': stats.uniform(0.5, 0.45),
-#               'min_child_weight': [1, 2, 3]
-#              }
-# clf = RandomizedSearchCV(clf_xgb, param_distributions = param_dist, n_iter = 25,
-#                          scoring = 'mse', error_score = 0, verbose = 3, n_jobs = -1)
+clf_xgb = xgb.XGBRegressor()
+param_dist = {'n_estimators': stats.randint(150, 500),
+              'learning_rate': stats.uniform(0.01, 0.07),
+              'subsample': stats.uniform(0.3, 0.7),
+              'max_depth': [3, 4, 5, 6, 7, 8, 9],
+              'colsample_bytree': stats.uniform(0.5, 0.45),
+              'min_child_weight': [1, 2, 3]
+            }
+model_xgb = RandomizedSearchCV(clf_xgb, param_distributions = param_dist, n_iter = 25,
+                         scoring = 'neg_mean_squared_error', error_score = 0, verbose = 3, n_jobs = -1, cv = 5).fit(X,y)
 
 # numFolds = 5
 # folds = model_selection.KFold(shuffle = False, n_splits = numFolds)
