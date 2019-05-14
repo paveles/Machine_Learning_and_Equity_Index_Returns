@@ -41,7 +41,7 @@ df.rename( index=str, columns={"date": "ym"}, inplace=True)
 df['date'] = pd.to_datetime(df['ym'],format='%Y%m') + MonthEnd(1)
 df['sp500_rf'] = df['sp500_rf'] * 100
 df['lnsp500_rf'] = df['lnsp500_rf'] * 100
-df.sort_values(by=['ym']);
+df = df.sort_values(by=['ym'])
 
 #%% #--------------------------------------------------
 #"""Lagging predictive  variables"""
@@ -231,6 +231,7 @@ model_lgb = lgb.train(
 #%% #--------------------------------------------------
 #? XGBoost
 import xgboost as xgb
+from xgboost import XGBRegressor
 import scipy.stats as stats
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn import model_selection
@@ -238,6 +239,7 @@ from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 
 model = XGBRegressor()
 model_xgb = model.fit(X,y)
+
 
 
 #clf_xgb = xgb.XGBRegressor()
@@ -271,15 +273,15 @@ model_xgb = model.fit(X,y)
 #%% #--------------------------------------------------
 #? Random Forest
 from sklearn.ensemble import RandomForestRegressor
-model_rf= RandomForestRegressor(n_estimators=100,random_state=2).fit(X,y)
+model_rf= RandomForestRegressor(random_state=2).fit(X,y)
 #%% #--------------------------------------------------
 #? 
 from sklearn.ensemble import AdaBoostRegressor
-model_adab= AdaBoostRegressor(n_estimators=100).fit(X,y)
+model_adab= AdaBoostRegressor(random_state=2).fit(X,y)
 #%% #--------------------------------------------------
 #? 
 from sklearn.ensemble import GradientBoostingRegressor
-model_gbr= GradientBoostingRegressor(n_estimators=100).fit(X,y)
+model_gbr= GradientBoostingRegressor(random_state=2).fit(X,y)
 #%% #--------------------------------------------------
 
 #? Gradient Boosting 
