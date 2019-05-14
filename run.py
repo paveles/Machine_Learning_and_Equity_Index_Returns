@@ -100,6 +100,14 @@ X, X_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = F
 #%% #--------------------------------------------------
 #'''Standardize Data'''
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
+from sklearn.pipeline import Pipeline
+
+# pipline = Pipeline(steps=[
+#     ('pca', PCA(n_components=4)),
+#     ('minmax', StandardScaler()),
+# ])
+# scaler = pipline.fit(X)
+
 scaler = StandardScaler().fit(X)
 X = pd.DataFrame(scaler.transform(X),  index=X.index, columns=X.columns )
 X_test = pd.DataFrame(scaler.transform(X_test),  index=X_test.index, columns=X_test.columns )
