@@ -27,13 +27,14 @@ os.makedirs(dir + '/in', exist_ok = True)
 # Cross-validation Parameter
 K = 10
 #  Share of Sample as Test
-TsizeInv = 15
+TsizeInv = 10
 test_size= 1/TsizeInv
 # Add interactions or not
 Poly = 1
 # Starting Year
 Period  = 1951
-
+# Number of Lags
+LAGS = 1
 #%% #--------------------------------------------------
 
 df = pd.read_csv('in/rapach_2013.csv', na_values = ['NaN'])
@@ -41,19 +42,10 @@ df.rename( index=str, columns={"date": "ym"}, inplace=True)
 df['date'] = pd.to_datetime(df['ym'],format='%Y%m') + MonthEnd(1)
 df['sp500_rf'] = df['sp500_rf'] * 100
 df['lnsp500_rf'] = df['lnsp500_rf'] * 100
-df = df.sort_values(by=['ym'])
+df = df.sort_values(by=['date'])
 
-#%% #--------------------------------------------------
-#"""Lagging predictive  variables"""
 
-df['recessionD_c'] = df['recessionD']
-vars = ['recessionD', 'dp', 'dy', 'ep', 'de', \
-       'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tms', 'dfy', 'dfr', 'infl', \
-       'ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
-       'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
-       'vol_3_12', 'sento ', 'sent', 'dsento', 'dsent', 'ewsi']
-# Important! Lagging by 1
-df[vars] = df[vars].shift(1)
+
 #%% #--------------------------------------------------
 """
 Define variables
@@ -67,50 +59,95 @@ tech = ['ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', 
 # predictors = macro+ tech # + other  + state
 #%% #--------------------------------------------------
 """
+Variable Cut
+"""
+
+df_full = df
+if Period == 1974:
+
+    predictors = macro + tech + other  + state
+
+elif Period == 1928:
+
+    predictors = macro
+elif Period == 1951:
+  
+    predictors = macro+ tech
+else:
+    sys.exit("Wrong Sample")
+
+df=df[['date','lnsp500_rf']+predictors]
+# df[pd.isnull(df["ewsi"])!= 1]['date'].describe()
+#df = df.set_index(['date'])
+
+#%% #--------------------------------------------------
+#*"""Lagging predictive  variables"""
+
+# df['recessionD_c'] = df['recessionD']
+# vars = ['recessionD', 'dp', 'dy', 'ep', 'de', \
+#        'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tms', 'dfy', 'dfr', 'infl', \
+#        'ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
+#        'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
+#        'vol_3_12', 'sento ', 'sent', 'dsento', 'dsent', 'ewsi']
+# Important! Lagging by 1
+
+df[predictors] = df[predictors].shift(1)
+if LAGS>1:
+    for lag in range(2,LAGS+1,1):
+        df = pd.concat([df, df[predictors].shift(lag).add_suffix('_l{}'.format(lag))], axis = 1)
+
+#%% #--------------------------------------------------
+"""
 Sample Cut
 """
 
 df_full = df
 if Period == 1974:
     df = df[(df['date'].dt.year >= 1974)&(df['date'].dt.year <= 2010)]
-    predictors = macro + tech + other  + state
+
+
 elif Period == 1928:
     df = df[(df['date'].dt.year >= 1928)]
-    predictors = macro
+
 elif Period == 1951:
     df = df[(df['date'].dt.year >= 1951)]
-    predictors = macro+ tech
+
 else:
     sys.exit("Wrong Sample")
+#df = df.drop(['date'],axis = 1)
 # df[pd.isnull(df["ewsi"])!= 1]['date'].describe()
+df.dropna(inplace = True)
+
 #%% #--------------------------------------------------
-#"""Provide a Description of the Data"""
-df.describe().T.to_csv("out/temp/descriptive.csv")
+#*"""Provide a Description of the Data"""
+df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
 #""" --> Data is the same is in the paper Rapach et al 2013"""
 # df.describe().T
 
+#%% #--------------------------------------------------
+    
 
 #%% #--------------------------------------------------
 #''' Train and Test Samples'''
 from sklearn.model_selection import train_test_split
-Xo= df[predictors]
+Xo= df.drop(['lnsp500_rf','date'],axis = 1)
 yo = df['lnsp500_rf']
 
-X, X_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = False )
+X0, X0_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = False )
 #%% #--------------------------------------------------
 #'''Standardize Data'''
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
 from sklearn.pipeline import Pipeline
 
-# pipline = Pipeline(steps=[
-#     ('pca', PCA(n_components=4)),
-#     ('minmax', StandardScaler()),
-# ])
-# scaler = pipline.fit(X)
+pipline = Pipeline(steps=[
+#    ('pca', PCA()), # (n_components=4)
+    ('minmax', StandardScaler()),
+])
+scaler = pipline.fit(X0)
 
-scaler = StandardScaler().fit(X)
-X = pd.DataFrame(scaler.transform(X),  index=X.index, columns=X.columns )
-X_test = pd.DataFrame(scaler.transform(X_test),  index=X_test.index, columns=X_test.columns )
+#scaler = StandardScaler().fit(X0)
+X = pd.DataFrame(scaler.transform(X0),  index=X0.index )# , columns=X.columns
+X_test = pd.DataFrame(scaler.transform(X0_test),  index=X0_test.index) #, columns=X_test.columns 
 #%% #--------------------------------------------------
 #''' Interaction Terms'''
 from sklearn.preprocessing import PolynomialFeatures
@@ -138,11 +175,13 @@ from sklearn.decomposition import PCA
 # plt.plot(np.cumsum(pca.explained_variance_ratio_))
 # plt.xlabel('number of components')
 # plt.ylabel('cumulative explained variance');
-
+scaler = StandardScaler().fit(X0)
+Xscaled = scaler.transform(X0)
+Xscaled_test = scaler.transform(X0_test)
 pca = PCA(n_components=4)
-pca.fit(X)
-X_pca = pca.transform(X)
-X_test_pca = pca.transform(X_test)
+pca.fit(X0)
+X_pca = pca.transform(Xscaled)
+X_test_pca = pca.transform(Xscaled_test)
 # #############################################################################
 #%% #-------------------------------------------------- 
 from sklearn import linear_model
@@ -259,7 +298,7 @@ param_dist = {'n_estimators': stats.randint(150, 500),
               'min_child_weight': [1, 2, 3]
             }
 model_xgb = RandomizedSearchCV(clf_xgb, param_distributions = param_dist, n_iter = 25,
-                         scoring = 'neg_mean_squared_error', error_score = 0, verbose = 3, n_jobs = -1, cv = 5).fit(X,y)
+                         scoring = 'neg_mean_squared_error', error_score = 0, verbose = 3, n_jobs = -1, cv = 3).fit(X,y)
 
 # numFolds = 5
 # folds = model_selection.KFold(shuffle = False, n_splits = numFolds)
