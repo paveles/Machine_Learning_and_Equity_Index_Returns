@@ -194,19 +194,20 @@ X_test_pca = pca.transform(Xscaled_test)
 # min_date = min(recalc_dates)
 # recalc_dates = recalc_dates[120:]
 min_idx = 0
-start_idx = 120 
+start_idx = 360 
 max_idx = df.shape[0]
 #%% #--------------------------------------------------
 from sklearn.linear_model import  LinearRegression
-#models = pd.Series(index=df.index)
+models_estimated = pd.Series(index=df.index)
 for idx in range(start_idx,max_idx,1):
-    print(min_idx, start_idx, idx)
+   # print(min_idx, start_idx, idx)
     X_tr = X.iloc[min_idx : idx]
-    y_tr = y.iloc[min_idx:idx]
+    y_tr = y.iloc[min_idx : idx]
     model = LinearRegression()
     model.fit(X_tr,y_tr)
-    models[idx] = model
+    models_estimated[df.index[idx]] = model
 
+#%% #--------------------------------------------------
 # #%% #--------------------------------------------------
 # X.loc[min_recalc_date]
 # #%% #--------------------------------------------------
@@ -492,3 +493,6 @@ for idx in range(start_idx,max_idx,1):
 # sns.lineplot(x='date',y='return', hue ='model', data = plotdata )
 # plt.savefig(dir+"/out/lineplot_predict")
 # plt.show()
+
+
+#%%
