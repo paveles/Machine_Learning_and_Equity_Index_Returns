@@ -184,31 +184,38 @@ pca.fit(X0)
 X_pca = pca.transform(Xscaled)
 X_test_pca = pca.transform(Xscaled_test)
 
+#%% #--------------------------------------------------
+start_idx = 360
+
 
 #%% #--------------------------------------------------
 #* Walk-Forward Modeling
+def r2_wf(y_true, y_pred, y_moving_mean):
+    mse_urestricted = ((y_true - y_pred)**2).sum()
+    mse_restricted = ((y_true - y_moving_mean)**2).sum()
+    return 1 - mse_urestricted/mse_restricted
 
-# df.index = df.set_index('date').index.to_period('M')
-# df = df.drop('date',axis = 1)
-# recalc_dates = df.index
-# min_date = min(recalc_dates)
-# recalc_dates = recalc_dates[120:]
-min_idx = 0
-start_idx = 360 
-max_idx = df.shape[0]
-#%% #--------------------------------------------------
+def mspe_adjusted(y_true, y_pred, y_moving_mean):
+    f = (y_true - y_moving_mean)**2 - ((y_true - y_pred)**2 - (y_moving_mean - y_pred)**2)
+    t_stat,pval_two_sided = stats.ttest_1samp(f, 0, axis=0)
+    pval_one_sided = pval_two_sided/2
+    return t_stat, pval_one_sided
+
 def estimate_walk_forward(Model,X,y,start_idx,max_idx):
     model_estimated = pd.Series(index=X.index[start_idx:])
     predictions = pd.Series(index=X.index[start_idx:])
+    # moving mean of lagged y
+    y_moving_mean = y.shift(1).iloc[start_idx:].expanding(1).mean()
     for idx in range(start_idx,max_idx,1):
     # print(min_idx, start_idx, idx)
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
+        predictions.loc[X.index[idx]] = y_tr()
         model = Model
         model.fit(X_tr,y_tr)
         model_estimated.loc[X.index[idx]] = model # save the model
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
-     
+    
     return model_estimated, predictions
 
 
@@ -220,11 +227,23 @@ start_idx = 360
 max_idx = X.shape[0]
 model_estimated, y_pred = estimate_walk_forward(Model,X,y,start_idx,max_idx)
 
+
 #%% #--------------------------------------------------
 from sklearn.metrics import r2_score
 y_true = y.loc[y_pred.index]
 r2 = r2_score(y_true = y_true, y_pred = y_pred)
 print(r2)
+y_moving_mean = y.shift(1).iloc[start_idx:].expanding(1).mean()
+r2_oos = r2_wf(y_true, y_pred,y_moving_mean)
+print(r2_oos)
+
+print(mspe_adjusted(y_true, y_pred, y_moving_mean))
+
+#* Exactly normal r2
+#y_moving_mean = y_true.mean()
+#r2_wf = r2_wf(y_true, y_pred,y_moving_mean)
+#print(r2_wf)
+
 #%% #--------------------------------------------------
 
 #%% #--------------------------------------------------
