@@ -185,11 +185,13 @@ X_pca = pca.transform(Xscaled)
 X_test_pca = pca.transform(Xscaled_test)
 
 #%% #--------------------------------------------------
-start_idx = 360
+
 
 
 #%% #--------------------------------------------------
 #* Walk-Forward Modeling
+from scipy import stats
+
 def r2_wf(y_true, y_pred, y_moving_mean):
     mse_urestricted = ((y_true - y_pred)**2).sum()
     mse_restricted = ((y_true - y_moving_mean)**2).sum()
@@ -210,7 +212,6 @@ def estimate_walk_forward(Model,X,y,start_idx,max_idx):
     # print(min_idx, start_idx, idx)
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
-        predictions.loc[X.index[idx]] = y_tr()
         model = Model
         model.fit(X_tr,y_tr)
         model_estimated.loc[X.index[idx]] = model # save the model
@@ -222,10 +223,20 @@ def estimate_walk_forward(Model,X,y,start_idx,max_idx):
 #%% #--------------------------------------------------
 from sklearn.linear_model import  LinearRegression
 Model = LinearRegression()
+ols_pipeline = Pipeline(steps=[
+   ('minmax', StandardScaler()),
+    ('ols', LinearRegression())
+])
+pca_pipeline = Pipeline(steps=[
+   ('pca', PCA(n_components=4)),
+    ('ols', LinearRegression())
+])
+
+
 min_idx = 0
-start_idx = 360 
+start_idx = 180
 max_idx = X.shape[0]
-model_estimated, y_pred = estimate_walk_forward(Model,X,y,start_idx,max_idx)
+model_estimated, y_pred = estimate_walk_forward(pca_pipeline,X,y,start_idx,max_idx)
 
 
 #%% #--------------------------------------------------
