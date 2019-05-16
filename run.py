@@ -192,15 +192,19 @@ X_test_pca = pca.transform(Xscaled_test)
 #* Walk-Forward Modeling
 from scipy import stats
 
-def r2_wf(y_true, y_pred, y_moving_mean):
+def calculate_r2_wf(y_true, y_pred, y_moving_mean):
+    '''
+    Calculate out-of-sample R^2 for the walk-forward procedure
+    '''
     mse_urestricted = ((y_true - y_pred)**2).sum()
     mse_restricted = ((y_true - y_moving_mean)**2).sum()
     return 1 - mse_urestricted/mse_restricted
 
-def mspe_adjusted(y_true, y_pred, y_moving_mean):
+def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
     f = (y_true - y_moving_mean)**2 - ((y_true - y_pred)**2 - (y_moving_mean - y_pred)**2)
     t_stat,pval_two_sided = stats.ttest_1samp(f, 0, axis=0)
-    pval_one_sided = pval_two_sided/2
+    #pval_one_sided = pval_two_sided/2
+    pval_one_sided = stats.t.sf(t_stat, f.count() - 1)
     return t_stat, pval_one_sided
 
 def estimate_walk_forward(Model,X,y,start_idx,max_idx):
@@ -216,39 +220,39 @@ def estimate_walk_forward(Model,X,y,start_idx,max_idx):
         model.fit(X_tr,y_tr)
         model_estimated.loc[X.index[idx]] = model # save the model
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
-    
     return model_estimated, predictions
 
 
 #%% #--------------------------------------------------
 from sklearn.linear_model import  LinearRegression
 Model = LinearRegression()
-ols_pipeline = Pipeline(steps=[
+ols_pipe = Pipeline(steps=[
    ('minmax', StandardScaler()),
     ('ols', LinearRegression())
 ])
-pca_pipeline = Pipeline(steps=[
-   ('pca', PCA(n_components=4)),
+pca_pipe = Pipeline(steps=[
+   ('pca', PCA(n_components = 4)),
     ('ols', LinearRegression())
 ])
 
 
 min_idx = 0
 start_idx = 180
-max_idx = X.shape[0]
-model_estimated, y_pred = estimate_walk_forward(pca_pipeline,X,y,start_idx,max_idx)
+max_idx = yo.shape[0]
+model_estimated, y_pred = estimate_walk_forward(ols_pipe,Xo,yo,start_idx,max_idx)
 
 
 #%% #--------------------------------------------------
-from sklearn.metrics import r2_score
-y_true = y.loc[y_pred.index]
-r2 = r2_score(y_true = y_true, y_pred = y_pred)
-print(r2)
-y_moving_mean = y.shift(1).iloc[start_idx:].expanding(1).mean()
-r2_oos = r2_wf(y_true, y_pred,y_moving_mean)
-print(r2_oos)
+from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
+y_true = yo.loc[y_pred.index]
 
-print(mspe_adjusted(y_true, y_pred, y_moving_mean))
+y_moving_mean = yo.shift(1).iloc[start_idx:].expanding(1).mean()
+r2_oos = r2_wf(y_true, y_pred,y_moving_mean)
+print("r2_oos = "+str(r2_oos))
+msfe_adj = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
+print("(msfe,p_value) = " + str(msfe_adj))
+mse = mean_squared_error(y_true,y_pred)
+print("mse = " + str(mse))
 
 #* Exactly normal r2
 #y_moving_mean = y_true.mean()
@@ -256,7 +260,7 @@ print(mspe_adjusted(y_true, y_pred, y_moving_mean))
 #print(r2_wf)
 
 #%% #--------------------------------------------------
-
+date = df0.date.loc[y_pred.index]
 #%% #--------------------------------------------------
 # #%% #--------------------------------------------------
 # X.loc[min_recalc_date]
