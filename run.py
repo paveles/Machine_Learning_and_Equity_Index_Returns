@@ -197,15 +197,35 @@ min_idx = 0
 start_idx = 360 
 max_idx = df.shape[0]
 #%% #--------------------------------------------------
+def estimate_walk_forward(Model,X,y,start_idx,max_idx):
+    model_estimated = pd.Series(index=X.index[start_idx:])
+    predictions = pd.Series(index=X.index[start_idx:])
+    for idx in range(start_idx,max_idx,1):
+    # print(min_idx, start_idx, idx)
+        X_tr = X.iloc[0 : idx]
+        y_tr = y.iloc[0 : idx]
+        model = Model
+        model.fit(X_tr,y_tr)
+        model_estimated.loc[X.index[idx]] = model # save the model
+        predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
+     
+    return model_estimated, predictions
+
+
+#%% #--------------------------------------------------
 from sklearn.linear_model import  LinearRegression
-models_estimated = pd.Series(index=df.index)
-for idx in range(start_idx,max_idx,1):
-   # print(min_idx, start_idx, idx)
-    X_tr = X.iloc[min_idx : idx]
-    y_tr = y.iloc[min_idx : idx]
-    model = LinearRegression()
-    model.fit(X_tr,y_tr)
-    models_estimated[df.index[idx]] = model
+Model = LinearRegression()
+min_idx = 0
+start_idx = 360 
+max_idx = X.shape[0]
+model_estimated, y_pred = estimate_walk_forward(Model,X,y,start_idx,max_idx)
+
+#%% #--------------------------------------------------
+from sklearn.metrics import r2_score
+y_true = y.loc[y_pred.index]
+r2 = r2_score(y_true = y_true, y_pred = y_pred)
+print(r2)
+#%% #--------------------------------------------------
 
 #%% #--------------------------------------------------
 # #%% #--------------------------------------------------
