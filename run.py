@@ -72,7 +72,7 @@ elif Period == 1928:
     predictors = macro
 elif Period == 1951:
   
-    predictors = macro+ tech
+    predictors = macro + tech
 else:
     sys.exit("Wrong Sample")
 
@@ -185,12 +185,35 @@ X_pca = pca.transform(Xscaled)
 X_test_pca = pca.transform(Xscaled_test)
 
 #%% #--------------------------------------------------
+from sklearn.model_selection import  TimeSeriesSplit
+class DisabledCV:
+    def __init__(self):
+        self.n_splits = 1
 
+    def split(self, X, y, groups=None):
+        yield (np.arange(len(X)), np.arange(len(X)))
 
+    def get_n_splits(self, X, y, groups=None):
+        return self.n_splits
 
+no_cv = DisabledCV()
+for a,b in no_cv.split(X,y):
+  print(a,b)
+# tscv = TimeSeriesSplit(n_splits=3)
+# for a,b in tscv.split(X,y):
+#   print(a)
+#   print(b)
 #%% #--------------------------------------------------
 #* Walk-Forward Modeling
 from scipy import stats
+from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
+from sklearn.model_selection import GridSearchCV
+r2_scorer = make_scorer(r2_score,greater_is_better=True)
+
+
+def calculate_r2_adj(y_true,y_pred,n,p):
+    r2 = r2_score(y_true,y_pred)
+    return 1-(1-r2)*(n-1)/(n-p-1)
 
 def calculate_r2_wf(y_true, y_pred, y_moving_mean):
     '''
@@ -212,34 +235,42 @@ def estimate_walk_forward(Model,X,y,start_idx,max_idx):
     predictions = pd.Series(index=X.index[start_idx:])
     # moving mean of lagged y
     y_moving_mean = y.shift(1).iloc[start_idx:].expanding(1).mean()
+    # K = X.shape[1]
+    # n_components_list = np.linspace(start = 1, stop = K, num = K).tolist()
+    # param_dict ={'n_components': n_components_list}
+    param_dict ={'fit_intercept':[True,False],}
     for idx in range(start_idx,max_idx,1):
-    # print(min_idx, start_idx, idx)
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
-        model = Model
-        model.fit(X_tr,y_tr)
-        model_estimated.loc[X.index[idx]] = model # save the model
+        model_to_estimate = Model
+         # find optimal parameters
+        no_cv = DisabledCV().split(X_tr,y_tr)
+        grid = GridSearchCV(estimator=model_to_estimate, param_grid=param_dict, cv=no_cv \
+            , scoring = r2_scorer, n_jobs=-1)
+
+        model = grid.fit(X_tr,y_tr)
+        models_estimated.loc[X.index[idx]] = model # save the model
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
-    return model_estimated, predictions
+    return models_estimated, predictions
 
 
 #%% #--------------------------------------------------
 from sklearn.linear_model import  LinearRegression
 Model = LinearRegression()
 ols_pipe = Pipeline(steps=[
-   ('minmax', StandardScaler()),
+#   ('minmax', StandardScaler()),
     ('ols', LinearRegression())
 ])
 pca_pipe = Pipeline(steps=[
-   ('pca', PCA(n_components = 4)),
+   ('pca', PCA(n_components = 5)),
     ('ols', LinearRegression())
 ])
-
+ols = LinearRegression()
 
 min_idx = 0
 start_idx = 180
 max_idx = yo.shape[0]
-model_estimated, y_pred = estimate_walk_forward(ols_pipe,Xo,yo,start_idx,max_idx)
+models_estimated, y_pred = estimate_walk_forward(ols,Xo,yo,start_idx,max_idx)
 
 
 #%% #--------------------------------------------------
@@ -247,7 +278,7 @@ from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 y_true = yo.loc[y_pred.index]
 
 y_moving_mean = yo.shift(1).iloc[start_idx:].expanding(1).mean()
-r2_oos = r2_wf(y_true, y_pred,y_moving_mean)
+r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
 print("r2_oos = "+str(r2_oos))
 msfe_adj = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
 print("(msfe,p_value) = " + str(msfe_adj))
