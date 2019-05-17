@@ -196,24 +196,24 @@ class DisabledCV:
     def get_n_splits(self, X, y, groups=None):
         return self.n_splits
 
-no_cv = DisabledCV()
-for a,b in no_cv.split(X,y):
-  print(a,b)
-# tscv = TimeSeriesSplit(n_splits=3)
-# for a,b in tscv.split(X,y):
-#   print(a)
-#   print(b)
+# no_cv = DisabledCV()
+# for a,b in no_cv.split(X,y):
+#   print(a,b)
+
 #%% #--------------------------------------------------
 #* Walk-Forward Modeling
 from scipy import stats
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV
+
+
+
+def r2_adj_score(y_true,y_pred,N,K):
+    r2 = r2_score(y_true,y_pred)
+    return 1-(1-r2)*(N-1)/(N-K-1)
+
 r2_scorer = make_scorer(r2_score,greater_is_better=True)
 
-
-def calculate_r2_adj(y_true,y_pred,n,p):
-    r2 = r2_score(y_true,y_pred)
-    return 1-(1-r2)*(n-1)/(n-p-1)
 
 def calculate_r2_wf(y_true, y_pred, y_moving_mean):
     '''
@@ -231,46 +231,53 @@ def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
     return t_stat, pval_one_sided
 
 def estimate_walk_forward(Model,X,y,start_idx,max_idx):
-    model_estimated = pd.Series(index=X.index[start_idx:])
+    models_estimated = pd.Series(index=X.index[start_idx:])
+    scores_estimated = pd.Series(index=X.index[start_idx:])
     predictions = pd.Series(index=X.index[start_idx:])
-    # moving mean of lagged y
-    y_moving_mean = y.shift(1).iloc[start_idx:].expanding(1).mean()
-    # K = X.shape[1]
-    # n_components_list = np.linspace(start = 1, stop = K, num = K).tolist()
-    # param_dict ={'n_components': n_components_list}
-    param_dict ={'fit_intercept':[True,False],}
+    #* moving mean of lagged y
+    #y_moving_mean = y.shift(1).iloc[start_idx:].expanding(1).mean()
+    K = X.shape[1] 
+  
+    n_components_list = list(range(1,K+1)) # #of principal compnenets 
+    param_dict ={'pca__n_components': n_components_list}
+    #param_dict ={'ols__fit_intercept':[True,False],}
     for idx in range(start_idx,max_idx,1):
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
+        N = idx + 1 # Number of Observations  
         model_to_estimate = Model
          # find optimal parameters
         no_cv = DisabledCV().split(X_tr,y_tr)
+        r2_adj_scorer = make_scorer(r2_adj_score, N=N,K=K ,greater_is_better=True)
         grid = GridSearchCV(estimator=model_to_estimate, param_grid=param_dict, cv=no_cv \
-            , scoring = r2_scorer, n_jobs=-1)
+            , scoring = r2_adj_scorer, n_jobs=-1)
 
         model = grid.fit(X_tr,y_tr)
-        models_estimated.loc[X.index[idx]] = model # save the model
+        best_model = model.best_estimator_
+        best_score = model.best_score_
+        models_estimated.loc[X.index[idx]] = best_model # save the model
+        scores_estimated.loc[X.index[idx]] = best_score # save the score
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
-    return models_estimated, predictions
+    return models_estimated,scores_estimated, predictions
 
 
 #%% #--------------------------------------------------
 from sklearn.linear_model import  LinearRegression
 Model = LinearRegression()
 ols_pipe = Pipeline(steps=[
-#   ('minmax', StandardScaler()),
+   ('minmax', StandardScaler()),
     ('ols', LinearRegression())
 ])
 pca_pipe = Pipeline(steps=[
-   ('pca', PCA(n_components = 5)),
+   ('pca', PCA()),
     ('ols', LinearRegression())
 ])
 ols = LinearRegression()
 
 min_idx = 0
-start_idx = 180
+start_idx = 500
 max_idx = yo.shape[0]
-models_estimated, y_pred = estimate_walk_forward(ols,Xo,yo,start_idx,max_idx)
+models_estimated, scores_estimated, y_pred = estimate_walk_forward(pca_pipe ,Xo,yo,start_idx,max_idx)
 
 
 #%% #--------------------------------------------------
@@ -284,11 +291,26 @@ msfe_adj = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
 print("(msfe,p_value) = " + str(msfe_adj))
 mse = mean_squared_error(y_true,y_pred)
 print("mse = " + str(mse))
-
+print("best_score in the last period = " + str(scores_estimated[-1]))
+print(models_estimated[-1])
+models_estimated.to_csv('models_estimated.csv')
 #* Exactly normal r2
 #y_moving_mean = y_true.mean()
 #r2_wf = r2_wf(y_true, y_pred,y_moving_mean)
 #print(r2_wf)
+#%% #--------------------------------------------------
+import numpy as np
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+dat = sm.datasets.get_rdataset("Guerry", "HistData").data
+results = smf.ols('Lottery ~ Literacy + np.log(Pop1831)', data=dat).fit()
+
+print(results.summary())
+print(results.rsquared_adj())
+r2 = 0.348
+N = 86
+K = 2
+print(1-(1-r2)*(N-1)/(N-K-1))
 
 #%% #--------------------------------------------------
 date = df0.date.loc[y_pred.index]
