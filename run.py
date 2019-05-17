@@ -275,7 +275,7 @@ pca_pipe = Pipeline(steps=[
 ols = LinearRegression()
 
 min_idx = 0
-start_idx = 500
+start_idx = 180
 max_idx = yo.shape[0]
 models_estimated, scores_estimated, y_pred = estimate_walk_forward(pca_pipe ,Xo,yo,start_idx,max_idx)
 
@@ -286,7 +286,7 @@ y_true = yo.loc[y_pred.index]
 
 y_moving_mean = yo.shift(1).iloc[start_idx:].expanding(1).mean()
 r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
-print("r2_oos = "+str(r2_oos))
+print("r2_oos = " + str(r2_oos))
 msfe_adj = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
 print("(msfe,p_value) = " + str(msfe_adj))
 mse = mean_squared_error(y_true,y_pred)
@@ -306,8 +306,11 @@ dat = sm.datasets.get_rdataset("Guerry", "HistData").data
 results = smf.ols('Lottery ~ Literacy + np.log(Pop1831)', data=dat).fit()
 
 print(results.summary())
-print(results.rsquared_adj())
-r2 = 0.348
+print(results.rsquared)
+print(results.rsquared_adj)
+
+#print(results.rsquared_adj())
+r2 = results.rsquared
 N = 86
 K = 2
 print(1-(1-r2)*(N-1)/(N-K-1))
