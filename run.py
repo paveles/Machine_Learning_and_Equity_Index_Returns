@@ -238,11 +238,17 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
         model_to_estimate = config['pipeline']
-        cv = config['cv']( n_splits =idx + 1, start_test_split = start_idx - 24).split(X_tr,y_tr)
+        if config['cv'] == TimeSeriesSplitMod:
+            cv = config['cv']( n_splits =idx - 1, start_test_split = idx - 24)
+        elif config['cv'] == DisabledCV:
+            cv = config['cv']()
+
+        cvsplit = cv.split(X_tr,y_tr)
+
         scorer = config['scorer']
         grid_search = config['grid_search']
-        param_grid = pca_config['param_grid']
-        grid = grid_search(estimator=model_to_estimate, param_grid=param_grid, cv=cv \
+        param_grid = config['param_grid']
+        grid = grid_search(estimator=model_to_estimate, param_grid=param_grid, cv=cvsplit \
             , scoring = scorer, n_jobs=-1)
 
         model = grid.fit(X_tr,y_tr)
@@ -272,16 +278,30 @@ pca_config['pipeline'] = Pipeline(steps=[
 ])
 
 # list(range(1, X.shape[1] + 1))
-pca_config['param_grid'] = {'pca__n_components': [4]  }
+pca_config['param_grid'] = {'pca__n_components': [1,2,3,4,5]  }
 pca_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 pca_config['grid_search'] = GridSearchCV
+
+#? OLS Models
+ols_config = {}
+ols_config['cv'] = DisabledCV
+
+ols_config['pipeline'] = Pipeline(steps=[
+    ('ols', LinearRegression())
+])
+
+# list(range(1, X.shape[1] + 1))
+ols_config['param_grid'] = {'ols__fit_intercept':[True]}
+ols_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+ols_config['grid_search'] = GridSearchCV
+
 
 #%% #--------------------------------------------------
 
 min_idx = 0
 start_idx = 180
 max_idx = yo.shape[0]
-models_estimated, scores_estimated, y_pred = estimate_walk_forward(pca_config ,Xo,yo,start_idx,max_idx)
+models_estimated, scores_estimated, y_pred = estimate_walk_forward(ols_config ,Xo,yo,start_idx,max_idx)
 
 
 #%% #--------------------------------------------------
@@ -295,7 +315,7 @@ msfe_adj = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
 print("(msfe_adj,p_value) = " + str(msfe_adj))
 mse = mean_squared_error(y_true,y_pred)
 print("mse = " + str(mse))
-print("best_score in the last period = " + str(scores_estimated[-1]))
+print("average best_score  = " + str(scores_estimated.mean()))
 print(models_estimated[-1])
 models_estimated.to_csv('models_estimated.csv')
 #* Exactly normal r2
