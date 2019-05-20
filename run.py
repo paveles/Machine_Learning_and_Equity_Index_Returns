@@ -187,6 +187,7 @@ X_test_pca = pca.transform(Xscaled_test)
 #%% #--------------------------------------------------
 from sklearn.model_selection import  TimeSeriesSplit
 from TimeSeriesSplitMod import TimeSeriesSplitMod
+from sklearn.base import TransformerMixin,BaseEstimator
 class DisabledCV:
     def __init__(self):
         self.n_splits = 1
@@ -197,8 +198,16 @@ class DisabledCV:
     def get_n_splits(self, X, y, groups=None):
         return self.n_splits
 
+class ToConstantTransformer(BaseEstimator):
 
-#%% #--------------------------------------------------
+    # here you define the operation it should perform
+    def transform(self, X, y=None, **fit_params):
+        return pd.DataFrame(np.ones(X.shape[0]), index = X.index)
+
+    # just return self
+    def fit(self, X, y=None, **fit_params):
+        return pd.DataFrame(np.ones(X.shape[0]), index = X.index)
+X#%% #--------------------------------------------------
 #* Walk-Forward Modeling
 from sklearn.linear_model import  LinearRegression
 from scipy import stats
@@ -295,17 +304,31 @@ ols_config['param_grid'] = {'ols__fit_intercept':[True]}
 ols_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 ols_config['grid_search'] = GridSearchCV
 
+#? OLS Models
+const_config = {}
+const_config['cv'] = DisabledCV
+
+const_config['pipeline'] = Pipeline(steps=[
+    ('const', ToConstantTransformer()),
+    ('ols', LinearRegression())
+])
+
+# list(range(1, X.shape[1] + 1))
+const_config['param_grid'] = {'ols__fit_intercept':[False]}
+const_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+const_config['grid_search'] = GridSearchCV
 
 #%% #--------------------------------------------------
 
 min_idx = 0
 start_idx = 180
 max_idx = yo.shape[0]
-models_estimated, scores_estimated, y_pred = estimate_walk_forward(ols_config ,Xo,yo,start_idx,max_idx)
+models_estimated, scores_estimated, y_pred = estimate_walk_forward(const_config ,Xo,yo,start_idx,max_idx)
 
 
 #%% #--------------------------------------------------
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
+import time
 y_true = yo.loc[y_pred.index]
 
 y_moving_mean = yo.shift(1).iloc[start_idx:].expanding(1).mean()
@@ -317,7 +340,9 @@ mse = mean_squared_error(y_true,y_pred)
 print("mse = " + str(mse))
 print("average best_score  = " + str(scores_estimated.mean()))
 print(models_estimated[-1])
-models_estimated.to_csv('models_estimated.csv')
+
+ticks = time.time()
+models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv')
 #* Exactly normal r2
 #y_moving_mean = y_true.mean()
 #r2_wf = r2_wf(y_true, y_pred,y_moving_mean)
