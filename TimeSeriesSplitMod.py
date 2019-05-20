@@ -195,7 +195,7 @@ class TimeSeriesSplitMod(_BaseKFold):
         .. versionchanged:: 0.20
             ``n_splits`` default value will change from 3 to 5 in v0.22.
     start_test_split: int, default = 1
-        From which split start analysis
+        From which split to start analysis
     max_train_size : int, optional
         Maximum size for a single training set.
 
@@ -204,7 +204,7 @@ class TimeSeriesSplitMod(_BaseKFold):
     >>> from sklearn.model_selection import TimeSeriesSplit
     >>> X = np.array([[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4]])
     >>> y = np.array([1, 2, 3, 4, 5, 6])
-    >>> tscv = TimeSeriesSplitMod(n_splits=5,start_test_split = 4)
+    >>> tscv = TimeSeriesSplitMod(n_splits=5, start_test_split = 4)
     >>> print(tscv)  # doctest: +NORMALIZE_WHITESPACE
     TimeSeriesSplit(max_train_size=None, n_splits=5)
     >>> for train_index, test_index in tscv.split(X):
@@ -295,9 +295,9 @@ TRAIN: [0 1 2 3 4] TEST: [5]
 #                 indices[test_start:test_start + test_size])
 # #%%
 # from sklearn.model_selection import TimeSeriesSplit
-# X = np.array([[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4]])
-# y = np.array([1, 2, 3, 4, 5, 6])
-# tscv = TimeSeriesSplitMod(n_splits=5, start_test_split=4)
+# X = np.array([[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4],[1,2],[3,4]])
+# y = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+# tscv = TimeSeriesSplitMod(n_splits=7, start_test_split=4)
 # #tscv = TimeSeriesSplit(n_splits=5)
 # print(tscv)  
 

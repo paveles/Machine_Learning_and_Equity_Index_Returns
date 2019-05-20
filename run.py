@@ -186,6 +186,7 @@ X_test_pca = pca.transform(Xscaled_test)
 
 #%% #--------------------------------------------------
 from sklearn.model_selection import  TimeSeriesSplit
+from TimeSeriesSplitMod import TimeSeriesSplitMod
 class DisabledCV:
     def __init__(self):
         self.n_splits = 1
@@ -237,7 +238,7 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
         model_to_estimate = config['pipeline']
-        cv = config['cv']().split(X_tr,y_tr)
+        cv = config['cv']( n_splits =idx + 1, start_test_split = start_idx - 24).split(X_tr,y_tr)
         scorer = config['scorer']
         grid_search = config['grid_search']
         param_grid = pca_config['param_grid']
@@ -263,7 +264,7 @@ from sklearn.model_selection import GridSearchCV
 
 #? PCA Models
 pca_config = {}
-pca_config['cv'] = DisabledCV
+pca_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
 pca_config['pipeline'] = Pipeline(steps=[
    ('pca', PCA()),
