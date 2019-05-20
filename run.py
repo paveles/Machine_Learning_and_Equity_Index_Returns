@@ -198,15 +198,6 @@ class DisabledCV:
     def get_n_splits(self, X, y, groups=None):
         return self.n_splits
 
-class ToConstantTransformer(BaseEstimator):
-
-    # here you define the operation it should perform
-    def transform(self, X, y=None, **fit_params):
-        return pd.DataFrame(np.ones(X.shape[0]), index = X.index)
-
-    # just return self
-    def fit(self, X, y=None, **fit_params):
-        return pd.DataFrame(np.ones(X.shape[0]), index = X.index)
 X#%% #--------------------------------------------------
 #* Walk-Forward Modeling
 from sklearn.linear_model import  LinearRegression
@@ -304,7 +295,19 @@ ols_config['param_grid'] = {'ols__fit_intercept':[True]}
 ols_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 ols_config['grid_search'] = GridSearchCV
 
-#? OLS Models
+
+
+class ToConstantTransformer(BaseEstimator, TransformerMixin):
+
+    # here you define the operation it should perform
+    def transform(self, X, y=None, **fit_params):
+        return pd.DataFrame(np.ones(len(X)))
+
+    # just return self
+    def fit(self, X, y=None, **fit_params):
+        return self #pd.DataFrame(np.ones(X.shape[0]), index = X.index)
+
+#? CONST Models
 const_config = {}
 const_config['cv'] = DisabledCV
 
@@ -342,7 +345,7 @@ print("average best_score  = " + str(scores_estimated.mean()))
 print(models_estimated[-1])
 
 ticks = time.time()
-models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv')
+models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
 #* Exactly normal r2
 #y_moving_mean = y_true.mean()
 #r2_wf = r2_wf(y_true, y_pred,y_moving_mean)
