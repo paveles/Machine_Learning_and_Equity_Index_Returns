@@ -345,31 +345,40 @@ y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
 
 r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
 print("r2_oos = " + str(r2_oos))
-msfe_adj = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
-print("(msfe_adj,p_value) = " + str(msfe_adj))
+msfe_adj, p_value = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
+print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
 mse_oos = mean_squared_error(y_true,y_pred)
 print("mse_oos = " + str(mse_oos))
 mse_validated = - scores_estimated.mean()
 print("average mse_validated  = " + str(mse_validated))
 #print(models_estimated[-1])
 
-ticks = time.time()
-models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
+#ticks = time.time()
+#models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
 
 #%% #--------------------------------------------------
-results = dict(config)
+#results = dict(config)
+results = {}
+results['name'] = config['name'] 
 results['r2_oos'] = r2_oos
 results['msfe_adj'] = msfe_adj
-results['mse'] = mse
+results['mse_oos'] = mse_oos
 results['mse_validated'] = mse_validated
-results['models_estimated'] = models_estimated
-results['scores_estimated'] = scores_estimated
-results['y_pred'] = y_pred
-y_pred
+
+
+
+results['scores_estimated'] = scores_estimated.tolist()
+results['y_pred'] = y_pred.tolist()
+results['index'] = y_pred.index.tolist()
+results['models_estimated'] = models_estimated.astype(str).tolist()
+for item in config:
+    config[item]= str(config[item])
+results['config'] = config
+
 import json
-results_json = json.dumps(str(results), indent=4)
+results_json = json.dumps(results, indent=4)
 with open(results['name']+'.json', 'w') as outfile:  
-     json.dump(results_json, outfile)
+     json.dump(results, outfile)
 
 
 #* Exactly normal r2
@@ -377,7 +386,8 @@ with open(results['name']+'.json', 'w') as outfile:
 #r2_wf = r2_wf(y_true, y_pred,y_moving_mean)
 #print(r2_wf)
 #%% #--------------------------------------------------
-
+with open('const.json', 'r') as fp:
+    data = json.load(fp)
 #%% #--------------------------------------------------
 # #%% #--------------------------------------------------
 # X.loc[min_recalc_date]
