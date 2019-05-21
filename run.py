@@ -43,6 +43,7 @@ df['date'] = pd.to_datetime(df['ym'],format='%Y%m') + MonthEnd(1)
 df['sp500_rf'] = df['sp500_rf'] * 100
 df['lnsp500_rf'] = df['lnsp500_rf'] * 100
 df = df.sort_values(by=['date'])
+df.index = df.index.astype(int)
 df0 = df
 
 #df = df.set_index(['ym'])
@@ -223,7 +224,6 @@ def calculate_r2_wf(y_true, y_pred, y_moving_mean):
 def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
     f = (y_true - y_moving_mean)**2 - ((y_true - y_pred)**2 - (y_moving_mean - y_pred)**2)
     t_stat,pval_two_sided = stats.ttest_1samp(f, 0, axis=0)
-    #pval_one_sided = pval_two_sided/2
     pval_one_sided = stats.t.sf(t_stat, f.count() - 1)
     return t_stat, pval_one_sided
 
@@ -334,7 +334,7 @@ from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 import time
 y_true = yo.loc[y_pred.index]
 
-y_moving_mean = yo.shift(1).iloc[start_idx:].expanding(1).mean()
+y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
 r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
 print("r2_oos = " + str(r2_oos))
 msfe_adj = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
@@ -342,7 +342,7 @@ print("(msfe_adj,p_value) = " + str(msfe_adj))
 mse = mean_squared_error(y_true,y_pred)
 print("mse = " + str(mse))
 print("average best_score  = " + str(scores_estimated.mean()))
-print(models_estimated[-1])
+#print(models_estimated[-1])
 
 ticks = time.time()
 models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
