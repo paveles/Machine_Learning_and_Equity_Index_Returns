@@ -1,2 +1,0 @@
-,cv,pipeline,param_grid,scorer,grid_search
-pca__n_components,,,pca__n_components,"make_scorer(mean_squared_error, greater_is_better=False)",<class 'sklearn.model_selection._search.GridSearchCV'>

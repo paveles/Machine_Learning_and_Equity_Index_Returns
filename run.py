@@ -235,6 +235,7 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
     #* moving mean of lagged y
     #param_dict ={'ols__fit_intercept':[True,False],}
     for idx in range(start_idx,max_idx,1):
+        print(str(idx)+" / "+str(max_idx) )
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
         model_to_estimate = config['pipeline']
@@ -270,6 +271,7 @@ from sklearn.model_selection import GridSearchCV
 
 #? PCA Models
 pca_config = {}
+pca_config['name'] = "pca"
 pca_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
 pca_config['pipeline'] = Pipeline(steps=[
@@ -284,6 +286,7 @@ pca_config['grid_search'] = GridSearchCV
 
 #? OLS Models
 ols_config = {}
+ols_config['name'] = "ols"
 ols_config['cv'] = DisabledCV
 
 ols_config['pipeline'] = Pipeline(steps=[
@@ -309,8 +312,9 @@ class ToConstantTransformer(BaseEstimator, TransformerMixin):
 
 #? CONST Models
 const_config = {}
-const_config['cv'] = DisabledCV
 
+const_config['name'] = "const"
+const_config['cv'] = DisabledCV
 const_config['pipeline'] = Pipeline(steps=[
     ('const', ToConstantTransformer()),
     ('ols', LinearRegression())
@@ -322,12 +326,15 @@ const_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False
 const_config['grid_search'] = GridSearchCV
 
 #%% #--------------------------------------------------
-
+config = const_config
 min_idx = 0
-start_idx = 180
+start_idx = 600
 max_idx = yo.shape[0]
-models_estimated, scores_estimated, y_pred = estimate_walk_forward(const_config ,Xo,yo,start_idx,max_idx)
+models_estimated, scores_estimated, y_pred = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx)
+#%% #--------------------------------------------------
 
+# with open('model_config.txt', 'w') as outfile:  
+#     json.dump(const_config_json, outfile)
 
 #%% #--------------------------------------------------
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
@@ -335,17 +342,36 @@ import time
 y_true = yo.loc[y_pred.index]
 
 y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
+
 r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
 print("r2_oos = " + str(r2_oos))
 msfe_adj = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
 print("(msfe_adj,p_value) = " + str(msfe_adj))
-mse = mean_squared_error(y_true,y_pred)
-print("mse = " + str(mse))
-print("average best_score  = " + str(scores_estimated.mean()))
+mse_oos = mean_squared_error(y_true,y_pred)
+print("mse_oos = " + str(mse_oos))
+mse_validated = - scores_estimated.mean()
+print("average mse_validated  = " + str(mse_validated))
 #print(models_estimated[-1])
 
 ticks = time.time()
 models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
+
+#%% #--------------------------------------------------
+results = dict(config)
+results['r2_oos'] = r2_oos
+results['msfe_adj'] = msfe_adj
+results['mse'] = mse
+results['mse_validated'] = mse_validated
+results['models_estimated'] = models_estimated
+results['scores_estimated'] = scores_estimated
+results['y_pred'] = y_pred
+y_pred
+import json
+results_json = json.dumps(str(results), indent=4)
+with open(results['name']+'.json', 'w') as outfile:  
+     json.dump(results_json, outfile)
+
+
 #* Exactly normal r2
 #y_moving_mean = y_true.mean()
 #r2_wf = r2_wf(y_true, y_pred,y_moving_mean)
