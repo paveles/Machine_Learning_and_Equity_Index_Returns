@@ -22,7 +22,10 @@ dir = os.getcwd()
 os.chdir(dir)
 os.makedirs(dir + '/temp', exist_ok = True)
 os.makedirs(dir + '/out/temp', exist_ok = True)
+os.makedirs(dir + '/out/pickle', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
+
+
 
 # Cross-validation Parameter
 K = 10
@@ -240,16 +243,15 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
         y_tr = y.iloc[0 : idx]
         model_to_estimate = config['pipeline']
         if config['cv'] == TimeSeriesSplitMod:
-            cv = config['cv']( n_splits =idx - 1, start_test_split = idx - 24)
+            cv = config['cv']( n_splits =idx - 1, start_test_split = idx - 24).split(X_tr,y_tr)
         elif config['cv'] == DisabledCV:
-            cv = config['cv']()
+            cv = config['cv']().split(X_tr,y_tr)
 
-        cvsplit = cv.split(X_tr,y_tr)
 
         scorer = config['scorer']
         grid_search = config['grid_search']
         param_grid = config['param_grid']
-        grid = grid_search(estimator=model_to_estimate, param_grid=param_grid, cv=cvsplit \
+        grid = grid_search(estimator=model_to_estimate, param_grid=param_grid, cv=cv \
             , scoring = scorer, n_jobs=-1)
 
         model = grid.fit(X_tr,y_tr)
@@ -330,13 +332,26 @@ config = const_config
 min_idx = 0
 start_idx = 600
 max_idx = yo.shape[0]
-models_estimated, scores_estimated, y_pred = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx)
-#%% #--------------------------------------------------
+estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx)
 
-# with open('model_config.txt', 'w') as outfile:  
-#     json.dump(const_config_json, outfile)
+models_estimated = estimated[0]
+scores_estimated = estimated[1]
+y_pred = estimated[2]
+
+#models_estimated, scores_estimated, y_pred
+#%% #--------------------------------------------------
+#* Save Pickle of the Model
+import pickle
+config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
+with open("out/pickle/"+config['name']+".pickle","wb") as f:
+    pickle.dump(config_model_pickle, f)
+
+
+# with open("out/pickle/" + config['name']+".pickle", "rb") as f:
+#     config_model_pickle = pickle.load(f)
 
 #%% #--------------------------------------------------
+#* Calculate different metrics
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 import time
 y_true = yo.loc[y_pred.index]
@@ -355,36 +370,39 @@ print("average mse_validated  = " + str(mse_validated))
 
 #ticks = time.time()
 #models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
-
 #%% #--------------------------------------------------
-#results = dict(config)
-results = {}
-results['name'] = config['name'] 
-results['r2_oos'] = r2_oos
-results['msfe_adj'] = msfe_adj
-results['mse_oos'] = mse_oos
-results['mse_validated'] = mse_validated
+#* Save results_dict to JSON file
+import json
+results_dict = {}
+results_dict['name'] = config['name'] 
+results_dict['r2_oos'] = r2_oos
+results_dict['msfe_adj'] = msfe_adj
+results_dict['mse_oos'] = mse_oos
+results_dict['mse_validated'] = mse_validated
 
 
 
-results['scores_estimated'] = scores_estimated.tolist()
-results['y_pred'] = y_pred.tolist()
-results['index'] = y_pred.index.tolist()
-results['models_estimated'] = models_estimated.astype(str).tolist()
+results_dict['scores_estimated'] = scores_estimated.tolist()
+results_dict['y_pred'] = y_pred.tolist()
+results_dict['index'] = y_pred.index.tolist()
+results_dict['models_estimated'] = models_estimated.astype(str).tolist()
 for item in config:
     config[item]= str(config[item])
-results['config'] = config
+results_dict['config'] = config
 
-import json
-results_json = json.dumps(results, indent=4)
-with open(results['name']+'.json', 'w') as outfile:  
-     json.dump(results, outfile)
 
+results_json = json.dumps(results_dict, indent=4)
+with open('out/pickle/'+ results_dict['name']+'.json', 'w') as outfile:  
+     json.dump(results_json, outfile)
+# with open('const.json', 'r') as fp:
+#     data = json.load(fp)
 
 
 #%% #--------------------------------------------------
-with open('const.json', 'r') as fp:
-    data = json.load(fp)
+
+
+
+
 #%% #--------------------------------------------------
 
 
