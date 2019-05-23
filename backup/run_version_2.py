@@ -1,4 +1,187 @@
+#%% [markdown] #--------------------------------------------------
+## Equity Premium and Machine Learning
+#%% #--------------------------------------------------
 
+import warnings
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = [15, 10]
+import math
+import time
+import datetime
+import pandas as pd
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['patch.force_edgecolor'] = True
+import seaborn as sns
+sns.set()
+from pandas.tseries.offsets import MonthEnd # To Determine the End of the Corresponding Month
+import sys # To caclulate memory usage
+import os
+
+dir = os.getcwd()
+os.chdir(dir)
+os.makedirs(dir + '/temp', exist_ok = True)
+os.makedirs(dir + '/out/temp', exist_ok = True)
+os.makedirs(dir + '/in', exist_ok = True)
+
+# Cross-validation Parameter
+K = 10
+#  Share of Sample as Test
+TsizeInv = 10
+test_size= 1/TsizeInv
+# Add interactions or not
+Poly = 1
+# Starting Year
+Period  = 1951
+# Number of Lags
+LAGS = 1
+#%% #--------------------------------------------------
+
+df = pd.read_csv('in/rapach_2013.csv', na_values = ['NaN'])
+df.rename( index=str, columns={"date": "ym"}, inplace=True)
+df['date'] = pd.to_datetime(df['ym'],format='%Y%m') + MonthEnd(1)
+df['sp500_rf'] = df['sp500_rf'] * 100
+df['lnsp500_rf'] = df['lnsp500_rf'] * 100
+df = df.sort_values(by=['date'])
+
+
+
+#%% #--------------------------------------------------
+"""
+Define variables
+"""
+other = ['ewsi']
+state = ['recessionD', 'sent']
+macro = [ 'dp', 'dy', 'ep', 'de', 'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tms', 'dfy', 'dfr', 'infl'] 
+tech = ['ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
+       'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
+       'vol_3_12']
+# predictors = macro+ tech # + other  + state
+#%% #--------------------------------------------------
+"""
+Variable Cut
+"""
+
+df_full = df
+if Period == 1974:
+
+    predictors = macro + tech + other  + state
+
+elif Period == 1928:
+
+    predictors = macro
+elif Period == 1951:
+  
+    predictors = macro+ tech
+else:
+    sys.exit("Wrong Sample")
+
+df=df[['date','lnsp500_rf']+predictors]
+# df[pd.isnull(df["ewsi"])!= 1]['date'].describe()
+#df = df.set_index(['date'])
+
+#%% #--------------------------------------------------
+#*"""Lagging predictive  variables"""
+
+# df['recessionD_c'] = df['recessionD']
+# vars = ['recessionD', 'dp', 'dy', 'ep', 'de', \
+#        'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tms', 'dfy', 'dfr', 'infl', \
+#        'ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
+#        'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
+#        'vol_3_12', 'sento ', 'sent', 'dsento', 'dsent', 'ewsi']
+# Important! Lagging by 1
+
+df[predictors] = df[predictors].shift(1)
+if LAGS>1:
+    for lag in range(2,LAGS+1,1):
+        df = pd.concat([df, df[predictors].shift(lag).add_suffix('_l{}'.format(lag))], axis = 1)
+
+#%% #--------------------------------------------------
+"""
+Sample Cut
+"""
+
+df_full = df
+if Period == 1974:
+    df = df[(df['date'].dt.year >= 1974)&(df['date'].dt.year <= 2010)]
+
+
+elif Period == 1928:
+    df = df[(df['date'].dt.year >= 1928)]
+
+elif Period == 1951:
+    df = df[(df['date'].dt.year >= 1951)]
+
+else:
+    sys.exit("Wrong Sample")
+#df = df.drop(['date'],axis = 1)
+# df[pd.isnull(df["ewsi"])!= 1]['date'].describe()
+df.dropna(inplace = True)
+
+#%% #--------------------------------------------------
+#*"""Provide a Description of the Data"""
+df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
+#""" --> Data is the same is in the paper Rapach et al 2013"""
+# df.describe().T
+
+#%% #--------------------------------------------------
+    
+
+#%% #--------------------------------------------------
+#''' Train and Test Samples'''
+from sklearn.model_selection import train_test_split
+Xo= df.drop(['lnsp500_rf','date'],axis = 1)
+yo = df['lnsp500_rf']
+
+X0, X0_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = False )
+#%% #--------------------------------------------------
+#'''Standardize Data'''
+from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
+from sklearn.pipeline import Pipeline
+
+pipline = Pipeline(steps=[
+#    ('pca', PCA()), # (n_components=4)
+    ('minmax', StandardScaler()),
+])
+scaler = pipline.fit(X0)
+
+#scaler = StandardScaler().fit(X0)
+X = pd.DataFrame(scaler.transform(X0),  index=X0.index )# , columns=X.columns
+X_test = pd.DataFrame(scaler.transform(X0_test),  index=X0_test.index) #, columns=X_test.columns 
+#%% #--------------------------------------------------
+#''' Interaction Terms'''
+from sklearn.preprocessing import PolynomialFeatures
+if Poly == 1:
+    poly = PolynomialFeatures(interaction_only=True,include_bias = False)
+    Xp = poly.fit_transform(X)
+    Xp_test = poly.fit_transform(X_test)
+elif Poly == 2:
+    poly = PolynomialFeatures(degree = 2,include_bias = False)
+    Xp = poly.fit_transform(X)
+    Xp_test = poly.fit_transform(X_test)
+else:
+    Xp = X
+    Xp_test = X_test
+#%% #--------------------------------------------------
+#* Ones for Constant Model
+Ones = pd.DataFrame(np.ones(y.shape[0]))
+Ones_test = pd.DataFrame(np.ones(y_test.shape[0]))
+#%% #--------------------------------------------------
+#* Prepare data for the PCA
+from sklearn import linear_model
+from sklearn.decomposition import PCA
+#pca = PCA().fit(X)
+
+# plt.plot(np.cumsum(pca.explained_variance_ratio_))
+# plt.xlabel('number of components')
+# plt.ylabel('cumulative explained variance');
+scaler = StandardScaler().fit(X0)
+Xscaled = scaler.transform(X0)
+Xscaled_test = scaler.transform(X0_test)
+pca = PCA(n_components=4)
+pca.fit(X0)
+X_pca = pca.transform(Xscaled)
+X_test_pca = pca.transform(Xscaled_test)
 # #############################################################################
 #%% #-------------------------------------------------- 
 from sklearn import linear_model
@@ -274,200 +457,4 @@ sns.lineplot(x='date',y='return', hue ='model', data = plotdata )
 plt.savefig(dir+"/out/lineplot_predict")
 plt.show()
 
-
-%%
 #%% #--------------------------------------------------
-
-sns.reset_defaults()
-g = sns.FacetGrid(plotdata, hue='model', height = 5, aspect= 2 )
-g = g.map(plt.bar, 'date','return' , alpha=0.7)
-g = g.add_legend()
-plt.show()
-plt.savefig(dir+"/out/barplot_predict")
-
-#%% #--------------------------------------------------
-#* Define Function to Draw Cross-Validation for Optimal Lambda
-def display_optimal_alpha(model,model_name):
-    # Display results
-    m_log_alphas = -np.log10(model.alphas_)
-
-
-    plt.figure()
-
-    plt.plot(model.alphas_, model.mse_path_, ':')
-    plt.plot(model.alphas_, model.mse_path_.mean(axis=-1), 'k',
-            label='Average across the folds', linewidth=2)
-    plt.axvline(model.alpha_, linestyle='--', color='k',
-                label='alpha = %f: CV estimate' % model.alpha_)
-
-    plt.legend()
-
-    plt.xlabel('$\lambda$')
-    plt.ylabel('Mean square error')
-    plt.title(model_name + ' - Mean square error on each fold: coordinate descent ')
-    plt.axis('tight')
-    print(-np.log10(model.alpha_))
-    #ymin, ymax = 2300, 3800
-    #plt.ylim(ymin, ymax)
-    plt.show()
-    return plt
-
-
-fig = display_optimal_alpha(model_lasso, 'lasso')
-plt.savefig(dir+"/out/lasso_cv")
-fig = display_optimal_alpha(model_ridge, 'ridge')
-plt.savefig(dir+"/out/ridge_cv")
-fig = display_optimal_alpha(model_enet, 'enet')
-plt.savefig(dir+"/out/enet_cv")
-
-
-#%% #--------------------------------------------------
-#''' Lasso and Enet Path - Labels'''
-
-from itertools import cycle
-import numpy as np
-import matplotlib.pyplot as plt
-
-from sklearn.linear_model import lasso_path, enet_path
-from sklearn import datasets
-
-def lambda_path(model_name, lmbda):
-
-    if model_name == "enet": 
-        l1 = 0.5
-    elif model_name == "lasso":  
-        l1 = 1
-    elif model_name == "ridge":  
-        l1 = 0
-    # Compute paths
-    eps = 5e-2  # the smaller it is the longer is the path
-
-    print("Computing regularization path using the lasso...")
-    alphas, coefs, _ =  enet_path(X, y, eps=eps, l1_ratio=l1, fit_intercept=True)
-
-    # Display results
-    labels = X.columns
-    plt.figure()
-    #colors = cycle(['b', 'r', 'g', 'c', 'k','m','y'])
-    log_alphas = np.log10(alphas)
-    C = coefs.shape[0]
-    for k in range(C):
-        l1 = plt.plot(alphas, coefs[k], label = labels[k],)
-
-    plt.axvline(x=lmbda, color='k', linestyle='--')
-    plt.xlabel('$\lambda$')
-    plt.ylabel('Coefficients')
-    plt.title('Lasso Path')
-    plt.legend()
-    plt.axis('tight')
-    plt.show()
-    return plt
-
-sns.set_palette("husl", 28)
-fig = lambda_path("lasso", lambda_lasso)
-fig.savefig(dir+"/out/lasso_path")
-fig = lambda_path("enet", lambda_enet)
-fig.savefig(dir+"/out/enet_path")
-sns.set_palette("deep")
-
-
-#%% #--------------------------------------------------
-#'''Coefficients Plot''' 
-plt.figure()
-#labels.insert(0,'cons')
-if Poly ==0:
-    labels = list(X.columns)
-
-    plt.plot(np.arange(len(labels)),model_ridge.coef_, color='g', linewidth=2,
-             label='Ridge coefficients', alpha = 0.6)
-    plt.plot(np.arange(len(labels)), model_lasso.coef_, color='r', linewidth=2,
-             label='Lasso coefficients', alpha = 0.6)
-    plt.plot(np.arange(len(labels)), model_enet.coef_, color='b', linewidth=2,
-             label='Elastic net coefficients', alpha = 0.6)
-    plt.xticks(range(len(labels)), labels, rotation=45)
-    #ax[1].set_xticklabels(labels)
-
-else:
- #   plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
-    plt.plot(model_ridge.coef_, color='g', linewidth=2,
-             label='Ridge coefficients', alpha = 0.6)
-    plt.plot(model_lasso.coef_, color='r', linewidth=2,
-             label='Lasso coefficients', alpha = 0.6)
-    plt.plot(model_enet.coef_, color='b', linewidth=2,
-             label='Elastic net coefficients', alpha = 0.6)
-    
-plt.axhline(y=0,linestyle = '--', color='k')
-plt.legend(loc='best')
-plt.title("Ridge, Lasso, Elastic Net Coefficients")
-plt.xlabel('Variables')
-plt.ylabel('Coefficients')
-#plt.show()
-plt.savefig(dir+"/out/Coefficients")
-
-#%% #--------------------------------------------------
-Multicollinearity
-
-corr=np.corrcoef(X,rowvar=0)
-corr
-W,V=np.linalg.eig(corr)
-print(W)
-list(X)
-Xcorr = X.corr()
-plt.figure(figsize=(30,15))
-sns.heatmap(Xcorr, annot=True)
-plt.savefig(dir+"/out/Coefficients")
---> Multicollinearity in data
-#%% #--------------------------------------------------
-
-# Performance Metrics - Out_of-Sample Comparison
-print(" Performance Metrics - Out_of-Sample Comparison")
-from sklearn.metrics import mean_squared_error, r2_score
-def r2_adj_score(y, yhat, n, p):
-    r2 =  r2_score(y, yhat)
-    return 1 - (1-r2)*(n-1)/(n-p-1)
-
-yhat_c = model_c.predict(Ones_test)
-yhat_ols = model_ols.predict(X_test)
-yhat_pca = model_pca.predict(X_test_pca)
-yhat_ridge = model_ridge.predict(X_test)
-yhat_lasso = model_lasso.predict(X_test)
-yhat_enet = model_enet.predict(X_test)
-
-yhats_old = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
-yhats_names = ['c_model','pca_model', 'ols_model','ridge_model', 'lasso_model', 'enet_model']
-print("MSE:")
-for yh,yh_n in zip(yhats_old,yhats_names):
-    print("mean_squared_error(y_test, {})".format(yh_n))
-    print(mean_squared_error(y_test, yh))
-    print("r2_score(y_test, {})".format(yh_n))
-    print(r2_score(y_test, yh))
-
-
-## Print the Results
-os.makedirs(dir+"out/oos/",exist_ok = True)
-f = open(dir+"/out/oos/K{}_TsizeInv{}_Poly{}_Period{}.txt".format(K,TsizeInv,Poly,Period), 'w')
-f.write("MSE:")
-for yh,yh_n in zip(yhats_old,yhats_names):
-    f.write("mean_squared_error(y_test, {})\n".format(yh_n))
-    f.write("{}\n".format(mean_squared_error(y_test, yh)))
-f.close()
-
-#%% #--------------------------------------------------
-#'''Prediction Plot''' 
-plt.figure(figsize=(15,7.5))
-x= np.array(df['ym'].loc[y_test.index]).astype(int)
-#plt.plot(model_ols.coef_, '--', color='navy', label='OLS coefficients')
-colors = cycle(['c','m','y', 'g', 'r','b', 'k'])
-yhats_old = [yhat_c,  yhat_pca, yhat_ols,  yhat_ridge, yhat_lasso, yhat_enet]
-yhats_names = ['Const', 'PCA',	'OLS',	'Ridge', 'Lasso', 'Enet']
-plt.plot(np.arange(len(x)),y_test,'--', color='k', linewidth=1,
-             label='Realized Return')
-for yh,yh_n,color in zip(yhats_old,yhats_names,colors):
-    plt.plot(np.arange(len(x)),yh, linewidth=2, color = color)
-#label="{} prediction".format(yh_n)
-plt.xticks(range(len(x)), x, rotation=45)
-yhats_names.insert(0,'Realized Return')
-plt.xlabel('Date')
-plt.ylabel('Monthly Return in %')
-plt.legend(yhats_names)
-plt.savefig(dir+"/out/Prediction")
