@@ -328,7 +328,7 @@ const_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False
 const_config['grid_search'] = GridSearchCV
 
 #%% #--------------------------------------------------
-config = const_config
+config = ols_config
 min_idx = 0
 start_idx = 600
 max_idx = yo.shape[0]
@@ -340,7 +340,7 @@ y_pred = estimated[2]
 
 #models_estimated, scores_estimated, y_pred
 #%% #--------------------------------------------------
-#* Save Pickle of the Model
+#* Save Pickle of the Model and Config
 import pickle
 config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
 with open("out/pickle/"+config['name']+".pickle","wb") as f:
@@ -372,39 +372,49 @@ print("average mse_validated  = " + str(mse_validated))
 #models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
 #%% #--------------------------------------------------
 #* Save results_dict to JSON file
-import json
 results_dict = {}
 results_dict['name'] = config['name'] 
 results_dict['r2_oos'] = r2_oos
 results_dict['msfe_adj'] = msfe_adj
 results_dict['mse_oos'] = mse_oos
 results_dict['mse_validated'] = mse_validated
+results_dict['config'] = str(config)
+
+df = pd.DataFrame(results_dict, index=[0]) # , columns=results_dict.keys()
+df.to_csv('out/pickle/'+ results_dict['name']+'.csv')
+# results_dict['scores_estimated'] = scores_estimated.tolist()
+# results_dict['y_pred'] = y_pred.tolist()
+# results_dict['index'] = y_pred.index.tolist()
+# results_dict['models_estimated'] = models_estimated.astype(str).tolist()
+# for item in config:
+#     config[item]= str(config[item])
+# results_dict['config'] = config
 
 
 
-results_dict['scores_estimated'] = scores_estimated.tolist()
-results_dict['y_pred'] = y_pred.tolist()
-results_dict['index'] = y_pred.index.tolist()
-results_dict['models_estimated'] = models_estimated.astype(str).tolist()
-for item in config:
-    config[item]= str(config[item])
-results_dict['config'] = config
-
-
-results_json = json.dumps(results_dict, indent=4)
-with open('out/pickle/'+ results_dict['name']+'.json', 'w') as outfile:  
-     json.dump(results_json, outfile)
+# results_json = json.dumps(results_dict, indent=4)
+# with open('out/pickle/'+ results_dict['name']+'.json', 'w') as outfile:  
+#      json.dump(results_json, outfile)
 # with open('const.json', 'r') as fp:
 #     data = json.load(fp)
 
 
 #%% #--------------------------------------------------
+# configs ={
+#     'const' : const_config,
+#     'ols' : ols_config,
+#     'pca' : pca_config,
+#     # 'ridge' : config_ridge,
+#     # 'lasso' : config_lasso,
+#     # 'enet' : config_enet,
+#     # 'adab' : config_adab,
+#     # 'rf': config_rf,
+#     # 'gbr':config_gbr,
+#     # 'lgb' : config_lgb,
+#     # 'xgb': config_xgb,
+# #    'tpot': config_tpot,
+# }
 
-
-
-
-#%% #--------------------------------------------------
-
-
+# for config in configs:
 
 
