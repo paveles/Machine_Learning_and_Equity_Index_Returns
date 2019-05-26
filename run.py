@@ -243,7 +243,7 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
         y_tr = y.iloc[0 : idx]
         model_to_estimate = config['pipeline']
         if config['cv'] == TimeSeriesSplitMod:
-            cv = config['cv']( n_splits =idx - 1, start_test_split = start_idx - 24).split(X_tr,y_tr)
+            cv = config['cv']( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
         elif config['cv'] == DisabledCV:
             cv = config['cv']().split(X_tr,y_tr)
 
@@ -270,21 +270,6 @@ from sklearn.linear_model import  LinearRegression
 from scipy import stats
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV
-
-#? PCA Models
-pca_config = {}
-pca_config['name'] = "pca"
-pca_config['cv'] = TimeSeriesSplitMod # DisabledCV
-
-pca_config['pipeline'] = Pipeline(steps=[
-   ('pca', PCA()),
-    ('ols', LinearRegression())
-])
-
-# list(range(1, X.shape[1] + 1))
-pca_config['param_grid'] = {'pca__n_components': [1,2,3,4,5]  }
-pca_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
-pca_config['grid_search'] = GridSearchCV
 
 #? OLS Models
 ols_config = {}
@@ -327,61 +312,81 @@ const_config['param_grid'] = {'ols__fit_intercept':[False]}
 const_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 const_config['grid_search'] = GridSearchCV
 
+
+
+
 #%% #--------------------------------------------------
-config = ols_config
+configs ={
+    # 'const' : const_config,
+    # 'ols' : ols_config,
+    'pca' : pca_config,
+    # 'ridge' : config_ridge,
+    # 'lasso' : config_lasso,
+    # 'enet' : config_enet,
+    # 'adab' : config_adab,
+    # 'rf': config_rf,
+    # 'gbr':config_gbr,
+    # 'lgb' : config_lgb,
+    # 'xgb': config_xgb,
+#    'tpot': config_tpot,
+}
+#config = ols_config
+
 min_idx = 0
-start_idx = 600
+start_idx = 700
 max_idx = yo.shape[0]
-estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx)
 
-models_estimated = estimated[0]
-scores_estimated = estimated[1]
-y_pred = estimated[2]
+for cname, config in configs.items():
+    estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx)
 
-#models_estimated, scores_estimated, y_pred
-#%% #--------------------------------------------------
-#* Save Pickle of the Model and Config
-import pickle
-config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
-with open("out/pickle/"+config['name']+".pickle","wb") as f:
-    pickle.dump(config_model_pickle, f)
+    models_estimated = estimated[0]
+    scores_estimated = estimated[1]
+    y_pred = estimated[2]
+
+    #models_estimated, scores_estimated, y_pred
+    #%% #--------------------------------------------------
+    #* Save Pickle of the Model and Config
+    import pickle
+    config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
+    with open("out/pickle/"+config['name']+".pickle","wb") as f:
+        pickle.dump(config_model_pickle, f)
 
 
-# with open("out/pickle/" + config['name']+".pickle", "rb") as f:
-#     config_model_pickle = pickle.load(f)
+    # with open("out/pickle/" + config['name']+".pickle", "rb") as f:
+    #     config_model_pickle = pickle.load(f)
 
-#%% #--------------------------------------------------
-#* Calculate different metrics
-from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
-import time
-y_true = yo.loc[y_pred.index]
+    #%% #--------------------------------------------------
+    #* Calculate different metrics
+    from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
+    import time
+    y_true = yo.loc[y_pred.index]
 
-y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
+    y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
 
-r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
-print("r2_oos = " + str(r2_oos))
-msfe_adj, p_value = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
-print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
-mse_oos = mean_squared_error(y_true,y_pred)
-print("mse_oos = " + str(mse_oos))
-mse_validated = - scores_estimated.mean()
-print("average mse_validated  = " + str(mse_validated))
-#print(models_estimated[-1])
+    r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
+    print("r2_oos = " + str(r2_oos))
+    msfe_adj, p_value = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
+    print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
+    mse_oos = mean_squared_error(y_true,y_pred)
+    print("mse_oos = " + str(mse_oos))
+    mse_validated = - scores_estimated.mean()
+    print("average mse_validated  = " + str(mse_validated))
+    #print(models_estimated[-1])
 
-#ticks = time.time()
-#models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
-#%% #--------------------------------------------------
-#* Save results_dict to CSV file
-results_dict = {}
-results_dict['name'] = config['name'] 
-results_dict['r2_oos'] = r2_oos
-results_dict['msfe_adj'] = msfe_adj
-results_dict['mse_oos'] = mse_oos
-results_dict['mse_validated'] = mse_validated
-results_dict['config'] = str(config)
+    #ticks = time.time()
+    #models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
+    #%% #--------------------------------------------------
+    #* Save results_dict to CSV file
+    results_dict = {}
+    results_dict['name'] = config['name'] 
+    results_dict['r2_oos'] = r2_oos
+    results_dict['msfe_adj'] = msfe_adj
+    results_dict['mse_oos'] = mse_oos
+    results_dict['mse_validated'] = mse_validated
+    results_dict['config'] = str(config)
 
-df = pd.DataFrame(results_dict, index=[0]) 
-df.to_csv('out/pickle/'+ results_dict['name']+'.csv', index=False)
+    df = pd.DataFrame(results_dict, index=[0]) 
+    df.to_csv('out/pickle/'+ results_dict['name']+'.csv', index=False)
 
 
 #%% #--------------------------------------------------
@@ -389,7 +394,7 @@ df.to_csv('out/pickle/'+ results_dict['name']+'.csv', index=False)
 configs ={
     'const' : const_config,
     'ols' : ols_config,
-    #'pca' : pca_config,
+    'pca' : pca_config,
     # 'ridge' : config_ridge,
     # 'lasso' : config_lasso,
     # 'enet' : config_enet,

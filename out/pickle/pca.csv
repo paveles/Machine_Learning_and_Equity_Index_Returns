@@ -1,0 +1,5 @@
+name,r2_oos,msfe_adj,mse_oos,mse_validated,config
+pca,-0.024123013584877562,0.14924308086729982,22.472161041923773,22.957418872490507,"{'name': 'pca', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))]), 'param_grid': {'pca__n_components': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"

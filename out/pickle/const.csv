@@ -1,4 +1,4 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,config
-const,0,-0.283237531,22.74906345,17.52562055,"{'name': 'const', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+const,0.0,0.8183548106602043,21.94283376492185,17.99963005497545,"{'name': 'const', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('const', ToConstantTransformer()), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))]), 'param_grid': {'ols__fit_intercept': [False]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"
