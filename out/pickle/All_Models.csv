@@ -1,0 +1,7 @@
+,name,r2_oos,msfe_adj,mse_oos,mse_validated,config
+0,const,0.0,-0.28323753100000004,22.74906345,17.52562055,"{'name': 'const', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+     steps=[('const', ToConstantTransformer()), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))]), 'param_grid': {'ols__fit_intercept': [False]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"
+1,ols,-0.14938167557963555,0.030700569415569305,26.147356662669505,15.924970785437866,"{'name': 'ols', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+     steps=[('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))]), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"

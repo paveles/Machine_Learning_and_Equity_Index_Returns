@@ -243,7 +243,7 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
         y_tr = y.iloc[0 : idx]
         model_to_estimate = config['pipeline']
         if config['cv'] == TimeSeriesSplitMod:
-            cv = config['cv']( n_splits =idx - 1, start_test_split = idx - 24).split(X_tr,y_tr)
+            cv = config['cv']( n_splits =idx - 1, start_test_split = start_idx - 24).split(X_tr,y_tr)
         elif config['cv'] == DisabledCV:
             cv = config['cv']().split(X_tr,y_tr)
 
@@ -371,7 +371,7 @@ print("average mse_validated  = " + str(mse_validated))
 #ticks = time.time()
 #models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
 #%% #--------------------------------------------------
-#* Save results_dict to JSON file
+#* Save results_dict to CSV file
 results_dict = {}
 results_dict['name'] = config['name'] 
 results_dict['r2_oos'] = r2_oos
@@ -380,41 +380,32 @@ results_dict['mse_oos'] = mse_oos
 results_dict['mse_validated'] = mse_validated
 results_dict['config'] = str(config)
 
-df = pd.DataFrame(results_dict, index=[0]) # , columns=results_dict.keys()
-df.to_csv('out/pickle/'+ results_dict['name']+'.csv')
-# results_dict['scores_estimated'] = scores_estimated.tolist()
-# results_dict['y_pred'] = y_pred.tolist()
-# results_dict['index'] = y_pred.index.tolist()
-# results_dict['models_estimated'] = models_estimated.astype(str).tolist()
-# for item in config:
-#     config[item]= str(config[item])
-# results_dict['config'] = config
-
-
-
-# results_json = json.dumps(results_dict, indent=4)
-# with open('out/pickle/'+ results_dict['name']+'.json', 'w') as outfile:  
-#      json.dump(results_json, outfile)
-# with open('const.json', 'r') as fp:
-#     data = json.load(fp)
+df = pd.DataFrame(results_dict, index=[0]) 
+df.to_csv('out/pickle/'+ results_dict['name']+'.csv', index=False)
 
 
 #%% #--------------------------------------------------
-# configs ={
-#     'const' : const_config,
-#     'ols' : ols_config,
-#     'pca' : pca_config,
-#     # 'ridge' : config_ridge,
-#     # 'lasso' : config_lasso,
-#     # 'enet' : config_enet,
-#     # 'adab' : config_adab,
-#     # 'rf': config_rf,
-#     # 'gbr':config_gbr,
-#     # 'lgb' : config_lgb,
-#     # 'xgb': config_xgb,
-# #    'tpot': config_tpot,
-# }
+#* Aggregate Information
+configs ={
+    'const' : const_config,
+    'ols' : ols_config,
+    #'pca' : pca_config,
+    # 'ridge' : config_ridge,
+    # 'lasso' : config_lasso,
+    # 'enet' : config_enet,
+    # 'adab' : config_adab,
+    # 'rf': config_rf,
+    # 'gbr':config_gbr,
+    # 'lgb' : config_lgb,
+    # 'xgb': config_xgb,
+#    'tpot': config_tpot,
+}
 
-# for config in configs:
-
+df_config = pd.DataFrame()
+for cname, config in configs.items():
+    df_config = df_config.append(pd.read_csv('out/pickle/'+ cname +'.csv'),
+     ignore_index =True)
+print(df_config)
+df_config.to_csv('out/pickle/'+'All_Models'+'.csv')
+#%% #--------------------------------------------------
 
