@@ -5,7 +5,7 @@
 1,ols,-0.06348031492499827,0.4770571145151309,23.335771762665978,16.54166008168466,"{'name': 'ols', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))]), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"
-2,pca,-0.0241230138825983,0.14924307698769165,22.472161048456613,22.957418873126578,"{'name': 'pca', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
+2,pca,-0.02412301358487756,0.14924308086729982,22.472161041923776,22.95741887249051,"{'name': 'pca', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
      steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False))]), 'param_grid': {'pca__n_components': [1, 2, 3, 4, 5]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"
+         normalize=False))]), 'param_grid': {'pca__n_components': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"

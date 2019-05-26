@@ -314,6 +314,36 @@ const_config['grid_search'] = GridSearchCV
 
 
 
+#? PCA Models
+pca_config = {}
+pca_config['name'] = "pca"
+pca_config['cv'] = TimeSeriesSplitMod # DisabledCV
+
+pca_config['pipeline'] = Pipeline(steps=[
+   ('pca', PCA()),
+    ('ols', LinearRegression())
+])
+
+# list(range(1, X.shape[1] + 1))
+pca_config['param_grid'] = {'pca__n_components': [1,2,3,4,5]  }
+pca_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+pca_config['grid_search'] = GridSearchCV
+
+#? PCA Models
+pca_config = {}
+pca_config['name'] = "pca"
+pca_config['cv'] = TimeSeriesSplitMod # DisabledCV
+
+pca_config['pipeline'] = Pipeline(steps=[
+   ('pca', PCA()),
+    ('ols', LinearRegression())
+])
+
+# list(range(1, X.shape[1] + 1))
+pca_config['param_grid'] = {'pca__n_components': [1,2,3,4,5]  }
+pca_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+pca_config['grid_search'] = GridSearchCV
+
 
 #%% #--------------------------------------------------
 configs ={
@@ -351,9 +381,6 @@ for cname, config in configs.items():
     with open("out/pickle/"+config['name']+".pickle","wb") as f:
         pickle.dump(config_model_pickle, f)
 
-
-    # with open("out/pickle/" + config['name']+".pickle", "rb") as f:
-    #     config_model_pickle = pickle.load(f)
 
     #%% #--------------------------------------------------
     #* Calculate different metrics
@@ -412,5 +439,11 @@ for cname, config in configs.items():
      ignore_index =True)
 print(df_config)
 df_config.to_csv('out/pickle/'+'All_Models'+'.csv')
-#%% #--------------------------------------------------
 
+#* Estimated Models Save in Temp
+for cname, config in configs.items():
+    with open("out/pickle/" + config['name']+".pickle", "rb") as f:
+        config_model_pickle = pickle.load(f)
+        config_model_pickle['estimated'][0].to_csv('temp/'+ config['name'] +'_estimated.csv', header = True)
+
+#%%
