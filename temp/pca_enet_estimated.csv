@@ -1,0 +1,161 @@
+,0
+988,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.5, copy_X=True, fit_intercept=True, l1_ratio=1,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+989,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.75,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+990,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.75,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+991,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.75,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+992,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+993,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+994,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.97, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+995,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+996,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+997,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+998,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+999,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.5, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1000,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.5, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1001,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.75,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1002,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.75,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1003,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1004,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.97, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1005,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1006,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.97, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1007,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.97, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1008,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1009,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1010,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1011,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1012,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1013,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1014,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.97, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1015,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1016,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.9, copy_X=True, fit_intercept=True, l1_ratio=0.75,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1017,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.99, copy_X=True, fit_intercept=True, l1_ratio=1,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1018,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"
+1019,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=0.7, copy_X=True, fit_intercept=True, l1_ratio=0.25,
+      max_iter=1000, normalize=False, positive=False, precompute=False,
+      random_state=0, selection='cyclic', tol=0.0001, warm_start=False))])"

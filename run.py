@@ -266,7 +266,7 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
 
 #%% #--------------------------------------------------
 #* Define Models
-from sklearn.linear_model import  LinearRegression
+from sklearn.linear_model import  LinearRegression, ElasticNet
 from scipy import stats
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV
@@ -329,30 +329,49 @@ pca_config['param_grid'] = {'pca__n_components': [1,2,3,4,5]  }
 pca_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 pca_config['grid_search'] = GridSearchCV
 
-#? PCA Models
-pca_config = {}
-pca_config['name'] = "pca"
-pca_config['cv'] = TimeSeriesSplitMod # DisabledCV
+#? Enet  Model
+enet_config = {}
+enet_config['name'] = "enet"
+enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
-pca_config['pipeline'] = Pipeline(steps=[
-   ('pca', PCA()),
-    ('ols', LinearRegression())
+enet_config['pipeline'] = Pipeline(steps=[
+    ('enet', ElasticNet())
 ])
 
 # list(range(1, X.shape[1] + 1))
-pca_config['param_grid'] = {'pca__n_components': [1,2,3,4,5]  }
-pca_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
-pca_config['grid_search'] = GridSearchCV
+enet_config['param_grid'] = {'enet__alpha': [0.1, 0.3, 0.5 , 0.7, 0.9,  0.97, 0.99],
+                            'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
+                            'enet__random_state' : [0],
+                            }
+enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+enet_config['grid_search'] = GridSearchCV
 
+#? PCAEnet  Model
+pca_enet_config = {}
+pca_enet_config['name'] = "pca_enet"
+pca_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
+pca_enet_config['pipeline'] = Pipeline(steps=[
+    ('pca', PCA()),
+    ('enet', ElasticNet())
+])
+
+# list(range(1, X.shape[1] + 1))
+pca_enet_config['param_grid'] = {'enet__alpha': [0.1, 0.3, 0.5 , 0.7, 0.9,  0.97, 0.99],
+                            'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
+                            'enet__random_state' : [0],
+                            }
+pca_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+pca_enet_config['grid_search'] = GridSearchCV
 #%% #--------------------------------------------------
+#%% #--------------------------------------------------
+#* Do All Time-Consuming Calculations!
 configs ={
-    # 'const' : const_config,
+    'const' : const_config,
     # 'ols' : ols_config,
-    'pca' : pca_config,
-    # 'ridge' : config_ridge,
-    # 'lasso' : config_lasso,
-    # 'enet' : config_enet,
+    # 'pca' : pca_config,
+    #'enet' : enet_config,
+    #'pca_enet' : pca_enet_config,
     # 'adab' : config_adab,
     # 'rf': config_rf,
     # 'gbr':config_gbr,
@@ -410,6 +429,7 @@ for cname, config in configs.items():
     results_dict['msfe_adj'] = msfe_adj
     results_dict['mse_oos'] = mse_oos
     results_dict['mse_validated'] = mse_validated
+    results_dict['start_idx'] = start_idx   
     results_dict['config'] = str(config)
 
     df = pd.DataFrame(results_dict, index=[0]) 
@@ -422,6 +442,8 @@ configs ={
     'const' : const_config,
     'ols' : ols_config,
     'pca' : pca_config,
+    'enet' : enet_config,
+    'pca_enet' : pca_enet_config,
     # 'ridge' : config_ridge,
     # 'lasso' : config_lasso,
     # 'enet' : config_enet,
