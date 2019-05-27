@@ -248,6 +248,10 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
             cv = config['cv']( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
         elif config['cv'] == DisabledCV:
             cv = config['cv']().split(X_tr,y_tr)
+        
+        # tscv =  config['cv']( n_splits =idx - 1, start_test_split = start_idx - 1 )
+        # for train_index, test_index in tscv.split(X_tr,y_tr):
+        #     print("TRAIN:", train_index, "TEST:", test_index)
 
 
         scorer = config['scorer']
@@ -263,15 +267,31 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
         scores_estimated.loc[X.index[idx]] = best_score # save the score
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
     return models_estimated,scores_estimated, predictions
+# #%% #--------------------------------------------------
+# #* Check How Indexes and Cross-Validation are Calculated
+# idx = max_idx
+# tscv = TimeSeriesSplitMod(n_splits=idx - 1, start_test_split=start_idx - 1)
 
+# print(tscv)  
 
+# for train_index, test_index in tscv.split(Xo[0:idx], yo[0:idx] ):
+#    print("TRAIN:", train_index, "TEST:", test_index)
 
+# #print(Xo.index[idx])
+# print( idx)
+##* Correct!
+   
 #%% #--------------------------------------------------
 #* Define Models
 from sklearn.linear_model import  LinearRegression, ElasticNet
 from scipy import stats
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import AdaBoostRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+import lightgbm as lgb
+from xgboost import XGBRegressor
 
 #? OLS Models
 ols_config = {}
@@ -342,7 +362,7 @@ enet_config['pipeline'] = Pipeline(steps=[
 ])
 
 # list(range(1, X.shape[1] + 1))
-enet_config['param_grid'] = {'enet__alpha': [0.1, 0.3, 0.5 , 0.7, 0.9,  0.97, 0.99],
+enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
                             'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
                             'enet__random_state' : [0],
                             }
@@ -361,39 +381,113 @@ pca_enet_config['pipeline'] = Pipeline(steps=[
 ])
 
 # list(range(1, X.shape[1] + 1))
-pca_enet_config['param_grid'] = {'enet__alpha': [0.1, 0.3, 0.5 , 0.7, 0.9,  0.97, 0.99],
+pca_enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
                             'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
                             'enet__random_state' : [0],
                             }
 pca_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 pca_enet_config['grid_search'] = GridSearchCV
+
+
+#? Random Forest Model + No CV
+rf_config = {}
+rf_config['name'] = "rf_nocv"
+rf_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
+
+rf_config['pipeline'] = Pipeline(steps=[
+    ('rf', RandomForestRegressor())
+])
+
+# list(range(1, X.shape[1] + 1))
+rf_config['param_grid'] = {
+                            'rf__random_state' : [0],
+                            'rf__n_estimators': [100],
+                            'rf__max_depth':[15]
+                            }
+rf_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+rf_config['grid_search'] = GridSearchCV
+
+#? AdaBoostRegressor Model + No CV
+adab_config = {}
+adab_config['name'] = "adab_nocv"
+adab_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
+
+adab_config['pipeline'] = Pipeline(steps=[
+    ('adab', AdaBoostRegressor())
+])
+
+# list(range(1, X.shape[1] + 1))
+adab_config['param_grid'] = {
+                            'adab__random_state' : [0],
+                            'adab__n_estimators': [100],
+                            }
+adab_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+adab_config['grid_search'] = GridSearchCV
+
+#? GradientBoostingRegressor  Model + No CV
+gbr_config = {}
+gbr_config['name'] = "gbr_nocv"
+gbr_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
+
+gbr_config['pipeline'] = Pipeline(steps=[
+    ('gbr', GradientBoostingRegressor())
+])
+
+# list(range(1, X.shape[1] + 1))
+gbr_config['param_grid'] = {
+                            'gbr__random_state' : [0],
+                            'gbr__n_estimators':[100],
+                            }
+gbr_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+gbr_config['grid_search'] = GridSearchCV
+
+#? GradientBoostingRegressor  Model + No CV
+xgb_config = {}
+xgb_config['name'] = "xgb_nocv"
+xgb_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
+
+xgb_config['pipeline'] = Pipeline(steps=[
+    ('xgb', XGBRegressor())
+])
+
+# list(range(1, X.shape[1] + 1))
+xgb_config['param_grid'] = {
+                            'xgb__random_state' : [0],
+                            'xgb__n_estimators':[100],
+                            }
+xgb_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+xgb_config['grid_search'] = GridSearchCV
+
 #%% #--------------------------------------------------
 #%% #--------------------------------------------------
 #! Do All Time-Consuming Calculations!
 configs ={
-    'const' : const_config,
+    # 'const' : const_config,
     # 'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
-    # 'adab' : config_adab,
-    # 'rf': config_rf,
-    # 'gbr':config_gbr,
+    # 'adab' : adab_config,
+    # 'gbr': gbr_config,
+     'rf': rf_config,
+    # 'xgb': xgb_config,
     # 'lgb' : config_lgb,
-    # 'xgb': config_xgb,
+
 #    'tpot': config_tpot,
 }
 #config = ols_config
 
 min_idx = 0
-start_idx = 180
+start_idx = 700
 max_idx = yo.shape[0]
 
 for cname, config in configs.items():
-    time_begin = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     print('--------------------------')
+    time_begin = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     print(cname +' '+ time_begin)
-    estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx)
+
+    estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx) #! The code
+
     time_end = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     print(cname +' '+ time_end)
     models_estimated = estimated[0]
@@ -406,7 +500,7 @@ for cname, config in configs.items():
     import pickle
     config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
     with open("out/pickle/"+config['name']+".pickle","wb") as f:
-        pickle.dump(config_model_pickle, f)
+        pickle.dump(config_model_pickle, f, -1)
 
 
     #%% #--------------------------------------------------
@@ -441,10 +535,10 @@ for cname, config in configs.items():
     results_dict['time_end'] = time_end     
     results_dict['start_idx'] = start_idx   
     results_dict['config'] = str(config)
-    results_dict['Period'] = Period
+    results_dict['period'] = int(Period)
 
     df = pd.DataFrame(results_dict, index=[0]) 
-    df.to_csv('out/pickle/'+ results_dict['name']+'.csv', index=False)
+    df.to_csv('out/models/'+ results_dict['name']+'.csv', index=False)
 
 
 #%% #--------------------------------------------------
@@ -455,14 +549,11 @@ configs ={
     'pca' : pca_config,
     'enet' : enet_config,
     'pca_enet' : pca_enet_config,
-    # 'ridge' : config_ridge,
-    # 'lasso' : config_lasso,
-    # 'enet' : config_enet,
-    # 'adab' : config_adab,
-    # 'rf': config_rf,
-    # 'gbr':config_gbr,
+    'adab_nocv' : adab_config,
+    'gbr_nocv':gbr_config,
+    'rf_nocv': rf_config,
+#    'xgb': xgb_config,
     # 'lgb' : config_lgb,
-    # 'xgb': config_xgb,
 #    'tpot': config_tpot,
 }
 
@@ -480,6 +571,5 @@ for cname, config in configs.items():
         config_model_pickle['estimated'][0].to_csv('out/temp/'+ config['name'] +'_estimated.csv', header = True)
 
 #%%
-
 
 #%%

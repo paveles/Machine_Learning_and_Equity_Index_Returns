@@ -1,4 +1,0 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config
-const,0.0,0.7468266356271583,20.219209785201592,15.942982923399349,2019-05-27 09:59:35,2019-05-27 09:59:46,180,"{'name': 'const', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
-     steps=[('const', ToConstantTransformer()), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False))]), 'param_grid': {'ols__fit_intercept': [False]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"
