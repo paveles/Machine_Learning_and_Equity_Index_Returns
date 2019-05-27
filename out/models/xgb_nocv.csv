@@ -1,5 +1,5 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
-xgb_nocv,0.01394958117330547,1.2463846335627864,21.636740424145724,8.57812505888151,2019-05-27 16:52:50,2019-05-27 16:53:01,700,"{'name': 'xgb_nocv', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+xgb_nocv,0.01394958117330547,1.2463846335627864,21.636740424145724,8.57812505888151,2019-05-27 17:27:36,2019-05-27 17:27:43,700,"{'name': 'xgb_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('to_numpy', ToNumpyTransformer()), ('xgb', XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
        colsample_bytree=1, gamma=0, importance_type='gain',
        learning_rate=0.1, max_delta_step=0, max_depth=3,

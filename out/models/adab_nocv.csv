@@ -1,4 +1,4 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,Period
-adab_nocv,-0.0920501788789625,1.0955002314776239,22.080391662720668,10.5996017180457,2019-05-27 12:32:06,2019-05-27 12:34:16,180,"{'name': 'adab_nocv', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
+adab_nocv,-0.09098291016656823,-1.0359922650433646,23.939256638155676,13.820101491258699,2019-05-27 17:26:38,2019-05-27 17:26:52,700,"{'name': 'adab_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('adab', AdaBoostRegressor(base_estimator=None, learning_rate=1.0, loss='linear',
          n_estimators=50, random_state=None))]), 'param_grid': {'adab__random_state': [0], 'adab__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951

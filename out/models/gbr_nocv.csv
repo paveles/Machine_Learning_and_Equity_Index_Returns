@@ -1,5 +1,5 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,Period
-gbr_nocv,-0.2713428108757927,0.41884523475642715,25.705547002005527,5.379811899857343,2019-05-27 12:34:18,2019-05-27 12:35:20,180,"{'name': 'gbr_nocv', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
+gbr_nocv,0.019559920145954313,1.1932502415395252,21.51363368870403,7.92531253729468,2019-05-27 17:26:52,2019-05-27 17:26:58,700,"{'name': 'gbr_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('gbr', GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
              learning_rate=0.1, loss='ls', max_depth=3, max_features=None,
              max_leaf_nodes=None, min_impurity_decrease=0.0,
