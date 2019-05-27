@@ -1,0 +1,8 @@
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
+gbr,0.019559920145954313,1.1932502415395252,21.51363368870403,7.92531253729468,2019-05-27 17:34:51,2019-05-27 17:35:00,700,"{'name': 'gbr', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+     steps=[('gbr', GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.1, loss='ls', max_depth=3, max_features=None,
+             max_leaf_nodes=None, min_impurity_decrease=0.0,
+             min_impurity_split=None, min_samples_leaf=1,
+             min_...one, subsample=1.0, tol=0.0001,
+             validation_fraction=0.1, verbose=0, warm_start=False))]), 'param_grid': {'gbr__random_state': [0], 'gbr__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951

@@ -132,7 +132,7 @@ pca_enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.
 pca_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 pca_enet_config['grid_search'] = GridSearchCV
 
-
+#! No Cross-Validation!!!
 #? Random Forest Model + No CV
 rf_nocv_config = {}
 rf_nocv_config['name'] = "rf_nocv"
@@ -202,3 +202,76 @@ xgb_nocv_config['param_grid'] = {
                             }
 xgb_nocv_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 xgb_nocv_config['grid_search'] = GridSearchCV
+#! With Cross-Validation
+
+#? Random Forest Model 
+rf_config = {}
+rf_config['name'] = "rf"
+rf_config['cv'] = TimeSeriesSplitMod # DisabledCV TimeSeriesSplitMod
+
+rf_config['pipeline'] = Pipeline(steps=[
+    ('rf', RandomForestRegressor())
+])
+
+# list(range(1, X.shape[1] + 1))
+rf_config['param_grid'] = {
+                            'rf__random_state' : [0],
+                            'rf__n_estimators': [25, 100, 200],
+                            'rf__max_depth':[5, 15, 25]
+                            }
+rf_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+rf_config['grid_search'] = GridSearchCV
+
+#? AdaBoostRegressor Model 
+adab_config = {}
+adab_config['name'] = "adab"
+adab_config['cv'] = TimeSeriesSplitMod # DisabledCV TimeSeriesSplitMod
+
+adab_config['pipeline'] = Pipeline(steps=[
+    ('adab', AdaBoostRegressor())
+])
+
+# list(range(1, X.shape[1] + 1))
+adab_config['param_grid'] = {
+                            'adab__random_state' : [0],
+                            'adab__n_estimators': [100],
+                            }
+adab_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+adab_config['grid_search'] = GridSearchCV
+
+#? GradientBoostingRegressor  Model 
+gbr_config = {}
+gbr_config['name'] = "gbr"
+gbr_config['cv'] = TimeSeriesSplitMod # DisabledCV TimeSeriesSplitMod
+
+gbr_config['pipeline'] = Pipeline(steps=[
+    ('gbr', GradientBoostingRegressor())
+])
+
+# list(range(1, X.shape[1] + 1))
+gbr_config['param_grid'] = {
+                            'gbr__random_state' : [0],
+                            'gbr__n_estimators':[25, 100, 200],
+                            'gbr__max_depth':[3, 5, 10],
+                            'gbr__learning_rate':[0.05, 0.1, 0.2],
+                            }
+gbr_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+gbr_config['grid_search'] = GridSearchCV
+
+#? XGB  Model 
+xgb_config = {}
+xgb_config['name'] = "xgb"
+xgb_config['cv'] = TimeSeriesSplitMod # DisabledCV TimeSeriesSplitMod
+
+xgb_config['pipeline'] = Pipeline(steps=[
+    ('to_numpy', ToNumpyTransformer()),
+    ('xgb', XGBRegressor())
+])
+
+# list(range(1, X.shape[1] + 1))
+xgb_config['param_grid'] = {
+                            'xgb__random_state' : [0],
+                            'xgb__n_estimators':[100],
+                            }
+xgb_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+xgb_config['grid_search'] = GridSearchCV
