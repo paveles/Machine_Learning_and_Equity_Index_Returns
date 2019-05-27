@@ -192,6 +192,7 @@ X_test_pca = pca.transform(Xscaled_test)
 from sklearn.model_selection import  TimeSeriesSplit
 from TimeSeriesSplitMod import TimeSeriesSplitMod
 from sklearn.base import TransformerMixin,BaseEstimator
+import time
 class DisabledCV:
     def __init__(self):
         self.n_splits = 1
@@ -232,13 +233,14 @@ def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
 
 
 def estimate_walk_forward(config, X, y, start_idx, max_idx):
+    print(config['name']+' '+ str(time.localtime(time.time())))
     models_estimated = pd.Series(index=X.index[start_idx:])
     scores_estimated = pd.Series(index=X.index[start_idx:])
     predictions = pd.Series(index=X.index[start_idx:])
     #* moving mean of lagged y
     #param_dict ={'ols__fit_intercept':[True,False],}
     for idx in range(start_idx,max_idx,1):
-        print(str(idx)+" / "+str(max_idx) )
+        #print(str(idx)+" / "+str(max_idx) )
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
         model_to_estimate = config['pipeline']
@@ -365,13 +367,13 @@ pca_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=Fa
 pca_enet_config['grid_search'] = GridSearchCV
 #%% #--------------------------------------------------
 #%% #--------------------------------------------------
-#* Do All Time-Consuming Calculations!
+#! Do All Time-Consuming Calculations!
 configs ={
     'const' : const_config,
-    # 'ols' : ols_config,
-    # 'pca' : pca_config,
-    #'enet' : enet_config,
-    #'pca_enet' : pca_enet_config,
+    'ols' : ols_config,
+    'pca' : pca_config,
+    'enet' : enet_config,
+    'pca_enet' : pca_enet_config,
     # 'adab' : config_adab,
     # 'rf': config_rf,
     # 'gbr':config_gbr,
@@ -382,7 +384,7 @@ configs ={
 #config = ols_config
 
 min_idx = 0
-start_idx = 700
+start_idx = 180
 max_idx = yo.shape[0]
 
 for cname, config in configs.items():

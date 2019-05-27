@@ -1,4 +1,4 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,config
-ols,-0.06348031492499828,0.47705711451513094,23.335771762665978,16.54166008168466,"{'name': 'ols', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+name,r2_oos,msfe_adj,mse_oos,mse_validated,start_idx,config
+ols,-0.07270539734752623,2.1820111045810844,21.689255466687666,13.843440108606911,180,"{'name': 'ols', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))]), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"

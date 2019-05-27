@@ -1,129 +1,2209 @@
 ,0
-988,"Pipeline(memory=None,
+468,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+469,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+470,"Pipeline(memory=None,
      steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+471,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+472,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+473,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+474,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+475,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+476,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+477,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+478,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+479,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+480,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+481,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+482,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+483,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+484,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+485,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+486,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+487,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+488,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+489,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+490,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+491,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+492,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+493,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+494,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+495,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+496,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+497,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+498,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+499,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+500,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+501,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+502,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+503,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+504,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+505,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+506,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+507,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+508,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+509,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+510,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+511,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+512,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+513,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+514,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+515,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+516,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+517,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+518,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+519,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+520,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+521,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+522,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+523,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+524,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+525,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+526,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+527,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+528,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+529,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+530,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+531,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+532,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+533,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+534,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+535,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+536,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+537,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+538,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+539,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+540,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+541,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+542,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+543,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+544,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+545,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+546,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+547,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+548,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+549,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+550,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+551,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+552,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+553,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+554,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+555,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+556,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+557,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+558,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+559,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+560,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+561,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+562,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+563,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+564,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+565,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+566,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+567,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+568,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+569,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+570,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+571,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+572,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+573,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+574,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+575,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+576,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+577,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+578,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+579,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+580,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+581,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+582,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+583,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+584,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+585,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+586,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+587,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+588,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+589,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+590,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+591,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+592,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+593,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+594,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+595,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+596,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+597,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+598,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+599,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+600,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+601,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+602,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+603,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+604,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+605,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+606,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+607,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+608,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+609,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+610,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+611,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+612,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+613,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+614,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+615,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+616,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+617,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+618,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+619,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+620,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+621,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+622,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+623,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+624,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+625,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+626,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+627,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+628,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+629,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+630,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+631,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+632,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+633,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+634,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+635,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+636,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+637,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+638,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+639,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+640,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+641,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+642,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+643,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+644,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+645,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+646,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+647,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+648,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+649,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+650,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+651,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+652,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+653,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+654,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+655,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+656,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+657,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+658,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+659,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+660,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+661,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+662,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+663,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+664,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+665,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+666,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+667,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+668,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+669,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+670,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+671,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+672,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+673,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+674,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+675,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+676,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+677,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+678,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+679,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+680,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+681,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+682,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+683,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+684,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+685,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+686,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+687,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+688,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+689,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+690,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+691,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+692,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+693,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+694,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+695,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+696,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+697,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+698,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+699,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+700,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+701,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+702,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+703,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+704,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+705,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+706,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+707,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+708,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+709,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+710,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+711,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+712,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+713,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+714,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+715,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+716,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+717,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+718,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+719,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+720,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+721,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+722,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+723,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+724,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+725,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+726,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+727,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+728,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+729,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+730,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+731,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+732,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+733,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+734,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+735,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+736,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+737,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+738,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+739,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+740,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+741,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+742,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+743,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+744,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+745,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+746,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+747,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+748,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+749,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+750,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+751,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+752,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+753,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+754,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+755,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+756,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+757,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+758,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+759,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+760,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+761,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+762,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+763,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+764,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+765,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+766,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+767,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+768,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+769,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+770,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+771,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+772,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+773,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+774,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+775,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+776,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+777,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+778,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+779,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+780,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+781,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+782,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+783,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+784,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+785,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+786,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+787,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+788,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+789,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+790,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+791,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+792,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+793,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+794,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+795,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+796,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+797,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+798,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+799,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+800,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+801,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+802,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+803,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+804,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+805,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+806,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+807,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+808,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+809,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+810,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+811,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+812,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+813,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+814,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+815,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+816,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+817,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+818,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+819,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+820,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+821,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+822,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+823,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+824,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+825,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+826,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+827,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+828,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+829,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+830,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+831,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+832,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+833,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+834,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+835,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+836,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+837,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+838,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+839,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+840,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+841,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+842,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+843,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+844,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+845,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+846,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+847,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+848,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+849,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+850,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+851,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+852,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+853,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+854,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+855,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+856,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+857,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+858,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+859,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+860,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+861,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+862,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+863,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+864,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+865,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+866,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+867,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+868,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+869,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+870,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+871,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+872,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+873,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+874,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+875,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+876,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+877,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+878,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+879,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+880,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+881,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+882,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+883,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+884,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+885,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+886,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+887,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+888,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+889,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+890,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+891,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+892,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+893,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+894,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+895,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+896,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+897,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+898,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+899,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+900,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+901,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+902,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+903,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+904,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+905,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+906,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+907,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+908,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+909,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+910,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+911,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+912,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+913,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+914,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+915,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+916,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+917,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+918,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+919,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+920,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+921,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+922,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+923,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+924,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+925,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+926,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+927,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+928,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+929,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+930,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+931,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+932,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+933,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+934,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+935,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+936,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+937,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+938,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+939,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+940,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+941,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+942,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+943,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+944,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+945,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+946,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+947,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+948,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+949,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+950,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+951,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+952,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+953,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+954,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+955,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+956,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+957,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+958,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+959,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+960,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+961,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+962,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+963,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+964,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+965,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+966,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+967,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+968,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+969,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+970,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+971,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+972,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+973,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+974,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+975,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+976,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+977,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+978,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+979,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+980,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+981,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+982,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+983,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+984,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+985,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+986,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+987,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))])"
+988,"Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 989,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 990,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 991,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 992,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 993,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 994,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 995,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 996,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 997,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 998,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 999,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1000,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1001,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1002,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1003,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1004,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1005,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1006,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1007,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1008,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1009,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1010,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1011,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1012,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1013,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1014,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1015,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1016,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1017,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1018,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
 1019,"Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))])"
