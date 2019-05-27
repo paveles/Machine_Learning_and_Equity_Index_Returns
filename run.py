@@ -319,6 +319,16 @@ class ToConstantTransformer(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None, **fit_params):
         return self #pd.DataFrame(np.ones(X.shape[0]), index = X.index)
 
+class ToNumpyTransformer(BaseEstimator, TransformerMixin):
+
+    # here you define the operation it should perform
+    def transform(self, X, y=None, **fit_params):
+        return pd.DataFrame(X).to_numpy()
+
+    # just return self
+    def fit(self, X, y=None, **fit_params):
+        return self #pd.DataFrame(np.ones(X.shape[0]), index = X.index)
+
 #? CONST Models
 const_config = {}
 
@@ -441,12 +451,13 @@ gbr_config['param_grid'] = {
 gbr_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 gbr_config['grid_search'] = GridSearchCV
 
-#? GradientBoostingRegressor  Model + No CV
+#? XGB  Model + No CV
 xgb_config = {}
 xgb_config['name'] = "xgb_nocv"
 xgb_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
 
 xgb_config['pipeline'] = Pipeline(steps=[
+    ('to_numpy', ToNumpyTransformer()),
     ('xgb', XGBRegressor())
 ])
 
@@ -459,7 +470,6 @@ xgb_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 xgb_config['grid_search'] = GridSearchCV
 
 #%% #--------------------------------------------------
-#%% #--------------------------------------------------
 #! Do All Time-Consuming Calculations!
 configs ={
     # 'const' : const_config,
@@ -469,8 +479,8 @@ configs ={
     # 'pca_enet' : pca_enet_config, #~ 3 hours
     # 'adab' : adab_config,
     # 'gbr': gbr_config,
-     'rf': rf_config,
-    # 'xgb': xgb_config,
+    # 'rf': rf_config,
+     'xgb': xgb_config,
     # 'lgb' : config_lgb,
 
 #    'tpot': config_tpot,
