@@ -233,7 +233,7 @@ def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
 
 
 def estimate_walk_forward(config, X, y, start_idx, max_idx):
-    print(config['name']+' '+ str(time.localtime(time.time())))
+    #print(config['name']+' '+ str(time.localtime(time.time())))
     models_estimated = pd.Series(index=X.index[start_idx:])
     scores_estimated = pd.Series(index=X.index[start_idx:])
     predictions = pd.Series(index=X.index[start_idx:])
@@ -337,6 +337,7 @@ enet_config['name'] = "enet"
 enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
 enet_config['pipeline'] = Pipeline(steps=[
+    ('standard', StandardScaler()),
     ('enet', ElasticNet())
 ])
 
@@ -354,6 +355,7 @@ pca_enet_config['name'] = "pca_enet"
 pca_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
 pca_enet_config['pipeline'] = Pipeline(steps=[
+    ('standard', StandardScaler()),
     ('pca', PCA()),
     ('enet', ElasticNet())
 ])
@@ -370,10 +372,10 @@ pca_enet_config['grid_search'] = GridSearchCV
 #! Do All Time-Consuming Calculations!
 configs ={
     'const' : const_config,
-    'ols' : ols_config,
-    'pca' : pca_config,
-    'enet' : enet_config,
-    'pca_enet' : pca_enet_config,
+    # 'ols' : ols_config,
+    # 'pca' : pca_config, #~ 23 minutes
+    # 'enet' : enet_config, #~ 2.5 hours
+    # 'pca_enet' : pca_enet_config, #~ 3 hours
     # 'adab' : config_adab,
     # 'rf': config_rf,
     # 'gbr':config_gbr,
@@ -388,8 +390,12 @@ start_idx = 180
 max_idx = yo.shape[0]
 
 for cname, config in configs.items():
+    time_begin = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    print('--------------------------')
+    print(cname +' '+ time_begin)
     estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx)
-
+    time_end = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    print(cname +' '+ time_end)
     models_estimated = estimated[0]
     scores_estimated = estimated[1]
     y_pred = estimated[2]
@@ -431,8 +437,11 @@ for cname, config in configs.items():
     results_dict['msfe_adj'] = msfe_adj
     results_dict['mse_oos'] = mse_oos
     results_dict['mse_validated'] = mse_validated
+    results_dict['time_begin'] = time_begin
+    results_dict['time_end'] = time_end     
     results_dict['start_idx'] = start_idx   
     results_dict['config'] = str(config)
+    results_dict['Period'] = Period
 
     df = pd.DataFrame(results_dict, index=[0]) 
     df.to_csv('out/pickle/'+ results_dict['name']+'.csv', index=False)
@@ -468,6 +477,9 @@ df_config.to_csv('out/pickle/'+'All_Models'+'.csv')
 for cname, config in configs.items():
     with open("out/pickle/" + config['name']+".pickle", "rb") as f:
         config_model_pickle = pickle.load(f)
-        config_model_pickle['estimated'][0].to_csv('temp/'+ config['name'] +'_estimated.csv', header = True)
+        config_model_pickle['estimated'][0].to_csv('out/temp/'+ config['name'] +'_estimated.csv', header = True)
+
+#%%
+
 
 #%%
