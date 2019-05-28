@@ -274,14 +274,14 @@ configs ={
     'const' : const_config,
     # 'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
-    'enet' : enet_config, #~ 2.5 hours
-    'pca_enet' : pca_enet_config, #~ 3 hours
-    'adab_nocv' : adab_nocv_config,
-    'gbr_nocv': gbr_nocv_config,
-    'rf_nocv': rf_nocv_config,
-    'xgb_nocv': xgb_nocv_config,
+    # 'enet' : enet_config, #~ 2.5 hours
+    # 'pca_enet' : pca_enet_config, #~ 3 hours
+    # 'adab_nocv' : adab_nocv_config,
+    # 'gbr_nocv': gbr_nocv_config,
+    # 'rf_nocv': rf_nocv_config,
+    # 'xgb_nocv': xgb_nocv_config,
     'gbr': gbr_config,
-    'rf': rf_config,   
+    # 'rf': rf_config,   
     # 'lgb' : config_lgb,
 
 #    'tpot': config_tpot,
@@ -289,7 +289,7 @@ configs ={
 #config = ols_config
 
 min_idx = 0
-start_idx = 180
+start_idx = 720
 max_idx = yo.shape[0]
 
 for cname, config in configs.items():
@@ -346,6 +346,9 @@ for cname, config in configs.items():
     results_dict['time_end'] = time_end     
     results_dict['start_idx'] = start_idx   
     results_dict['config'] = str(config)
+    results_dict['scores_estimated'] = scores_estimated.tolist()
+    results_dict['y_pred'] = y_pred.tolist()
+    results_dict['index'] = y_pred.index.tolist()  
     results_dict['period'] = int(Period)
 
     df = pd.DataFrame(results_dict, index=[0]) 
@@ -374,7 +377,7 @@ configs ={
 
 df_config = pd.DataFrame()
 for cname, config in configs.items():
-    df_config = df_config.append(pd.read_csv('out/pickle/'+ cname +'.csv'),
+    df_config = df_config.append(pd.read_csv('out/models/'+ cname +'.csv'),
      ignore_index =True)
 print(df_config)
 df_config.to_csv('out/pickle/'+'All_Models'+'.csv')
