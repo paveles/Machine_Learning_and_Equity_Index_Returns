@@ -13,20 +13,11 @@ from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.model_selection import  TimeSeriesSplit
 from TimeSeriesSplitMod import TimeSeriesSplitMod
-from sklearn.base import TransformerMixin,BaseEstimator
+
 import time
 import pandas as pd
 import numpy as np
-
-class DisabledCV:
-    def __init__(self:
-        self.n_splits = 1
-
-    def split(self, X, y, groups=None):
-        yield (np.arange(len(X)), np.arange(len(X)))
-
-    def get_n_splits(self, X, y, groups=None):
-        return self.n_splits
+from helper import DisabledCV, ToConstantTransformer, ToNumpyTransformer
 
 #? OLS Models
 ols_config = {}
@@ -42,27 +33,6 @@ ols_config['param_grid'] = {'ols__fit_intercept':[True]}
 ols_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 ols_config['grid_search'] = GridSearchCV
 
-
-
-class ToConstantTransformer(BaseEstimator, TransformerMixin):
-
-    # here you define the operation it should perform
-    def transform(self, X, y=None, **fit_params):
-        return pd.DataFrame(np.ones(len(X)))
-
-    # just return self
-    def fit(self, X, y=None, **fit_params):
-        return self #pd.DataFrame(np.ones(X.shape[0]), index = X.index)
-
-class ToNumpyTransformer(BaseEstimator, TransformerMixin):
-
-    # here you define the operation it should perform
-    def transform(self, X, y=None, **fit_params):
-        return pd.DataFrame(X).to_numpy()
-
-    # just return self
-    def fit(self, X, y=None, **fit_params):
-        return self #pd.DataFrame(np.ones(X.shape[0]), index = X.index)
 
 #? CONST Models
 const_config = {}
