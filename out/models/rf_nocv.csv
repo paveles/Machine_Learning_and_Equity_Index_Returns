@@ -1,5 +1,5 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
-rf_nocv,-0.14413558587593922,-0.4901183195317277,25.105576965407202,3.622177718523822,2019-05-27 17:26:58,2019-05-27 17:27:35,700,"{'name': 'rf_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+rf_nocv,-0.174575458430815,0.8021367991277862,23.748987602561982,2.676057711771832,2019-05-28 03:36:25,2019-05-28 03:43:28,180,"{'name': 'rf_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('rf', RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            max_features='auto', max_leaf_nodes=None,
            min_impurity_decrease=0.0, min_impurity_split=None,

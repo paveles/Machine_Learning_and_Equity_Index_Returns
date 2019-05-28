@@ -1,8 +1,8 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
-rf,-0.14413558587593922,-0.4901183195317277,25.105576965407202,3.622177718523822,2019-05-27 17:35:00,2019-05-27 17:35:37,700,"{'name': 'rf', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+rf,-0.05101747083905761,-0.19837381803836607,23.062301646650038,30.47152440046091,2019-05-27 18:21:42,2019-05-27 18:32:36,700,"{'name': 'rf', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
      steps=[('rf', RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            max_features='auto', max_leaf_nodes=None,
            min_impurity_decrease=0.0, min_impurity_split=None,
            min_samples_leaf=1, min_samples_split=2,
            min_weight_fraction_leaf=0.0, n_estimators='warn', n_jobs=None,
-           oob_score=False, random_state=None, verbose=0, warm_start=False))]), 'param_grid': {'rf__random_state': [0], 'rf__n_estimators': [100], 'rf__max_depth': [15]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
+           oob_score=False, random_state=None, verbose=0, warm_start=False))]), 'param_grid': {'rf__random_state': [0], 'rf__n_estimators': [25, 100, 200], 'rf__max_depth': [5, 15, 25]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951

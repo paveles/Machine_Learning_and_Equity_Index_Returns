@@ -1,5 +1,5 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,start_idx,config
-enet,0.007285334850175129,2.758331962091683,20.071906071510462,17.815915113993885,180,"{'name': 'enet', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
-     steps=[('enet', ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True, l1_ratio=0.5,
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
+enet,0.01632698438419322,2.908317212390937,19.88909106277788,17.611954331033484,2019-05-27 20:16:57,2019-05-27 23:27:36,180,"{'name': 'enet', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
+     steps=[('standard', StandardScaler(copy=True, with_mean=True, with_std=True)), ('enet', ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True, l1_ratio=0.5,
       max_iter=1000, normalize=False, positive=False, precompute=False,
-      random_state=None, selection='cyclic', tol=0.0001, warm_start=False))]), 'param_grid': {'enet__alpha': [0.1, 0.3, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}"
+      random_state=None, selection='cyclic', tol=0.0001, warm_start=False))]), 'param_grid': {'enet__alpha': [0.1, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
