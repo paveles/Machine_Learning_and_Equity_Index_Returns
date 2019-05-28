@@ -1,5 +1,5 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
-gbr,0.011300754178864447,1.0645492966180705,21.69486319455678,16.655483768906613,2019-05-27 18:08:39,2019-05-27 18:21:42,700,"{'name': 'gbr', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
+gbr,-0.16885349311778564,0.14634793168434984,22.041312441771932,7.382048084960561,2019-05-28 16:42:09,2019-05-28 16:44:44,720,"{'name': 'gbr', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
      steps=[('gbr', GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
              learning_rate=0.1, loss='ls', max_depth=3, max_features=None,
              max_leaf_nodes=None, min_impurity_decrease=0.0,

@@ -226,7 +226,9 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
     #* moving mean of lagged y
     #param_dict ={'ols__fit_intercept':[True,False],}
     for idx in range(start_idx,max_idx,1):
-        #print(str(idx)+" / "+str(max_idx) )
+        if ((idx-start_idx) % 1) == 0:
+            print(str(idx)+" / "+str(max_idx) )
+
         X_tr = X.iloc[0 : idx]
         y_tr = y.iloc[0 : idx]
         model_to_estimate = config['pipeline']
@@ -269,9 +271,11 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
    
 #%% #--------------------------------------------------
 #! Do All Time-Consuming Calculations!
-from model_configs import *
+
+
+#from model_configs import *
 configs ={
-    'const' : const_config,
+    # 'const' : const_config,
     # 'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
@@ -280,7 +284,7 @@ configs ={
     # 'gbr_nocv': gbr_nocv_config,
     # 'rf_nocv': rf_nocv_config,
     # 'xgb_nocv': xgb_nocv_config,
-    'gbr': gbr_config,
+    # 'gbr': gbr_config,
     # 'rf': rf_config,   
     # 'lgb' : config_lgb,
 
@@ -346,14 +350,20 @@ for cname, config in configs.items():
     results_dict['time_end'] = time_end     
     results_dict['start_idx'] = start_idx   
     results_dict['config'] = str(config)
-    results_dict['scores_estimated'] = scores_estimated.tolist()
-    results_dict['y_pred'] = y_pred.tolist()
-    results_dict['index'] = y_pred.index.tolist()  
     results_dict['period'] = int(Period)
 
     df = pd.DataFrame(results_dict, index=[0]) 
     df.to_csv('out/models/'+ results_dict['name']+'.csv', index=False)
 
+    model_results = pd.DataFrame()
+    model_results['y_pred'] = y_pred
+    model_results['index'] = y_pred.index 
+    model_results['scores_estimated'] = scores_estimated
+    model_results.to_csv('out/models/'+ results_dict['name']+'_predictions.csv', index=False)
+
+    # results_dict['scores_estimated'] = scores_estimated.tolist()
+    # results_dict['y_pred'] = y_pred.tolist()
+    # results_dict['index'] = y_pred.index.tolist()  
 
 #%% #--------------------------------------------------
 #* Aggregate Information

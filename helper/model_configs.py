@@ -19,7 +19,7 @@ import pandas as pd
 import numpy as np
 
 class DisabledCV:
-    def __init__(self):
+    def __init__(self:
         self.n_splits = 1
 
     def split(self, X, y, groups=None):
@@ -182,6 +182,10 @@ gbr_nocv_config['pipeline'] = Pipeline(steps=[
 gbr_nocv_config['param_grid'] = {
                             'gbr__random_state' : [0],
                             'gbr__n_estimators':[100],
+                            # 'gbr__random_state' : [0],
+                            # 'gbr__n_estimators':[ 200],
+                            # 'gbr__max_depth':[ 10],
+                            # 'gbr__learning_rate':[0.05, ],
                             }
 gbr_nocv_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 gbr_nocv_config['grid_search'] = GridSearchCV
