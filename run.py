@@ -375,7 +375,7 @@ configs ={
     'pca_enet' : pca_enet_config,
     'adab_nocv' : adab_nocv_config,
     'gbr_nocv': gbr_nocv_config,
-    'rf_nocv': rf_nocv_config,
+ #   'rf_nocv': rf_nocv_config,
     'xgb_nocv': xgb_nocv_config,
     # 'adab' : adab_config,
     'gbr':gbr_config,
@@ -391,9 +391,11 @@ for cname, config in configs.items():
      ignore_index =True)
 print(df_config)
 df_config.to_csv('out/pickle/'+'All_Models'+'.csv')
+#%% #--------------------------------------------------
 
 #* Estimated Models Save in Temp
 for cname, config in configs.items():
+    print(config['name'])
     with open("out/pickle/" + config['name']+".pickle", "rb") as f:
         config_model_pickle = pickle.load(f)
         config_model_pickle['estimated'][0].to_csv('out/temp/'+ config['name'] +'_estimated.csv', header = True)
