@@ -191,8 +191,10 @@ rf_config['pipeline'] = Pipeline(steps=[
 # list(range(1, X.shape[1] + 1))
 rf_config['param_grid'] = {
                             'rf__random_state' : [0],
-                            'rf__n_estimators': [25, 100, 200],
-                            'rf__max_depth':[5, 15, 25]
+                            'rf__n_estimators': [25, 100],
+                            'rf__max_depth':[5, 20],
+                            'rf__min_samples_leaf' : [1, 3],
+                            'rf__max_features' : [9, 'sqrt']
                             }
 rf_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 rf_config['grid_search'] = GridSearchCV
