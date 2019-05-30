@@ -248,7 +248,11 @@ xgb_config['pipeline'] = Pipeline(steps=[
 # list(range(1, X.shape[1] + 1))
 xgb_config['param_grid'] = {
                             'xgb__random_state' : [0],
-                            'xgb__n_estimators':[100],
+                            # 'xbr__n_estimators':[25, 100],
+                            'xgb__max_depth':[ 5, 10],
+                            'xgb__eta':[0.05, 0.1],
+                            'xgb__alpha':[1, 0.5],
+                            'xgb__lambda':[0, 0.5],
                             }
 xgb_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 xgb_config['grid_search'] = GridSearchCV

@@ -286,7 +286,8 @@ configs ={
     # 'rf_nocv': rf_nocv_config,
     # 'xgb_nocv': xgb_nocv_config,
     # 'gbr': gbr_config,
-    'rf': rf_config,   
+    # 'rf': rf_config,
+    'xgb' : xgb_config
     # 'lgb' : config_lgb,
 
 #    'tpot': config_tpot,
