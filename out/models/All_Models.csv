@@ -1,37 +1,52 @@
 ,config,mse_oos,mse_validated,msfe_adj,name,period,r2_oos,start_idx,time_begin,time_end
-0,"{'name': 'const', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+0,"{'name': 'const', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('const', ToConstantTransformer()), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False))]), 'param_grid': {'ols__fit_intercept': [False]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",21.94283376,17.99963005,0.818354811,const,,0,700,27/05/2019 10:28,27/05/2019 10:28
-1,"{'name': 'ols', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+         normalize=False))]), 'param_grid': {'ols__fit_intercept': [False]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",20.219209785201596,15.942982923399349,0.7468266356271583,const,1951.0,0.0,180,2019-05-27 20:16:43,2019-05-27 20:16:57
+1,"{'name': 'ols', 'cv': <class 'helper.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False))]), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",21.68925547,13.84344011,2.182011105,ols,,-0.072705397,180,,
+         normalize=False))]), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",19.598350283331907,16.598976092881465,0.466024845918495,ols,1951.0,-0.039302911227951716,720,2019-05-28 18:21:13,2019-05-28 18:21:17
 2,"{'name': 'pca', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
      steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False))]), 'param_grid': {'pca__n_components': [1, 2, 3, 4, 5]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",20.62029364,18.14512882,2.244632032,pca,,-0.019836772,180,,
+         normalize=False))]), 'param_grid': {'pca__n_components': [1, 2, 3, 4, 5]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",20.620293635582982,18.145128820879126,2.244632032302149,pca,,-0.019836771794857544,180,,
 3,"{'name': 'enet', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
-     steps=[('enet', ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True, l1_ratio=0.5,
+     steps=[('standard', StandardScaler(copy=True, with_mean=True, with_std=True)), ('enet', ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True, l1_ratio=0.5,
       max_iter=1000, normalize=False, positive=False, precompute=False,
-      random_state=None, selection='cyclic', tol=0.0001, warm_start=False))]), 'param_grid': {'enet__alpha': [0.1, 0.3, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",20.07190607,17.81591511,2.758331962,enet,,0.007285335,180,,
+      random_state=None, selection='cyclic', tol=0.0001, warm_start=False))]), 'param_grid': {'enet__alpha': [0.1, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",19.88909106277788,17.611954331033484,2.908317212390937,enet,1951.0,0.016326984384193218,180,2019-05-27 20:16:57,2019-05-27 23:27:36
 4,"{'name': 'pca_enet', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
-     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+     steps=[('standard', StandardScaler(copy=True, with_mean=True, with_std=True)), ('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('enet', ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True, l1_ratio=0.5,
       max_iter=1000, normalize=False, positive=False, precompute=False,
-      random_state=None, selection='cyclic', tol=0.0001, warm_start=False))]), 'param_grid': {'enet__alpha': [0.1, 0.3, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",20.12274128,17.74486096,2.566572739,pca_enet,,0.004771131,180,,
-5,"{'name': 'adab_nocv', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+      random_state=None, selection='cyclic', tol=0.0001, warm_start=False))]), 'param_grid': {'enet__alpha': [0.1, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",20.065563238309256,17.587134793393712,2.4269191883143617,pca_enet,1951.0,0.0075990381683852535,180,2019-05-27 23:27:36,2019-05-28 03:32:26
+5,"{'name': 'adab_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('adab', AdaBoostRegressor(base_estimator=None, learning_rate=1.0, loss='linear',
-         n_estimators=50, random_state=None))]), 'param_grid': {'adab__random_state': [0], 'adab__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",22.08039166,10.59960172,1.095500231,adab_nocv,,-0.092050179,180,27/05/2019 12:32,27/05/2019 12:34
-6,"{'name': 'gbr_nocv', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+         n_estimators=50, random_state=None))]), 'param_grid': {'adab__random_state': [0], 'adab__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",22.080391662720665,10.5996017180457,1.095500231477624,adab_nocv,1951.0,-0.0920501788789625,180,2019-05-28 03:32:26,2019-05-28 03:35:13
+6,"{'name': 'gbr_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('gbr', GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
              learning_rate=0.1, loss='ls', max_depth=3, max_features=None,
              max_leaf_nodes=None, min_impurity_decrease=0.0,
              min_impurity_split=None, min_samples_leaf=1,
              min_...one, subsample=1.0, tol=0.0001,
-             validation_fraction=0.1, verbose=0, warm_start=False))]), 'param_grid': {'gbr__random_state': [0], 'gbr__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",25.705547,5.3798119,0.418845235,gbr_nocv,,-0.271342811,180,27/05/2019 12:34,27/05/2019 12:35
-7,"{'name': 'rf_nocv', 'cv': <class '__main__.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+             validation_fraction=0.1, verbose=0, warm_start=False))]), 'param_grid': {'gbr__random_state': [0], 'gbr__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",25.70554700200553,5.3798118998573425,0.4188452347564272,gbr_nocv,1951.0,-0.2713428108757927,180,2019-05-28 03:35:14,2019-05-28 03:36:23
+7,"{'name': 'rf_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('rf', RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            max_features='auto', max_leaf_nodes=None,
            min_impurity_decrease=0.0, min_impurity_split=None,
            min_samples_leaf=1, min_samples_split=2,
            min_weight_fraction_leaf=0.0, n_estimators='warn', n_jobs=None,
-           oob_score=False, random_state=None, verbose=0, warm_start=False))]), 'param_grid': {'rf__random_state': [0], 'rf__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",24.76378473,2.49989086,-0.377057498,rf_nocv,1951,-0.1285591,700,27/05/2019 15:58,27/05/2019 15:59
+           oob_score=False, random_state=None, verbose=0, warm_start=False))]), 'param_grid': {'rf__random_state': [0], 'rf__n_estimators': [100], 'rf__max_depth': [15]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",23.748987602561986,2.6760577117718323,0.8021367991277862,rf_nocv,1951.0,-0.174575458430815,180,2019-05-28 03:36:25,2019-05-28 03:43:28
+8,"{'name': 'xgb_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+     steps=[('to_numpy', ToNumpyTransformer()), ('xgb', XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+       colsample_bytree=1, gamma=0, importance_type='gain',
+       learning_rate=0.1, max_delta_step=0, max_depth=3,
+       min_child_weight=1, missing=None, n_estimators=100, n_jobs=1,
+       nthread=None, objective='reg:linear', random_state=0, reg_alpha=0,
+       reg_lambda=1, scale_pos_weight=1, seed=None, silent=True,
+       subsample=1))]), 'param_grid': {'xgb__random_state': [0], 'xgb__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",23.681957017981805,5.899332652025165,1.0131134348055642,xgb_nocv,1951.0,-0.17126026534007233,180,2019-05-28 03:43:35,2019-05-28 03:45:08
+9,"{'name': 'gbr', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
+     steps=[('gbr', GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.1, loss='ls', max_depth=3, max_features=None,
+             max_leaf_nodes=None, min_impurity_decrease=0.0,
+             min_impurity_split=None, min_samples_leaf=1,
+             min_...one, subsample=1.0, tol=0.0001,
+             validation_fraction=0.1, verbose=0, warm_start=False))]), 'param_grid': {'gbr__random_state': [0], 'gbr__n_estimators': [25, 100, 200], 'gbr__max_depth': [3, 5, 10], 'gbr__learning_rate': [0.05, 0.1, 0.2]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",22.067029577067103,19.662152150559553,0.7660635506465596,gbr,1951.0,-0.09138931795533978,180,2019-05-28 18:24:55,2019-05-30 03:10:31
