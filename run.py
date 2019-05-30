@@ -382,7 +382,7 @@ configs ={
     # 'adab' : adab_config,
     'gbr':gbr_config,
     'rf': rf_config,
-    # 'xgb': xgb_config,
+    'xgb': xgb_config,
     # 'lgb' : config_lgb,
 #    'tpot': config_tpot,
 }
