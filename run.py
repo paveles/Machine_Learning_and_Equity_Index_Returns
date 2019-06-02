@@ -285,9 +285,10 @@ configs ={
     # 'gbr_nocv': gbr_nocv_config,
     # 'rf_nocv': rf_nocv_config,
     # 'xgb_nocv': xgb_nocv_config,
+    'adab': adab_config,
     # 'gbr': gbr_config,
     # 'rf': rf_config,
-    'xgb' : xgb_config
+    # 'xgb' : xgb_config
     # 'lgb' : config_lgb,
 
 #    'tpot': config_tpot,
@@ -379,7 +380,7 @@ configs ={
     'gbr_nocv': gbr_nocv_config,
     'rf_nocv': rf_nocv_config,
     'xgb_nocv': xgb_nocv_config,
-    # 'adab' : adab_config,
+    'adab' : adab_config,
     'gbr':gbr_config,
     'rf': rf_config,
     'xgb': xgb_config,

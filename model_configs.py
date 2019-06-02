@@ -13,7 +13,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.model_selection import  TimeSeriesSplit
 from TimeSeriesSplitMod import TimeSeriesSplitMod
-
+from sklearn.tree import DecisionTreeRegressor
 import time
 import pandas as pd
 import numpy as np
@@ -211,7 +211,10 @@ adab_config['pipeline'] = Pipeline(steps=[
 # list(range(1, X.shape[1] + 1))
 adab_config['param_grid'] = {
                             'adab__random_state' : [0],
-                            'adab__n_estimators': [100],
+                            'adab__n_estimators': [25, 100, 200],
+                            'adab__base_estimator':[DecisionTreeRegressor(max_depth=3), 
+                            DecisionTreeRegressor(max_depth=5), DecisionTreeRegressor(max_depth=10)],
+                            'adab__learning_rate':[0.05, 0.1, 0.2],
                             }
 adab_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 adab_config['grid_search'] = GridSearchCV
@@ -248,7 +251,7 @@ xgb_config['pipeline'] = Pipeline(steps=[
 # list(range(1, X.shape[1] + 1))
 xgb_config['param_grid'] = {
                             'xgb__random_state' : [0],
-                            'xbr__n_estimators':[25, 100],
+                            'xgb__n_estimators':[25, 100],
                             'xgb__max_depth':[ 5, 10],
                             'xgb__eta':[0.05, 0.1],
                             'xgb__alpha':[1, 0.5],
