@@ -278,14 +278,14 @@ from model_configs import *
 configs ={
     # 'const' : const_config,
     # 'ols' : ols_config,
-    # 'pca' : pca_config, #~ 23 minutes
+     'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
     # 'rf_nocv': rf_nocv_config,
     # 'xgb_nocv': xgb_nocv_config,
-    'adab': adab_config,
+    #'adab': adab_config,
     # 'gbr': gbr_config,
     # 'rf': rf_config,
     # 'xgb' : xgb_config

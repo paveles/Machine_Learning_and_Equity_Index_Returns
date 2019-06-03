@@ -62,7 +62,7 @@ pca_config['pipeline'] = Pipeline(steps=[
 ])
 
 # list(range(1, X.shape[1] + 1))
-pca_config['param_grid'] = {'pca__n_components': [1,2,3,4,5]  }
+pca_config['param_grid'] = {'pca__n_components': [1,2,3,4,5,6,7,8,9,10]  }
 pca_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 pca_config['grid_search'] = GridSearchCV
 
