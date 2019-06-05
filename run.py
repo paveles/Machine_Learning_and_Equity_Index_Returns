@@ -235,9 +235,8 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
     param_grid = config['param_grid']
 
 
-    for idx in range(start_idx,max_idx,1):
-        if ((idx-start_idx) % 1) == 0:
-            print(str(idx)+" / "+str(max_idx) )
+
+    for idx in range(start_idx,max_idx,1):    
         if rolling == True:
             X_tr = X.iloc[idx - 180 : idx]
             y_tr = y.iloc[idx - 180 : idx]
@@ -259,8 +258,12 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
         best_model = model.best_estimator_
         best_score = model.best_score_
         models_estimated.loc[X.index[idx]] = best_model # save the model
-        print(best_model)
-        print(best_score)
+        
+        if ((idx-start_idx) % 10) == 0:
+            print(str(idx)+" / "+str(max_idx) )
+            print(best_model)
+            print(best_score)
+
         scores_estimated.loc[X.index[idx]] = best_score # save the score
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
     return models_estimated,scores_estimated, predictions
@@ -286,19 +289,19 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
 #! Do All Time-Consuming Calculations!
 from model_configs import *
 configs ={
-    # 'const' : const_config,
-     'ols' : ols_config,
-    #'pca' : pca_config, #~ 23 minutes
-    # 'enet' : enet_config, #~ 2.5 hours
-    # 'pca_enet' : pca_enet_config, #~ 3 hours
-    # 'adab_nocv' : adab_nocv_config,
-    # 'gbr_nocv': gbr_nocv_config,
-    # 'rf_nocv': rf_nocv_config,
-    # 'xgb_nocv': xgb_nocv_config,
-    #'adab': adab_config,
-    # 'gbr': gbr_config,
-    # 'rf': rf_config,
-    # 'xgb' : xgb_config
+    'const' : const_config,
+    'ols' : ols_config,
+    'pca' : pca_config, #~ 23 minutes
+    'enet' : enet_config, #~ 2.5 hours
+    'pca_enet' : pca_enet_config, #~ 3 hours
+    'adab_nocv' : adab_nocv_config,
+    'gbr_nocv': gbr_nocv_config,
+    'rf_nocv': rf_nocv_config,
+    'xgb_nocv': xgb_nocv_config,
+    'adab': adab_config,
+    'gbr': gbr_config,
+    'rf': rf_config,
+    'xgb' : xgb_config
 }
 #config = ols_config
 ROLLING = True
@@ -315,13 +318,13 @@ os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
 
 for cname, config in configs.items():
     print('--------------------------')
-    time_begin = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    print(cname +' '+ time_begin)
+    time_begin = datetime.datetime.now()
+    print(cname +' '+ time_begin.strftime('%Y-%m-%d %H:%M:%S'))
 
     estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx, rolling = ROLLING) #! The code
 
-    time_end = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    print(cname +' '+ time_end)
+    time_end = datetime.datetime.now()
+    print(cname +' '+ time_end.strftime('%Y-%m-%d %H:%M:%S'))
     models_estimated = estimated[0]
     scores_estimated = estimated[1]
     y_pred = estimated[2]
@@ -363,8 +366,9 @@ for cname, config in configs.items():
     results_dict['msfe_adj'] = msfe_adj
     results_dict['mse_oos'] = mse_oos
     results_dict['mse_validated'] = mse_validated
-    results_dict['time_begin'] = time_begin
-    results_dict['time_end'] = time_end     
+    results_dict['time_begin'] = time_begin.strftime('%Y-%m-%d %H:%M:%S')
+    results_dict['time_end'] = time_end.strftime('%Y-%m-%d %H:%M:%S')
+    results_dict['time_diff'] = (time_end - time_begin)
     results_dict['start_idx'] = start_idx   
     results_dict['config'] = str(config)
     results_dict['period'] = int(Period)
@@ -385,19 +389,19 @@ for cname, config in configs.items():
 #%% #--------------------------------------------------
 #* Aggregate Information
 configs ={
-    # 'const' : const_config,
+    'const' : const_config,
     'ols' : ols_config,
-    # 'pca' : pca_config,
-    # 'enet' : enet_config,
-    # 'pca_enet' : pca_enet_config,
-    # 'adab_nocv' : adab_nocv_config,
-    # 'gbr_nocv': gbr_nocv_config,
-    # 'rf_nocv': rf_nocv_config,
-    # 'xgb_nocv': xgb_nocv_config,
-    # 'adab' : adab_config,
-    # 'gbr':gbr_config,
-    # 'rf': rf_config,
-    # 'xgb': xgb_config,
+    'pca' : pca_config,
+    'enet' : enet_config,
+    'pca_enet' : pca_enet_config,
+    'adab_nocv' : adab_nocv_config,
+    'gbr_nocv': gbr_nocv_config,
+    'rf_nocv': rf_nocv_config,
+    'xgb_nocv': xgb_nocv_config,
+    'adab' : adab_config,
+    'gbr':gbr_config,
+    'rf': rf_config,
+    'xgb': xgb_config,
 }
 
 df_config = pd.DataFrame()
