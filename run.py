@@ -220,7 +220,7 @@ def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
     return t_stat, pval_one_sided
 
 
-def estimate_walk_forward(config, X, y, start_idx, max_idx):
+def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
     #print(config['name']+' '+ str(time.localtime(time.time())))
     print(config['param_grid'])
 
@@ -235,18 +235,24 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
     param_grid = config['param_grid']
 
 
-    #* moving mean of lagged y
-    #param_dict ={'ols__fit_intercept':[True,False],}
     for idx in range(start_idx,max_idx,1):
         if ((idx-start_idx) % 1) == 0:
             print(str(idx)+" / "+str(max_idx) )
-
-        X_tr = X.iloc[0 : idx]
-        y_tr = y.iloc[0 : idx]
-        if config['cv'] == TimeSeriesSplitMod:
-            cv = config['cv']( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
-        elif config['cv'] == DisabledCV:
-            cv = config['cv']().split(X_tr,y_tr)
+        if rolling == True:
+            X_tr = X.iloc[idx - 180 : idx]
+            y_tr = y.iloc[idx - 180 : idx]
+            if config['cv'] == TimeSeriesSplitMod:
+                cv = config['cv']( n_splits =180 - 1, start_test_split = 156 ).split(X_tr,y_tr)
+            elif config['cv'] == DisabledCV:
+                cv = config['cv']().split(X_tr,y_tr)
+        else:
+            X_tr = X.iloc[0 : idx]
+            y_tr = y.iloc[0 : idx]
+            if config['cv'] == TimeSeriesSplitMod:
+                cv = config['cv']( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
+            elif config['cv'] == DisabledCV:
+                cv = config['cv']().split(X_tr,y_tr)
+        
         grid = grid_search(estimator=model_to_estimate, param_grid=param_grid, cv=cv \
             , scoring = scorer, n_jobs=-1)        
         model = grid.fit(X_tr,y_tr)
@@ -258,19 +264,23 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx):
         scores_estimated.loc[X.index[idx]] = best_score # save the score
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
     return models_estimated,scores_estimated, predictions
-# #%% #--------------------------------------------------
+#%% #--------------------------------------------------
 # #* Check How Indexes and Cross-Validation are Calculated
-# idx = max_idx
-# tscv = TimeSeriesSplitMod(n_splits=idx - 1, start_test_split=start_idx - 1)
+# idx = len(yo)-1
+# tscv = TimeSeriesSplitMod( n_splits = 180 - 1, start_test_split = 156 ) #( n_splits =idx - 1, start_test_split = start_idx - 1 )
 
-# print(tscv)  
-
-# for train_index, test_index in tscv.split(Xo[0:idx], yo[0:idx] ):
-#    print("TRAIN:", train_index, "TEST:", test_index)
-
+# # print(tscv)  
+# X_tr = Xo.iloc[idx - 180 : idx] # Xo[0:idx]
+# y_tr = yo.iloc[idx - 180 : idx] # yo[0:idx]
+# i = 0
+# for train_index, test_index in tscv.split(X_tr, y_tr):
+#     i+=1
+#     print("TRAIN:", y_tr.index[train_index], "TEST:", y_tr.index[test_index])
+#     print( len(y_tr.index[train_index]), len(y_tr.index[test_index]))
 # #print(Xo.index[idx])
+# print(i)
 # print( idx)
-##* Correct!
+# ##* Correct!
    
 #%% #--------------------------------------------------
 #! Do All Time-Consuming Calculations!
@@ -289,22 +299,26 @@ configs ={
     # 'gbr': gbr_config,
     # 'rf': rf_config,
     # 'xgb' : xgb_config
-    # 'lgb' : config_lgb,
-
-#    'tpot': config_tpot,
 }
 #config = ols_config
-
+ROLLING = True
 min_idx = 0
 start_idx = 180
 max_idx = yo.shape[0]
+
+if ROLLING == True:
+    Models_Folder = 'rolling'
+else:
+    Models_Folder = 'expanding'
+os.makedirs(dir + '/out/'+ Models_Folder +'/pickle', exist_ok = True)
+os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
 
 for cname, config in configs.items():
     print('--------------------------')
     time_begin = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     print(cname +' '+ time_begin)
 
-    estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx) #! The code
+    estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx, rolling = ROLLING) #! The code
 
     time_end = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     print(cname +' '+ time_end)
@@ -317,7 +331,7 @@ for cname, config in configs.items():
     #* Save Pickle of the Model and Config
     import pickle
     config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
-    with open("out/pickle/"+config['name']+".pickle","wb") as f:
+    with open("out/"+ Models_Folder +"/pickle/"+config['name']+".pickle","wb") as f:
         pickle.dump(config_model_pickle, f, -1)
 
 
@@ -356,13 +370,13 @@ for cname, config in configs.items():
     results_dict['period'] = int(Period)
 
     df = pd.DataFrame(results_dict, index=[0]) 
-    df.to_csv('out/models/'+ results_dict['name']+'.csv', index=False)
+    df.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'.csv', index=False)
 
     model_results = pd.DataFrame()
     model_results['y_pred'] = y_pred
     model_results['index'] = y_pred.index 
     model_results['scores_estimated'] = scores_estimated
-    model_results.to_csv('out/models/'+ results_dict['name']+'_predictions.csv', index=False)
+    model_results.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'_predictions.csv', index=False)
 
     # results_dict['scores_estimated'] = scores_estimated.tolist()
     # results_dict['y_pred'] = y_pred.tolist()
@@ -371,35 +385,35 @@ for cname, config in configs.items():
 #%% #--------------------------------------------------
 #* Aggregate Information
 configs ={
-    'const' : const_config,
+    # 'const' : const_config,
     'ols' : ols_config,
-    'pca' : pca_config,
-    'enet' : enet_config,
-    'pca_enet' : pca_enet_config,
-    'adab_nocv' : adab_nocv_config,
-    'gbr_nocv': gbr_nocv_config,
-    'rf_nocv': rf_nocv_config,
-    'xgb_nocv': xgb_nocv_config,
-    'adab' : adab_config,
-    'gbr':gbr_config,
-    'rf': rf_config,
-    'xgb': xgb_config,
-    # 'lgb' : config_lgb,
-#    'tpot': config_tpot,
+    # 'pca' : pca_config,
+    # 'enet' : enet_config,
+    # 'pca_enet' : pca_enet_config,
+    # 'adab_nocv' : adab_nocv_config,
+    # 'gbr_nocv': gbr_nocv_config,
+    # 'rf_nocv': rf_nocv_config,
+    # 'xgb_nocv': xgb_nocv_config,
+    # 'adab' : adab_config,
+    # 'gbr':gbr_config,
+    # 'rf': rf_config,
+    # 'xgb': xgb_config,
 }
 
 df_config = pd.DataFrame()
 for cname, config in configs.items():
-    df_config = df_config.append(pd.read_csv('out/models/'+ cname +'.csv'),
+    df_config = df_config.append(pd.read_csv('out/'+ Models_Folder +'/models/'+ cname +'.csv'),
      ignore_index =True)
 print(df_config)
-df_config.to_csv('out/models/'+'All_Models'+'.csv')
+df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
 #%% #--------------------------------------------------
 #* Estimated Models Save in Temp
 for cname, config in configs.items():
     # print(config['name'])
-    with open("out/pickle/" + config['name']+".pickle", "rb") as f:
+    with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
         config_model_pickle = pickle.load(f)
-        config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv('out/models/estimated/'+ config['name'] +'_estimated.csv', header = True)
+        config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
+            'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
+             header = True)
 #* Lambda Function is used because otherwise not all steps are revealed
 #%% #--------------------------------------------------

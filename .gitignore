@@ -5,5 +5,16 @@ __pycache__/*
 
 !out/
 out/*
-!out/models/
-out/pickle/
+
+!out/rolling/
+out/rolling/*
+
+!out/expanding
+out/expanding/*
+
+
+!out/rolling/models/
+out/rolling/pickle/
+
+!out/expanding/models/
+out/expanding/pickle/
