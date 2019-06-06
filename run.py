@@ -289,11 +289,11 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
 #! Do All Time-Consuming Calculations!
 from model_configs import *
 configs ={
-    'const' : const_config,
-    'ols' : ols_config,
-    'pca' : pca_config, #~ 23 minutes
-    'enet' : enet_config, #~ 2.5 hours
-    'pca_enet' : pca_enet_config, #~ 3 hours
+    # 'const' : const_config,
+    # 'ols' : ols_config,
+    # 'pca' : pca_config, #~ 23 minutes
+    # 'enet' : enet_config, #~ 2.5 hours
+    # 'pca_enet' : pca_enet_config, #~ 3 hours
     'adab_nocv' : adab_nocv_config,
     'gbr_nocv': gbr_nocv_config,
     'rf_nocv': rf_nocv_config,

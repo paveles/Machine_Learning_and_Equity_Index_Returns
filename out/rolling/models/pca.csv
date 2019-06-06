@@ -1,0 +1,5 @@
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
+pca,-0.04146519565855078,1.1677787547263676,21.05760327500626,18.83163155630813,2019-06-05 17:10:01,2019-06-05 17:13:57,0 days 00:03:56.524335000,180,"{'name': 'pca', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
+     steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
+  svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False))]), 'param_grid': {'pca__n_components': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
