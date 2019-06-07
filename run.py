@@ -238,10 +238,10 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
 
     for idx in range(start_idx,max_idx,1):    
         if rolling == True:
-            X_tr = X.iloc[idx - 180 : idx]
-            y_tr = y.iloc[idx - 180 : idx]
+            X_tr = X.iloc[idx - 240 : idx]
+            y_tr = y.iloc[idx - 240 : idx]
             if config['cv'] == TimeSeriesSplitMod:
-                cv = config['cv']( n_splits =180 - 1, start_test_split = 156 ).split(X_tr,y_tr)
+                cv = config['cv']( n_splits =240 - 1, start_test_split = 240-24 ).split(X_tr,y_tr)
             elif config['cv'] == DisabledCV:
                 cv = config['cv']().split(X_tr,y_tr)
         else:
@@ -289,11 +289,11 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
 #! Do All Time-Consuming Calculations!
 from model_configs import *
 configs ={
-    # 'const' : const_config,
-    # 'ols' : ols_config,
-    # 'pca' : pca_config, #~ 23 minutes
-    # 'enet' : enet_config, #~ 2.5 hours
-    # 'pca_enet' : pca_enet_config, #~ 3 hours
+    'const' : const_config,
+    'ols' : ols_config,
+    'pca' : pca_config, #~ 23 minutes
+    'enet' : enet_config, #~ 2.5 hours
+    'pca_enet' : pca_enet_config, #~ 3 hours
     'adab_nocv' : adab_nocv_config,
     'gbr_nocv': gbr_nocv_config,
     'rf_nocv': rf_nocv_config,
@@ -306,7 +306,7 @@ configs ={
 #config = ols_config
 ROLLING = True
 min_idx = 0
-start_idx = 180
+start_idx = 240
 max_idx = yo.shape[0]
 
 if ROLLING == True:
