@@ -1,0 +1,9 @@
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
+xgb_nocv,-0.3216098181099756,0.36377067746081143,26.721906166547715,2.3480648048397286,2019-06-06 09:03:10,2019-06-06 09:03:54,0 days 00:00:44.281519000,180,"{'name': 'xgb_nocv', 'cv': <class 'helper.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+     steps=[('to_numpy', ToNumpyTransformer()), ('xgb', XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+       colsample_bytree=1, gamma=0, importance_type='gain',
+       learning_rate=0.1, max_delta_step=0, max_depth=3,
+       min_child_weight=1, missing=None, n_estimators=100, n_jobs=1,
+       nthread=None, objective='reg:linear', random_state=0, reg_alpha=0,
+       reg_lambda=1, scale_pos_weight=1, seed=None, silent=True,
+       subsample=1))]), 'param_grid': {'xgb__random_state': [0], 'xgb__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
