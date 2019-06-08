@@ -1,5 +1,5 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-rf,-0.04176706059614732,1.890260737607084,21.063706745506323,19.417815353029116,2019-06-06 15:14:15,2019-06-06 16:01:47,0 days 00:47:32.640283000,180,"{'name': 'rf', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
+rf,-0.10321807622358703,0.5078428825381437,22.638553475926283,20.347251870014226,2019-06-07 22:13:12,2019-06-07 22:57:51,0 days 00:44:38.328576000,240,"{'name': 'rf', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
      steps=[('rf', RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            max_features='auto', max_leaf_nodes=None,
            min_impurity_decrease=0.0, min_impurity_split=None,

@@ -1,197 +1,17 @@
 ,0
-468,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-469,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-470,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-471,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-472,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-473,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-474,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-475,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-476,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-477,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-478,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-479,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-480,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-481,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-482,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-483,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-484,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-485,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-486,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-487,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-488,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-489,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-490,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-491,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-492,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-493,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-494,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-495,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-496,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-497,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-498,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-499,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-500,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-501,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-502,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-503,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-504,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-505,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-506,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-507,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-508,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-509,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-510,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-511,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-512,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-513,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-514,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-515,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-516,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-517,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-518,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-519,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-520,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-521,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-522,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-523,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-524,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-525,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-526,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
-527,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
-  svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False)}"
 528,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-529,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+529,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 530,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-531,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+531,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-532,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+532,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 533,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
@@ -215,76 +35,76 @@
 539,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-540,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+540,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-541,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+541,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-542,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+542,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-543,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+543,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-544,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+544,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-545,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+545,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-546,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+546,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-547,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+547,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-548,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+548,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-549,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+549,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-550,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+550,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-551,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+551,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-552,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+552,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-553,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+553,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-554,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+554,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-555,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+555,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-556,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+556,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-557,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+557,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-558,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+558,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-559,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+559,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-560,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+560,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-561,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+561,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-562,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+562,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-563,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+563,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 564,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
@@ -323,16 +143,16 @@
 575,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-576,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+576,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-577,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+577,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-578,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+578,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-579,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+579,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 580,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
@@ -344,61 +164,61 @@
 582,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-583,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+583,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-584,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+584,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-585,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+585,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-586,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+586,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-587,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+587,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-588,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+588,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 589,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-590,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+590,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-591,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+591,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-592,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+592,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-593,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+593,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-594,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+594,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-595,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+595,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-596,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+596,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-597,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+597,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-598,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+598,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-599,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+599,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-600,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+600,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-601,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+601,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 602,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -407,13 +227,13 @@
 603,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-604,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+604,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 605,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-606,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+606,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 607,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
@@ -449,31 +269,31 @@
 617,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-618,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+618,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-619,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+619,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-620,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+620,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-621,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+621,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-622,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+622,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-623,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+623,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-624,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+624,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-625,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+625,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-626,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+626,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 627,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -485,19 +305,19 @@
 629,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-630,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+630,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-631,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+631,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-632,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+632,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-633,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+633,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-634,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+634,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 635,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -518,22 +338,22 @@
 640,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-641,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+641,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-642,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+642,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-643,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+643,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-644,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+644,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-645,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+645,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-646,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+646,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 647,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
@@ -542,61 +362,61 @@
 648,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-649,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+649,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-650,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+650,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-651,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+651,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-652,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+652,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-653,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+653,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-654,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+654,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-655,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+655,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-656,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+656,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-657,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+657,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-658,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+658,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-659,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+659,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-660,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+660,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 661,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-662,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+662,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-663,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+663,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 664,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-665,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+665,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-666,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+666,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-667,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+667,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 668,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
@@ -608,43 +428,43 @@
 670,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-671,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+671,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 672,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-673,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+673,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-674,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+674,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-675,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+675,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-676,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+676,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-677,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+677,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-678,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+678,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-679,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+679,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-680,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+680,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-681,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+681,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 682,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-683,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+683,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 684,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
@@ -671,16 +491,16 @@
 691,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-692,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+692,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-693,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+693,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 694,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-695,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+695,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 696,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -722,7 +542,7 @@
 708,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-709,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+709,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 710,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
@@ -785,145 +605,145 @@
 729,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-730,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+730,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-731,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+731,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-732,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+732,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-733,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+733,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-734,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+734,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-735,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+735,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-736,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+736,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-737,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+737,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-738,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+738,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-739,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+739,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-740,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+740,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-741,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+741,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-742,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+742,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-743,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+743,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-744,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+744,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-745,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+745,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-746,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+746,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-747,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+747,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-748,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+748,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-749,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+749,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-750,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+750,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-751,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+751,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-752,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+752,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-753,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+753,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 754,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-755,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+755,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-756,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+756,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-757,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+757,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-758,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+758,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-759,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+759,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-760,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+760,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-761,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+761,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-762,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+762,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-763,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+763,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-764,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+764,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-765,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+765,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-766,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+766,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-767,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+767,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-768,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+768,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-769,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+769,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-770,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+770,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-771,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+771,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-772,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+772,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 773,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-774,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+774,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-775,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+775,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-776,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+776,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 777,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
@@ -938,49 +758,49 @@
 780,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-781,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+781,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-782,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+782,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-783,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+783,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 784,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-785,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+785,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-786,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+786,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-787,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+787,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-788,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+788,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-789,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+789,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-790,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+790,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-791,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+791,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-792,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+792,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-793,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+793,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 794,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-795,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+795,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 796,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
@@ -992,19 +812,19 @@
 798,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-799,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+799,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-800,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+800,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-801,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+801,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-802,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+802,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-803,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+803,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 804,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
@@ -1025,55 +845,55 @@
 809,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-810,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+810,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-811,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+811,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-812,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+812,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-813,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+813,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-814,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+814,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-815,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+815,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-816,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+816,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-817,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+817,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-818,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+818,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-819,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+819,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-820,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+820,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-821,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+821,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-822,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+822,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 823,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-824,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+824,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 825,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-826,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+826,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 827,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
@@ -1106,28 +926,28 @@
 836,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-837,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+837,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-838,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+838,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-839,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+839,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-840,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+840,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-841,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+841,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-842,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+842,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-843,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
+843,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-844,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+844,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 845,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -1148,91 +968,91 @@
 850,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-851,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+851,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-852,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+852,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-853,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+853,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-854,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+854,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-855,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+855,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-856,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+856,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-857,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+857,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-858,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+858,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-859,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+859,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-860,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+860,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 861,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-862,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+862,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-863,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+863,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-864,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+864,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-865,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+865,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-866,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+866,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-867,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+867,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-868,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+868,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-869,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+869,"{'pca': PCA(copy=True, iterated_power='auto', n_components=7, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-870,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+870,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-871,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+871,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 872,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-873,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+873,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-874,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+874,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-875,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+875,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-876,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+876,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-877,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+877,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 878,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-879,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+879,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 880,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
@@ -1244,64 +1064,64 @@
 882,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-883,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+883,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-884,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
+884,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-885,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+885,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-886,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+886,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-887,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+887,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-888,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+888,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-889,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+889,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-890,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+890,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-891,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+891,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-892,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+892,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-893,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+893,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-894,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+894,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-895,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+895,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-896,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+896,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-897,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+897,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 898,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-899,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+899,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-900,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+900,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-901,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+901,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-902,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+902,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 903,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -1313,25 +1133,25 @@
 905,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-906,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+906,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-907,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+907,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-908,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+908,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 909,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-910,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+910,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-911,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+911,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-912,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+912,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 913,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
@@ -1340,70 +1160,70 @@
 914,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-915,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+915,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-916,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+916,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-917,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+917,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-918,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+918,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-919,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+919,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-920,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+920,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-921,"{'pca': PCA(copy=True, iterated_power='auto', n_components=10, random_state=None,
+921,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-922,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+922,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-923,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+923,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-924,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+924,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-925,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+925,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-926,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+926,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-927,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+927,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 928,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-929,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+929,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-930,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+930,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-931,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+931,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-932,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+932,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 933,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-934,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
+934,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-935,"{'pca': PCA(copy=True, iterated_power='auto', n_components=9, random_state=None,
+935,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-936,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+936,"{'pca': PCA(copy=True, iterated_power='auto', n_components=8, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 937,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -1427,13 +1247,13 @@
 943,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-944,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+944,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-945,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+945,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-946,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+946,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 947,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -1475,7 +1295,7 @@
 959,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-960,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+960,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 961,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -1490,19 +1310,19 @@
 964,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-965,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+965,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-966,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+966,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-967,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+967,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-968,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+968,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-969,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+969,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 970,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -1514,103 +1334,103 @@
 972,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-973,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+973,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-974,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+974,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-975,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+975,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-976,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+976,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-977,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+977,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-978,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+978,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-979,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+979,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-980,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+980,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-981,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+981,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-982,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+982,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-983,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+983,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-984,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
+984,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-985,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+985,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-986,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+986,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-987,"{'pca': PCA(copy=True, iterated_power='auto', n_components=3, random_state=None,
+987,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-988,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+988,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-989,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+989,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-990,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+990,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-991,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+991,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-992,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+992,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-993,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+993,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-994,"{'pca': PCA(copy=True, iterated_power='auto', n_components=2, random_state=None,
+994,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-995,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+995,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-996,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+996,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-997,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+997,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-998,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+998,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-999,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+999,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-1000,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+1000,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-1001,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+1001,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-1002,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+1002,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-1003,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+1003,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-1004,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+1004,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-1005,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+1005,"{'pca': PCA(copy=True, iterated_power='auto', n_components=4, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 1006,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -1634,7 +1454,7 @@
 1012,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-1013,"{'pca': PCA(copy=True, iterated_power='auto', n_components=5, random_state=None,
+1013,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 1014,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
@@ -1646,7 +1466,7 @@
 1016,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
-1017,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,
+1017,"{'pca': PCA(copy=True, iterated_power='auto', n_components=6, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False), 'ols': LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)}"
 1018,"{'pca': PCA(copy=True, iterated_power='auto', n_components=1, random_state=None,

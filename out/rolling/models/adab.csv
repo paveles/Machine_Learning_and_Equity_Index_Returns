@@ -1,5 +1,5 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-adab,-0.2285491812079039,0.7316318866835906,24.840293626280257,19.953579664067433,2019-06-06 09:03:55,2019-06-06 13:30:40,0 days 04:26:45.231540000,180,"{'name': 'adab', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
+adab,-0.2083927077928811,0.3565562999278558,24.79678635155382,20.489478944018742,2019-06-07 15:36:38,2019-06-07 20:17:43,0 days 04:41:04.464753000,240,"{'name': 'adab', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
      steps=[('adab', AdaBoostRegressor(base_estimator=None, learning_rate=1.0, loss='linear',
          n_estimators=50, random_state=None))]), 'param_grid': {'adab__random_state': [0], 'adab__n_estimators': [25, 100, 200], 'adab__base_estimator': [DecisionTreeRegressor(criterion='mse', max_depth=3, max_features=None,
            max_leaf_nodes=None, min_impurity_decrease=0.0,

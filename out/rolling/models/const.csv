@@ -1,4 +1,4 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-const,-0.0012571918706751894,0.4272849973429311,20.244629211375024,18.010195027755405,2019-06-05 17:09:43,2019-06-05 17:09:55,0 days 00:00:11.744642000,180,"{'name': 'const', 'cv': <class 'helper.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+const,-0.004971153698146047,-0.6623381184774243,20.622480446148796,18.36446951743523,2019-06-07 15:02:46,2019-06-07 15:02:55,0 days 00:00:09.024859000,240,"{'name': 'const', 'cv': <class 'helper.DisabledCV'>, 'pipeline': Pipeline(memory=None,
      steps=[('const', ToConstantTransformer()), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False))]), 'param_grid': {'ols__fit_intercept': [False]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
