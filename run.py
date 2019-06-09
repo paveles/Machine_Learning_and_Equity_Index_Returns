@@ -25,8 +25,8 @@ os.makedirs(dir + '/out/temp', exist_ok = True)
 os.makedirs(dir + '/out/pickle', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
 
-
-
+#%% #--------------------------------------------------
+#* Global Parameters *
 # Cross-validation Parameter
 K = 10
 #  Share of Sample as Test
@@ -38,8 +38,20 @@ Poly = 1
 Period  = 1951
 # Number of Lags
 LAGS = 1
-#%% #--------------------------------------------------
 
+# Estimate using Rolling Window or Exapnding
+ROLLING = True
+min_idx = 0
+start_idx = 240
+max_idx = yo.shape[0]
+
+if ROLLING == True:
+    Models_Folder = 'rolling'
+else:
+    Models_Folder = 'expanding'
+
+#%% #--------------------------------------------------
+#* Load Data
 df = pd.read_csv('in/rapach_2013.csv', na_values = ['NaN'])
 df.rename( index=str, columns={"date": "ym"}, inplace=True)
 df['date'] = pd.to_datetime(df['ym'],format='%Y%m') + MonthEnd(1)
@@ -253,15 +265,7 @@ configs ={
     'xgb' : xgb_config
 }
 #config = ols_config
-ROLLING = True
-min_idx = 0
-start_idx = 240
-max_idx = yo.shape[0]
 
-if ROLLING == True:
-    Models_Folder = 'rolling'
-else:
-    Models_Folder = 'expanding'
 os.makedirs(dir + '/out/'+ Models_Folder +'/pickle', exist_ok = True)
 os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
 
