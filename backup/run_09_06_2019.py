@@ -87,6 +87,14 @@ df=df[['date','lnsp500_rf']+predictors]
 #%% #--------------------------------------------------
 #*"""Lagging predictive  variables"""
 
+# df['recessionD_c'] = df['recessionD']
+# vars = ['recessionD', 'dp', 'dy', 'ep', 'de', \
+#        'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tms', 'dfy', 'dfr', 'infl', \
+#        'ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', \
+#        'mom_12', 'vol_1_9', 'vol_1_12', 'vol_2_9', 'vol_2_12', 'vol_3_9', \
+#        'vol_3_12', 'sento ', 'sent', 'dsento', 'dsent', 'ewsi']
+# Important! Lagging by 1
+
 df[predictors] = df[predictors].shift(1)
 if LAGS>1:
     for lag in range(2,LAGS+1,1):
@@ -96,6 +104,7 @@ if LAGS>1:
 """
 Sample Cut
 """
+
 
 if Period == 1974:
     df = df[(df['date'].dt.year >= 1974)&(df['date'].dt.year <= 2010)]
@@ -120,8 +129,29 @@ df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
 # df.describe().T
 
 #%% #--------------------------------------------------
-# #############################################################################
+    # #############################################################################
 
+#%% #--------------------------------------------------
+#''' Train and Test Samples'''
+from sklearn.model_selection import train_test_split
+Xo= df.drop(['lnsp500_rf','date'],axis = 1)
+yo = df['lnsp500_rf']
+
+X0, X0_test, y, y_test = train_test_split(Xo, yo, test_size=test_size, shuffle = False )
+#%% #--------------------------------------------------
+#'''Standardize Data'''
+from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
+from sklearn.pipeline import Pipeline
+
+pipline = Pipeline(steps=[
+#    ('pca', PCA()), # (n_components=4)
+    ('minmax', StandardScaler()),
+])
+scaler = pipline.fit(X0)
+
+#scaler = StandardScaler().fit(X0)
+X = pd.DataFrame(scaler.transform(X0),  index=X0.index )# , columns=X.columns
+X_test = pd.DataFrame(scaler.transform(X0_test),  index=X0_test.index) #, columns=X_test.columns 
 #%% #--------------------------------------------------
 #''' Interaction Terms'''
 from sklearn.preprocessing import PolynomialFeatures
@@ -137,6 +167,27 @@ else:
     Xp = X
     Xp_test = X_test
 
+#%% #--------------------------------------------------
+#* Ones for Constant Model
+Ones = pd.DataFrame(np.ones(y.shape[0]))
+Ones_test = pd.DataFrame(np.ones(y_test.shape[0]))
+#%% #--------------------------------------------------
+#* Prepare data for the PCA
+from sklearn import linear_model
+from sklearn.decomposition import PCA
+#pca = PCA().fit(X)
+
+# plt.plot(np.cumsum(pca.explained_variance_ratio_))
+# plt.xlabel('number of components')
+# plt.ylabel('cumulative explained variance');
+scaler = StandardScaler().fit(X0)
+Xscaled = scaler.transform(X0)
+Xscaled_test = scaler.transform(X0_test)
+pca = PCA(n_components=4)
+pca.fit(X0)
+X_pca = pca.transform(Xscaled)
+X_test_pca = pca.transform(Xscaled_test)
+
 
 #%% #--------------------------------------------------
 #* Walk-Forward Modeling
@@ -144,7 +195,7 @@ from sklearn.linear_model import  LinearRegression
 from scipy import stats
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV
-from TimeSeriesSplitMod import TimeSeriesSplitMod
+from helper import TimeSeriesSplitMod
 from helper import DisabledCV, ToConstantTransformer, ToNumpyTransformer
 
 def r2_adj_score(y_true,y_pred,N,K):

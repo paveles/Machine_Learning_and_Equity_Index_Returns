@@ -6,7 +6,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.ensemble import GradientBoostingRegressor
-import lightgbm as lgb
+#import lightgbm as lgb
 from xgboost import XGBRegressor
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
 from sklearn.pipeline import Pipeline
