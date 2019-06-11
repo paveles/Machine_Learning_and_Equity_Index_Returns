@@ -1,19 +1,13 @@
 #%% [markdown] #--------------------------------------------------
 ## Equity Premium and Machine Learning
 #%% #--------------------------------------------------
-
+#* Import Modules
 import warnings
-import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = [15, 10]
 import math
 import time
 import datetime
 import pandas as pd
 import numpy as np
-import matplotlib as mpl
-mpl.rcParams['patch.force_edgecolor'] = True
-import seaborn as sns
-sns.set()
 from pandas.tseries.offsets import MonthEnd # To Determine the End of the Corresponding Month
 import sys # To caclulate memory usage
 import os
@@ -342,9 +336,7 @@ for cname, config in configs.items():
     model_results['scores_estimated'] = scores_estimated
     model_results.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'_predictions.csv', index=False)
 
-    # results_dict['scores_estimated'] = scores_estimated.tolist()
-    # results_dict['y_pred'] = y_pred.tolist()
-    # results_dict['index'] = y_pred.index.tolist()  
+
 
 #%% #--------------------------------------------------
 #* Aggregate Information
