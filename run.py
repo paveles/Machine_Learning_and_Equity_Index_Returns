@@ -43,7 +43,7 @@ LAGS = 1
 ROLLING = True
 min_idx = 0
 start_idx = 240
-max_idx = yo.shape[0]
+
 
 if ROLLING == True:
     Models_Folder = 'rolling'
@@ -130,6 +130,13 @@ df.dropna(inplace = True)
 df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
 #""" --> Data is the same is in the paper Rapach et al 2013"""
 # df.describe().T
+#%% #--------------------------------------------------
+
+#%% #--------------------------------------------------
+#''' Define X and Y'''
+from sklearn.model_selection import train_test_split
+Xo= df.drop(['lnsp500_rf','date'],axis = 1)
+yo = df['lnsp500_rf']
 
 #%% #--------------------------------------------------
 # #############################################################################
@@ -139,15 +146,15 @@ df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
 from sklearn.preprocessing import PolynomialFeatures
 if Poly == 1:
     poly = PolynomialFeatures(interaction_only=True,include_bias = False)
-    Xp = poly.fit_transform(X)
-    Xp_test = poly.fit_transform(X_test)
+    Xp = poly.fit_transform(Xo)
+
 elif Poly == 2:
     poly = PolynomialFeatures(degree = 2,include_bias = False)
-    Xp = poly.fit_transform(X)
-    Xp_test = poly.fit_transform(X_test)
+    Xp = poly.fit_transform(Xo)
+
 else:
-    Xp = X
-    Xp_test = X_test
+    Xp = Xo
+
 
 
 #%% #--------------------------------------------------
@@ -273,7 +280,7 @@ for cname, config in configs.items():
     print('--------------------------')
     time_begin = datetime.datetime.now()
     print(cname +' '+ time_begin.strftime('%Y-%m-%d %H:%M:%S'))
-
+    max_idx = yo.shape[0]
     estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx, rolling = ROLLING) #! The code
 
     time_end = datetime.datetime.now()

@@ -1,4 +1,5 @@
 
+#* Transformation and Cross-validation
 import numpy as np
 import pandas as pd
 from sklearn.base import TransformerMixin,BaseEstimator
@@ -12,7 +13,7 @@ class ToConstantTransformer(BaseEstimator, TransformerMixin):
 
     # just return self
     def fit(self, X, y=None, **fit_params):
-        return self #pd.DataFrame(np.ones(X.shape[0]), index = X.index)
+        return self 
 
 class ToNumpyTransformer(BaseEstimator, TransformerMixin):
 
@@ -38,7 +39,6 @@ class DisabledCV:
 Time Series Split Modified
 '''
 
-#%%%
 import warnings
 import numbers
 import time
