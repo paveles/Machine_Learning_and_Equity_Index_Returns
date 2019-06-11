@@ -1,3 +1,4 @@
+
 #%% [markdown] #--------------------------------------------------
 ## Equity Premium and Machine Learning
 #%% #--------------------------------------------------
@@ -157,15 +158,8 @@ from sklearn.linear_model import  LinearRegression
 from scipy import stats
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV
-from TimeSeriesSplitMod import TimeSeriesSplitMod
+from helper import TimeSeriesSplitMod
 from helper import DisabledCV, ToConstantTransformer, ToNumpyTransformer
-
-def r2_adj_score(y_true,y_pred,N,K):
-    r2 = r2_score(y_true,y_pred)
-    return 1-(1-r2)*(N-1)/(N-K-1)
-
-r2_scorer = make_scorer(r2_score,greater_is_better=True)
-
 
 def calculate_r2_wf(y_true, y_pred, y_moving_mean):
     '''
@@ -182,9 +176,10 @@ def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
     return t_stat, pval_one_sided
 
 
-def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
+def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, verbose = True):
     #print(config['name']+' '+ str(time.localtime(time.time())))
-    print(config['param_grid'])
+    if verbose == True:
+        print(config['param_grid'])
 
     models_estimated = pd.Series(index=X.index[start_idx:])
     scores_estimated = pd.Series(index=X.index[start_idx:])
@@ -220,11 +215,11 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
         best_model = model.best_estimator_
         best_score = model.best_score_
         models_estimated.loc[X.index[idx]] = best_model # save the model
-        
-        if ((idx-start_idx) % 10) == 0:
-            print(str(idx)+" / "+str(max_idx) )
-            print(best_model)
-            print(best_score)
+        if verbose == True:        
+            if ((idx-start_idx) % 10) == 0:
+                print(str(idx)+" / "+str(max_idx) )
+                print(best_model)
+                print(best_score)
 
         scores_estimated.loc[X.index[idx]] = best_score # save the score
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
@@ -251,19 +246,19 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False):
 #! Do All Time-Consuming Calculations!
 from model_configs import *
 configs ={
-    'const' : const_config,
+    # 'const' : const_config,
     'ols' : ols_config,
-    'pca' : pca_config, #~ 23 minutes
-    'enet' : enet_config, #~ 2.5 hours
-    'pca_enet' : pca_enet_config, #~ 3 hours
-    'adab_nocv' : adab_nocv_config,
-    'gbr_nocv': gbr_nocv_config,
-    'rf_nocv': rf_nocv_config,
-    'xgb_nocv': xgb_nocv_config,
-    'adab': adab_config,
-    'gbr': gbr_config,
-    'rf': rf_config,
-    'xgb' : xgb_config
+    # 'pca' : pca_config, #~ 23 minutes
+    # 'enet' : enet_config, #~ 2.5 hours
+    # 'pca_enet' : pca_enet_config, #~ 3 hours
+    # 'adab_nocv' : adab_nocv_config,
+    # 'gbr_nocv': gbr_nocv_config,
+    # 'rf_nocv': rf_nocv_config,
+    # 'xgb_nocv': xgb_nocv_config,
+    # 'adab': adab_config,
+    # 'gbr': gbr_config,
+    # 'rf': rf_config,
+    # 'xgb' : xgb_config
 }
 #config = ols_config
 
@@ -341,19 +336,19 @@ for cname, config in configs.items():
 #%% #--------------------------------------------------
 #* Aggregate Information
 configs ={
-    'const' : const_config,
+    # 'const' : const_config,
     'ols' : ols_config,
-    'pca' : pca_config,
-    'enet' : enet_config,
-    'pca_enet' : pca_enet_config,
-    'adab_nocv' : adab_nocv_config,
-    'gbr_nocv': gbr_nocv_config,
-    'rf_nocv': rf_nocv_config,
-    'xgb_nocv': xgb_nocv_config,
-    'adab' : adab_config,
-    'gbr':gbr_config,
-    'rf': rf_config,
-    'xgb': xgb_config,
+    # 'pca' : pca_config,
+    # 'enet' : enet_config,
+    # 'pca_enet' : pca_enet_config,
+    # 'adab_nocv' : adab_nocv_config,
+    # 'gbr_nocv': gbr_nocv_config,
+    # 'rf_nocv': rf_nocv_config,
+    # 'xgb_nocv': xgb_nocv_config,
+    # 'adab' : adab_config,
+    # 'gbr':gbr_config,
+    # 'rf': rf_config,
+    # 'xgb': xgb_config,
 }
 
 df_config = pd.DataFrame()
@@ -365,7 +360,6 @@ df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
 #%% #--------------------------------------------------
 #* Estimated Models Save in Temp
 for cname, config in configs.items():
-    # print(config['name'])
     with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
         config_model_pickle = pickle.load(f)
         config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(

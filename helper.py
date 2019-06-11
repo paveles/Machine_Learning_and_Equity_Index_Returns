@@ -1,5 +1,7 @@
+'''
+Transformation and Cross-validation Classes
+'''
 
-#* Transformation and Cross-validation
 import numpy as np
 import pandas as pd
 from sklearn.base import TransformerMixin,BaseEstimator
