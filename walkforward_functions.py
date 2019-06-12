@@ -19,32 +19,51 @@ def calculate_r2_wf(y_true, y_pred, y_moving_mean):
     return 1 - mse_urestricted/mse_restricted
 
 def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
+    '''
+    Calculate t-statistic for the test on significant imporvement in predictions
+    '''
     f = (y_true - y_moving_mean)**2 - ((y_true - y_pred)**2 - (y_moving_mean - y_pred)**2)
     t_stat,pval_two_sided = stats.ttest_1samp(f, 0, axis=0)
     pval_one_sided = stats.t.sf(t_stat, f.count() - 1)
     return t_stat, pval_one_sided
 
 def r2_adj_score(y_true,y_pred,N,K):
+'''
+Calculate in-sample R^2 that is adjusted for the number of predictors (ols model only)
+'''
     r2 = r2_score(y_true,y_pred)
     return 1-(1-r2)*(N-1)/(N-K-1)
 
 def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, verbose = True):
-    #print(config['name']+' '+ str(time.localtime(time.time())))
+'''
+Function that esimate walk-forward using expanding or rolling window.
+Cross-validation procedure, and type of grid-search are provided in the config file.
+Please see "model_configs.py" for the model config structure.
+Outputs are pandas timeseries of:
+    models_estimated - best model estimated for given month using past info
+    scores_estimated - scores of the best models
+    predictions - predictions of the best models
+'''
     if verbose == True:
         print(config['param_grid'])
 
+    # Define outputs
     models_estimated = pd.Series(index=X.index[start_idx:])
     scores_estimated = pd.Series(index=X.index[start_idx:])
     predictions = pd.Series(index=X.index[start_idx:])
-    model_to_estimate = config['pipeline']
-
     
+    # Pipeline to Estimate
+    model_to_estimate = config['pipeline'] 
+    
+    # Scorer to Use
     scorer = config['scorer']
+    
+    # Grid Search Function and Grid of Parameters
     grid_search = config['grid_search']
     param_grid = config['param_grid']
 
 
-
+    # Different Cross-Validation Procedures
     for idx in range(start_idx,max_idx,1):    
         if rolling == True:
             X_tr = X.iloc[idx - 240 : idx]
