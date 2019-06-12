@@ -8,7 +8,9 @@ from sklearn.base import TransformerMixin,BaseEstimator
 
 
 class ToConstantTransformer(BaseEstimator, TransformerMixin):
-
+    '''
+    Transforms data to one constant - for moving mean prediction
+    '''
     # here you define the operation it should perform
     def transform(self, X, y=None, **fit_params):
         return pd.DataFrame(np.ones(len(X)))
@@ -18,7 +20,9 @@ class ToConstantTransformer(BaseEstimator, TransformerMixin):
         return self 
 
 class ToNumpyTransformer(BaseEstimator, TransformerMixin):
-
+    '''
+    Transforms Data to Numpy - needed for xgboost regression with GridSearchCV
+    '''
     # here you define the operation it should perform
     def transform(self, X, y=None, **fit_params):
         return pd.DataFrame(X).to_numpy()
@@ -28,6 +32,9 @@ class ToNumpyTransformer(BaseEstimator, TransformerMixin):
         return self #pd.DataFrame(np.ones(X.shape[0]), index = X.index)
 
 class DisabledCV:
+    '''
+    Disable Cross-Validation - to work with GridSearchCV without CV
+    '''
     def __init__(self):
         self.n_splits = 1
 
@@ -36,7 +43,7 @@ class DisabledCV:
 
     def get_n_splits(self, X, y, groups=None):
         return self.n_splits
-#%%
+#%% #--------------------------------------------------
 '''
 Time Series Split Modified
 '''

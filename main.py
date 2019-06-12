@@ -22,7 +22,6 @@ os.makedirs(dir + '/in', exist_ok = True)
 #* To Add Interaction Terms
 from sklearn.preprocessing import PolynomialFeatures
 
-
 #* Load Walk-Forward Estimation Functions
 from walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
 
@@ -152,7 +151,7 @@ else:
 #%% #--------------------------------------------------
 #! Do All Time-Consuming Calculations!
 #* Estimating Walk-Forward and Saving Estimation Results
-
+# Model configurations to be used for estimation - see "model_configs.py" 
 configs ={
     # 'const' : const_config,
     'ols' : ols_config,
@@ -212,7 +211,7 @@ for cname, config in configs.items():
     # print("average mse_validated  = " + str(mse_validated))
  
     #%% #--------------------------------------------------
-    #* Save results_dict to CSV file
+    #* Save results_dict to the CSV file
     results_dict = {}
     results_dict['name'] = config['name'] 
     results_dict['r2_oos'] = r2_oos

@@ -1,22 +1,37 @@
-#* Define Models
-from sklearn.linear_model import  LinearRegression, ElasticNet
+'''
+Define Configurations of the Models
+Model Configuration is a dictionary with the following entries:
+- name - name of the model
+- cv - cross-validation procedure
+- pipeline - pipeline to use 
+- grid_search - grid search methods, e.g. GridSearchCV 
+- param_grid - parameters of the pipline that should be tuned by the grid-search method 
+- scorer - score criteria, according to which the best model will be chosen
+For more details see the respective models descriptions.
+
+'''
+#* Basic Modules
+import time
 from scipy import stats
-from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
-from sklearn.model_selection import GridSearchCV
+import pandas as pd
+import numpy as np
+
+#* Load Models to Estimate
+from sklearn.linear_model import  LinearRegression, ElasticNet
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.ensemble import GradientBoostingRegressor
-#import lightgbm as lgb
 from xgboost import XGBRegressor
+
+#* Transformations, Pipelines and CV Methods
 from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeatures
 from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.model_selection import  TimeSeriesSplit
 from transform_cv import TimeSeriesSplitMod
-from sklearn.tree import DecisionTreeRegressor
-import time
-import pandas as pd
-import numpy as np
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer
 
 #? OLS Models
@@ -25,7 +40,7 @@ ols_config['name'] = "ols"
 ols_config['cv'] = DisabledCV
 
 ols_config['pipeline'] = Pipeline(steps=[
-    ('ols', LinearRegression())
+    ('pipeline', LinearRegression())
 ])
 
 # list(range(1, X.shape[1] + 1))
@@ -84,7 +99,7 @@ enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
 enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 enet_config['grid_search'] = GridSearchCV
 
-#? PCAEnet  Model
+#? PCA + Enet  Model
 pca_enet_config = {}
 pca_enet_config['name'] = "pca_enet"
 pca_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
