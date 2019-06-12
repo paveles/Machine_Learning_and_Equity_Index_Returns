@@ -9,7 +9,7 @@ from sklearn.base import TransformerMixin,BaseEstimator
 
 class ToConstantTransformer(BaseEstimator, TransformerMixin):
     """
-    Transforms data to one constant - for moving mean prediction
+    Transforms data to a constant - used for moving mean prediction
     """
     # here you define the operation it should perform
     def transform(self, X, y=None, **fit_params):

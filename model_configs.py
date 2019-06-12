@@ -1,6 +1,5 @@
 """
-Define Configurations of the Models
-Model Configuration is a dictionary with the following entries.
+Define Configurations of the Model - dictionaries with the following entries.
 
 Parameters
 ----------
