@@ -42,7 +42,7 @@ ols_config['name'] = "ols"
 ols_config['cv'] = DisabledCV
 
 ols_config['pipeline'] = Pipeline(steps=[
-    ('pipeline', LinearRegression())
+    ('ols', LinearRegression())
 ])
 
 # list(range(1, X.shape[1] + 1))

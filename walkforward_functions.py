@@ -28,25 +28,25 @@ def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
     return t_stat, pval_one_sided
 
 def r2_adj_score(y_true,y_pred,N,K):
-"""
-Calculate in-sample R^2 that is adjusted for the number of predictors (ols model only)
-"""
+    """
+    Calculate in-sample R^2 that is adjusted for the number of predictors (ols model only)
+    """
     r2 = r2_score(y_true,y_pred)
     return 1-(1-r2)*(N-1)/(N-K-1)
 
 def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, verbose = True):
-"""
-Function that esimates walk-forward using expanding or rolling window.
-Cross-validation procedure, and the type of grid-search are determined in the config file.
-Please see "model_configs.py" for the model config structure.
+    """
+    Function that esimates walk-forward using expanding or rolling window.
+    Cross-validation procedure, and the type of grid-search are determined in the config file.
+    Please see "model_configs.py" for the model config structure.
 
-Yields
----------
-Outputs are pandas dataseries:
-    - models_estimated - best model estimated for given month using past info
-    - scores_estimated - scores of the best models
-    - predictions - predictions of the best models
-"""
+    Yields
+    ---------
+    Outputs are pandas dataseries:
+        - models_estimated - best model estimated for given month using past info
+        - scores_estimated - scores of the best models
+        - predictions - predictions of the best models
+    """
     if verbose == True:
         print(config['param_grid'])
 
