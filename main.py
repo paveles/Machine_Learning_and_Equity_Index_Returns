@@ -18,8 +18,6 @@ dir = os.getcwd()
 os.chdir(dir)
 os.makedirs(dir + '/temp', exist_ok = True)
 os.makedirs(dir + '/out/temp', exist_ok = True)
-os.makedirs(dir + '/out/rolling/pickle', exist_ok = True)
-os.makedirs(dir + '/out/expanding/pickle', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
 
 #%% #--------------------------------------------------
@@ -96,9 +94,7 @@ if LAGS>1:
         df = pd.concat([df, df[predictors].shift(lag).add_suffix('_l{}'.format(lag))], axis = 1)
 
 #%% #--------------------------------------------------
-"""
-Sample Cut
-"""
+#* Sample Cut
 
 if Period == 1974:
     df = df[(df['date'].dt.year >= 1974)&(df['date'].dt.year <= 2010)]
@@ -149,9 +145,8 @@ else:
 
 
 #%% #--------------------------------------------------
-
-#%% #--------------------------------------------------
 #! Do All Time-Consuming Calculations!
+#* Estimating Walk-Forward and Saving Estimation Results
 from walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
 from model_configs import *
 configs ={
@@ -169,7 +164,7 @@ configs ={
     # 'rf': rf_config,
     # 'xgb' : xgb_config
 }
-#config = ols_config
+
 
 os.makedirs(dir + '/out/'+ Models_Folder +'/pickle', exist_ok = True)
 os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
@@ -177,9 +172,11 @@ os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
 for cname, config in configs.items():
     print('--------------------------')
     time_begin = datetime.datetime.now()
+    #* Estimate Walk-Forward
     print(cname +' '+ time_begin.strftime('%Y-%m-%d %H:%M:%S'))
     max_idx = yo.shape[0]
-    estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx, rolling = ROLLING) #! The code
+    estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx,
+    rolling = ROLLING, verbose = True) #! The code
 
     time_end = datetime.datetime.now()
     print(cname +' '+ time_end.strftime('%Y-%m-%d %H:%M:%S'))
@@ -187,7 +184,6 @@ for cname, config in configs.items():
     scores_estimated = estimated[1]
     y_pred = estimated[2]
 
-    #models_estimated, scores_estimated, y_pred
     #%% #--------------------------------------------------
     #* Save Pickle of the Model and Config
     import pickle
@@ -205,17 +201,14 @@ for cname, config in configs.items():
     y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
 
     r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
-    print("r2_oos = " + str(r2_oos))
+    # print("r2_oos = " + str(r2_oos))
     msfe_adj, p_value = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
-    print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
+    # print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
     mse_oos = mean_squared_error(y_true,y_pred)
-    print("mse_oos = " + str(mse_oos))
+    # print("mse_oos = " + str(mse_oos))
     mse_validated = - scores_estimated.mean()
-    print("average mse_validated  = " + str(mse_validated))
-    #print(models_estimated[-1])
-
-    #ticks = time.time()
-    #models_estimated.to_csv('temp\models_estimated'+str(ticks)+'.csv', header = True)
+    # print("average mse_validated  = " + str(mse_validated))
+ 
     #%% #--------------------------------------------------
     #* Save results_dict to CSV file
     results_dict = {}
@@ -274,5 +267,5 @@ for cname, config in configs.items():
         config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
             'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
              header = True)
-#* Lambda Function is used because otherwise not all steps are revealed
+# Lambda Function is used because otherwise not all steps are revealed
 #%% #--------------------------------------------------
