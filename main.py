@@ -3,9 +3,11 @@
 Predicting Equity Premium using Machine Learning Methods - Main File
 Project Files:
 -------------
-
-
+model_configs.py - configurations of the models
+transform_cv.py - new transformation and cross-validation methods used in the project
+walkforward_functions.py - new methods that are used to do moving window estimations and analysis 
 """
+
 #%% #--------------------------------------------------
 #* Import Main Modules
 import warnings
