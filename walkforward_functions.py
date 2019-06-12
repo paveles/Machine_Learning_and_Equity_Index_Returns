@@ -36,13 +36,13 @@ Calculate in-sample R^2 that is adjusted for the number of predictors (ols model
 
 def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, verbose = True):
 '''
-Function that esimate walk-forward using expanding or rolling window.
-Cross-validation procedure, and type of grid-search are provided in the config file.
+Function that esimates walk-forward using expanding or rolling window.
+Cross-validation procedure, and the type of grid-search are determined in the config file.
 Please see "model_configs.py" for the model config structure.
-Outputs are pandas timeseries of:
-    models_estimated - best model estimated for given month using past info
-    scores_estimated - scores of the best models
-    predictions - predictions of the best models
+Outputs are pandas dataseries of:
+    - models_estimated - best model estimated for given month using past info
+    - scores_estimated - scores of the best models
+    - predictions - predictions of the best models
 '''
     if verbose == True:
         print(config['param_grid'])
@@ -58,42 +58,53 @@ Outputs are pandas timeseries of:
     # Scorer to Use
     scorer = config['scorer']
     
-    # Grid Search Function and Grid of Parameters
-    grid_search = config['grid_search']
-    param_grid = config['param_grid']
+    for idx in range(start_idx,max_idx,1):
+        # Different Cross-Validation Procedures
 
-
-    # Different Cross-Validation Procedures
-    for idx in range(start_idx,max_idx,1):    
+        # For Fixed Window Rolling Regression, 
+        # the Window Size is 240 Months,
+        # the Validation Period Size is 24 Months,
+        # a prediction is made for the following month
         if rolling == True:
             X_tr = X.iloc[idx - 240 : idx]
             y_tr = y.iloc[idx - 240 : idx]
             if config['cv'] == TimeSeriesSplitMod:
-                cv = config['cv']( n_splits =240 - 1, start_test_split = 240-24 ).split(X_tr,y_tr)
+                cv = TimeSeriesSplitMod( n_splits =240 - 1,
+                 start_test_split = 240-24 ).split(X_tr,y_tr)
             elif config['cv'] == DisabledCV:
-                cv = config['cv']().split(X_tr,y_tr)
+                cv = DisabledCV().split(X_tr,y_tr)
+        # For Exapnding Window Regression,
+        # the starting period 'start_idx' is extended by 1 month 
+        # a new model is estimated, using the cross-validation procedure
+        # and a prediction is made for the next month
         else:
             X_tr = X.iloc[0 : idx]
             y_tr = y.iloc[0 : idx]
             if config['cv'] == TimeSeriesSplitMod:
-                cv = config['cv']( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
+                cv = TimeSeriesSplitMod( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
             elif config['cv'] == DisabledCV:
-                cv = config['cv']().split(X_tr,y_tr)
-        
+                cv = DisabledCV().split(X_tr,y_tr)
+        # Grid Search Function and Grid of Parameters
+        grid_search = config['grid_search']
+        param_grid = config['param_grid'] 
+    
         grid = grid_search(estimator=model_to_estimate, param_grid=param_grid, cv=cv \
-            , scoring = scorer, n_jobs=-1)        
+            , scoring = scorer, n_jobs=-1)
+        
+        # Best model, best score and the respective prediction    
         model = grid.fit(X_tr,y_tr)
         best_model = model.best_estimator_
         best_score = model.best_score_
         models_estimated.loc[X.index[idx]] = best_model # save the model
+        scores_estimated.loc[X.index[idx]] = best_score # save the score
+        predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
+        
         if verbose == True:        
             if ((idx-start_idx) % 10) == 0:
                 print(str(idx)+" / "+str(max_idx) )
                 print(best_model)
                 print(best_score)
 
-        scores_estimated.loc[X.index[idx]] = best_score # save the score
-        predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
     return models_estimated,scores_estimated, predictions
     
 #%% #--------------------------------------------------
