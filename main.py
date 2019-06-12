@@ -2,7 +2,7 @@
 #%% [markdown] #--------------------------------------------------
 ## Equity Premium and Machine Learning
 #%% #--------------------------------------------------
-#* Import Modules
+#* Import Main Modules
 import warnings
 import math
 import time
@@ -13,11 +13,13 @@ from pandas.tseries.offsets import MonthEnd # To Determine the End of the Corres
 import sys # To caclulate memory usage
 import os
 
+#* Create Folders
 dir = os.getcwd()
 os.chdir(dir)
 os.makedirs(dir + '/temp', exist_ok = True)
 os.makedirs(dir + '/out/temp', exist_ok = True)
-os.makedirs(dir + '/out/pickle', exist_ok = True)
+os.makedirs(dir + '/out/rolling/pickle', exist_ok = True)
+os.makedirs(dir + '/out/expanding/pickle', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
 
 #%% #--------------------------------------------------
@@ -39,7 +41,7 @@ ROLLING = True
 min_idx = 0
 start_idx = 240
 
-
+# Rolling or Exapnding Window
 if ROLLING == True:
     Models_Folder = 'rolling'
 else:
@@ -54,14 +56,11 @@ df['sp500_rf'] = df['sp500_rf'] * 100
 df['lnsp500_rf'] = df['lnsp500_rf'] * 100
 df = df.sort_values(by=['date'])
 df.index = df.index.astype(int)
-df0 = df
 
-#df = df.set_index(['ym'])
+
 
 #%% #--------------------------------------------------
-"""
-Define variables
-"""
+#* Define variables
 other = ['ewsi']
 state = ['recessionD', 'sent']
 macro = [ 'dp', 'dy', 'ep', 'de', 'rvol', 'bm', 'ntis', 'tbl', 'lty', 'ltr', 'tms', 'dfy', 'dfr', 'infl'] 
@@ -70,10 +69,7 @@ tech = ['ma_1_9', 'ma_1_12', 'ma_2_9', 'ma_2_12', 'ma_3_9', 'ma_3_12', 'mom_9', 
        'vol_3_12']
 # predictors = macro+ tech # + other  + state
 #%% #--------------------------------------------------
-"""
-Variable Cut
-"""
-
+#* Variable Cut
 if Period == 1974:
 
     predictors = macro + tech + other  + state
@@ -237,7 +233,7 @@ for cname, config in configs.items():
 
     df = pd.DataFrame(results_dict, index=[0]) 
     df.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'.csv', index=False)
-
+    #* Save Predictions and Scores to a Separate File 
     model_results = pd.DataFrame()
     model_results['y_pred'] = y_pred
     model_results['index'] = y_pred.index 
