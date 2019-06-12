@@ -220,7 +220,7 @@ class _BaseKFold(with_metaclass(ABCMeta, BaseCrossValidator)):
 
 # Modify Times Series split
 class TimeSeriesSplitMod(_BaseKFold):
-    """Time Series cross-validator
+    """ Modified Time Series cross-validator
 
     Provides train/test indices to split time series data samples
     that are observed at fixed time intervals, in train/test sets.

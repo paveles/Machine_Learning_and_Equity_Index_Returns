@@ -1,13 +1,16 @@
 """
 Define Configurations of the Models
-Model Configuration is a dictionary with the following entries:
+Model Configuration is a dictionary with the following entries.
+
+Parameters
+----------
 - name - name of the model
 - cv - cross-validation procedure
 - pipeline - pipeline to use 
 - grid_search - grid search methods, e.g. GridSearchCV 
 - param_grid - parameters of the pipline that should be tuned by the grid-search method 
 - scorer - score criteria, according to which the best model will be chosen
-For more details see the respective models descriptions.
+For more details see the descriptions of the respective models .
 
 """
 #* Basic Modules

@@ -1,7 +1,7 @@
 #%% #--------------------------------------------------
 """ 
 Predicting Equity Premium using Machine Learning Methods - Main File
-Project Files:
+Project Files
 -------------
 model_configs.py - configurations of the models
 transform_cv.py - new transformation and cross-validation methods used in the project

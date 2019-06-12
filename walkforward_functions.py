@@ -39,7 +39,10 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, ver
 Function that esimates walk-forward using expanding or rolling window.
 Cross-validation procedure, and the type of grid-search are determined in the config file.
 Please see "model_configs.py" for the model config structure.
-Outputs are pandas dataseries of:
+
+Yields
+---------
+Outputs are pandas dataseries:
     - models_estimated - best model estimated for given month using past info
     - scores_estimated - scores of the best models
     - predictions - predictions of the best models
