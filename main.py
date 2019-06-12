@@ -1,6 +1,5 @@
-
-#%% [markdown] #--------------------------------------------------
-## Equity Premium and Machine Learning
+#%% #--------------------------------------------------
+''' Predicting Equity Premium using Machine Learning Methods'''
 #%% #--------------------------------------------------
 #* Import Main Modules
 import warnings
@@ -20,16 +19,25 @@ os.makedirs(dir + '/temp', exist_ok = True)
 os.makedirs(dir + '/out/temp', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
 
+#* To Add Interaction Terms
+from sklearn.preprocessing import PolynomialFeatures
+
+
+#* Load Walk-Forward Estimation Functions
+from walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
+
+#* Load Configs of Different Models
+from model_configs import *
+
+#* For Saving Models
+import pickle
 #%% #--------------------------------------------------
 #* Global Parameters *
-# Cross-validation Parameter
-K = 10
-#  Share of Sample as Test
-TsizeInv = 10
-test_size= 1/TsizeInv
 # Add interactions or not
-Poly = 1
-# Starting Year
+Poly = 1 # 1 - no polynomial features, 2 - first order interactions 
+
+# Starting Year: 1928 - macro only, 1951 - macto + technical, 
+# 1974 - add short interest    
 Period  = 1951
 # Number of Lags
 LAGS = 1
@@ -82,8 +90,7 @@ else:
     sys.exit("Wrong Sample")
 
 df=df[['date','lnsp500_rf']+predictors]
-# df[pd.isnull(df["ewsi"])!= 1]['date'].describe()
-#df = df.set_index(['date'])
+
 
 #%% #--------------------------------------------------
 #*"""Lagging predictive  variables"""
@@ -121,7 +128,6 @@ df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
 
 #%% #--------------------------------------------------
 #''' Define X and Y'''
-from sklearn.model_selection import train_test_split
 Xo= df.drop(['lnsp500_rf','date'],axis = 1)
 yo = df['lnsp500_rf']
 
@@ -130,7 +136,6 @@ yo = df['lnsp500_rf']
 
 #%% #--------------------------------------------------
 #''' Interaction Terms'''
-from sklearn.preprocessing import PolynomialFeatures
 if Poly == 1:
     poly = PolynomialFeatures(interaction_only=True,include_bias = False)
     Xp = poly.fit_transform(Xo)
@@ -147,8 +152,7 @@ else:
 #%% #--------------------------------------------------
 #! Do All Time-Consuming Calculations!
 #* Estimating Walk-Forward and Saving Estimation Results
-from walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
-from model_configs import *
+
 configs ={
     # 'const' : const_config,
     'ols' : ols_config,
@@ -176,7 +180,7 @@ for cname, config in configs.items():
     print(cname +' '+ time_begin.strftime('%Y-%m-%d %H:%M:%S'))
     max_idx = yo.shape[0]
     estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx,
-    rolling = ROLLING, verbose = True) #! The code
+    rolling = ROLLING, verbose = False) #! The code
 
     time_end = datetime.datetime.now()
     print(cname +' '+ time_end.strftime('%Y-%m-%d %H:%M:%S'))
@@ -186,7 +190,6 @@ for cname, config in configs.items():
 
     #%% #--------------------------------------------------
     #* Save Pickle of the Model and Config
-    import pickle
     config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
     with open("out/"+ Models_Folder +"/pickle/"+config['name']+".pickle","wb") as f:
         pickle.dump(config_model_pickle, f, -1)
@@ -194,19 +197,18 @@ for cname, config in configs.items():
 
     #%% #--------------------------------------------------
     #* Calculate different metrics
-    from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
-    import time
     y_true = yo.loc[y_pred.index]
-
+    #** Calculating Moving Wndow Mean
     y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
-
+    
     r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
-    # print("r2_oos = " + str(r2_oos))
     msfe_adj, p_value = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
-    # print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
     mse_oos = mean_squared_error(y_true,y_pred)
-    # print("mse_oos = " + str(mse_oos))
     mse_validated = - scores_estimated.mean()
+
+    # print("r2_oos = " + str(r2_oos))
+    # print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
+    # print("mse_oos = " + str(mse_oos))
     # print("average mse_validated  = " + str(mse_validated))
  
     #%% #--------------------------------------------------
@@ -226,6 +228,7 @@ for cname, config in configs.items():
 
     df = pd.DataFrame(results_dict, index=[0]) 
     df.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'.csv', index=False)
+    
     #* Save Predictions and Scores to a Separate File 
     model_results = pd.DataFrame()
     model_results['y_pred'] = y_pred
@@ -236,7 +239,7 @@ for cname, config in configs.items():
 
 
 #%% #--------------------------------------------------
-#* Aggregate Information
+#* Aggregate Information into one file
 configs ={
     # 'const' : const_config,
     'ols' : ols_config,
