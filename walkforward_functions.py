@@ -1,6 +1,6 @@
-'''
+"""
 Module containing walk-forward functions
-'''
+"""
 #* Walk-Forward Modeling
 from sklearn.linear_model import  LinearRegression
 from scipy import stats
@@ -11,31 +11,31 @@ from transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer
 import pandas as pd
 
 def calculate_r2_wf(y_true, y_pred, y_moving_mean):
-    '''
+    """
     Calculate out-of-sample R^2 for the walk-forward procedure
-    '''
+    """
     mse_urestricted = ((y_true - y_pred)**2).sum()
     mse_restricted = ((y_true - y_moving_mean)**2).sum()
     return 1 - mse_urestricted/mse_restricted
 
 def calculate_msfe_adjusted(y_true, y_pred, y_moving_mean):
-    '''
+    """
     Calculate t-statistic for the test on significant imporvement in predictions
-    '''
+    """
     f = (y_true - y_moving_mean)**2 - ((y_true - y_pred)**2 - (y_moving_mean - y_pred)**2)
     t_stat,pval_two_sided = stats.ttest_1samp(f, 0, axis=0)
     pval_one_sided = stats.t.sf(t_stat, f.count() - 1)
     return t_stat, pval_one_sided
 
 def r2_adj_score(y_true,y_pred,N,K):
-'''
+"""
 Calculate in-sample R^2 that is adjusted for the number of predictors (ols model only)
-'''
+"""
     r2 = r2_score(y_true,y_pred)
     return 1-(1-r2)*(N-1)/(N-K-1)
 
 def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, verbose = True):
-'''
+"""
 Function that esimates walk-forward using expanding or rolling window.
 Cross-validation procedure, and the type of grid-search are determined in the config file.
 Please see "model_configs.py" for the model config structure.
@@ -43,7 +43,7 @@ Outputs are pandas dataseries of:
     - models_estimated - best model estimated for given month using past info
     - scores_estimated - scores of the best models
     - predictions - predictions of the best models
-'''
+"""
     if verbose == True:
         print(config['param_grid'])
 

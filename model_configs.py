@@ -1,4 +1,4 @@
-'''
+"""
 Define Configurations of the Models
 Model Configuration is a dictionary with the following entries:
 - name - name of the model
@@ -9,7 +9,7 @@ Model Configuration is a dictionary with the following entries:
 - scorer - score criteria, according to which the best model will be chosen
 For more details see the respective models descriptions.
 
-'''
+"""
 #* Basic Modules
 import time
 from scipy import stats

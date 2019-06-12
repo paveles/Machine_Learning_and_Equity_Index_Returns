@@ -1,5 +1,11 @@
 #%% #--------------------------------------------------
-''' Predicting Equity Premium using Machine Learning Methods'''
+""" 
+Predicting Equity Premium using Machine Learning Methods - Main File
+Project Files:
+-------------
+
+
+"""
 #%% #--------------------------------------------------
 #* Import Main Modules
 import warnings
@@ -12,13 +18,6 @@ from pandas.tseries.offsets import MonthEnd # To Determine the End of the Corres
 import sys # To caclulate memory usage
 import os
 
-#* Create Folders
-dir = os.getcwd()
-os.chdir(dir)
-os.makedirs(dir + '/temp', exist_ok = True)
-os.makedirs(dir + '/out/temp', exist_ok = True)
-os.makedirs(dir + '/in', exist_ok = True)
-
 #* To Add Interaction Terms
 from sklearn.preprocessing import PolynomialFeatures
 
@@ -30,6 +29,13 @@ from model_configs import *
 
 #* For Saving Models
 import pickle
+
+#* Create Folders
+dir = os.getcwd()
+os.chdir(dir)
+os.makedirs(dir + '/temp', exist_ok = True)
+os.makedirs(dir + '/out/temp', exist_ok = True)
+os.makedirs(dir + '/in', exist_ok = True)
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
@@ -126,7 +132,7 @@ df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
 #%% #--------------------------------------------------
 
 #%% #--------------------------------------------------
-#''' Define X and Y'''
+#""" Define X and Y"""
 Xo= df.drop(['lnsp500_rf','date'],axis = 1)
 yo = df['lnsp500_rf']
 
@@ -134,7 +140,7 @@ yo = df['lnsp500_rf']
 # #############################################################################
 
 #%% #--------------------------------------------------
-#''' Interaction Terms'''
+#""" Interaction Terms"""
 if Poly == 1:
     poly = PolynomialFeatures(interaction_only=True,include_bias = False)
     Xp = poly.fit_transform(Xo)
