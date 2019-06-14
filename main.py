@@ -104,8 +104,8 @@ df=df[['date','lnsp500_rf']+predictors]
 
 df[predictors] = df[predictors].shift(1)
 if LAGS>1:
-    for lag in range(2,LAGS+1,1):
-        df = pd.concat([df, df[predictors].shift(lag).add_suffix('_l{}'.format(lag))], axis = 1)
+    for lag in range(1,LAGS+1,1):
+        df = pd.concat([df, df[predictors].shift(lag).add_suffix('_L{}'.format(lag))], axis = 1)
 
 #%% #--------------------------------------------------
 #* Sample Cut
