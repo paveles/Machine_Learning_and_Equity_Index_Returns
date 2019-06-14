@@ -162,10 +162,13 @@ else:
 # Model configurations to be used for estimation - see "model_configs.py" 
 configs ={
     # 'const' : const_config,
-    'ols' : ols_config,
+    # 'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
+     'lag_enet' : lag_enet_config,
+     'poly_enet' : poly_enet_config,
+     'poly_lag_enet' : poly_lag_enet_config,
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
     # 'rf_nocv': rf_nocv_config,
@@ -249,18 +252,21 @@ for cname, config in configs.items():
 #* Aggregate Information into one file
 configs ={
     # 'const' : const_config,
-    'ols' : ols_config,
-    # 'pca' : pca_config,
-    # 'enet' : enet_config,
-    # 'pca_enet' : pca_enet_config,
+    # 'ols' : ols_config,
+    # 'pca' : pca_config, #~ 23 minutes
+    # 'enet' : enet_config, #~ 2.5 hours
+    # 'pca_enet' : pca_enet_config, #~ 3 hours
+     'lag_enet' : lag_enet_config,
+     'poly_enet' : poly_enet_config,
+     'poly_lag_enet' : poly_lag_enet_config,
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
     # 'rf_nocv': rf_nocv_config,
     # 'xgb_nocv': xgb_nocv_config,
-    # 'adab' : adab_config,
-    # 'gbr':gbr_config,
+    # 'adab': adab_config,
+    # 'gbr': gbr_config,
     # 'rf': rf_config,
-    # 'xgb': xgb_config,
+    # 'xgb' : xgb_config
 }
 
 df_config = pd.DataFrame()

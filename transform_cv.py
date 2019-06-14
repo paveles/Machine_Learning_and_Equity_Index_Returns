@@ -5,7 +5,7 @@ Transformation and Cross-validation Classes
 import numpy as np
 import pandas as pd
 from sklearn.base import TransformerMixin,BaseEstimator
-
+from sklearn.preprocessing import PolynomialFeatures
 
 class ToConstantTransformer(BaseEstimator, TransformerMixin):
     """
@@ -29,7 +29,20 @@ class ToNumpyTransformer(BaseEstimator, TransformerMixin):
 
     # just return self
     def fit(self, X, y=None, **fit_params):
-        return self #pd.DataFrame(np.ones(X.shape[0]), index = X.index)
+        return self
+
+class AddLagTransformer(BaseEstimator, TransformerMixin):
+    """
+    Adds one lag of of all X variables
+    """
+    # here you define the operation it should perform
+    def transform(self, X, y=None,**fit_params):
+        return pd.concat([X, X.shift(1).add_suffix('_L{}'.format(1))], axis = 1)
+
+    # just return self
+    def fit(self, X, y=None, **fit_params):
+        return self
+
 
 class DisabledCV:
     """

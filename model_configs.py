@@ -34,7 +34,7 @@ from sklearn.model_selection import  TimeSeriesSplit
 from transform_cv import TimeSeriesSplitMod
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
-from transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer
+from transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer, AddLagTransformer
 
 #? OLS Models
 ols_config = {}
@@ -119,6 +119,71 @@ pca_enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.
                             }
 pca_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 pca_enet_config['grid_search'] = GridSearchCV
+
+
+#? Enet + Lag  Model
+lag_enet_config = {}
+lag_enet_config['name'] = "lag_enet"
+lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+
+lag_enet_config['pipeline'] = Pipeline(steps=[
+    ('standard', StandardScaler()),
+    ('addlag', AddLagTransformer()),
+    ('enet', ElasticNet())
+])
+
+# list(range(1, X.shape[1] + 1))
+lag_enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
+                            'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
+                            'enet__random_state' : [0],
+                            }
+lag_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+lag_enet_config['grid_search'] = GridSearchCV
+
+#? Enet + Interact  Model
+poly_enet_config = {}
+poly_enet_config['name'] = "poly_enet"
+poly_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+
+poly_enet_config['pipeline'] = Pipeline(steps=[
+    ('standard', StandardScaler()),
+    ('poly', PolynomialFeatures()),
+    ('enet', ElasticNet())
+])
+
+# list(range(1, X.shape[1] + 1))
+poly_enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
+                            'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
+                            'enet__random_state' : [0],
+                            'poly__interaction_only' : [True],
+                            'poly__include_bias' : [False]
+                            }
+poly_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+poly_enet_config['grid_search'] = GridSearchCV
+
+
+
+#? Enet + Interact + Lag  Model
+poly_lag_enet_config = {}
+poly_lag_enet_config['name'] = "poly_lag_enet"
+poly_lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+
+poly_lag_enet_config['pipeline'] = Pipeline(steps=[
+    ('standard', StandardScaler()),
+    ('poly', PolynomialFeatures()),
+    ('addlag', AddLagTransformer()),
+    ('enet', ElasticNet())
+])
+
+# list(range(1, X.shape[1] + 1))
+poly_lag_enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
+                            'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
+                            'enet__random_state' : [0],
+                            'poly__interaction_only' : [True],
+                            'poly__include_bias' : [False]                            
+                            }
+poly_lag_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+poly_lag_enet_config['grid_search'] = GridSearchCV
 
 #! No Cross-Validation!!!
 #? Random Forest Model + No CV
