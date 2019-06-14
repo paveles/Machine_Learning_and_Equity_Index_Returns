@@ -155,8 +155,6 @@ poly_enet_config['pipeline'] = Pipeline(steps=[
 poly_enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
                             'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
                             'enet__random_state' : [0],
-                            'poly__interaction_only' : [True],
-                            'poly__include_bias' : [False]
                             }
 poly_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 poly_enet_config['grid_search'] = GridSearchCV
@@ -179,8 +177,6 @@ poly_lag_enet_config['pipeline'] = Pipeline(steps=[
 poly_lag_enet_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
                             'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
                             'enet__random_state' : [0],
-                            'poly__interaction_only' : [True],
-                            'poly__include_bias' : [False]                            
                             }
 poly_lag_enet_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 poly_lag_enet_config['grid_search'] = GridSearchCV

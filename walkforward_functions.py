@@ -50,17 +50,20 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, ver
     """
     if verbose == True:
         print(config['param_grid'])
+
     # Generate Interaction Terms
-    if config['interactions'] == True:
-        poly = PolynomialFeatures(interaction_only=True,include_bias = False)
-        X = poly.fit_transform(X)
-    
-    LAGS = config['addlags']
-    if (type(LAGS) == int) & (LAGS == 1):
-        for lag in range(1,LAGS+1,1):
-            X = pd.concat([X, X[predictors].shift(lag).add_suffix('_L{}'.format(lag))], axis = 1)
+    if 'interactions' in config:
+        if config['interactions'] == True:
+            X = pd.DataFrame(PolynomialFeatures(interaction_only=True,include_bias = False).fit_transform(X))
 
-
+    # Generate Lags
+    if 'addlags' in config:
+        LAGS = config['addlags']
+        if (type(LAGS) == int) & (LAGS > 1):
+            for lag in range(1,LAGS+1,1):
+                X = pd.concat([X, X.shift(lag).add_suffix('_L{}'.format(lag))], axis = 1)
+                # temp.iloc[0,(X.shape[1]):] = X.iloc[0,:].values)
+                # X = temp
     # Define outputs
     models_estimated = pd.Series(index=X.index[start_idx:])
     scores_estimated = pd.Series(index=X.index[start_idx:])
