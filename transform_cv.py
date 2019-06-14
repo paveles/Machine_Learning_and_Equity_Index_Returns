@@ -37,7 +37,9 @@ class AddLagTransformer(BaseEstimator, TransformerMixin):
     """
     # here you define the operation it should perform
     def transform(self, X, y=None,**fit_params):
-        return pd.concat([X, X.shift(1).add_suffix('_L{}'.format(1))], axis = 1)
+        out =  pd.concat([X, X.shift(1).add_suffix('_L{}'.format(1))], axis = 1)
+        out.iloc[0,(X.shape[1]):] = X.iloc[0,:].values
+        return out
 
     # just return self
     def fit(self, X, y=None, **fit_params):

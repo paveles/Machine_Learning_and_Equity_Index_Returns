@@ -50,7 +50,7 @@ Period  = 1951
 LAGS = 1
 
 # Estimate using Rolling Window or Exapnding
-ROLLING = True
+ROLLING = False
 min_idx = 0
 start_idx = 240
 

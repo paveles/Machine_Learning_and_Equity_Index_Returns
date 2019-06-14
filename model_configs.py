@@ -127,8 +127,8 @@ lag_enet_config['name'] = "lag_enet"
 lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
 lag_enet_config['pipeline'] = Pipeline(steps=[
-    ('standard', StandardScaler()),
     ('addlag', AddLagTransformer()),
+    ('standard', StandardScaler()),
     ('enet', ElasticNet())
 ])
 
@@ -146,8 +146,8 @@ poly_enet_config['name'] = "poly_enet"
 poly_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
 poly_enet_config['pipeline'] = Pipeline(steps=[
-    ('standard', StandardScaler()),
     ('poly', PolynomialFeatures()),
+    ('standard', StandardScaler()),
     ('enet', ElasticNet())
 ])
 
@@ -169,9 +169,9 @@ poly_lag_enet_config['name'] = "poly_lag_enet"
 poly_lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
 
 poly_lag_enet_config['pipeline'] = Pipeline(steps=[
-    ('standard', StandardScaler()),
     ('poly', PolynomialFeatures()),
     ('addlag', AddLagTransformer()),
+    ('standard', StandardScaler()),
     ('enet', ElasticNet())
 ])
 
