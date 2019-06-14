@@ -9,6 +9,7 @@ from sklearn.model_selection import GridSearchCV
 from transform_cv import TimeSeriesSplitMod
 from transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer
 import pandas as pd
+from sklearn.preprocessing import  PolynomialFeatures
 
 def calculate_r2_wf(y_true, y_pred, y_moving_mean):
     """
@@ -49,6 +50,16 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, ver
     """
     if verbose == True:
         print(config['param_grid'])
+    # Generate Interaction Terms
+    if config['interactions'] == True:
+        poly = PolynomialFeatures(interaction_only=True,include_bias = False)
+        X = poly.fit_transform(X)
+    
+    LAGS = config['addlags']
+    if (type(LAGS) == int) & (LAGS == 1):
+        for lag in range(1,LAGS+1,1):
+            X = pd.concat([X, X[predictors].shift(lag).add_suffix('_L{}'.format(lag))], axis = 1)
+
 
     # Define outputs
     models_estimated = pd.Series(index=X.index[start_idx:])

@@ -34,7 +34,7 @@ from sklearn.model_selection import  TimeSeriesSplit
 from transform_cv import TimeSeriesSplitMod
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
-from transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer, AddLagTransformer
+from transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer
 
 #? OLS Models
 ols_config = {}
@@ -125,9 +125,9 @@ pca_enet_config['grid_search'] = GridSearchCV
 lag_enet_config = {}
 lag_enet_config['name'] = "lag_enet"
 lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+lag_enet_config['addlags'] = 1
 
 lag_enet_config['pipeline'] = Pipeline(steps=[
-    ('addlag', AddLagTransformer()),
     ('standard', StandardScaler()),
     ('enet', ElasticNet())
 ])
@@ -144,9 +144,9 @@ lag_enet_config['grid_search'] = GridSearchCV
 poly_enet_config = {}
 poly_enet_config['name'] = "poly_enet"
 poly_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+poly_enet_config['interactions']=True
 
 poly_enet_config['pipeline'] = Pipeline(steps=[
-    ('poly', PolynomialFeatures()),
     ('standard', StandardScaler()),
     ('enet', ElasticNet())
 ])
@@ -167,10 +167,10 @@ poly_enet_config['grid_search'] = GridSearchCV
 poly_lag_enet_config = {}
 poly_lag_enet_config['name'] = "poly_lag_enet"
 poly_lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+poly_lag_enet_config['interactions'] = True
+poly_lag_enet_config['addlags'] = 1
 
 poly_lag_enet_config['pipeline'] = Pipeline(steps=[
-    ('poly', PolynomialFeatures()),
-    ('addlag', AddLagTransformer()),
     ('standard', StandardScaler()),
     ('enet', ElasticNet())
 ])
