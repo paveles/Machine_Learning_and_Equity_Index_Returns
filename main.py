@@ -52,7 +52,7 @@ LAGS = 1
 # Estimate using Rolling Window or Exapnding
 ROLLING = False
 min_idx = 0
-start_idx = 240
+start_idx = 180
 
 # Rolling or Exapnding Window
 if ROLLING == True:
