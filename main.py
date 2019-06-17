@@ -52,7 +52,7 @@ LAGS = 1
 # Estimate using Rolling Window or Exapnding
 ROLLING = False
 min_idx = 0
-start_idx = 240
+start_idx = 180
 
 # Rolling or Exapnding Window
 if ROLLING == True:
@@ -166,8 +166,8 @@ configs ={
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
-     'lag_enet' : lag_enet_config,
      'poly_enet' : poly_enet_config,
+     'lag_enet' : lag_enet_config,
      'poly_lag_enet' : poly_lag_enet_config,
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
@@ -256,8 +256,8 @@ configs ={
     'pca' : pca_config, #~ 23 minutes
     'enet' : enet_config, #~ 2.5 hours
     'pca_enet' : pca_enet_config, #~ 3 hours
-    'lag_enet' : lag_enet_config,
     'poly_enet' : poly_enet_config,
+    'lag_enet' : lag_enet_config,
     'poly_lag_enet' : poly_lag_enet_config,
     'adab_nocv' : adab_nocv_config,
     'gbr_nocv': gbr_nocv_config,

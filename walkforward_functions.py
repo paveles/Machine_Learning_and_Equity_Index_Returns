@@ -59,7 +59,7 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, ver
     # Generate Lags
     if 'addlags' in config:
         LAGS = config['addlags']
-        if (type(LAGS) == int) & (LAGS > 1):
+        if (type(LAGS) == int) & (LAGS > 0):
             for lag in range(1,LAGS+1,1):
                 X = pd.concat([X, X.shift(lag).add_suffix('_L{}'.format(lag))], axis = 1)
                 # temp.iloc[0,(X.shape[1]):] = X.iloc[0,:].values)
