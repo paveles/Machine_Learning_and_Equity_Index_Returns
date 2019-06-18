@@ -60,6 +60,7 @@ if ROLLING == True:
 else:
     Models_Folder = 'expanding'
 
+VERBOSE = True
 #%% #--------------------------------------------------
 #* Load Data
 df = pd.read_csv('in/rapach_2013.csv', na_values = ['NaN'])
@@ -166,9 +167,9 @@ configs ={
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
-     'poly_enet' : poly_enet_config,
+    # 'poly_enet' : poly_enet_config,
      'lag_enet' : lag_enet_config,
-     'poly_lag_enet' : poly_lag_enet_config,
+    # 'poly_lag_enet' : poly_lag_enet_config,
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
     # 'rf_nocv': rf_nocv_config,
@@ -190,7 +191,7 @@ for cname, config in configs.items():
     print(cname +' '+ time_begin.strftime('%Y-%m-%d %H:%M:%S'))
     max_idx = yo.shape[0]
     estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx,
-    rolling = ROLLING, verbose = False) #! The code
+    rolling = ROLLING, verbose = VERBOSE) #! The code
 
     time_end = datetime.datetime.now()
     print(cname +' '+ time_end.strftime('%Y-%m-%d %H:%M:%S'))
@@ -256,9 +257,9 @@ configs ={
     'pca' : pca_config, #~ 23 minutes
     'enet' : enet_config, #~ 2.5 hours
     'pca_enet' : pca_enet_config, #~ 3 hours
-    'poly_enet' : poly_enet_config,
+    #'poly_enet' : poly_enet_config,
     'lag_enet' : lag_enet_config,
-    'poly_lag_enet' : poly_lag_enet_config,
+    #'poly_lag_enet' : poly_lag_enet_config,
     'adab_nocv' : adab_nocv_config,
     'gbr_nocv': gbr_nocv_config,
     'rf_nocv': rf_nocv_config,
