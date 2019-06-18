@@ -167,8 +167,8 @@ configs ={
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
-    # 'poly_enet' : poly_enet_config,
-     'lag_enet' : lag_enet_config,
+     'poly_enet' : poly_enet_config,
+    # 'lag_enet' : lag_enet_config,
     # 'poly_lag_enet' : poly_lag_enet_config,
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
@@ -257,8 +257,8 @@ configs ={
     'pca' : pca_config, #~ 23 minutes
     'enet' : enet_config, #~ 2.5 hours
     'pca_enet' : pca_enet_config, #~ 3 hours
-    #'poly_enet' : poly_enet_config,
-    'lag_enet' : lag_enet_config,
+    'poly_enet' : poly_enet_config,
+    #'lag_enet' : lag_enet_config,
     #'poly_lag_enet' : poly_lag_enet_config,
     'adab_nocv' : adab_nocv_config,
     'gbr_nocv': gbr_nocv_config,

@@ -143,7 +143,7 @@ lag_enet_config['grid_search'] = GridSearchCV
 #? Enet + Interact  Model
 poly_enet_config = {}
 poly_enet_config['name'] = "poly_enet"
-poly_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+poly_enet_config['cv'] = DisabledCV # DisabledCV
 poly_enet_config['interactions']=True
 
 poly_enet_config['pipeline'] = Pipeline(steps=[
