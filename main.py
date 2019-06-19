@@ -50,7 +50,7 @@ Period  = 1951
 LAGS = 1
 
 # Estimate using Rolling Window or Exapnding
-ROLLING = False
+ROLLING = True
 min_idx = 0
 start_idx = 180
 
@@ -167,7 +167,7 @@ configs ={
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
-     'poly_enet' : poly_enet_config,
+    # 'poly_enet' : poly_enet_config,
     # 'lag_enet' : lag_enet_config,
     # 'poly_lag_enet' : poly_lag_enet_config,
     # 'adab_nocv' : adab_nocv_config,
@@ -257,7 +257,7 @@ configs ={
     'pca' : pca_config, #~ 23 minutes
     'enet' : enet_config, #~ 2.5 hours
     'pca_enet' : pca_enet_config, #~ 3 hours
-    'poly_enet' : poly_enet_config,
+    #'poly_enet' : poly_enet_config,
     #'lag_enet' : lag_enet_config,
     #'poly_lag_enet' : poly_lag_enet_config,
     'adab_nocv' : adab_nocv_config,
@@ -285,4 +285,5 @@ for cname, config in configs.items():
             'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
              header = True)
 # Lambda Function is used because otherwise not all steps are revealed
-#%% #--------------------------------------------------
+
+
