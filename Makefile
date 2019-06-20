@@ -27,7 +27,7 @@ requirements: test_environment
 
 ## Make Dataset
 data: requirements
-	$(PYTHON_INTERPRETER) src/make_data.py
+	$(PYTHON_INTERPRETER) src/data.py
 
 ## Make Dataset
 analysis: requirements data

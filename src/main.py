@@ -24,10 +24,10 @@ import os
 import pickle
 
 #* Load Walk-Forward Estimation Functions
-from walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
+from src.walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
 
 #* Load Configs of Different Models
-from model_configs import *
+from src.model_configs import *
 
 # #* Create Folders
 dir = os.getcwd()
@@ -37,7 +37,7 @@ dir = os.getcwd()
 # os.makedirs(dir + '/in', exist_ok = True)
 #%% #--------------------------------------------------
 #* Load Global Parameters *
-from globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
+from src.globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
 
 #%% #--------------------------------------------------
 #* Load Data

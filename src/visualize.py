@@ -1,6 +1,6 @@
 #%% #--------------------------------------------------
 #*Load Modules
-from model_configs import *
+from src.model_configs import *
 import warnings
 import math
 import time
@@ -18,7 +18,7 @@ plt.rcParams['figure.figsize'] = [15, 10]
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
-from globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
+from src.globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
 
 #%% #--------------------------------------------------
 #* Load Data
@@ -82,6 +82,7 @@ plt.figure()
 sns.lineplot(x='Date',y='Value of 1$', hue ='Strategy', data = data, palette="deep6" )
 plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_cumulative.png')
 print("Figure "+ 'out/'+ Models_Folder +'/models/'+config['name']+'_cumulative.png'+" is saved")
+
 #%% #--------------------------------------------------
 
 
