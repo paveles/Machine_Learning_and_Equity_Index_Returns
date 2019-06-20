@@ -20,17 +20,14 @@ from pandas.tseries.offsets import MonthEnd # To Determine the End of the Corres
 import sys # To caclulate memory usage
 import os
 
-#* To Add Interaction Terms
-from sklearn.preprocessing import PolynomialFeatures
+#* For Saving Models
+import pickle
 
 #* Load Walk-Forward Estimation Functions
 from walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
 
 #* Load Configs of Different Models
 from model_configs import *
-
-#* For Saving Models
-import pickle
 
 #* Create Folders
 dir = os.getcwd()
@@ -104,9 +101,6 @@ df=df[['date','lnsp500_rf']+predictors]
 #*"""Lagging predictive  variables"""
 
 df[predictors] = df[predictors].shift(1)
-if LAGS>1:
-    for lag in range(1,LAGS+1,1):
-        df = pd.concat([df, df[predictors].shift(lag).add_suffix('_L{}'.format(lag))], axis = 1)
 
 #%% #--------------------------------------------------
 #* Sample Cut
@@ -143,27 +137,12 @@ yo = df['lnsp500_rf']
 # #############################################################################
 
 #%% #--------------------------------------------------
-#""" Interaction Terms"""
-if Poly == 1:
-    poly = PolynomialFeatures(interaction_only=True,include_bias = False)
-    Xp = poly.fit_transform(Xo)
-
-elif Poly == 2:
-    poly = PolynomialFeatures(degree = 2,include_bias = False)
-    Xp = poly.fit_transform(Xo)
-
-else:
-    Xp = Xo
-
-
-
-#%% #--------------------------------------------------
 #! Do All Time-Consuming Calculations!
 #* Estimating Walk-Forward and Saving Estimation Results
 # Model configurations to be used for estimation - see "model_configs.py" 
 configs ={
     # 'const' : const_config,
-    # 'ols' : ols_config,
+    'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
@@ -277,13 +256,13 @@ for cname, config in configs.items():
 print(df_config)
 df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
 #%% #--------------------------------------------------
-#* Estimated Models Save in Temp
-for cname, config in configs.items():
-    with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
-        config_model_pickle = pickle.load(f)
-        config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
-            'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
-             header = True)
-# Lambda Function is used because otherwise not all steps are revealed
+# #* Estimated Models Save in Temp
+# for cname, config in configs.items():
+#     with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
+#         config_model_pickle = pickle.load(f)
+#         config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
+#             'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
+#              header = True)
+# # Lambda Function is used because otherwise not all steps are revealed
 
 
