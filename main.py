@@ -46,7 +46,7 @@ Period  = 1951
 # Number of Lags
 LAGS = 1
 
-# Estimate using Rolling Window or Exapnding
+# Estimate using Rolling Window or Expanding
 ROLLING = True
 min_idx = 0
 start_idx = 180
@@ -142,13 +142,10 @@ yo = df['lnsp500_rf']
 # Model configurations to be used for estimation - see "model_configs.py" 
 configs ={
     # 'const' : const_config,
-    'ols' : ols_config,
+    # 'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
-    # 'poly_enet' : poly_enet_config,
-    # 'lag_enet' : lag_enet_config,
-    # 'poly_lag_enet' : poly_lag_enet_config,
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
     # 'rf_nocv': rf_nocv_config,
@@ -236,9 +233,6 @@ configs ={
     'pca' : pca_config, #~ 23 minutes
     'enet' : enet_config, #~ 2.5 hours
     'pca_enet' : pca_enet_config, #~ 3 hours
-    #'poly_enet' : poly_enet_config,
-    #'lag_enet' : lag_enet_config,
-    #'poly_lag_enet' : poly_lag_enet_config,
     'adab_nocv' : adab_nocv_config,
     'gbr_nocv': gbr_nocv_config,
     'rf_nocv': rf_nocv_config,
