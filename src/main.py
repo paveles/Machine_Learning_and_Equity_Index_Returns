@@ -29,33 +29,15 @@ from walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, esti
 #* Load Configs of Different Models
 from model_configs import *
 
-#* Create Folders
-dir = os.getcwd()
-os.chdir(dir)
-os.makedirs(dir + '/temp', exist_ok = True)
-os.makedirs(dir + '/out/temp', exist_ok = True)
-os.makedirs(dir + '/in', exist_ok = True)
+# #* Create Folders
+# dir = os.getcwd()
+# os.chdir(dir)
+# os.makedirs(dir + '/temp', exist_ok = True)
+# os.makedirs(dir + '/out/temp', exist_ok = True)
+# os.makedirs(dir + '/in', exist_ok = True)
 #%% #--------------------------------------------------
-#* Global Parameters *
-
-
-# Starting Year: 1928 - macro only, 1951 - macto + technical, 
-# 1974 - add short interest    
-Period  = 1951
-
-
-# Estimate using Rolling Window or Expanding
-ROLLING = False
-min_idx = 0
-start_idx = 180
-
-# Rolling or Exapnding Window
-if ROLLING == True:
-    Models_Folder = 'rolling'
-else:
-    Models_Folder = 'expanding'
-
-VERBOSE = True
+#* Load Global Parameters *
+import settings
 #%% #--------------------------------------------------
 #* Load Data
 df = pd.read_csv('data/raw/rapach_2013.csv', na_values = ['NaN'])
