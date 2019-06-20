@@ -47,7 +47,7 @@ Period  = 1951
 LAGS = 1
 
 # Estimate using Rolling Window or Expanding
-ROLLING = True
+ROLLING = False
 min_idx = 0
 start_idx = 180
 
@@ -142,7 +142,7 @@ yo = df['lnsp500_rf']
 # Model configurations to be used for estimation - see "model_configs.py" 
 configs ={
     # 'const' : const_config,
-    # 'ols' : ols_config,
+    'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours

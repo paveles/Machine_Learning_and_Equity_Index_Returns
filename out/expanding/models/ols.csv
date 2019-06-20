@@ -1,4 +1,6 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
-ols,-0.07270539734752623,2.1820111045810844,21.689255466687666,13.843440108606911,2019-06-03 14:08:11,2019-06-03 14:08:21,180,"{'name': 'ols', 'cv': <class 'helper.DisabledCV'>, 'pipeline': Pipeline(memory=None,
-     steps=[('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False))]), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
+ols,-0.11449690100206555,1.4080955826521873,22.534246646317815,14.02440307296044,2019-06-20 12:02:24,2019-06-20 12:02:36,0 days 00:00:12.257832000,180,"{'name': 'ols', 'cv': <class 'transform_cv.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+         steps=[('ols',
+                 LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+                                  normalize=False))],
+         verbose=False), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
