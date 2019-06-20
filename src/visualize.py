@@ -18,30 +18,11 @@ plt.rcParams['figure.figsize'] = [15, 10]
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
+from globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
 
-# Starting Year: 1928 - macro only, 1951 - macto + technical, 
-# 1974 - add short interest    
-Period  = 1951
-
-# Estimate using Rolling Window or Exapnding
-ROLLING = False
-min_idx = 0
-start_idx = 180
-
-# Rolling or Expanding Window
-if ROLLING == True:
-    Models_Folder = 'rolling'
-else:
-    Models_Folder = 'expanding'
-
-VERBOSE = True
 #%% #--------------------------------------------------
 #* Load Data
-df0 = pd.read_csv('data/raw/rapach_2013.csv', na_values = ['NaN'])
-df0.rename( index=str, columns={"date": "ym"}, inplace=True)
-df0['date'] = pd.to_datetime(df0['ym'],format='%Y%m') + MonthEnd(1)
-df0 = df0.sort_values(by=['date'])
-df0.index = df0.index.astype(int)
+df = pd.read_pickle("data/processed/df.pickle")
 
 #%% #--------------------------------------------------
 #* Load Strategy

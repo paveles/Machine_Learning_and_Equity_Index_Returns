@@ -6,7 +6,7 @@
          steps=[('ols',
                  LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
                                   normalize=False))],
-         verbose=False), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",22.534246646317808,14.024403072960439,1.4080955826521873,ols,1951,-0.11449690100206555,180,2019-06-20 12:02:24,0 days 00:00:12.257832000,2019-06-20 12:02:36
+         verbose=False), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",22.534246646317808,14.024403072960439,1.4080955826521873,ols,1951,-0.11449690100206555,180,2019-06-20 21:08:38,0 days 00:00:12.241729000,2019-06-20 21:08:51
 2,"{'name': 'pca', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
      steps=[('pca', PCA(copy=True, iterated_power='auto', n_components=None, random_state=None,
   svd_solver='auto', tol=0.0, whiten=False)), ('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,

@@ -1,5 +1,5 @@
 name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-ols,-0.11449690100206555,1.4080955826521873,22.534246646317815,14.02440307296044,2019-06-20 12:02:24,2019-06-20 12:02:36,0 days 00:00:12.257832000,180,"{'name': 'ols', 'cv': <class 'transform_cv.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+ols,-0.11449690100206555,1.4080955826521873,22.534246646317815,14.02440307296044,2019-06-20 21:08:38,2019-06-20 21:08:51,0 days 00:00:12.241729000,180,"{'name': 'ols', 'cv': <class 'transform_cv.DisabledCV'>, 'pipeline': Pipeline(memory=None,
          steps=[('ols',
                  LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
                                   normalize=False))],

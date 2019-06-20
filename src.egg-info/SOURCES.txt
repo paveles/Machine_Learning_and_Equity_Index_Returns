@@ -1,4 +1,12 @@
 setup.py
+src/__init__.py
+src/globals.py
+src/main.py
+src/make_data.py
+src/model_configs.py
+src/transform_cv.py
+src/visualize.py
+src/walkforward_functions.py
 src.egg-info/PKG-INFO
 src.egg-info/SOURCES.txt
 src.egg-info/dependency_links.txt

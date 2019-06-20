@@ -30,26 +30,18 @@ from walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, esti
 from model_configs import *
 
 # #* Create Folders
-# dir = os.getcwd()
+dir = os.getcwd()
 # os.chdir(dir)
 # os.makedirs(dir + '/temp', exist_ok = True)
 # os.makedirs(dir + '/out/temp', exist_ok = True)
 # os.makedirs(dir + '/in', exist_ok = True)
 #%% #--------------------------------------------------
 #* Load Global Parameters *
-import settings
+from globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
+
 #%% #--------------------------------------------------
 #* Load Data
-df = pd.read_csv('data/raw/rapach_2013.csv', na_values = ['NaN'])
-df.rename( index=str, columns={"date": "ym"}, inplace=True)
-df['date'] = pd.to_datetime(df['ym'],format='%Y%m') + MonthEnd(1)
-df['sp500_rf'] = df['sp500_rf'] * 100
-df['lnsp500_rf'] = df['lnsp500_rf'] * 100
-df = df.sort_values(by=['date'])
-df.index = df.index.astype(int)
-
-
-
+df = pd.read_pickle("data/processed/df.pickle")
 #%% #--------------------------------------------------
 #* Define variables
 other = ['ewsi']
