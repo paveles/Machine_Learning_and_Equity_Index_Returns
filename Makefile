@@ -31,11 +31,11 @@ data: requirements
 
 ## Make Dataset
 analysis: requirements
-	$(PYTHON_INTERPRETER) main.py
+	$(PYTHON_INTERPRETER) src/main.py
 
 ## Visualize
 visualize: requirements
-	$(PYTHON_INTERPRETER) src/visualization/visualize.py
+	$(PYTHON_INTERPRETER) src/visualize.py
 
 ## Delete all compiled Python files
 clean:

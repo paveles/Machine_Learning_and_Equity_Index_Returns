@@ -13,19 +13,15 @@ import os
 import seaborn as sns
 sns.set()
 sns.set(font_scale=1.5)
-#sns.set(rc={'figure.facecolor':'white'})
 import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = [15, 10]
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
-Poly = 1 # 1 - no polynomial features, 2 - first order interactions 
 
 # Starting Year: 1928 - macro only, 1951 - macto + technical, 
 # 1974 - add short interest    
 Period  = 1951
-# Number of Lags
-LAGS = 1
 
 # Estimate using Rolling Window or Exapnding
 ROLLING = False
@@ -41,7 +37,7 @@ else:
 VERBOSE = True
 #%% #--------------------------------------------------
 #* Load Data
-df0 = pd.read_csv('in/rapach_2013.csv', na_values = ['NaN'])
+df0 = pd.read_csv('data/raw/rapach_2013.csv', na_values = ['NaN'])
 df0.rename( index=str, columns={"date": "ym"}, inplace=True)
 df0['date'] = pd.to_datetime(df0['ym'],format='%Y%m') + MonthEnd(1)
 df0 = df0.sort_values(by=['date'])

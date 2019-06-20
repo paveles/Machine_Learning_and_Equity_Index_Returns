@@ -37,14 +37,12 @@ os.makedirs(dir + '/out/temp', exist_ok = True)
 os.makedirs(dir + '/in', exist_ok = True)
 #%% #--------------------------------------------------
 #* Global Parameters *
-# Add interactions or not
-Poly = 1 # 1 - no polynomial features, 2 - first order interactions 
+
 
 # Starting Year: 1928 - macro only, 1951 - macto + technical, 
 # 1974 - add short interest    
 Period  = 1951
-# Number of Lags
-LAGS = 1
+
 
 # Estimate using Rolling Window or Expanding
 ROLLING = False
@@ -60,7 +58,7 @@ else:
 VERBOSE = True
 #%% #--------------------------------------------------
 #* Load Data
-df = pd.read_csv('in/rapach_2013.csv', na_values = ['NaN'])
+df = pd.read_csv('data/raw/rapach_2013.csv', na_values = ['NaN'])
 df.rename( index=str, columns={"date": "ym"}, inplace=True)
 df['date'] = pd.to_datetime(df['ym'],format='%Y%m') + MonthEnd(1)
 df['sp500_rf'] = df['sp500_rf'] * 100
