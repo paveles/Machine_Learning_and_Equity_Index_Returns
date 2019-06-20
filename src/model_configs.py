@@ -14,9 +14,10 @@ For more details see the descriptions of the respective models .
 """
 #* Basic Modules
 import time
-from scipy import stats
-import pandas as pd
+#from scipy import stats
 import numpy as np
+import pandas as pd
+
 
 #* Load Models to Estimate
 from sklearn.linear_model import  LinearRegression, ElasticNet

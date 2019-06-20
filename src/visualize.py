@@ -1,6 +1,6 @@
 #%% #--------------------------------------------------
 #*Load Modules
-from model_configs import*
+from model_configs import *
 import warnings
 import math
 import time
@@ -22,21 +22,21 @@ from globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
 
 #%% #--------------------------------------------------
 #* Load Data
-df = pd.read_pickle("data/processed/df.pickle")
+df0 = pd.read_pickle("data/processed/df.pickle")
 
 #%% #--------------------------------------------------
 #* Load Strategy
 config = enet_config
 
 df_pred = pd.read_csv('out/'+ Models_Folder +'/models/'+ config['name']+'_predictions.csv').set_index('index',drop = True)
-y_pred = df_pred['y_pred']
+y_pred = df_pred['y_pred']/100
 scores_estimated = df_pred['scores_estimated']
 
 dff = df0.iloc[y_pred.index]
 t= dff['date']
-rm_rf = dff['sp500_rf']
+rm_rf = dff['sp500_rf']/100
 y_moving_mean = df0['sp500_rf'].shift(1).expanding(1).mean().loc[y_pred.index]
-y_true =rm_rf*100
+y_true =rm_rf
 
 
 #%% #--------------------------------------------------
@@ -46,7 +46,7 @@ data2 = data.melt(id_vars='Date', var_name='Returns',  value_name='Monthly Retur
 
 plt.figure()
 sns.lineplot(x='Date',y='Monthly Returns', hue ='Returns', data = data2, palette="deep6" )
-plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_returns.jpg')
+plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_returns.png')
 #%% #--------------------------------------------------
 #* Strategy Performace
 
@@ -67,7 +67,7 @@ Leverage_Data  =pd.concat([Leverage,t.rename('Date')],axis = 1)
 plt.figure()
 sns.lineplot(x='Date',y='Leverage',data=Leverage_Data)
 
-plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_leverage.jpg')
+plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_leverage.png')
 
 #%% #--------------------------------------------------
 #** Define Strategy based on ENET
@@ -80,7 +80,8 @@ data = data.melt(id_vars='Date', var_name='Strategy',  value_name='Value of 1$')
 
 plt.figure()
 sns.lineplot(x='Date',y='Value of 1$', hue ='Strategy', data = data, palette="deep6" )
-plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_cumulative.jpg')
+plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_cumulative.png')
+print("Figure "+ 'out/'+ Models_Folder +'/models/'+config['name']+'_cumulative.png'+" is saved")
 #%% #--------------------------------------------------
 
 
