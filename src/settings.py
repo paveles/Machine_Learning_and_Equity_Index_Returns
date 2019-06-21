@@ -79,8 +79,8 @@ Configs_Analysis ={
 }
 
 Configs_Visualize ={
-    'enet' : enet_config,
-    'const' : const_config,
+    # 'enet' : enet_config,
+    # 'const' : const_config,
     'ols' : ols_config,
 #    'rf' : rf_config,
 }
