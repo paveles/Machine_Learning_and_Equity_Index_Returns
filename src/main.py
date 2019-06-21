@@ -36,7 +36,7 @@ dir = os.getcwd()
 #%% #--------------------------------------------------
 #* Load Global Parameters *
 #* Load Configs of Different Models
-from src.globals import Period, ROLLING, min_idx, start_idx, Models_Folder,\
+from src.settings import Period, ROLLING, min_idx, start_idx, Models_Folder,\
 VERBOSE, Configs_Estimated, Configs_Aggregate, Configs_Analysis, Configs_Visualize
 
 #%% #--------------------------------------------------

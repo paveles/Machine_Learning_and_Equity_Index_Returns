@@ -1,9 +1,9 @@
 setup.py
 src/__init__.py
 src/data.py
-src/globals.py
 src/main.py
 src/model_configs.py
+src/settings.py
 src/transform_cv.py
 src/visualize.py
 src/walkforward_functions.py
