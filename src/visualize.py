@@ -17,8 +17,10 @@ plt.rcParams['figure.figsize'] = [20, 30]
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
-from src.settings import Period, ROLLING,  start_idx, Models_Folder,\
-VERBOSE, Configs_Estimated, Configs_Aggregate, Configs_Analysis, Configs_Visualize
+from src.settings import Period, ROLLING, start_idx, Models_Folder,\
+VERBOSE, CONFIGS, training_window, validation_window
+
+
 
 #%% #--------------------------------------------------
 #* Load Data
@@ -26,7 +28,7 @@ df0 = pd.read_pickle("data/processed/df.pickle")
 
 #%% #--------------------------------------------------
 #* Loop
-for cname, config in Configs_Visualize.items():
+for cname, config in CONFIGS.items():
     #%% #------------------------------------------------
     #* Load Strategy
     df_pred = pd.read_csv('out/'+ Models_Folder +'/models/'+ config['name']+'_predictions.csv').set_index('index',drop = True)

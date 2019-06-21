@@ -1,5 +1,5 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-enet_nocv,0.005359576149943424,1.2795359788670881,20.110843390666126,15.734422680482455,2019-06-21 17:51:40,2019-06-21 17:51:49,0 days 00:00:09.505849000,180,"{'name': 'enet_nocv', 'cv': <class 'src.transform_cv.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,window_training,window_validation,window,config,period
+enet_nocv,0.005359576149943424,1.2795359788670881,20.110843390666126,15.734422680482455,2019-06-21 18:19:01,2019-06-21 18:19:15,0 days 00:00:13.479221000,180,240,24,expanding,"{'name': 'enet_nocv', 'cv': <class 'src.transform_cv.DisabledCV'>, 'pipeline': Pipeline(memory=None,
          steps=[('standard',
                  StandardScaler(copy=True, with_mean=True, with_std=True)),
                 ('enet',

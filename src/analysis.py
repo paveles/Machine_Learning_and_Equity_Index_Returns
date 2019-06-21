@@ -37,8 +37,7 @@ dir = os.getcwd()
 #* Load Global Parameters *
 #* Load Configs of Different Models
 from src.settings import Period, ROLLING, start_idx, Models_Folder,\
-VERBOSE, Configs_Estimated, Configs_Aggregate, Configs_Analysis, Configs_Visualize, \
-training_window, validation_window
+VERBOSE, CONFIGS, training_window, validation_window
 
 #%% #--------------------------------------------------
 #* Load Data
@@ -118,7 +117,7 @@ yo = df['lnsp500_rf']
 os.makedirs(dir + '/out/'+ Models_Folder +'/pickle', exist_ok = True)
 os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
 
-for cname, config in Configs_Analysis.items():
+for cname, config in CONFIGS.items():
     print('--------------------------')
     time_begin = datetime.datetime.now()
     #* Estimate Walk-Forward
@@ -166,7 +165,10 @@ for cname, config in Configs_Analysis.items():
     results_dict['time_begin'] = time_begin.strftime('%Y-%m-%d %H:%M:%S')
     results_dict['time_end'] = time_end.strftime('%Y-%m-%d %H:%M:%S')
     results_dict['time_diff'] = (time_end - time_begin)
-    results_dict['start_idx'] = start_idx   
+    results_dict['start_idx'] = start_idx
+    results_dict['window_training'] = training_window
+    results_dict['window_validation'] = validation_window
+    results_dict['window'] = Models_Folder
     results_dict['config'] = str(config)
     results_dict['period'] = int(Period)
 
@@ -187,7 +189,7 @@ for cname, config in Configs_Analysis.items():
 
 
 df_config = pd.DataFrame()
-for cname, config in Configs_Aggregate.items():
+for cname, config in CONFIGS.items():
     df_config = df_config.append(pd.read_csv('out/'+ Models_Folder +'/models/'+ cname +'.csv'),
      ignore_index =True)
 print(df_config)
@@ -195,7 +197,7 @@ df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
 #%% #--------------------------------------------------
 #* Estimated Models Save in Temp
 
-for cname, config in Configs_Estimated.items():
+for cname, config in CONFIGS.items():
     with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
         config_model_pickle = pickle.load(f)
         config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
