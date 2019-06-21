@@ -11,6 +11,7 @@ datetime
 pandas
 numpy
 scipy
+cython
 #sys
 #os
 
