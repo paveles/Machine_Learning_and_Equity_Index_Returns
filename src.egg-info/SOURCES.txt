@@ -1,7 +1,7 @@
 setup.py
 src/__init__.py
+src/analysis.py
 src/data.py
-src/main.py
 src/model_configs.py
 src/settings.py
 src/transform_cv.py

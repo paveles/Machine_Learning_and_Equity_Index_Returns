@@ -31,7 +31,7 @@ data: requirements
 
 ## Make Dataset
 analysis: requirements data
-	$(PYTHON_INTERPRETER) src/main.py
+	$(PYTHON_INTERPRETER) src/analysis.py
 
 ## Visualize
 visualize: requirements
