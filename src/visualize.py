@@ -1,6 +1,5 @@
 #%% #--------------------------------------------------
 #*Load Modules
-from src.model_configs import *
 import warnings
 import math
 import time
@@ -18,20 +17,16 @@ plt.rcParams['figure.figsize'] = [20, 30]
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
-from src.globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
-configs_vis =[
-    enet_config,
-    const_config,
-    ols_config,
-    rf_config,
-    ]
+from src.globals import Period, ROLLING, min_idx, start_idx, Models_Folder,\
+VERBOSE, Configs_Estimated, Configs_Aggregate, Configs_Analysis, Configs_Visualize
+
 #%% #--------------------------------------------------
 #* Load Data
 df0 = pd.read_pickle("data/processed/df.pickle")
 
 #%% #--------------------------------------------------
 #* Loop
-for config in configs_vis:
+for cname, config in Configs_Visualize.items():
     #%% #------------------------------------------------
     #* Load Strategy
     df_pred = pd.read_csv('out/'+ Models_Folder +'/models/'+ config['name']+'_predictions.csv').set_index('index',drop = True)

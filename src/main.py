@@ -25,9 +25,7 @@ import pickle
 
 #* Load Walk-Forward Estimation Functions
 from src.walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
-
-#* Load Configs of Different Models
-from src.model_configs import *
+from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 
 # #* Create Folders
 dir = os.getcwd()
@@ -37,7 +35,9 @@ dir = os.getcwd()
 # os.makedirs(dir + '/in', exist_ok = True)
 #%% #--------------------------------------------------
 #* Load Global Parameters *
-from src.globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
+#* Load Configs of Different Models
+from src.globals import Period, ROLLING, min_idx, start_idx, Models_Folder,\
+VERBOSE, Configs_Estimated, Configs_Aggregate, Configs_Analysis, Configs_Visualize
 
 #%% #--------------------------------------------------
 #* Load Data
@@ -112,27 +112,12 @@ yo = df['lnsp500_rf']
 #! Do All Time-Consuming Calculations!
 #* Estimating Walk-Forward and Saving Estimation Results
 # Model configurations to be used for estimation - see "model_configs.py" 
-configs ={
-     'const' : const_config,
-    #'ols' : ols_config,
-    # 'pca' : pca_config, #~ 23 minutes
-    # 'enet' : enet_config, #~ 2.5 hours
-    # 'pca_enet' : pca_enet_config, #~ 3 hours
-    # 'adab_nocv' : adab_nocv_config,
-    # 'gbr_nocv': gbr_nocv_config,
-    # 'rf_nocv': rf_nocv_config,
-    # 'xgb_nocv': xgb_nocv_config,
-    # 'adab': adab_config,
-    # 'gbr': gbr_config,
-    # 'rf': rf_config,
-    # 'xgb' : xgb_config
-}
 
 
 os.makedirs(dir + '/out/'+ Models_Folder +'/pickle', exist_ok = True)
 os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
 
-for cname, config in configs.items():
+for cname, config in Configs_Analysis.items():
     print('--------------------------')
     time_begin = datetime.datetime.now()
     #* Estimate Walk-Forward
@@ -199,46 +184,18 @@ for cname, config in configs.items():
 
 #%% #--------------------------------------------------
 #* Aggregate Information into one file
-configs ={
-    'const' : const_config,
-    'ols' : ols_config,
-    'pca' : pca_config, #~ 23 minutes
-    'enet' : enet_config, #~ 2.5 hours
-    'pca_enet' : pca_enet_config, #~ 3 hours
-    'adab_nocv' : adab_nocv_config,
-    'gbr_nocv': gbr_nocv_config,
-    'rf_nocv': rf_nocv_config,
-    'xgb_nocv': xgb_nocv_config,
-    'adab': adab_config,
-    'gbr': gbr_config,
-    'rf': rf_config,
-    'xgb' : xgb_config
-}
+
 
 df_config = pd.DataFrame()
-for cname, config in configs.items():
+for cname, config in Configs_Aggregate.items():
     df_config = df_config.append(pd.read_csv('out/'+ Models_Folder +'/models/'+ cname +'.csv'),
      ignore_index =True)
 print(df_config)
 df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
 #%% #--------------------------------------------------
 #* Estimated Models Save in Temp
-configs ={
-    'const' : const_config,
-    'ols' : ols_config,
-    # 'pca' : pca_config, #~ 23 minutes
-    # 'enet' : enet_config, #~ 2.5 hours
-    # 'pca_enet' : pca_enet_config, #~ 3 hours
-    # 'adab_nocv' : adab_nocv_config,
-    # 'gbr_nocv': gbr_nocv_config,
-    # 'rf_nocv': rf_nocv_config,
-    # 'xgb_nocv': xgb_nocv_config,
-    # 'adab': adab_config,
-    # 'gbr': gbr_config,
-    # 'rf': rf_config,
-    # 'xgb' : xgb_config
-}
-for cname, config in configs.items():
+
+for cname, config in Configs_Estimated.items():
     with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
         config_model_pickle = pickle.load(f)
         config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
