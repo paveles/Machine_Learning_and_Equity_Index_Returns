@@ -32,10 +32,11 @@ VERBOSE = True
 
 # Different Models to Use at different steps
 Configs_Estimated ={
-    'const' : const_config,
-    'ols' : ols_config,
+    # 'const' : const_config,
+    # 'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
+    'enet_nocv' : enet_nocv_config, 
     # 'pca_enet' : pca_enet_config, #~ 3 hours
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
@@ -51,6 +52,7 @@ Configs_Aggregate ={
     'ols' : ols_config,
     'pca' : pca_config, #~ 23 minutes
     'enet' : enet_config, #~ 2.5 hours
+    'enet_nocv' : enet_nocv_config, 
     'pca_enet' : pca_enet_config, #~ 3 hours
     'adab_nocv' : adab_nocv_config,
     'gbr_nocv': gbr_nocv_config,
@@ -63,10 +65,11 @@ Configs_Aggregate ={
 }
 
 Configs_Analysis ={
-     'const' : const_config,
+    # 'const' : const_config,
     #'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
+    'enet_nocv' : enet_nocv_config, 
     # 'pca_enet' : pca_enet_config, #~ 3 hours
     # 'adab_nocv' : adab_nocv_config,
     # 'gbr_nocv': gbr_nocv_config,
@@ -79,10 +82,11 @@ Configs_Analysis ={
 }
 
 Configs_Visualize ={
+    'enet_nocv' : enet_nocv_config, 
     # 'enet' : enet_config,
     # 'const' : const_config,
-    'ols' : ols_config,
-#    'rf' : rf_config,
+    # 'ols' : ols_config,
+    # 'rf' : rf_config,
 }
 
 
