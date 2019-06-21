@@ -17,7 +17,7 @@ plt.rcParams['figure.figsize'] = [20, 30]
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
-from src.settings import Period, ROLLING, min_idx, start_idx, Models_Folder,\
+from src.settings import Period, ROLLING,  start_idx, Models_Folder,\
 VERBOSE, Configs_Estimated, Configs_Aggregate, Configs_Analysis, Configs_Visualize
 
 #%% #--------------------------------------------------

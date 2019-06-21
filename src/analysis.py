@@ -36,8 +36,9 @@ dir = os.getcwd()
 #%% #--------------------------------------------------
 #* Load Global Parameters *
 #* Load Configs of Different Models
-from src.settings import Period, ROLLING, min_idx, start_idx, Models_Folder,\
-VERBOSE, Configs_Estimated, Configs_Aggregate, Configs_Analysis, Configs_Visualize
+from src.settings import Period, ROLLING, start_idx, Models_Folder,\
+VERBOSE, Configs_Estimated, Configs_Aggregate, Configs_Analysis, Configs_Visualize, \
+training_window, validation_window
 
 #%% #--------------------------------------------------
 #* Load Data
@@ -122,9 +123,8 @@ for cname, config in Configs_Analysis.items():
     time_begin = datetime.datetime.now()
     #* Estimate Walk-Forward
     print(cname +' '+ time_begin.strftime('%Y-%m-%d %H:%M:%S'))
-    max_idx = yo.shape[0]
-    estimated = estimate_walk_forward(config ,Xo,yo,start_idx,max_idx,
-    rolling = ROLLING, verbose = VERBOSE) #! The code
+    estimated = estimate_walk_forward(config ,Xo,yo,start_idx, rolling = ROLLING,
+    tr_win = training_window, val_win = validation_window, verbose = VERBOSE) #! The code
 
     time_end = datetime.datetime.now()
     print(cname +' '+ time_end.strftime('%Y-%m-%d %H:%M:%S'))

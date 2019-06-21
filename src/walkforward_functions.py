@@ -35,7 +35,8 @@ def r2_adj_score(y_true,y_pred,N,K):
     r2 = r2_score(y_true,y_pred)
     return 1-(1-r2)*(N-1)/(N-K-1)
 
-def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, verbose = True):
+def estimate_walk_forward(config, X, y, start_idx, rolling = False,
+ tr_win = None, val_win = None, verbose = True):
     """
     Function that esimates walk-forward using expanding or rolling window.
     Cross-validation procedure, and the type of grid-search are determined in the config file.
@@ -51,6 +52,7 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, ver
     if verbose == True:
         print(config['param_grid'])
 
+    max_idx = y.shape[0]
     # Generate Interaction Terms
     if 'interactions' in config:
         if config['interactions'] == True:
@@ -83,11 +85,11 @@ def estimate_walk_forward(config, X, y, start_idx, max_idx, rolling = False, ver
         # the Validation Period Size is 24 Months,
         # a prediction is made for the following month
         if rolling == True:
-            X_tr = X.iloc[idx - 240 : idx]
-            y_tr = y.iloc[idx - 240 : idx]
+            X_tr = X.iloc[idx - tr_win : idx]
+            y_tr = y.iloc[idx - tr_win : idx]
             if config['cv'] == TimeSeriesSplitMod:
-                cv = TimeSeriesSplitMod( n_splits =240 - 1,
-                 start_test_split = 240-24 ).split(X_tr,y_tr)
+                cv = TimeSeriesSplitMod( n_splits =tr_win - 1,
+                 start_test_split = tr_win-val_win ).split(X_tr,y_tr)
             elif config['cv'] == DisabledCV:
                 cv = DisabledCV().split(X_tr,y_tr)
         # For Exapnding Window Regression,
