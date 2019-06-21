@@ -1,8 +1,8 @@
 setup.py
 src/__init__.py
+src/data.py
 src/globals.py
 src/main.py
-src/make_data.py
 src/model_configs.py
 src/transform_cv.py
 src/visualize.py

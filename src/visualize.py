@@ -14,75 +14,87 @@ import seaborn as sns
 sns.set()
 sns.set(font_scale=1.5)
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = [15, 10]
+plt.rcParams['figure.figsize'] = [20, 30]
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
 from src.globals import Period, ROLLING, min_idx, start_idx, Models_Folder, VERBOSE
-
+configs_vis =[
+    enet_config,
+    const_config,
+    ols_config,
+    rf_config,
+    ]
 #%% #--------------------------------------------------
 #* Load Data
 df0 = pd.read_pickle("data/processed/df.pickle")
 
 #%% #--------------------------------------------------
-#* Load Strategy
-config = enet_config
+#* Loop
+for config in configs_vis:
+    #%% #------------------------------------------------
+    #* Load Strategy
+    df_pred = pd.read_csv('out/'+ Models_Folder +'/models/'+ config['name']+'_predictions.csv').set_index('index',drop = True)
+    y_pred = df_pred['y_pred']/100
+    scores_estimated = df_pred['scores_estimated']
 
-df_pred = pd.read_csv('out/'+ Models_Folder +'/models/'+ config['name']+'_predictions.csv').set_index('index',drop = True)
-y_pred = df_pred['y_pred']/100
-scores_estimated = df_pred['scores_estimated']
-
-dff = df0.iloc[y_pred.index]
-t= dff['date']
-rm_rf = dff['sp500_rf']/100
-y_moving_mean = df0['sp500_rf'].shift(1).expanding(1).mean().loc[y_pred.index]
-y_true =rm_rf
-
-
-#%% #--------------------------------------------------
-#* Plot one-month ahead foreacst
-data=pd.concat([y_true.rename('Realized'),y_pred.rename('1-Month Forecast'),t.rename('Date')],axis = 1)
-data2 = data.melt(id_vars='Date', var_name='Returns',  value_name='Monthly Returns')
-
-plt.figure()
-sns.lineplot(x='Date',y='Monthly Returns', hue ='Returns', data = data2, palette="deep6" )
-plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_returns.png')
-#%% #--------------------------------------------------
-#* Strategy Performace
+    dff = df0.iloc[y_pred.index]
+    t= dff['date']
+    rm_rf = dff['sp500_rf']/100
+    y_moving_mean = df0['sp500_rf'].shift(1).expanding(1).mean().loc[y_pred.index]
+    y_true =rm_rf
 
 
-def calculate_cumulative_return(rm_rf):
-    rm_rf_1 = (rm_rf+1)
-    ln_rm_rf_1 = rm_rf_1.apply(lambda x: math.log(x))
-    cumr=ln_rm_rf_1.cumsum(axis = 0).apply(lambda x: math.exp(x))
-    return cumr
+    #%% #--------------------------------------------------
+    #* Plot one-month ahead foreacst
+    data=pd.concat([y_true.rename('Realized'),y_pred.rename('1-Month Forecast'),t.rename('Date')],axis = 1)
+    data2 = data.melt(id_vars='Date', var_name='Returns',  value_name='Monthly Returns')
 
-cumr = calculate_cumulative_return(rm_rf).rename('sp500')
-#%% #--------------------------------------------------
+    fig, ax = plt.subplots( ncols=1, nrows=3)
 
-#** Constuct Strategy Postions
-leverage = y_pred>0
-Leverage = pd.Series(leverage).rename('Leverage')
-Leverage_Data  =pd.concat([Leverage,t.rename('Date')],axis = 1)
-plt.figure()
-sns.lineplot(x='Date',y='Leverage',data=Leverage_Data)
+    ax[0].set_title("Predicted vs. Realized Return")
+    ax[1].set_title("Strategy Position")
+    ax[2].set_title("Strategy Cumulative Returns")
+    ax[2].set_xlabel('Date')
 
-plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_leverage.png')
+    sns.lineplot(x='Date',y='Monthly Returns', hue ='Returns', data = data2, palette="deep6", ax = ax[0] )
+    #%% #--------------------------------------------------
+    #* Strategy Performace
+    #
 
-#%% #--------------------------------------------------
-#** Define Strategy based on ENET
-strategy_return = leverage*rm_rf
-strategy_cumreturn = calculate_cumulative_return(strategy_return).rename(config['name'])
-#%% #--------------------------------------------------
-#** Plot Strategy Performance
-data=pd.concat([cumr.rename('S&P 500'),strategy_cumreturn.rename('Elastic Net'),t.rename('Date')],axis = 1)
-data = data.melt(id_vars='Date', var_name='Strategy',  value_name='Value of 1$')
+    def calculate_cumulative_return(rm_rf):
+        rm_rf_1 = (rm_rf+1)
+        ln_rm_rf_1 = rm_rf_1.apply(lambda x: math.log(x))
+        cumr=ln_rm_rf_1.cumsum(axis = 0).apply(lambda x: math.exp(x))
+        return cumr
 
-plt.figure()
-sns.lineplot(x='Date',y='Value of 1$', hue ='Strategy', data = data, palette="deep6" )
-plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'_cumulative.png')
-print("Figure "+ 'out/'+ Models_Folder +'/models/'+config['name']+'_cumulative.png'+" is saved")
+    cumr = calculate_cumulative_return(rm_rf).rename('sp500')
+    #%% #--------------------------------------------------
 
-#%% #--------------------------------------------------
+    #** Constuct Strategy Postions
+    leverage = y_pred>0
+    Leverage = pd.Series(leverage).rename('Leverage')
+    Leverage_Data  =pd.concat([Leverage,t.rename('Date')],axis = 1)
+
+    sns.lineplot(x='Date',y='Leverage',data=Leverage_Data, ax= ax[1])
+
+    #%% #--------------------------------------------------
+    #** Define Strategy based on ENET
+    strategy_return = leverage*rm_rf
+    strategy_cumreturn = calculate_cumulative_return(strategy_return).rename(config['name'])
+    #%% #--------------------------------------------------
+    #** Plot Strategy Performance
+    data=pd.concat([cumr.rename('S&P 500'),strategy_cumreturn.rename('Strategy'),t.rename('Date')],axis = 1)
+    data = data.melt(id_vars='Date', var_name='Strategy',  value_name='Value of 1$')
+
+    sns.lineplot(x='Date',y='Value of 1$', hue ='Strategy', data = data, palette="deep6",ax = ax[2] )
+
+    #%% #--------------------------------------------------
+    #* Save Figure
+    ax[0].set_xlabel('')
+    ax[1].set_xlabel('')
+    fig.tight_layout()
+    plt.savefig('out/'+ Models_Folder +'/models/'+config['name']+'.png')
+    print("Figure "+ 'out/'+ Models_Folder +'/models/'+config['name']+'.png'+" is produced")
 
 

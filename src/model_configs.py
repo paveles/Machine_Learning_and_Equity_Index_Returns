@@ -9,7 +9,7 @@ Parameters
 - grid_search - grid search methods, e.g. GridSearchCV 
 - param_grid - parameters of the pipline that should be tuned by the grid-search method 
 - scorer - score criteria, according to which the best model will be chosen
-For more details see the descriptions of the respective models .
+For more details see the definitions of the respective models .
 
 """
 #* Basic Modules

@@ -113,8 +113,8 @@ yo = df['lnsp500_rf']
 #* Estimating Walk-Forward and Saving Estimation Results
 # Model configurations to be used for estimation - see "model_configs.py" 
 configs ={
-    # 'const' : const_config,
-    'ols' : ols_config,
+     'const' : const_config,
+    #'ols' : ols_config,
     # 'pca' : pca_config, #~ 23 minutes
     # 'enet' : enet_config, #~ 2.5 hours
     # 'pca_enet' : pca_enet_config, #~ 3 hours
@@ -222,13 +222,28 @@ for cname, config in configs.items():
 print(df_config)
 df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
 #%% #--------------------------------------------------
-# #* Estimated Models Save in Temp
-# for cname, config in configs.items():
-#     with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
-#         config_model_pickle = pickle.load(f)
-#         config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
-#             'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
-#              header = True)
-# # Lambda Function is used because otherwise not all steps are revealed
+#* Estimated Models Save in Temp
+configs ={
+    'const' : const_config,
+    'ols' : ols_config,
+    # 'pca' : pca_config, #~ 23 minutes
+    # 'enet' : enet_config, #~ 2.5 hours
+    # 'pca_enet' : pca_enet_config, #~ 3 hours
+    # 'adab_nocv' : adab_nocv_config,
+    # 'gbr_nocv': gbr_nocv_config,
+    # 'rf_nocv': rf_nocv_config,
+    # 'xgb_nocv': xgb_nocv_config,
+    # 'adab': adab_config,
+    # 'gbr': gbr_config,
+    # 'rf': rf_config,
+    # 'xgb' : xgb_config
+}
+for cname, config in configs.items():
+    with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
+        config_model_pickle = pickle.load(f)
+        config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
+            'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
+             header = True)
+# Lambda Function is used because otherwise not all steps are revealed
 
 

@@ -9,7 +9,7 @@ Period = 1951
 
 # Estimate using Rolling Window or Expanding
 
-ROLLING = False
+ROLLING = True
 
 min_idx = 0
 
@@ -22,7 +22,7 @@ if ROLLING == True:
 else:
     Models_Folder = 'expanding'
 
-
+# Print Intermediary Results
 VERBOSE = True
 
 
