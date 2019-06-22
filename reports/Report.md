@@ -54,9 +54,15 @@ In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do explo
 
 
 ![alt text](figures/rolling.png "Rolling")
+![alt text](figures/expanding.png "Rolling")
+
 See more on cross-validation for time-series analysis in this Medium [article](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9). 
+
+## Results
+![alt text](figures/table1.png "Rolling")
+
 ## Elastic Net Strategy Performance with Different Cross-Validation Methods
-### Elastic Net Strategy - without Cross-Validation:
+### Elastic Net Strategy - with 5-Fold Cross-Validation:
 ![perf1](figures/enet_5cv.png "Elastic Net - without Cross-Validation")
 
 ### Elastic Net Strategy - with Expanding Window Cross-Validation:
@@ -73,5 +79,5 @@ uncheck
 - Neural networks could be tested (such as LSTM). These models are not used in this study yet because they usually require larger amount of data  
 - Extend results to:
   - Other indexes/asset classes
--  More predictors
+  - add more various predictors
   - Weekly/daily data frequency
