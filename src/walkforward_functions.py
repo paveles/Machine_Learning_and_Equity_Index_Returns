@@ -92,6 +92,8 @@ def estimate_walk_forward(config, X, y, start_idx, rolling = False,
                  start_test_split = tr_win-val_win ).split(X_tr,y_tr)
             elif config['cv'] == DisabledCV:
                 cv = DisabledCV().split(X_tr,y_tr)
+            elif type(config['cv'])==int:
+                cv = config['cv']
         # For Exapnding Window Regression,
         # the starting period 'start_idx' is extended by 1 month 
         # a new model is estimated, using the cross-validation procedure
@@ -103,6 +105,9 @@ def estimate_walk_forward(config, X, y, start_idx, rolling = False,
                 cv = TimeSeriesSplitMod( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
             elif config['cv'] == DisabledCV:
                 cv = DisabledCV().split(X_tr,y_tr)
+            elif type(config['cv'])==int:
+                cv = config['cv']
+
         # Grid Search Function and Grid of Parameters
         grid_search = config['grid_search']
         param_grid = config['param_grid'] 

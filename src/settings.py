@@ -31,7 +31,8 @@ else:
 VERBOSE = True
 
 CONFIGS={
-    'enet_nocv' : enet_nocv_config, 
+    #'enet_nocv' : enet_nocv_config,
+    'enet_5cv' : enet_5cv_config, 
 }
 
 # # Different Models to Use at different steps
