@@ -1,5 +1,5 @@
-,name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,window_training,window_validation,window,config,period
-0,enet_5cv,0.009055595989466814,2.1992176457360397,20.036112790160534,15.380000762377529,2019-06-22 01:58:41,2019-06-22 02:13:57,0 days 00:15:16.002659000,180,240,24,expanding,"{'name': 'enet_5cv', 'cv': 5, 'pipeline': Pipeline(memory=None,
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,window_training,window_validation,window,config,period
+enet_5cv,0.009055595989466814,2.1992176457360393,20.036112790160534,15.38000076237753,2019-06-22 01:58:41,2019-06-22 02:13:57,0 days 00:15:16.002659000,180,240,24,expanding,"{'name': 'enet_5cv', 'cv': 5, 'pipeline': Pipeline(memory=None,
          steps=[('standard',
                  StandardScaler(copy=True, with_mean=True, with_std=True)),
                 ('enet',
