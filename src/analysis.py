@@ -106,103 +106,92 @@ Xo= df.drop(['lnsp500_rf','date'],axis = 1)
 yo = df['lnsp500_rf']
 
 #%% #--------------------------------------------------
-# #############################################################################
+#############################################################################
 
-# #%% #--------------------------------------------------
-# #! Do All Time-Consuming Calculations!
-# #* Estimating Walk-Forward and Saving Estimation Results
-# # Model configurations to be used for estimation - see "model_configs.py" 
-
-
-# os.makedirs(dir + '/out/'+ Models_Folder +'/pickle', exist_ok = True)
-# os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
-
-# for cname, config in CONFIGS.items():
-#     print('--------------------------')
-#     time_begin = datetime.datetime.now()
-#     #* Estimate Walk-Forward
-#     print(cname +' '+ time_begin.strftime('%Y-%m-%d %H:%M:%S'))
-#     estimated = estimate_walk_forward(config ,Xo,yo,start_idx, rolling = ROLLING,
-#     tr_win = training_window, val_win = validation_window, verbose = VERBOSE) #! The code
-
-#     time_end = datetime.datetime.now()
-#     print(cname +' '+ time_end.strftime('%Y-%m-%d %H:%M:%S'))
-#     models_estimated = estimated[0]
-#     scores_estimated = estimated[1]
-#     y_pred = estimated[2]
-
-#     #%% #--------------------------------------------------
-#     #* Save Pickle of the Model and Config
-#     config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
-#     with open("out/"+ Models_Folder +"/pickle/"+config['name']+".pickle","wb") as f:
-#         pickle.dump(config_model_pickle, f, -1)
+#%% #--------------------------------------------------
+#! Do All Time-Consuming Calculations!
+#* Estimating Walk-Forward and Saving Estimation Results
+# Model configurations to be used for estimation - see "model_configs.py" 
 
 
-#     #%% #--------------------------------------------------
-#     #* Calculate different metrics
-#     y_true = yo.loc[y_pred.index]
-#     #** Calculating Moving Wndow Mean
-#     y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
+os.makedirs(dir + '/out/'+ Models_Folder +'/pickle', exist_ok = True)
+os.makedirs(dir + '/out/'+ Models_Folder +'/models/estimated', exist_ok = True)
+
+for cname, config in CONFIGS.items():
+    print('--------------------------')
+    time_begin = datetime.datetime.now()
+    #* Estimate Walk-Forward
+    print(cname +' '+ time_begin.strftime('%Y-%m-%d %H:%M:%S'))
+    estimated = estimate_walk_forward(config ,Xo,yo,start_idx, rolling = ROLLING,
+    tr_win = training_window, val_win = validation_window, verbose = VERBOSE) #! The code
+
+    time_end = datetime.datetime.now()
+    print(cname +' '+ time_end.strftime('%Y-%m-%d %H:%M:%S'))
+    models_estimated = estimated[0]
+    scores_estimated = estimated[1]
+    y_pred = estimated[2]
+
+    #%% #--------------------------------------------------
+    #* Save Pickle of the Model and Config
+    config_model_pickle = {'name': config['name'], 'estimated': estimated, 'config': config}
+    with open("out/"+ Models_Folder +"/pickle/"+config['name']+".pickle","wb") as f:
+        pickle.dump(config_model_pickle, f, -1)
+
+
+    #%% #--------------------------------------------------
+    #* Calculate different metrics
+    y_true = yo.loc[y_pred.index]
+    #** Calculating Moving Wndow Mean
+    y_moving_mean = yo.shift(1).expanding(1).mean().iloc[start_idx:]
     
-#     r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
-#     msfe_adj, p_value = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
-#     mse_oos = mean_squared_error(y_true,y_pred)
-#     mse_validated = - scores_estimated.mean()
+    r2_oos = calculate_r2_wf(y_true, y_pred,y_moving_mean)
+    msfe_adj, p_value = calculate_msfe_adjusted(y_true, y_pred, y_moving_mean)
+    mse_oos = mean_squared_error(y_true,y_pred)
+    mse_validated = - scores_estimated.mean()
 
-#     # print("r2_oos = " + str(r2_oos))
-#     # print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
-#     # print("mse_oos = " + str(mse_oos))
-#     # print("average mse_validated  = " + str(mse_validated))
+    # print("r2_oos = " + str(r2_oos))
+    # print("(msfe_adj,p_value) = " + str(msfe_adj) + ", "+ str(p_value))
+    # print("mse_oos = " + str(mse_oos))
+    # print("average mse_validated  = " + str(mse_validated))
  
-#     #%% #--------------------------------------------------
-#     #* Save results_dict to the CSV file
-#     results_dict = {}
-#     results_dict['name'] = config['name'] 
-#     results_dict['r2_oos'] = r2_oos
-#     results_dict['msfe_adj'] = msfe_adj
-#     results_dict['mse_oos'] = mse_oos
-#     results_dict['mse_validated'] = mse_validated
-#     results_dict['time_begin'] = time_begin.strftime('%Y-%m-%d %H:%M:%S')
-#     results_dict['time_end'] = time_end.strftime('%Y-%m-%d %H:%M:%S')
-#     results_dict['time_diff'] = (time_end - time_begin)
-#     results_dict['start_idx'] = start_idx
-#     results_dict['window_training'] = training_window
-#     results_dict['window_validation'] = validation_window
-#     results_dict['window'] = Models_Folder
-#     results_dict['config'] = str(config)
-#     results_dict['period'] = int(Period)
+    #%% #--------------------------------------------------
+    #* Save results_dict to the CSV file
+    results_dict = {}
+    results_dict['name'] = config['name'] 
+    results_dict['r2_oos'] = r2_oos
+    results_dict['msfe_adj'] = msfe_adj
+    results_dict['mse_oos'] = mse_oos
+    results_dict['mse_validated'] = mse_validated
+    results_dict['time_begin'] = time_begin.strftime('%Y-%m-%d %H:%M:%S')
+    results_dict['time_end'] = time_end.strftime('%Y-%m-%d %H:%M:%S')
+    results_dict['time_diff'] = (time_end - time_begin)
+    results_dict['start_idx'] = start_idx
+    results_dict['window_training'] = training_window
+    results_dict['window_validation'] = validation_window
+    results_dict['window'] = Models_Folder
+    results_dict['config'] = str(config)
+    results_dict['period'] = int(Period)
 
-#     df = pd.DataFrame(results_dict, index=[0]) 
-#     df.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'.csv', index=False)
+    df = pd.DataFrame(results_dict, index=[0]) 
+    df.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'.csv', index=False)
     
-#     #* Save Predictions and Scores to a Separate File 
-#     model_results = pd.DataFrame()
-#     model_results['y_pred'] = y_pred
-#     model_results['index'] = y_pred.index 
-#     model_results['scores_estimated'] = scores_estimated
-#     model_results.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'_predictions.csv', index=False)
-
-
-# #%% #--------------------------------------------------
-# #* Estimated Models Save in Temp
-
-# for cname, config in CONFIGS.items():
-#     with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
-#         config_model_pickle = pickle.load(f)
-#         config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
-#             'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
-#              header = True)
-# # Lambda Function is used because otherwise not all steps are revealed
+    #* Save Predictions and Scores to a Separate File 
+    model_results = pd.DataFrame()
+    model_results['y_pred'] = y_pred
+    model_results['index'] = y_pred.index 
+    model_results['scores_estimated'] = scores_estimated
+    model_results.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'_predictions.csv', index=False)
 
 
 #%% #--------------------------------------------------
-#* Aggregate Information into one file
+#* Estimated Models Save in Temp
 
-
-df_config = pd.DataFrame()
 for cname, config in CONFIGS.items():
-    df_config = df_config.append(pd.read_csv('out/'+ Models_Folder +'/models/'+ cname +'.csv'),
-     ignore_index =True)
-print(df_config)
-df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
+    with open("out/"+ Models_Folder +"/pickle/" + config['name']+".pickle", "rb") as f:
+        config_model_pickle = pickle.load(f)
+        config_model_pickle['estimated'][0].apply(lambda x: x.named_steps).to_csv(
+            'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
+             header = True)
+# Lambda Function is used because otherwise not all steps are revealed
+
 #%% #--------------------------------------------------

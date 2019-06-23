@@ -26,8 +26,20 @@ VERBOSE, CONFIGS, training_window, validation_window
 #* Load Data
 df0 = pd.read_pickle("data/processed/df.pickle")
 
+
 #%% #--------------------------------------------------
-#* Loop
+#* Aggregate Information into one file
+
+df_config = pd.DataFrame()
+for cname, config in CONFIGS.items():
+    df_config = df_config.append(pd.read_csv('out/'+ Models_Folder +'/models/'+ cname +'.csv'),
+     ignore_index =True)
+print(df_config)
+df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
+
+
+#%% #--------------------------------------------------
+#* Loop for Summary Graph
 for cname, config in CONFIGS.items():
     #%% #------------------------------------------------
     #* Load Strategy
