@@ -3,14 +3,19 @@ Author: Pavel Lesnevski \
 Date: 21.06.2019
 ## Motivation
 - Predicting monthly S&P 500 index returns using historical macroeconomic data and technical indicators
-- Interesting from both academic and practical perspectives
+- Important task from both academic and practical perspectives
 - A task with high noise-to-signal ratio
   - Very few models are able to outperform the simple historical mean return
-- High-dimensional setting with lack of data (number of predictors is comparable to the number of observations) -> Use models that perform well in this setting:
-  -  Linear models with L1 and L2 regularisations (Lasso, Ridge and Elastic Net).
-  - Random Forest and other tree-based methods ([Breiman, Leo, 2001, Statistical Modeling: The Two Cultures, Statistical Science 16, 199–231.](https://projecteuclid.org/download/pdf_1/euclid.ss/1009213726))
+- High-dimensional setting with lack of data (number of predictors is comparable to the number of observations) -> Use models that perform well in this setting.
+
+## Models 
+The models that perform well in high-dimensional setting:
+  -  Linear models with L1 and L2 regularisations (Ridge, Lasso,  and Elastic Net). The models were introduced in Hoerl and Kennard (Technometrics, 1970), Tibshirani (Journal of the Royal Statistical Society, 1996) and
+ Zou and Hastie (Journal of the Royal Statistical Society, 2005).
+  - Bagging and Boosting tree-based methods ([Breiman, Leo, 2001, Statistical Modeling: The Two Cultures, Statistical Science 16, 199–231.](https://projecteuclid.org/download/pdf_1/euclid.ss/1009213726))
+  - 
 ## Data
-Start with data from [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554):
+Start with the data from [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554):
 
 - 14 Macro Variables + 14 Technical Indicators  
 - 1950 – 2011 = 732 months
@@ -45,20 +50,22 @@ Choose methods that perform well in high-dimensional
 
 >To compare technical indicators with the macroeconomic variables, we employ 14 technical indicators based
 on three popular technical strategies. The ﬁrst is a moving-average (MA) rule. The second technical strategy is based on momentum. Technical analysts frequently employ volume data in conjunction with past prices to identify market trends.
-In light of this, the ﬁnal technical strategy that we consider incorporates “on-balance” volume
-## Exploratory Data Analysis
-In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis to make sure that considered models are able to improve the predictive power of .
+In light of this, the ﬁnal technical strategy that we consider incorporates “on-balance” volume.
 
+See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554) for more details.
 
 ## Cross-Validation Methods
-
-
-![alt text](figures/rolling.png "Rolling")
+In this project I develop a novel cross-validation methods - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward 
+#### Expanding Window Nested Cross-Validation Explained
 ![alt text](figures/expanding.png "Rolling")
 
 See more on cross-validation for time-series analysis in this Medium [article](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9). 
 
+## Exploratory Data Analysis
+In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis to make sure that considered models are able to predict aggregate stock market returns  .
+
 ## Results
+#### Predictive performance of different models  
 ![alt text](figures/table1.png "Rolling")
 
 ## Elastic Net Strategy Performance with Different Cross-Validation Methods
@@ -67,6 +74,9 @@ See more on cross-validation for time-series analysis in this Medium [article](h
 
 ### Elastic Net Strategy - with Expanding Window Cross-Validation:
 ![perf2](figures/enet.png "Elastic Net - with Expanding Window Cross-Validation")
+
+## Additional Observations
+![alt text](figures/rolling.png "Rolling")
 
 ### Elastic Net Strategy - with Fixed Rolling Window Cross-Validation:
 ![perf3](figures/enet_rolling.png "Elastic Net - with Fixed Rolling Window Cross-Validation")
@@ -81,3 +91,4 @@ uncheck
   - Other indexes/asset classes
   - add more various predictors
   - Weekly/daily data frequency
+ - Potential to contribute to the scikit-learn package by adding expanding window nested cross-validation
