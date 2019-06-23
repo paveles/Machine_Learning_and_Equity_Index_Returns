@@ -89,4 +89,12 @@ uncheck
   - Other indexes/asset classes
   - add more various predictors
   - Weekly/daily data frequency
- - Potential to contribute to the scikit-learn package by adding expanding window nested cross-validation
+ - Potential to contribute to the scikit-learn package by adding expanding and rolling window nested cross-validation methods
+
+
+| Name           | $MSE_{test}$ | $MSE_{adj}^{ t-stat}$  | $MSE_{validate}$ | $R^2_{OOS} |
+|----------------|--------------|------------------------|------------------|------------|
+| enet_nocv      | 20.11        | 1.28                   | 15.73            | 0.0054     |
+| enet_5cv       | 20.04        | 2.20                   | 15.38            | 0.0091     |
+| enet_10cv      | 19.97        | 2.73                   | 15.27            | 0.0121     |
+| enet_expanding | 19.89        | 2.91                   | 17.61            | 0.0163     |

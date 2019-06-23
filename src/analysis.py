@@ -157,7 +157,7 @@ for cname, config in CONFIGS.items():
     #%% #--------------------------------------------------
     #* Save results_dict to the CSV file
     results_dict = {}
-    results_dict['name'] = config['name'] 
+    results_dict['name'] = config['name']
     results_dict['r2_oos'] = r2_oos
     results_dict['msfe_adj'] = msfe_adj
     results_dict['mse_oos'] = mse_oos
