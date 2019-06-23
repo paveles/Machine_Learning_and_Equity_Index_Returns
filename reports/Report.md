@@ -1,4 +1,6 @@
 # Machine Learning and Aggregate Stock Market Returns
+Short Summary of the methodology and results
+
 Author: Pavel Lesnevski \
 Date: 21.06.2019
 ## Motivation
@@ -6,12 +8,14 @@ Date: 21.06.2019
 - Important task from both academic and practical perspectives
 - A task with high noise-to-signal ratio
   - Very few models are able to outperform the simple historical mean return
-- High-dimensional setting with lack of data (number of predictors is comparable to the number of observations) -> Use models that perform well in this setting.
+- High-dimensional setting with lack of data (number of predictors is comparable to the number of observations)
 
 ## Models 
-The models that perform well in high-dimensional setting:
-  -  Linear models with L1 and L2 regularisations (Ridge, Lasso,  and Elastic Net). The models were introduced in Hoerl and Kennard (Technometrics, 1970), Tibshirani (Journal of the Royal Statistical Society, 1996) and
+I use models that perform well in the setting with many predictors and lack of observations:
+  -  Ordinary least squares (OLS) with or withour prior dimensionality reduction.
+  -  Linear models with L1 and L2 regularisation terms (Ridge, Lasso,  and Elastic Net). The models were introduced in Hoerl and Kennard (Technometrics, 1970), Tibshirani (Journal of the Royal Statistical Society, 1996) and
  Zou and Hastie (Journal of the Royal Statistical Society, 2005).
+ It is important to notice that Elastic Net contains both L1 and L2 regularization terms. Thus, Lasso and Ridge can be generalized as an Elastic Net with one of the regularization terms equal to zero. I use Elastic Net and let the cross-validation method to choose the optimal hyperparameters and the respective optimal model. 
   - Bagging and Boosting tree-based methods ([Breiman, Leo, 2001, Statistical Modeling: The Two Cultures, Statistical Science 16, 199–231.](https://projecteuclid.org/download/pdf_1/euclid.ss/1009213726))
   - 
 ## Data
@@ -32,7 +36,6 @@ minus the log of stock prices.
 >4. Dividend-payout ratio (log), DE: log of a twelve-month moving sum of dividends minus the log of a
 twelve-month moving sum of earnings.
 >5. Equity risk premium volatility, RVOL: based on the moving standard deviation estimator
-
 >6. Book-to-market ratio, BM: book-to-market value ratio for the Dow Jones Industrial Average.
 >7. Net equity expansion, NTIS: ratio of a twelve-month moving sum of net equity issues by NYSE-listed
 stocks to the total end-of-year market capitalization of NYSE stocks.
@@ -55,61 +58,64 @@ In light of this, the ﬁnal technical strategy that we consider incorporates �
 See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554) for more details.
 
 ## Cross-Validation Methods
-In this project I develop a novel cross-validation methods - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below depicts this cross-validation method. 
-###### Expanding Window Nested Cross-Validation Explained
+In this project I develop and implement a novel cross-validation method - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below depicts this cross-validation method. 
+##### Figure: Expanding Window Nested Cross-Validation Explained
 ![alt text](figures/expanding.png "Rolling")
 The sample of 180 months (1951-1965) is a starting sample to train and validate the models. 
-See more on cross-validation for time-series analysis in this Medium [article](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9). 
+See more on cross-validation for time-series analysis for example in this Medium [article](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9). 
 
 ## Exploratory Data Analysis
-In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis to make sure that considered models are able to predict aggregate stock market returns. 
+In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to predict aggregate stock market returns. 
 ## Results
-#### Predictive performance of different models  
-![alt text](figures/table1.png "Rolling")
-| Name              | $MSE_{test}$ | $t\_stat^{adj }(MSE_{test})$  | $MSE_{validate}$ | $R^2_{OOS} |
+In the table below I compare performance of different models. Mean squared error (MSE) is used as a measure of accuracy. $MSE_{validate}$ is the MSE on the validation sample. $MSE_{test}$ is the MSE on the test sample. $MSPE^{adj}$ is an  adjusted t-statistic from [Clark and West (2007)](https://www.sciencedirect.com/science/article/pii/S0304407606000960) for the statistical test on whether a model under consideration outperforms the simple average mean in predicting index returns. See the paper for more details. The p-values can be obtained from the respective [tables](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3672.htm). $R^2_{OOS}$ is out-of-sample R-squared introduced by [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) that measures the reduction in mean squared error on the test sample relative to historical moving average. Positive $R^2_{OOS}$ means that the respective model outperforms the moving average.
+##### Table: Predictive performance of different models (one-month forward expanding window nested cross-validation)
+| Name              | $MSE_{test}$ | $MSPE^{adj}(test)$  | $MSE_{validate}$ | $R^2_{OOS}$ |
 |-------------------|--------------|-------------------------------|------------------|------------|
 | Moving Mean       | 20.22        | 0.14                          | 15.94            | 0.0000     |
 | OLS               | 22.53        | 1.41                          | 14.02            | -0.1145    |
 | PCA + OLS         | 20.62        | 2.24                          | 18.15            | -0.0198    |
-| Elastic Net       | 19.89        | 2.91                          | 17.61            | 0.0163     |
+| **Elastic Net**       | **19.89**        | **2.91**                          | **17.61**            | **0.0163**     |
 | Random Forest     | 20.74        | 1.62                          | 18.50            | -0.0257    |
 | Adaptive Boosting | 22.08        | 1.10                          | 20.38            | -0.0921    |
 | Gradient Boosting | 22.07        | 0.77                          | 19.66            | -0.0914    |
 | XGBoost           | 23.08        | 0.79                          | 20.44            | -0.1413    |
-## Elastic Net Strategy Performance with Different Cross-Validation Methods
-### Elastic Net Strategy - with 10-Fold Cross-Validation:
-![perf1](figures/enet_10cv.png "Elastic Net - without Cross-Validation")
 
-### Elastic Net Strategy - with Expanding Window Cross-Validation:
-![perf2](figures/enet.png "Elastic Net - with Expanding Window Cross-Validation")
 
-## Additional Observations
-![alt text](figures/rolling.png "Rolling")
-
-### Elastic Net Strategy - with Fixed Rolling Window Cross-Validation:
-![perf3](figures/enet_rolling.png "Elastic Net - with Fixed Rolling Window Cross-Validation")
-
-## Ideas
-
-- To improve efficiency of the new cross-validation algorithms. They could be accelerated by orders of magnitude by using calculations from pervious periods. Currently, it does all cross-validations indepndently for each period. 
-uncheck  
-- Neural networks could be tested (such as LSTM). These models are not used in this study yet because they usually require larger amount of data  
-- Extend results to:
-  - Other indexes/asset classes
-  - add more various predictors
-  - Weekly/daily data frequency
- - Potential to contribute to the scikit-learn package by adding expanding and rolling window nested cross-validation methods
-
-##### Table  Comparing Cross-validation Methods
-
-| Name                | $MSE_{test}$ | $t\_stat^{adj }(MSE_{test})$  | $MSE_{validate}$ | $R^2_{OOS}$ |
+##### Table: Comparing Cross-validation Methods
+| Name                | $MSE_{test}$ | $MSPE^{adj}(test)$   | $MSE_{validate}$ | $R^2_{OOS}$ |
 |---------------------|--------------|------------------------------|------------------|-------------|
 | Enet + No CV        | 20.11        | 1.28                         | 15.73            | 0.0054      |
 | Enet + 5-fold CV    | 20.04        | 2.20                         | 15.38            | 0.0091      |
 | Enet + 10-fold CV   | 19.97        | 2.73                         | 15.27            | 0.0121      |
 | Enet + Expanding CV | 19.89        | 2.91                         | 17.61            | 0.0163      |
 
-##### Table  for Rolling Cross-validation
-| Name                | $MSE_{test}$ | $t\_stat^{adj }(MSE_{test})$  | $MSE_{validate}$ | $R^2_{OOS}$ |
+
+
+
+
+##### Figure: Elastic Net Strategy - with Expanding Window Nested Cross-Validation:
+![perf2](figures/enet.png "Elastic Net - with Expanding Window Cross-Validation")
+
+## Additional Observations
+
+##### Figure: Alternative Cross-Validation method
+![alt text](figures/rolling.png "Rolling")
+
+##### Table: Ealstic Net with One Month Ahead Rolling Window Nested Cross-validation
+| Name                | $MSE_{test}$ | $MSPE^{adj}(test)$   | $MSE_{validate}$ | $R^2_{OOS}$ |
 |---------------------|--------------|-------------------------------|------------------|-------------|
 | enet_rolling_240_24 | 20.79        | 1.44                          | 19.64            | -0.0132     |
+
+##### Figure: Elastic Net Strategy - with Fixed Rolling Window Cross-Validation:
+![perf3](figures/enet_rolling.png "Elastic Net - with Fixed Rolling Window Cross-Validation")
+
+## Ideas and Possible Applications 
+
+- To improve efficiency of the new cross-validation algorithms. Currently, it does all cross-validations indepndently for each period. Estimation time could be  accelerated by orders of magnitude if calculations from pervious periods are used. 
+- Neural networks could be tested (such as LSTM). But these models usually require larger amount of data for precise estimates.  
+- Extend results to:
+  - Other indexes/asset classes
+  - Weekly/daily data frequency
+  - More various predictors
+ - Potential to contribute to the scikit-learn package by adding expanding and rolling window nested cross-validation methods
+
