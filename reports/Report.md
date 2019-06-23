@@ -66,7 +66,16 @@ In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do explo
 ## Results
 #### Predictive performance of different models  
 ![alt text](figures/table1.png "Rolling")
-
+| Name              | $MSE_{test}$ | $t\_stat^{adj }(MSE_{test})$  | $MSE_{validate}$ | $R^2_{OOS} |
+|-------------------|--------------|-------------------------------|------------------|------------|
+| Moving Mean       | 20.22        | 0.14                          | 15.94            | 0.0000     |
+| OLS               | 22.53        | 1.41                          | 14.02            | -0.1145    |
+| PCA + OLS         | 20.62        | 2.24                          | 18.15            | -0.0198    |
+| Elastic Net       | 19.89        | 2.91                          | 17.61            | 0.0163     |
+| Random Forest     | 20.74        | 1.62                          | 18.50            | -0.0257    |
+| Adaptive Boosting | 22.08        | 1.10                          | 20.38            | -0.0921    |
+| Gradient Boosting | 22.07        | 0.77                          | 19.66            | -0.0914    |
+| XGBoost           | 23.08        | 0.79                          | 20.44            | -0.1413    |
 ## Elastic Net Strategy Performance with Different Cross-Validation Methods
 ### Elastic Net Strategy - with 10-Fold Cross-Validation:
 ![perf1](figures/enet_10cv.png "Elastic Net - without Cross-Validation")
@@ -91,10 +100,16 @@ uncheck
   - Weekly/daily data frequency
  - Potential to contribute to the scikit-learn package by adding expanding and rolling window nested cross-validation methods
 
+##### Table  Comparing Cross-validation Methods
 
-| Name           | $MSE_{test}$ | $MSE_{adj}^{ t-stat}$  | $MSE_{validate}$ | $R^2_{OOS} |
-|----------------|--------------|------------------------|------------------|------------|
-| enet_nocv      | 20.11        | 1.28                   | 15.73            | 0.0054     |
-| enet_5cv       | 20.04        | 2.20                   | 15.38            | 0.0091     |
-| enet_10cv      | 19.97        | 2.73                   | 15.27            | 0.0121     |
-| enet_expanding | 19.89        | 2.91                   | 17.61            | 0.0163     |
+| Name                | $MSE_{test}$ | $t\_stat^{adj }(MSE_{test})$  | $MSE_{validate}$ | $R^2_{OOS}$ |
+|---------------------|--------------|------------------------------|------------------|-------------|
+| Enet + No CV        | 20.11        | 1.28                         | 15.73            | 0.0054      |
+| Enet + 5-fold CV    | 20.04        | 2.20                         | 15.38            | 0.0091      |
+| Enet + 10-fold CV   | 19.97        | 2.73                         | 15.27            | 0.0121      |
+| Enet + Expanding CV | 19.89        | 2.91                         | 17.61            | 0.0163      |
+
+##### Table  for Rolling Cross-validation
+| Name                | $MSE_{test}$ | $t\_stat^{adj }(MSE_{test})$  | $MSE_{validate}$ | $R^2_{OOS}$ |
+|---------------------|--------------|-------------------------------|------------------|-------------|
+| enet_rolling_240_24 | 20.79        | 1.44                          | 19.64            | -0.0132     |
