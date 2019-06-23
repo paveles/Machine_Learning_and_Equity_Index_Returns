@@ -8,7 +8,7 @@ Period = 1951
 
 
 # Estimate using Rolling Window or Expanding
-ROLLING = False
+ROLLING = True
 
 # How many months in a fixed-window to use in a rolling regression
 training_window = 240
@@ -31,8 +31,8 @@ else:
 VERBOSE = True
 
 CONFIGS={
-    'enet_nocv' : enet_nocv_config,
-    'enet_10cv' : enet_10cv_config,
+    # 'enet_nocv' : enet_nocv_config,
+    # 'enet_10cv' : enet_10cv_config,
     'enet' : enet_config, 
 }
 
