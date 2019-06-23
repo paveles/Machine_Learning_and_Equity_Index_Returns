@@ -2,7 +2,7 @@
 Author: Pavel Lesnevski \
 Date: 21.06.2019
 ## Motivation
-- Predicting monthly S&P 500 index returns using historical macroeconomic data and technical indicators
+- Predicting monthly S&P 500 index returns using historical macroeconomic data and technical indicators. S&P 500 represents well the US equity market.
 - Important task from both academic and practical perspectives
 - A task with high noise-to-signal ratio
   - Very few models are able to outperform the simple historical mean return
@@ -55,22 +55,21 @@ In light of this, the Ô¨Ånal technical strategy that we consider incorporates ‚Ä
 See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554) for more details.
 
 ## Cross-Validation Methods
-In this project I develop a novel cross-validation methods - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward 
-#### Expanding Window Nested Cross-Validation Explained
+In this project I develop a novel cross-validation methods - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below depicts this cross-validation method. 
+###### Expanding Window Nested Cross-Validation Explained
 ![alt text](figures/expanding.png "Rolling")
-
+The sample of 180 months (1951-1965) is a starting sample to train and validate the models. 
 See more on cross-validation for time-series analysis in this Medium [article](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9). 
 
 ## Exploratory Data Analysis
-In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis to make sure that considered models are able to predict aggregate stock market returns  .
-
+In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis to make sure that considered models are able to predict aggregate stock market returns. 
 ## Results
 #### Predictive performance of different models  
 ![alt text](figures/table1.png "Rolling")
 
 ## Elastic Net Strategy Performance with Different Cross-Validation Methods
-### Elastic Net Strategy - with 5-Fold Cross-Validation:
-![perf1](figures/enet_5cv.png "Elastic Net - without Cross-Validation")
+### Elastic Net Strategy - with 10-Fold Cross-Validation:
+![perf1](figures/enet_10cv.png "Elastic Net - without Cross-Validation")
 
 ### Elastic Net Strategy - with Expanding Window Cross-Validation:
 ![perf2](figures/enet.png "Elastic Net - with Expanding Window Cross-Validation")
@@ -81,9 +80,8 @@ In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do explo
 ### Elastic Net Strategy - with Fixed Rolling Window Cross-Validation:
 ![perf3](figures/enet_rolling.png "Elastic Net - with Fixed Rolling Window Cross-Validation")
 
+## Ideas
 
-
-##Ideas
 - To improve efficiency of the new cross-validation algorithms. They could be accelerated by orders of magnitude by using calculations from pervious periods. Currently, it does all cross-validations indepndently for each period. 
 uncheck  
 - Neural networks could be tested (such as LSTM). These models are not used in this study yet because they usually require larger amount of data  
