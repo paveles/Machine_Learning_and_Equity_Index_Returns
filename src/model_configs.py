@@ -140,6 +140,25 @@ enet_5cv_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.
 enet_5cv_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
 enet_5cv_config['grid_search'] = GridSearchCV
 
+
+#? Enet - 10cv  Model
+enet_10cv_config = {}
+enet_10cv_config['name'] = "enet_10cv"
+enet_10cv_config['cv'] = 10 # TimeSeriesSplitMod # DisabledCV
+
+enet_10cv_config['pipeline'] = Pipeline(steps=[
+    ('standard', StandardScaler()),
+    ('enet', ElasticNet())
+])
+
+# list(range(1, X.shape[1] + 1))
+enet_10cv_config['param_grid'] = {'enet__alpha': [0.1,  0.5 , 0.7, 0.9,  0.97, 0.99],
+                            'enet__l1_ratio': [0, 0.25 , 0.5, 0.75, 1],
+                            'enet__random_state' : [0],
+                            }
+enet_10cv_config['scorer'] = make_scorer(mean_squared_error, greater_is_better=False)
+enet_10cv_config['grid_search'] = GridSearchCV
+
 #? PCA + Enet  Model
 pca_enet_config = {}
 pca_enet_config['name'] = "pca_enet"

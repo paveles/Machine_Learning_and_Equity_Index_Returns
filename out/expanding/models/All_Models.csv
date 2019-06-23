@@ -9,7 +9,7 @@
                             selection='cyclic', tol=0.0001,
                             warm_start=False))],
          verbose=False), 'param_grid': {'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",20.11084339066613,15.734422680482455,1.279535978867088,enet_nocv,1951,0.0053595761499434244,180,2019-06-21 18:19:01,0 days 00:00:13.479221000,2019-06-21 18:19:15,expanding,240.0,24.0
-1,"{'name': 'enet_5cv', 'cv': 5, 'pipeline': Pipeline(memory=None,
+1,"{'name': 'enet_10cv', 'cv': 10, 'pipeline': Pipeline(memory=None,
          steps=[('standard',
                  StandardScaler(copy=True, with_mean=True, with_std=True)),
                 ('enet',
@@ -18,7 +18,7 @@
                             positive=False, precompute=False, random_state=None,
                             selection='cyclic', tol=0.0001,
                             warm_start=False))],
-         verbose=False), 'param_grid': {'enet__alpha': [0.1, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",20.036112790160534,15.380000762377529,2.1992176457360397,enet_5cv,1951,0.009055595989466814,180,2019-06-22 01:58:41,0 days 00:15:16.002659000,2019-06-22 02:13:57,expanding,240.0,24.0
+         verbose=False), 'param_grid': {'enet__alpha': [0.1, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",19.97465276083864,15.273636853853604,2.7309748349727925,enet_10cv,1951,0.012095281020425784,180,2019-06-23 14:29:47,0 days 00:21:26.583171000,2019-06-23 14:51:14,expanding,240.0,24.0
 2,"{'name': 'enet', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
      steps=[('standard', StandardScaler(copy=True, with_mean=True, with_std=True)), ('enet', ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True, l1_ratio=0.5,
       max_iter=1000, normalize=False, positive=False, precompute=False,
