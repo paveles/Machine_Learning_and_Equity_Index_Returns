@@ -59,7 +59,7 @@ See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=17
 
 
 ## Exploratory Data Analysis
-In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to predict aggregate stock market returns. 
+In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to predict S&P 500 index returns. 
 
 ## Cross-Validation Methods
 In this project I develop and implement a novel cross-validation method - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below explains this method. 
@@ -105,7 +105,8 @@ In the table below I compare the effect of different cross-validation methods on
 
 The  results reveal that one-month forward expanding window nested cross-validation delivers the most accurate forecasts.
 
-Can one use more accurate forecasts to construct a trading strategy? The figure below answers this question. In the panel A, I draw one-month forward forecasts versus the realized returns. There is a  noticeable difference in variances of forecasted and realized returns. But as [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) among others notice, even a small imporvement in forecasting accuracy might result sizable economic effects.  
+Can one use more accurate forecasts to construct a trading strategy? The figure below answers this question. In the panel A, I draw one-month forward forecasts versus the realized returns. There is a  noticeable difference in variances of forecasted and realized returns. But as [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) among others notice, even a small imporvement in forecasting accuracy might result sizable economic effects.
+I use return forecasts of the Elastic Net model to construct a simple strategy. The strategy enters the S&P 500 index when the forecasted return is above 0. Otherwise, the strategy's position in the index is zero. The corresponding position dynamics is depicted in panel B of the figure. Finally, panel C shows the value of one dollar invested in 1966 in the S&P 500 index and the market timing strategy based on the Elastic Net model. The strategy results in around 2 times higher wealth by the end of the period than pure S&P 500 index. One dollar invested in the strategy turns into 10 dollars. In comparison, S&P 500 strategy turns into around 1$. 
 
 ##### Figure: Performance of Elastic Net Strategy with One-Month Ahead Expanding Window Nested Cross-Validation:
 ![perf2](figures/enet.png "Elastic Net - with Expanding Window Cross-Validation")
@@ -114,11 +115,13 @@ Can one use more accurate forecasts to construct a trading strategy? The figure 
 
 ## Ideas and Possible Extensions 
 
-- To improve efficiency of the new cross-validation algorithms. Currently, it does all cross-validations indepndently for each period. Calculations could be accelerated by orders of magnitude by using calculations from pervious periods . 
+- Optimize new cross-validation algorithm. Currently, it does all cross-validations indepndently for each period - repeatative estimations. Calculations could be accelerated by orders of magnitude by using calculations from pervious periods.
+- Include interaction terms and  lags of predictors to improve performance of the linear models.
 - Neural networks could be tested (such as LSTM). But these models usually require larger amount of data for precise estimates.  
 - Extend results to:
   - Other indexes/asset classes
   - Weekly/daily data frequency
   - More various predictors
  - Potential to contribute to the scikit-learn package by adding expanding and rolling window nested cross-validation methods
+ - Show other strategy performance measures, such as maximum drawdow, Sharpe ration and etc. [!Cite]
 

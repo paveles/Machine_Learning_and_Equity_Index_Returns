@@ -13,7 +13,7 @@ import seaborn as sns
 sns.set()
 sns.set(font_scale=1.5)
 import matplotlib.pyplot as plt
-plt.rcParams['figure.figsize'] = [20, 30]
+plt.rcParams['figure.figsize'] = [15, 22.5]
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
