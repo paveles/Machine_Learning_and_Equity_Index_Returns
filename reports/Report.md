@@ -15,7 +15,7 @@ I use models that perform well in the setting with many predictors and lack of o
   -  Ordinary least squares (OLS) with or withour prior dimensionality reduction.
   -  Linear models with L1 and L2 regularisation terms (Ridge, Lasso,  and Elastic Net). The models were introduced in Hoerl and Kennard (Technometrics, 1970), Tibshirani (Journal of the Royal Statistical Society, 1996) and
  Zou and Hastie (Journal of the Royal Statistical Society, 2005).
- It is important to notice that Elastic Net contains both L1 and L2 regularization terms. Thus, Lasso and Ridge can be generalized as an Elastic Net with one of the regularization terms equal to zero. I use Elastic Net and let the cross-validation method to choose the optimal hyperparameters and the respective optimal model. 
+      - It is important to notice that Elastic Net contains both L1 and L2 regularization terms. Thus, Lasso and Ridge can be generalized as an Elastic Net with one of the regularization terms equal to zero. I use Elastic Net and let the cross-validation method to choose the optimal hyperparameters and the respective optimal model. 
   - Bagging and Boosting tree-based methods ([Breiman, Leo, 2001, Statistical Modeling: The Two Cultures, Statistical Science 16, 199–231.](https://projecteuclid.org/download/pdf_1/euclid.ss/1009213726))
   - 
 ## Data
@@ -59,9 +59,12 @@ See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=17
 
 ## Cross-Validation Methods
 In this project I develop and implement a novel cross-validation method - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below depicts this cross-validation method. 
-##### Figure: Expanding Window Nested Cross-Validation Explained
+##### Figure: One-Month Forward Expanding Window Nested Cross-Validation Explained
 ![alt text](figures/expanding.png "Rolling")
-The sample of 180 months (1951-1965) is a starting sample to train and validate the models. 
+
+
+
+In the first step, 180 months (1951-1965) are used as a starting sample. The model with different hyperparameters is trained on 179 months and validated on the the last month. It means the prediction of the models for that month are compared and the hyperparameters that result in the lowest squared error in that month are chosen. In the next step, 181 months are used for training and validation. The model with the same sets of hyperparameters is again trained on 179 months and one month forward forecast for the month 180 is made. Next,      
 See more on cross-validation for time-series analysis for example in this Medium [article](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9). 
 
 ## Exploratory Data Analysis
@@ -101,7 +104,7 @@ In the table below I compare performance of different models. Mean squared error
 ##### Figure: Alternative Cross-Validation method
 ![alt text](figures/rolling.png "Rolling")
 
-##### Table: Ealstic Net with One Month Ahead Rolling Window Nested Cross-validation
+##### Table: Elastic Net with One Month Ahead Rolling Window Nested Cross-validation
 | Name                | $MSE_{test}$ | $MSPE^{adj}(test)$   | $MSE_{validate}$ | $R^2_{OOS}$ |
 |---------------------|--------------|-------------------------------|------------------|-------------|
 | enet_rolling_240_24 | 20.79        | 1.44                          | 19.64            | -0.0132     |
