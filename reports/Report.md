@@ -105,27 +105,16 @@ In the table below I compare the effect of different cross-validation methods on
 
 The  results reveal that one-month forward expanding window nested cross-validation delivers the most accurate forecasts.
 
-Can one use more accurate forecasts to construct a trading strategy? The figure below answers this question. In the panel A, I draw one-month forward forecasts versus the realized returns. There is a  noticeable difference in variances of forecasted and realized returns. But as [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) notice, even a small imporvement in forcasting ability     
+Can one use more accurate forecasts to construct a trading strategy? The figure below answers this question. In the panel A, I draw one-month forward forecasts versus the realized returns. There is a  noticeable difference in variances of forecasted and realized returns. But as [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) among others notice, even a small imporvement in forecasting accuracy might result sizable economic effects.  
 
-##### Figure: Elastic Net Strategy - with Expanding Window Nested Cross-Validation:
+##### Figure: Performance of Elastic Net Strategy with One-Month Ahead Expanding Window Nested Cross-Validation:
 ![perf2](figures/enet.png "Elastic Net - with Expanding Window Cross-Validation")
 
-## Additional Observations
 
-##### Figure: Alternative Cross-Validation Method
-![alt text](figures/rolling.png "Rolling")
 
-##### Table: Elastic Net with One Month Ahead Rolling Window Nested Cross-validation
-| Name                | $MSE_{test}$ | $MSPE^{adj}(test)$   | $MSE_{validate}$ | $R^2_{OOS}$ |
-|---------------------|--------------|-------------------------------|------------------|-------------|
-| Enet+ Rolling CV | 20.79        | 1.44                          | 19.64            | -0.0132     |
+## Ideas and Possible Extensions 
 
-##### Figure: Elastic Net Strategy - with Fixed Rolling Window Cross-Validation:
-![perf3](figures/enet_rolling.png "Elastic Net - with Fixed Rolling Window Cross-Validation")
-
-## Ideas and Possible Applications 
-
-- To improve efficiency of the new cross-validation algorithms. Currently, it does all cross-validations indepndently for each period. Estimation time could be  accelerated by orders of magnitude if calculations from pervious periods are used. 
+- To improve efficiency of the new cross-validation algorithms. Currently, it does all cross-validations indepndently for each period. Calculations could be accelerated by orders of magnitude by using calculations from pervious periods . 
 - Neural networks could be tested (such as LSTM). But these models usually require larger amount of data for precise estimates.  
 - Extend results to:
   - Other indexes/asset classes
