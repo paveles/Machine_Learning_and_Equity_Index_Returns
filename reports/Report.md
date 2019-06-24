@@ -57,20 +57,27 @@ In light of this, the Ô¨Ånal technical strategy that we consider incorporates ‚Ä
 
 See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554) for more details.
 
+
+## Exploratory Data Analysis
+In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to predict aggregate stock market returns. 
+
 ## Cross-Validation Methods
-In this project I develop and implement a novel cross-validation method - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below depicts this cross-validation method. 
+In this project I develop and implement a novel cross-validation method - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below explains this method. 
 ##### Figure: One-Month Forward Expanding Window Nested Cross-Validation Explained
 ![alt text](figures/expanding.png "Rolling")
 
 
 
-In the first step, 180 months (1951-1965) are used as a starting sample. The model with different hyperparameters is trained on 179 months and validated on the the last month. It means the prediction of the models for that month are compared and the hyperparameters that result in the lowest squared error in that month are chosen. In the next step, 181 months are used for training and validation. The model with the same sets of hyperparameters is again trained on 179 months and one month forward forecast for the month 180 is made. Next,      
+In the first step of outer loop, 180 months (1951-1965) are used as a starting sample. To make a forecast for the test month 181, the model with different hyperparameters is trained on 179 months and validated on the month 180. For that month, The predictions of the model with different hyperparameters are compared and the set of hyperparameters that results in the lowest squared error in that month is chosen. The forecast error for the test month 181 is calculated. 
+
+In the next step of outer loop, the training and validation window is extended by one month to 181 months. In the first iteration of the inner loop, the model with the same sets of hyperparameters is again trained on 179 months and one-month forward forecast errors for the month 180 (the first validation month) are calculated. In the next iteration of the inner loop, the model is trained on the sample of 180 months and the forecast errors for the month 181 (the second validation month) are calculated. The best set of hyperprameters to forecast returns in the test month 182 is the set that delivers the lowest mean squared error on the validation months, $MSE_{validate}$. In this step of outer loop, the month 182 is added to the training sample and the validation sample consists of months 180 and 181. 
+
+This procedure continues until the end of period. The model that delivers the lowest mean squared error over all test months of the whole sample period is a preferred model. The described cross-validation procedure is a natural historical simulation of a model's performance that uses nested historical cross-validation for the parameter tuning at the end of each month. 
+
 See more on cross-validation for time-series analysis for example in this Medium [article](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9). 
 
-## Exploratory Data Analysis
-In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to predict aggregate stock market returns. 
 ## Results
-In the table below I compare performance of different models. Mean squared error (MSE) is used as a measure of accuracy. $MSE_{validate}$ is the MSE on the validation sample. $MSE_{test}$ is the MSE on the test sample. $MSPE^{adj}$ is an  adjusted t-statistic from [Clark and West (2007)](https://www.sciencedirect.com/science/article/pii/S0304407606000960) for the statistical test on whether a model under consideration outperforms the simple average mean in predicting index returns. See the paper for more details. The p-values can be obtained from the respective [tables](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3672.htm). $R^2_{OOS}$ is out-of-sample R-squared introduced by [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) that measures the reduction in mean squared error on the test sample relative to historical moving average. Positive $R^2_{OOS}$ means that the respective model outperforms the moving average.
+In the table below I compare performance over different models. Mean squared error (MSE) is used as a measure of accuracy. $MSE_{validate}$ is the average validation MSE over all sample months. $MSE_{test}$ is the MSE on the test sample. $MSPE^{adj}$ is an  adjusted t-statistic from [Clark and West (2007)](https://www.sciencedirect.com/science/article/pii/S0304407606000960) for the statistical test on whether a model under consideration outperforms the simple average mean in predicting index returns. The p-values can be obtained from the respective [tables](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3672.htm). $R^2_{OOS}$ is out-of-sample R-squared introduced by [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055). It measures the reduction in mean squared error on the test sample relative to the historical moving average. Positive $R^2_{OOS}$ means that the respective model outperforms the historical moving average. See the respective papers for more details.
 ##### Table: Predictive performance of different models (one-month forward expanding window nested cross-validation)
 | Name              | $MSE_{test}$ | $MSPE^{adj}(test)$  | $MSE_{validate}$ | $R^2_{OOS}$ |
 |-------------------|--------------|-------------------------------|------------------|------------|
@@ -83,8 +90,12 @@ In the table below I compare performance of different models. Mean squared error
 | Gradient Boosting | 22.07        | 0.77                          | 19.66            | -0.0914    |
 | XGBoost           | 23.08        | 0.79                          | 20.44            | -0.1413    |
 
+Results reveal that Elastic Net is the only model that delivers positive $R^2_{OOS}$ and  $MSE_{test}$ below the historical moving mean.
+$MSPE^{adj}(test)$ reflects a significant decrease in the mean squared forecasting error at any common signifcance level.
 
-##### Table: Comparing Cross-validation Methods
+In the table below I compare the effect of different cross-validation methods on the accuracy of the Elastic Net model. 
+
+##### Table: Comparing Cross-Validation Methods
 | Name                | $MSE_{test}$ | $MSPE^{adj}(test)$   | $MSE_{validate}$ | $R^2_{OOS}$ |
 |---------------------|--------------|------------------------------|------------------|-------------|
 | Enet + No CV        | 20.11        | 1.28                         | 15.73            | 0.0054      |
@@ -92,22 +103,22 @@ In the table below I compare performance of different models. Mean squared error
 | Enet + 10-fold CV   | 19.97        | 2.73                         | 15.27            | 0.0121      |
 | Enet + Expanding CV | 19.89        | 2.91                         | 17.61            | 0.0163      |
 
+The  results reveal that one-month forward expanding window nested cross-validation delivers the most accurate forecasts.
 
-
-
+Can one use more accurate forecasts to construct a trading strategy? The figure below answers this question. In the panel A, I draw one-month forward forecasts versus the realized returns. There is a  noticeable difference in variances of forecasted and realized returns. But as [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) notice, even a small imporvement in forcasting ability     
 
 ##### Figure: Elastic Net Strategy - with Expanding Window Nested Cross-Validation:
 ![perf2](figures/enet.png "Elastic Net - with Expanding Window Cross-Validation")
 
 ## Additional Observations
 
-##### Figure: Alternative Cross-Validation method
+##### Figure: Alternative Cross-Validation Method
 ![alt text](figures/rolling.png "Rolling")
 
 ##### Table: Elastic Net with One Month Ahead Rolling Window Nested Cross-validation
 | Name                | $MSE_{test}$ | $MSPE^{adj}(test)$   | $MSE_{validate}$ | $R^2_{OOS}$ |
 |---------------------|--------------|-------------------------------|------------------|-------------|
-| enet_rolling_240_24 | 20.79        | 1.44                          | 19.64            | -0.0132     |
+| Enet+ Rolling CV | 20.79        | 1.44                          | 19.64            | -0.0132     |
 
 ##### Figure: Elastic Net Strategy - with Fixed Rolling Window Cross-Validation:
 ![perf3](figures/enet_rolling.png "Elastic Net - with Fixed Rolling Window Cross-Validation")

@@ -61,9 +61,9 @@ for cname, config in CONFIGS.items():
 
     fig, ax = plt.subplots( ncols=1, nrows=3)
 
-    ax[0].set_title("Predicted vs. Realized Return")
-    ax[1].set_title("Strategy Position")
-    ax[2].set_title("Strategy Cumulative Returns")
+    ax[0].set_title("A. Predicted vs. Realized Return")
+    ax[1].set_title("B. Strategy Position")
+    ax[2].set_title("C. Strategy Cumulative Returns")
     ax[2].set_xlabel('Date')
 
     sns.lineplot(x='Date',y='Monthly Returns', hue ='Returns', data = data2, palette="deep6", ax = ax[0] )

@@ -31,8 +31,8 @@ else:
 VERBOSE = True
 
 CONFIGS={
-    'enet_nocv' : enet_nocv_config,
-    'enet_10cv' : enet_10cv_config,
+    # 'enet_nocv' : enet_nocv_config,
+    # 'enet_10cv' : enet_10cv_config,
     'enet' : enet_config, 
 }
 
