@@ -1,15 +1,15 @@
-# Highlights:
-## A time-series predictive framework that features:
-- Clear project structure based on [cookiecutter data science template]()Cite!
-- Usage of scikit-learn pipelines that simplify automation of the analysis
-- New scikit-learn estimators
-- New scikit-learn time-series cross-validation methods (nested cross-validation)
-- Domain-tailored prediction accuracy statistical tests 
-- Jupyter notebooks and presentations that explain and visualize obtained findings
-
-
 epml
 ==============================
+Highlights:
+------------
+## A time-series predictive framework that features:
+
+- Usage of **scikit-learn pipelines** that simplify automation of the analysis
+- New **scikit-learn transformators**
+- New **scikit-learn time-series cross-validation methods** (one step ahead expanding window nested cross-validation)
+- Domain-tailored statistical tests on significance in  prediction improvement
+- **Jupyter** notebook, presentation and report that explain and visualize obtained findings
+- Clear project structure with a **makefile** based on [cookiecutter data science template](https://drivendata.github.io/cookiecutter-data-science/)
 
 Project Organization
 ------------
@@ -17,21 +17,19 @@ Project Organization
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
+    |
+    ├── out
+    │   ├── expanding      <- Output results for the the models with one step ahead expanding window nested cross-validation.
+    │   └── rolling        <- Output results for the the models with one step ahead fixed rolling window nested cross-validation.
+    |    
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting
@@ -43,23 +41,24 @@ Project Organization
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
+    │   ├── data.py        <- Scripts to generate data
+    │   │   
+    │   ├── train.py       <- Script to train models and then use trained models to make
+    │   │                     predictions   
+    │   ├── visualize.py   <- Scripts to create exploratory and results oriented visualizations
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
     │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
+    │   ├── model_configs.py            <- Configurations, GridSearch methods, cross-validation methods of the models
+    │   ├── settings.py                 <- Global settings and variables + loads `model_configs` 
+    │   ├── transform_cv.py             <- Transformation and cross-validation methods used in the analysis
+    │   └── walkforward_functions.py    <- Main functions used to estimate and evaluate trained models 
     │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
+
+    │       
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 
 
---------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>

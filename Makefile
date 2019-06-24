@@ -30,8 +30,8 @@ data: requirements
 	$(PYTHON_INTERPRETER) src/data.py
 
 ## Make Dataset
-analysis: requirements data
-	$(PYTHON_INTERPRETER) src/analysis.py
+train: requirements data
+	$(PYTHON_INTERPRETER) src/train.py
 
 ## Visualize
 visualize: requirements

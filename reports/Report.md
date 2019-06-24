@@ -16,7 +16,7 @@ I use models that perform well in the setting with many predictors and lack of o
   -  Linear models with L1 and L2 regularisation terms (Ridge, Lasso,  and Elastic Net). The models were introduced in Hoerl and Kennard (Technometrics, 1970), Tibshirani (Journal of the Royal Statistical Society, 1996) and
  Zou and Hastie (Journal of the Royal Statistical Society, 2005).
       - It is important to notice that Elastic Net contains both L1 and L2 regularization terms. Thus, Lasso and Ridge can be generalized as an Elastic Net with one of the regularization terms equal to zero. I use Elastic Net and let the cross-validation method to choose the optimal hyperparameters and the respective optimal model. 
-  - Bagging and Boosting tree-based methods ([Breiman, Leo, 2001, Statistical Modeling: The Two Cultures, Statistical Science 16, 199–231.](https://projecteuclid.org/download/pdf_1/euclid.ss/1009213726))
+  - Bagging and Boosting tree-based methods ([Breiman (2001)](https://projecteuclid.org/download/pdf_1/euclid.ss/1009213726))
   - 
 ## Data
 Start with the data from [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554):
@@ -59,7 +59,7 @@ See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=17
 
 
 ## Exploratory Data Analysis
-In this [Jupyter notebook](../notebooks/01-First_Data_Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to predict S&P 500 index returns. 
+In this [Jupyter notebook](../notebooks/01-PL-First-Data-Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to predict S&P 500 index returns. 
 
 ## Cross-Validation Methods
 In this project I develop and implement a novel cross-validation method - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below explains this method. 
@@ -123,5 +123,5 @@ I use return forecasts of the Elastic Net model to construct a simple strategy. 
   - Weekly/daily data frequency
   - More various predictors
  - Potential to contribute to the scikit-learn package by adding expanding and rolling window nested cross-validation methods
- - Show other strategy performance measures, such as maximum drawdow, Sharpe ration and etc. [!Cite]
+ - Show other strategy performance measures, such as maximum drawdow, Sharpe ratio and etc. [!Cite]()
 
