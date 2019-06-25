@@ -1,4 +1,4 @@
-epml
+Machine Learning and Index Returns
 ==============================
 Highlights:
 ------------
@@ -6,8 +6,8 @@ Highlights:
 
 - Usage of **scikit-learn pipelines** that simplify automation of the analysis
 - New **scikit-learn transformators**
-- New **scikit-learn time-series cross-validation methods** (one step ahead expanding window nested cross-validation)
-- Domain-tailored statistical tests on significance in  prediction improvement
+- New **scikit-learn time-series cross-validation methods** (one step forward expanding window nested cross-validation)
+- **Domain-tailored statistical tests** on significance in  prediction improvement
 - **Jupyter** notebook, presentation and report that explain and visualize obtained findings
 - Clear project structure with a **makefile** based on [cookiecutter data science template](https://drivendata.github.io/cookiecutter-data-science/)
 
@@ -47,15 +47,10 @@ Project Organization
     │   │                     predictions   
     │   ├── visualize.py   <- Scripts to create exploratory and results oriented visualizations
     │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── model_configs.py            <- Configurations, GridSearch methods, cross-validation methods of the models
-    │   ├── settings.py                 <- Global settings and variables + loads `model_configs` 
-    │   ├── transform_cv.py             <- Transformation and cross-validation methods used in the analysis
-    │   └── walkforward_functions.py    <- Main functions used to estimate and evaluate trained models 
-    │   │
-
+    │   ├── model_configs.py          <- Configurations, GridSearch methods, cross-validation methods of the models
+    │   ├── settings.py               <- Global settings and variables + loads `model_configs` 
+    │   ├── transform_cv.py           <- Transformation and cross-validation methods used in the analysis
+    │   └── walkforward_functions.py  <- Main functions used to estimate and evaluate trained models 
     │       
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
