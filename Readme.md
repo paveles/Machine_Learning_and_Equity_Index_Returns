@@ -1,13 +1,13 @@
 Machine Learning and Equity Index Returns
 ==============================
 ## A time-series predictive framework that features:
-- Usage of **advanced machine learning algorithms** 
-- Usage of **scikit-learn pipelines** that simplify automation of the analysis
-- New **scikit-learn transformers**
-- New **scikit-learn time-series cross-validation methods** (one step forward expanding window nested cross-validation)
-- **Domain-tailored statistical tests** on significance in  prediction improvement
-- **Jupyter** notebooks and [report](/reports/Results.ipynb) that explain and visualize obtained findings
-- Clear project structure with a **makefile** based on a data science template
+- Usage of advanced machine learning algorithms 
+- Usage of scikit-learn pipelines that simplify automation of the analysis
+- New scikit-learn transformers
+- New scikit-learn time-series cross-validation methods (one step forward expanding window nested cross-validation)
+- Domain-tailored statistical tests on significance in  prediction improvement
+- Jupyter notebooks and [report](/reports/Results.ipynb) that explain and visualize obtained findings
+- Clear project structure with a makefile based on a data science template
 
 
 
