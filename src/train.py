@@ -90,7 +90,7 @@ df.dropna(inplace = True)
 
 #%% #--------------------------------------------------
 #*"""Provide a Description of the Data"""
-df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
+# df[['lnsp500_rf']+predictors].describe().T.to_csv("out/temp/descriptive.csv")
 #""" --> Data is the same is in the paper Rapach et al 2013"""
 # df.describe().T
 #%% #--------------------------------------------------
