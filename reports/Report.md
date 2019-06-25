@@ -2,7 +2,7 @@
 Short Summary of the methodology and results
 
 Author: Pavel Lesnevski \
-Date: 21.06.2019
+Date: 25.06.2019
 ## Motivation
 - Predicting monthly S&P 500 index returns using historical macroeconomic data and technical indicators. S&P 500 represents well the US equity market.
 - An important task from both academic and practical perspectives

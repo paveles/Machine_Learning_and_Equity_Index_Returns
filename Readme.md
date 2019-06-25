@@ -6,7 +6,7 @@ Machine Learning and Index Returns
 - New **scikit-learn transformers**
 - New **scikit-learn time-series cross-validation methods** (one step forward expanding window nested cross-validation)
 - **Domain-tailored statistical tests** on significance in  prediction improvement
-- **Jupyter** notebooks and [report](.\reports\Report.md) that explain and visualize obtained findings
+- **Jupyter** notebooks and [report](/reports/Report.md) that explain and visualize obtained findings
 - Clear project structure with a **makefile** based on data science template
 
 
