@@ -1,4 +1,4 @@
-# Machine Learning and Index Returns
+# Machine Learning and Equity Index Returns
 Short Summary of the methodology and results
 
 Author: Pavel Lesnevski \
@@ -61,7 +61,7 @@ See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=17
 ## Exploratory Data Analysis
 In this [Jupyter notebook](../notebooks/01-PL-First-Data-Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to outperform historical mean in predicting S&P 500 index returns. 
 
-## Cross-Validation Methods
+## Cross-Validation Method
 In this project I develop and implement a novel cross-validation method - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below explains this method. 
 ##### Figure: One-Month Forward Expanding Window Nested Cross-Validation Explained
 ![alt text](figures/expanding.png "Rolling")

@@ -1,4 +1,4 @@
-Machine Learning and Index Returns
+Machine Learning and Equity Index Returns
 ==============================
 ## A time-series predictive framework that features:
 - Usage of **advanced machine learning algorithms** 
