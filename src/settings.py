@@ -31,69 +31,11 @@ else:
 VERBOSE = True
 
 CONFIGS={
+    'enet_5cv' : enet_5cv_config
     # 'enet_nocv' : enet_nocv_config,
     # 'enet_10cv' : enet_10cv_config,
-    'enet' : enet_config, 
+    # 'enet' : enet_config, 
 }
-
-# # Different Models to Use at different steps
-# Configs_Estimated ={
-#     # 'const' : const_config,
-#     # 'ols' : ols_config,
-#     # 'pca' : pca_config, #~ 23 minutes
-#     # 'enet' : enet_config, #~ 2.5 hours
-#     'enet_nocv' : enet_nocv_config, 
-#     # 'pca_enet' : pca_enet_config, #~ 3 hours
-#     # 'adab_nocv' : adab_nocv_config,
-#     # 'gbr_nocv': gbr_nocv_config,
-#     # 'rf_nocv': rf_nocv_config,
-#     # 'xgb_nocv': xgb_nocv_config,
-#     # 'adab': adab_config,
-#     # 'gbr': gbr_config,
-#     # 'rf': rf_config,
-#     # 'xgb' : xgb_config
-# }
-# Configs_Aggregate ={
-#     'const' : const_config,
-#     'ols' : ols_config,
-#     'pca' : pca_config, #~ 23 minutes
-#     'enet' : enet_config, #~ 2.5 hours
-#     'enet_nocv' : enet_nocv_config, 
-#     'pca_enet' : pca_enet_config, #~ 3 hours
-#     'adab_nocv' : adab_nocv_config,
-#     'gbr_nocv': gbr_nocv_config,
-#     'rf_nocv': rf_nocv_config,
-#     'xgb_nocv': xgb_nocv_config,
-#     'adab': adab_config,
-#     'gbr': gbr_config,
-#     'rf': rf_config,
-#     'xgb' : xgb_config
-# }
-
-# Configs_Analysis ={
-#     # 'const' : const_config,
-#     #'ols' : ols_config,
-#     # 'pca' : pca_config, #~ 23 minutes
-#     # 'enet' : enet_config, #~ 2.5 hours
-#     'enet_nocv' : enet_nocv_config, 
-#     # 'pca_enet' : pca_enet_config, #~ 3 hours
-#     # 'adab_nocv' : adab_nocv_config,
-#     # 'gbr_nocv': gbr_nocv_config,
-#     # 'rf_nocv': rf_nocv_config,
-#     # 'xgb_nocv': xgb_nocv_config,
-#     # 'adab': adab_config,
-#     # 'gbr': gbr_config,
-#     # 'rf': rf_config,
-#     # 'xgb' : xgb_config
-# }
-
-# Configs_Visualize ={
-#     'enet_nocv' : enet_nocv_config, 
-#     # 'enet' : enet_config,
-#     # 'const' : const_config,
-#     # 'ols' : ols_config,
-#     # 'rf' : rf_config,
-# }
 
 
 #%%
