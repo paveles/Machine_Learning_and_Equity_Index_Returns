@@ -12,12 +12,12 @@ Date: 25.06.2019
 
 ## Models 
 I use models that perform well in the setting with many predictors and lack of observations:
-  -  Ordinary least squares (OLS) with or with prior dimensionality reduction.
+  -  Ordinary least squares (OLS) with prior dimensionality reduction (see [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554)).
   -  Linear models with L1 and L2 regularisation terms (Ridge, Lasso,  and Elastic Net). The models were introduced in Hoerl and Kennard (Technometrics, 1970), Tibshirani (Journal of the Royal Statistical Society, 1996) and
  Zou and Hastie (Journal of the Royal Statistical Society, 2005).
       - It is important to notice that the Elastic Net contains both L1 and L2 regularization terms. Thus, Lasso and Ridge can be generalized by an Elastic Net with one of the regularization terms equal to zero. I use Elastic Net and let the cross-validation method to choose the optimal hyperparameters and the respective optimal model. 
   - Bagging and Boosting tree-based methods ([Breiman (2001)](https://projecteuclid.org/download/pdf_1/euclid.ss/1009213726))
-  - 
+
 ## Data
 Start with the data from [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1787554):
 
