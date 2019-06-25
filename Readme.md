@@ -56,7 +56,8 @@ Machine Learning and Equity Index Returns
 
 ## Workflow
 - Setup:
-  - Install `make`  (see the [website](https://www.gnu.org/software/make/) for more details). In Anaconda, `conda install make`.
+  -  Clone or download this repositary to your computer.
+  -  Install `make` (see the [website](https://www.gnu.org/software/make/) for more details). In Anaconda, `conda install make`.
   -  `make create_environment` to create a new virtual environment. This new environment will be called "epml" - an abbreviation for Equity Premium and Machine Learning.
   -  Activate the new environment. In Anaconda, `conda activate epml`.
   -  Added new packages to `requirements.txt` if needed.
@@ -64,7 +65,7 @@ Machine Learning and Equity Index Returns
 -  Analysis:
    - Activate the new environment before starting your analysis. In Anaconda, `conda activate epml`.
    - `make data` to prepare the data.
-   - Change settings in `settings.py` to choose models to  estimated and evaluated.
+   - Change settings in `settings.py` to choose models to be estimated and evaluated.
    - `make train` to train the chosen models.
    - `make visualize` to get prediction accuracy and produce a figure summarizing strategy performance.
 
