@@ -1,6 +1,6 @@
 #%% #--------------------------------------------------
 """ 
-Predicting Equity Premium using Machine Learning Methods - Train File
+Predicting Equity Index Returns using Machine Learning Methods - Train File
 """
 
 #%% #--------------------------------------------------

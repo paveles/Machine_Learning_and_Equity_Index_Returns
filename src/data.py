@@ -1,4 +1,6 @@
-
+""" 
+Predicting Equity Index Returns using Machine Learning Methods - Data Preparation File
+"""
 #%% #--------------------------------------------------
 #* Load Data
 import pickle
