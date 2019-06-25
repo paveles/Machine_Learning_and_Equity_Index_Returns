@@ -2,31 +2,15 @@
 -e .
 
 # my packages
-
-
-#warnings
-#math
-#time
 datetime
 pandas
 numpy
 scipy
 cython
-#sys
-#os
-
-# model_configs.py
 xgboost
-
-# walkforward_functions.py
 sklearn
-
-# visualize.py
 matplotlib
 seaborn
-
-# transform_cv.py
-
 
 # external requirements
 click
