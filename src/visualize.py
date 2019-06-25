@@ -1,3 +1,6 @@
+""" 
+Predicting Equity Index Returns using Machine Learning Methods - Visualization
+"""
 #%% #--------------------------------------------------
 #*Load Modules
 import warnings

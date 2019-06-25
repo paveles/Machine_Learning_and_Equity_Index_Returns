@@ -22,11 +22,6 @@ import pickle
 from src.walkforward_functions import calculate_r2_wf, calculate_msfe_adjusted, estimate_walk_forward
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 
-# #* Create Folders
-dir = os.getcwd()
-# os.chdir(dir)
-# os.makedirs(dir + '/temp', exist_ok = True)
-# os.makedirs(dir + '/out/temp', exist_ok = True)
 # os.makedirs(dir + '/in', exist_ok = True)
 #%% #--------------------------------------------------
 #* Load Global Parameters *
@@ -34,6 +29,13 @@ dir = os.getcwd()
 from src.settings import Period, ROLLING, start_idx, Models_Folder,\
 VERBOSE, CONFIGS, training_window, validation_window
 
+# #* Create Folders
+dir = os.getcwd()
+# os.chdir(dir)
+# os.makedirs(dir + '/temp', exist_ok = True)
+os.makedirs(dir + '/out/temp', exist_ok = True)
+os.makedirs(dir + 'out/'+ Models_Folder+'/models/estimated')
+os.makedirs(dir + 'out/'+ Models_Folder+'/pickle')
 #%% #--------------------------------------------------
 #* Load Data
 df = pd.read_pickle("data/processed/df.pickle")

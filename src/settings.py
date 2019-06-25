@@ -1,5 +1,10 @@
+""" 
+Predicting Equity Index Returns using Machine Learning Methods - Settings File
+"""
+
 #%% #--------------------------------------------------
 #* Global Parameters *
+# Import Possible Model Configs
 from src.model_configs import *
 # Starting Year: 1928 - macro only, 1951 - macto + technical, 
 # 1974 - add short interest    
@@ -31,11 +36,5 @@ else:
 VERBOSE = True
 
 CONFIGS={
-    'enet_5cv' : enet_5cv_config
-    # 'enet_nocv' : enet_nocv_config,
-    # 'enet_10cv' : enet_10cv_config,
-    # 'enet' : enet_config, 
+    'enet_nocv' : enet_nocv_config,
 }
-
-
-#%%

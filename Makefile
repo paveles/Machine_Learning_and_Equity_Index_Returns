@@ -30,11 +30,11 @@ data: requirements
 	$(PYTHON_INTERPRETER) src/data.py
 
 ## Make Dataset
-train: requirements data
+train: data
 	$(PYTHON_INTERPRETER) src/train.py
 
 ## Visualize
-visualize: requirements
+visualize: 
 	$(PYTHON_INTERPRETER) src/visualize.py
 
 ## Delete all compiled Python files
