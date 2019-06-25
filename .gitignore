@@ -19,7 +19,7 @@ reports/~$MachineLearning_StockMarketReturns_short.pptx
 # Visual Code Settings
 .vscode/*
 __pycache__/*
-.ipynb_checkpoints/*
+notebooks/.ipynb_checkpoints/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -42,7 +42,7 @@ lib64/
 parts/
 sdist/
 var/
-*.egg-info/
+src.egg-info/
 .installed.cfg
 *.egg
 

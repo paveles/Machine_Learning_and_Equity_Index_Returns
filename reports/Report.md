@@ -5,17 +5,17 @@ Author: Pavel Lesnevski \
 Date: 21.06.2019
 ## Motivation
 - Predicting monthly S&P 500 index returns using historical macroeconomic data and technical indicators. S&P 500 represents well the US equity market.
-- Important task from both academic and practical perspectives
-- A task with high noise-to-signal ratio
+- An important task from both academic and practical perspectives
+- A task with a high noise-to-signal ratio
   - Very few models are able to outperform the simple historical mean return
 - High-dimensional setting with lack of data (number of predictors is comparable to the number of observations)
 
 ## Models 
 I use models that perform well in the setting with many predictors and lack of observations:
-  -  Ordinary least squares (OLS) with or withour prior dimensionality reduction.
+  -  Ordinary least squares (OLS) with or with prior dimensionality reduction.
   -  Linear models with L1 and L2 regularisation terms (Ridge, Lasso,  and Elastic Net). The models were introduced in Hoerl and Kennard (Technometrics, 1970), Tibshirani (Journal of the Royal Statistical Society, 1996) and
  Zou and Hastie (Journal of the Royal Statistical Society, 2005).
-      - It is important to notice that Elastic Net contains both L1 and L2 regularization terms. Thus, Lasso and Ridge can be generalized by an Elastic Net with one of the regularization terms equal to zero. I use Elastic Net and let the cross-validation method to choose the optimal hyperparameters and the respective optimal model. 
+      - It is important to notice that the Elastic Net contains both L1 and L2 regularization terms. Thus, Lasso and Ridge can be generalized by an Elastic Net with one of the regularization terms equal to zero. I use Elastic Net and let the cross-validation method to choose the optimal hyperparameters and the respective optimal model. 
   - Bagging and Boosting tree-based methods ([Breiman (2001)](https://projecteuclid.org/download/pdf_1/euclid.ss/1009213726))
   - 
 ## Data
@@ -59,7 +59,7 @@ See [Neely et al. (2014)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=17
 
 
 ## Exploratory Data Analysis
-In this [Jupyter notebook](../notebooks/01-PL-First-Data-Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to outperofrm historical mean in predictng S&P 500 index returns. 
+In this [Jupyter notebook](../notebooks/01-PL-First-Data-Analysis.ipynb) I do exploratory data analysis and find that in a simplified setting considered models are able to outperform historical mean in predicting S&P 500 index returns. 
 
 ## Cross-Validation Methods
 In this project I develop and implement a novel cross-validation method - one-month forward expanding window nested cross-validation. This cross-validation method chooses the best hyperparameters by comparing the performance of underlying models in the one-month forward predictive setting. Each month those hyperparameters are chosen that ensure the best performance for the historical validation sample. The figure below explains this method. 
@@ -68,11 +68,11 @@ In this project I develop and implement a novel cross-validation method - one-mo
 
 
 
-In the first step of outer loop, 180 months (1951-1965) are used as a starting sample. To make a forecast for the test month 181, the model with different hyperparameters is trained on 179 months and validated on the month 180. For that month, The predictions of the model with different hyperparameters are compared and the set of hyperparameters that results in the lowest squared error in that month is chosen. The forecast error for the test month 181 is calculated. 
+In the first step of the outer loop, 180 months (1951-1965) are used as a starting sample. To make a forecast for the test month 181, the model with different hyperparameters is trained on 179 months and validated on the month 180. For that month, The predictions of the model with different hyperparameters are compared and the set of hyperparameters that results in the lowest squared error in that month is chosen. The forecast error for the test month 181 is calculated. 
 
-In the next step of outer loop, the training and validation window is extended by one month to 181 months. In the first iteration of the inner loop, the model with the same sets of hyperparameters is again trained on 179 months and one-month forward forecast errors for the month 180 (the first validation month) are calculated. In the next iteration of the inner loop, the model is trained on the sample of 180 months and the forecast errors for the month 181 (the second validation month) are calculated. The best set of hyperprameters to forecast returns in the test month 182 is a set that delivers the lowest mean squared error on the validation months, $MSE_{validate}$. In this step of outer loop, the month 182 is added to the training sample and the validation sample consists of months 180 and 181. 
+In the next step of the outer loop, the training and validation window is extended by one month to 181 months. In the first iteration of the inner loop, the model with the same sets of hyperparameters is again trained on 179 months and one-month forward forecast errors for the month 180 (the first validation month) are calculated. In the next iteration of the inner loop, the model is trained on the sample of 180 months and the forecast errors for the month 181 (the second validation month) are calculated. The best set of hyperparameters to forecast returns in the test month 182 is a set that delivers the lowest mean squared error on the validation months, $MSE_{validate}$. In this step of the outer loop, the month 182 is added to the training sample and the validation sample consists of months 180 and 181. 
 
-This procedure continues until the last period in the data. I calculate mean squared error over all test months of the whole sample period, $MSE_{test}$, for considered models. The best model delivers the lowest $MSE_{test}$. The described cross-validation procedure is a natural historical simulation of a model's performance. 
+This procedure continues until the last period in the data. I calculate mean squared error overall test months of the whole sample period, $MSE_{test}$, for considered models. The best model delivers the lowest $MSE_{test}$. The described cross-validation procedure is a natural historical simulation of a model's performance. 
 
 See more on cross-validation for time-series analysis for example in this Medium [article](https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9). 
 
@@ -91,7 +91,7 @@ In the table below I compare performance over different models. $MSE_{validate}$
 | XGBoost           | 23.08        | 0.79                          | 20.44            | -0.1413    |
 
 Results reveal that Elastic Net is the only model that delivers positive $R^2_{OOS}$ and  $MSE_{test}$ below the historical moving mean.
-$MSPE^{adj}(test)$ reflects a significant decrease in the mean squared forecasting error at any common signifcance level.
+$MSPE^{adj}(test)$ reflects a significant decrease in the mean squared forecasting error at any common significance level.
 
 In the table below I compare the effect of different cross-validation methods on the accuracy of the Elastic Net model. 
 
@@ -103,9 +103,9 @@ In the table below I compare the effect of different cross-validation methods on
 | Enet + 10-fold CV   | 19.97        | 2.73                         | 15.27            | 0.0121      |
 | Enet + Expanding CV | 19.89        | 2.91                         | 17.61            | 0.0163      |
 
-The  results reveal that one-month forward expanding window nested cross-validation delivers the most accurate forecasts.
+The results reveal that one-month forward expanding window nested cross-validation delivers the most accurate forecasts.
 
-Is it possible to turn this more accurate forecasts in a profitable trading strategy? The figure below answers this question. In the panel A, I draw one-month forward forecasts of the Elastic Net model versus realized S&P 500 index returns. As [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) notice, even a small imporvement in forecasting accuracy might result sizable economic effects. I use these return forecasts to construct a simple strategy. The strategy enters the S&P 500 index when the forecasted return is above 0. Otherwise, the strategy's position in the index is zero. The corresponding position dynamics is depicted in panel B of the figure. Finally, panel C shows the value of one dollar invested in 1966 in the S&P 500 index and the market timing strategy based on the Elastic Net model. The strategy results in around 2 times higher wealth by the end of the period than pure S&P 500 index. One dollar invested in the strategy turns into 10 dollars. In comparison, S&P 500 strategy turns into around 5 dollars. 
+Is it possible to turn this more accurate forecasts in a profitable trading strategy? The figure below answers this question. In panel A, I draw one-month forward forecasts of the Elastic Net model versus realized S&P 500 index returns. As [Campbell and Thomson (2008)](rfs.oxfordjournals.org/cgi/doi/10.1093/rfs/hhm055) notice, even a small improvement in forecasting accuracy might result in sizable economic effects. I use these return forecasts to construct a simple strategy. The strategy enters the S&P 500 index when the forecasted return is above 0. Otherwise, the strategy's position in the index is zero. The corresponding position dynamics is depicted in panel B of the figure. Finally, panel C shows the value of one dollar invested in 1966 in the S&P 500 index and the market timing strategy based on the Elastic Net model. The strategy results in around 2 times higher wealth by the end of the period than pure S&P 500 index. One dollar invested in the strategy turns into 10 dollars. In comparison, the S&P 500 strategy turns into around 5 dollars. 
 
 ##### Figure: Performance of Elastic Net Strategy with One-Month Ahead Expanding Window Nested Cross-Validation:
 ![perf2](figures/enet.png "Elastic Net - with Expanding Window Cross-Validation")
@@ -114,13 +114,13 @@ Is it possible to turn this more accurate forecasts in a profitable trading stra
 
 ## Ideas and Possible Extensions 
 
-- Optimize new cross-validation algorithm. Currently, it does all cross-validations indepndently for each period - repeatative estimations. Calculations could be accelerated by orders of magnitude by using calculations from pervious periods.
-- Include interaction terms and  lags of predictors to improve performance of the linear models.
-- Neural networks could be tested (such as LSTM). But these models usually require larger amount of data for precise estimates.  
+- Optimize new cross-validation algorithm. Currently, it does all cross-validations independently for each period - repetitive estimations. Calculations could be accelerated by orders of magnitude by using calculations from previous periods.
+- Include interaction terms and lags of predictors to improve performance of the linear models.
+- Neural networks could be tested (such as LSTM). But these models usually require a larger amount of data for precise estimates.  
 - Extend results to:
   - Other indexes/asset classes
   - Weekly/daily data frequency
   - More various predictors
  - Potential to contribute to the scikit-learn package by adding expanding and rolling window nested cross-validation methods
- - Show other strategy performance measures, such as maximum drawdow, Sharpe ratio and etc. [!Cite]()
+ - Show other strategy performance measures, such as maximum drawdown, Sharpe ratio and etc.
 
