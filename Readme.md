@@ -11,8 +11,7 @@ Machine Learning and Equity Index Returns
 
 
 
-Project Organization
-------------
+## Project Organization
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
@@ -55,9 +54,19 @@ Project Organization
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 
+## Workflow
+- Setup:
+  - Install `make`  (see the [website](https://www.gnu.org/software/make/)) . In Anaconda, `conda install make`.
+  -  `make create_environment` to create the environment. New environment will be called "epml" - an abbreviation for Equity Premium and Machine Learning.
+  -  Activate new environment. In Anaconda, `conda activate epml`.
+  -  `make requirements` to install packages needed for the project.
+-  Analysis:
+     - `make data` to prepare the data.
+     - Change settings in `settings.py` to choose models to be estimated and evaluated.
+     - `make train` to train the chosen models.
+     - `make visualize` to get prediction accuracy and produce a figure summarizing strategy performance.
 
 
 --------
-
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
 
