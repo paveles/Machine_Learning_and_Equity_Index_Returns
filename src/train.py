@@ -34,8 +34,8 @@ dir = os.getcwd()
 # os.chdir(dir)
 # os.makedirs(dir + '/temp', exist_ok = True)
 os.makedirs(dir + '/out/temp', exist_ok = True)
-os.makedirs(dir + 'out/'+ Models_Folder+'/models/estimated', exist_ok = True))
-os.makedirs(dir + 'out/'+ Models_Folder+'/pickle', exist_ok = True))
+os.makedirs(dir + 'out/'+ Models_Folder+'/models/estimated', exist_ok = True)
+os.makedirs(dir + 'out/'+ Models_Folder+'/pickle', exist_ok = True)
 #%% #--------------------------------------------------
 #* Load Data
 df = pd.read_pickle("data/processed/df.pickle")
