@@ -1,5 +1,5 @@
 """
-Define Configurations of the Model - dictionaries with the following entries.
+Define Configurations of the Models - dictionaries with the following entries.
 
 Parameters
 ----------

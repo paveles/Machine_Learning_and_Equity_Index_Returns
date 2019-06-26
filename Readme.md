@@ -5,7 +5,7 @@ Machine Learning and Equity Index Returns
 - Usage of scikit-learn pipelines that simplify automation of the analysis
 - New scikit-learn transformers
 - New scikit-learn time-series cross-validation methods (one step forward expanding window nested cross-validation)
-- Domain-tailored statistical tests on significance in  prediction improvement
+- Domain-tailored statistical tests on the significance of improvement in prediction accuracy 
 - Jupyter notebooks and a [report](/reports/Results.ipynb) that explain and visualize obtained findings
 - Clear project structure with a makefile based on a data science template
 
@@ -56,9 +56,9 @@ Machine Learning and Equity Index Returns
 
 ## Workflow
 - Setup:
-  -  Clone or download this repositary to your computer.
+  -  Clone or download this repository.
   -  Install `make` (see the [website](https://www.gnu.org/software/make/) for more details). In Anaconda, `conda install make`.
-  -  `make create_environment` to create a new virtual environment. This new environment will be called "epml" - an abbreviation for Equity Premium and Machine Learning.
+  -  `make create_environment` to create a new virtual environment. This new environment will be called "epml", an abbreviation for Equity Premium and Machine Learning.
   -  Activate the new environment. In Anaconda, `conda activate epml`.
   -  Added new packages to `requirements.txt` if needed.
   -  `make requirements` to install packages.
@@ -66,7 +66,7 @@ Machine Learning and Equity Index Returns
    - Activate the new environment before starting your analysis. In Anaconda, `conda activate epml`.
    - `make data` to prepare the data.
    - Change settings in `settings.py` to choose models to be estimated and evaluated.
-   - `make train` to train the chosen models.
+   - `make train` to train the chosen models (please note that some models take long hours to run).
    - `make visualize` to get prediction accuracy and produce a figure summarizing strategy performance.
 
 
