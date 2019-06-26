@@ -1,0 +1,7 @@
+name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
+const,0.0,0.14461117041929536,20.219209785201592,15.942982923399356,2019-06-21 17:51:28,2019-06-21 17:51:40,0 days 00:00:11.840020000,180,"{'name': 'const', 'cv': <class 'src.transform_cv.DisabledCV'>, 'pipeline': Pipeline(memory=None,
+         steps=[('const', ToConstantTransformer()),
+                ('ols',
+                 LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+                                  normalize=False))],
+         verbose=False), 'param_grid': {'ols__fit_intercept': [False]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
