@@ -1,8 +1,0 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,start_idx,config,period
-rf_nocv,-0.174575458430815,0.8021367991277862,23.748987602561982,2.676057711771832,2019-05-28 03:36:25,2019-05-28 03:43:28,180,"{'name': 'rf_nocv', 'cv': <class 'model_configs.DisabledCV'>, 'pipeline': Pipeline(memory=None,
-     steps=[('rf', RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
-           max_features='auto', max_leaf_nodes=None,
-           min_impurity_decrease=0.0, min_impurity_split=None,
-           min_samples_leaf=1, min_samples_split=2,
-           min_weight_fraction_leaf=0.0, n_estimators='warn', n_jobs=None,
-           oob_score=False, random_state=None, verbose=0, warm_start=False))]), 'param_grid': {'rf__random_state': [0], 'rf__n_estimators': [100], 'rf__max_depth': [15]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951

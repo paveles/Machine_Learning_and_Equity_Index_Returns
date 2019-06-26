@@ -1,19 +1,21 @@
 # Folders and Files
-!out/
 out/
 
-!out/rolling/
-out/rolling/*
+# !out/
+# out/*
 
-!out/expanding
-out/expanding/*
+# !out/rolling/
+# out/rolling/*
+
+# !out/expanding
+# out/expanding/*
 
 
-!out/rolling/models/
-out/rolling/pickle/
+# !out/rolling/models/
+# out/rolling/pickle/
 
-!out/expanding/models/
-out/expanding/pickle/
+# !out/expanding/models/
+# out/expanding/pickle/
 
 
 # Visual Code Settings

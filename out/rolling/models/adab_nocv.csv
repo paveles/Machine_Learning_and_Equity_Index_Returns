@@ -1,4 +1,0 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-adab_nocv,-0.14300394670846361,1.2539140323922784,23.454978239053183,9.597374193488566,2019-06-07 15:30:41,2019-06-07 15:32:12,0 days 00:01:30.795211000,240,"{'name': 'adab_nocv', 'cv': <class 'helper.DisabledCV'>, 'pipeline': Pipeline(memory=None,
-     steps=[('adab', AdaBoostRegressor(base_estimator=None, learning_rate=1.0, loss='linear',
-         n_estimators=50, random_state=None))]), 'param_grid': {'adab__random_state': [0], 'adab__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951

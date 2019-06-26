@@ -1,4 +1,0 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-ols,-0.1717575323677274,1.574812207900297,24.045015331991415,14.832072768300101,2019-06-07 15:02:55,2019-06-07 15:03:00,0 days 00:00:04.985663000,240,"{'name': 'ols', 'cv': <class 'helper.DisabledCV'>, 'pipeline': Pipeline(memory=None,
-     steps=[('ols', LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-         normalize=False))]), 'param_grid': {'ols__fit_intercept': [True]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951

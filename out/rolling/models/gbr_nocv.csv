@@ -1,8 +1,0 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-gbr_nocv,-0.41796140633235734,-0.5260448721934203,29.097234550341927,2.8518247690599856,2019-06-07 15:32:13,2019-06-07 15:32:50,0 days 00:00:36.466453000,240,"{'name': 'gbr_nocv', 'cv': <class 'helper.DisabledCV'>, 'pipeline': Pipeline(memory=None,
-     steps=[('gbr', GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
-             learning_rate=0.1, loss='ls', max_depth=3, max_features=None,
-             max_leaf_nodes=None, min_impurity_decrease=0.0,
-             min_impurity_split=None, min_samples_leaf=1,
-             min_...one, subsample=1.0, tol=0.0001,
-             validation_fraction=0.1, verbose=0, warm_start=False))]), 'param_grid': {'gbr__random_state': [0], 'gbr__n_estimators': [100]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951

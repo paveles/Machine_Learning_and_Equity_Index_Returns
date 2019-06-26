@@ -1,9 +1,0 @@
-name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,config,period
-xgb,-0.2736476661407792,0.49555219365463177,26.135848769009023,25.03946944376318,2019-06-07 22:57:52,2019-06-08 01:02:26,0 days 02:04:33.595463000,240,"{'name': 'xgb', 'cv': <class 'TimeSeriesSplitMod.TimeSeriesSplitMod'>, 'pipeline': Pipeline(memory=None,
-     steps=[('to_numpy', ToNumpyTransformer()), ('xgb', XGBRegressor(base_score=0.5, booster='gbtree', colsample_bylevel=1,
-       colsample_bytree=1, gamma=0, importance_type='gain',
-       learning_rate=0.1, max_delta_step=0, max_depth=3,
-       min_child_weight=1, missing=None, n_estimators=100, n_jobs=1,
-       nthread=None, objective='reg:linear', random_state=0, reg_alpha=0,
-       reg_lambda=1, scale_pos_weight=1, seed=None, silent=True,
-       subsample=1))]), 'param_grid': {'xgb__random_state': [0], 'xgb__n_estimators': [25, 100], 'xgb__max_depth': [5, 10], 'xgb__eta': [0.05, 0.1], 'xgb__alpha': [1, 0.5], 'xgb__lambda': [0, 0.5]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
