@@ -38,18 +38,18 @@ Machine Learning and Equity Index Returns
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
     ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
+    │   ├── __init__.py    <- Makes src a Python module.
     │   │
-    │   ├── data.py        <- Scripts to generate data
+    │   ├── data.py        <- Scripts to generate data.
     │   │   
     │   ├── train.py       <- Script to train models and then use trained models to make
-    │   │                     predictions   
-    │   ├── visualize.py   <- Scripts to create exploratory and results-oriented visualizations
+    │   │                     predictions.   
+    │   ├── visualize.py   <- Scripts to create exploratory and results-oriented visualization.
     │   │
-    │   ├── model_configs.py          <- Configurations, GridSearch methods, cross-validation methods of the models
-    │   ├── settings.py               <- Global settings and variables + loads `model_configs` 
-    │   ├── transform_cv.py           <- Transformation and cross-validation methods used in the analysis
-    │   └── walkforward_functions.py  <- Main functions used to estimate and evaluate trained models 
+    │   ├── model_configs.py          <- Configurations, GridSearch methods, cross-validation methods of the models.
+    │   ├── settings.py               <- Global settings and variables + loads `model_configs`. 
+    │   ├── transform_cv.py           <- Transformation and cross-validation methods used in the analysis.
+    │   └── walkforward_functions.py  <- Main functions used to estimate and evaluate trained models. 
     │       
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
