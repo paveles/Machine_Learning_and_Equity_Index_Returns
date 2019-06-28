@@ -16,6 +16,6 @@ df['sp500_rf'] = df['sp500_rf'] * 100
 df['lnsp500_rf'] = df['lnsp500_rf'] * 100
 df = df.sort_values(by=['date'])
 df.index = df.index.astype(int)
-os.makedirs(dir + 'data/processed/', exist_ok = True)
+os.makedirs(dir + '/data/processed/', exist_ok = True)
 df.to_pickle("data/processed/df.pickle")
 
