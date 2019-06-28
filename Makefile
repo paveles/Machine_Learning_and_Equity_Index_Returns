@@ -83,5 +83,5 @@ test_environment:
 
 .PHONY: help
 help:
-	@echo "Make is ready for analysis."
+	@echo "Make is ready."
 	
