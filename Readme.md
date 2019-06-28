@@ -57,7 +57,7 @@ Machine Learning and Equity Index Returns
 ## Workflow
 - Setup:
   -  Clone or download this repository.
-  -  Install `make` (see the [website](https://www.gnu.org/software/make/) for more details). In Anaconda, `conda install make`.
+  -  Install `make`. For Windows use prebuilt [Installer](https://github.com/swcarpentry/windows-installer) from Software Carpentry. Otherwise, see the [website](https://www.gnu.org/software/make/).
   -  `make create_environment` to create a new virtual environment. This new environment will be called "epml", an abbreviation for Equity Premium and Machine Learning.
   -  Activate the new environment. In Anaconda, `conda activate epml`.
   -  Added new packages to `requirements.txt` if needed.
