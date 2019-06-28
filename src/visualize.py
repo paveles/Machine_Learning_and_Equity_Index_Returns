@@ -15,7 +15,9 @@ import os
 import seaborn as sns
 sns.set()
 sns.set(font_scale=1.5)
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 plt.rcParams['figure.figsize'] = [15, 22.5]
 #%% #--------------------------------------------------
 #* Global Parameters *
