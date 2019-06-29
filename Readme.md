@@ -72,9 +72,9 @@ Machine Learning and Equity Index Returns
 
 ## Setup Details for Windows
 There are some challenges to install Make on Windows. These steps might help:
-- To install Make on Windows use a prebuilt [Installer](https://github.com/swcarpentry/windows-installer/releases/tag/v0.3) from Software Carpentry. Please add the Make directory to the the system environment variable PATH, e.g. "C:\Users\Admin\.swc\lib\make".
+- To install Make on Windows use a prebuilt [Installer](https://github.com/swcarpentry/windows-installer/releases/tag/v0.3) from Software Carpentry. Please add the Make directory to the the system environment variable PATH, e.g. `C:\Users\Admin\.swc\lib\make`.
 - You can test Make by accessing help for the Makefile by typing `make` in the project folder.
-- In case Make still does not work please install [MSYS2](https://www.msys2.org/) and add its `bin` directory to the the system environment variable PATH, e.g. "C:\msys64\usr\bin".
+- In case Make still does not work please install [MSYS2](https://www.msys2.org/) and add its `bin` directory to the the system environment variable PATH, e.g. `C:\msys64\usr\bin`.
 - Try restarting your computer.
 
 --------
