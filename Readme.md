@@ -57,7 +57,8 @@ Machine Learning and Equity Index Returns
 ## Workflow
 - Setup:
   -  Clone or download this repository.
-  -  Install `make`. For Windows use prebuilt [Installer](https://github.com/swcarpentry/windows-installer) from Software Carpentry. Otherwise, see the [website](https://www.gnu.org/software/make/).
+  -  Install Make. See the [website](https://www.gnu.org/software/make/).
+  -  You can access help for the Makefile by typing `make` in the project folder.
   -  `make create_environment` to create a new virtual environment. This new environment will be called "epml", an abbreviation for Equity Premium and Machine Learning.
   -  Activate the new environment. In Anaconda, `conda activate epml`.
   -  Added new packages to `requirements.txt` if needed.
@@ -65,10 +66,16 @@ Machine Learning and Equity Index Returns
 -  Analysis:
    - Activate the new environment before starting your analysis. In Anaconda, `conda activate epml`.
    - `make data` to prepare the data.
-   - Change settings in `settings.py` to choose models to be estimated and evaluated.
+   - Change settings in `settings.py` to choose models to be estimated and evaluated (for the first run, one simple model is already chosen).
    - `make train` to train the chosen models (please note that some models take long hours to run).
    - `make visualize` to get prediction accuracy and produce a figure summarizing strategy performance.
 
+## Setup Details for Windows
+There are some challenges to install Make on Windows. These steps might help:
+- To install Make on Windows use a prebuilt [Installer](https://github.com/swcarpentry/windows-installer) from Software Carpentry. Please add the Make directory to the the system environment variable PATH, e.g. "C:\Users\Admin\.swc\lib\make".
+- You can test Make by accessing help for the Makefile by typing `make` in the project folder.
+- In case Make still does not work please install [MSYS2](https://www.msys2.org/) and add its `bin` directory to the the system environment variable PATH, e.g. "C:\msys64\usr\bin".
+- Try restarting your computer.
 
 --------
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>

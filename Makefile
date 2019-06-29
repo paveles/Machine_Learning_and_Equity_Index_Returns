@@ -61,7 +61,7 @@ else
 	python -m pip install -q virtualenv virtualenvwrapper
 	@echo ">>> Installing virtualenvwrapper if not already intalled.\nMake sure the following lines are in shell startup file\n\
 	export WORKON_HOME=$$HOME/.virtualenvs\nexport PROJECT_HOME=$$HOME/Devel\nsource /usr/local/bin/virtualenvwrapper.sh\n"
-	@bash -c "source `which virtualenvwrapper.sh`;mkvirtualenv $(PROJECT_NAME) --python=python"
+	@bash -c "source 'which virtualenvwrapper.sh`;mkvirtualenv $(PROJECT_NAME) --python=python"
 	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
 endif
 
@@ -83,5 +83,15 @@ test_environment:
 
 .PHONY: help
 help:
-	@echo "Make is ready."
-	
+	@echo "Make help."
+	@echo "First Run:"
+	@echo "- Activate the new environment. In Anaconda, 'conda activate epml'."
+	@echo "- Added new packages to 'requirements.txt' if needed."
+	@echo "- 'make requirements' to install packages."
+	@echo "Analysis:"
+	@echo "- 'make create_environment' to create a new virtual environment. This new environment will be called "epml", an abbreviation for Equity Premium and Machine Learning."
+	@echo "- Activate the new environment before starting your analysis. In Anaconda, 'conda activate epml'."
+	@echo "- 'make data' to prepare the data."
+	@echo "- Change settings in 'settings.py' to choose models to be estimated and evaluated (for the first run, one simple model is already chosen)."
+	@echo "- 'make train' to train the chosen models (please note that some models take long hours to run)."
+	@echo "- 'make visualize' to get prediction accuracy and produce a figure summarizing strategy performance."
