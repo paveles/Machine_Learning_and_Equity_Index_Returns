@@ -85,11 +85,11 @@ test_environment:
 help:
 	@echo "Make help."
 	@echo "First Run:"
+	@echo "- 'make create_environment' to create a new virtual environment. This new environment will be called "epml", an abbreviation for Equity Premium and Machine Learning."
 	@echo "- Activate the new environment. In Anaconda, 'conda activate epml'."
 	@echo "- Added new packages to 'requirements.txt' if needed."
 	@echo "- 'make requirements' to install packages."
 	@echo "Analysis:"
-	@echo "- 'make create_environment' to create a new virtual environment. This new environment will be called "epml", an abbreviation for Equity Premium and Machine Learning."
 	@echo "- Activate the new environment before starting your analysis. In Anaconda, 'conda activate epml'."
 	@echo "- 'make data' to prepare the data."
 	@echo "- Change settings in 'settings.py' to choose models to be estimated and evaluated (for the first run, one simple model is already chosen)."
