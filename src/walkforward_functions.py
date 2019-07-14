@@ -56,7 +56,7 @@ def estimate_walk_forward(config, X, y, start_idx, rolling = False,
     # Generate Interaction Terms
     if 'interactions' in config:
         if config['interactions'] == True:
-            X = pd.DataFrame(PolynomialFeatures(interaction_only=True,include_bias = False).fit_transform(X),index = X.index)
+            X = pd.DataFrame(PolynomialFeatures(degree = 2, interaction_only=False,include_bias = False).fit_transform(X),index = X.index)
 
     # Generate Lags
     if 'addlags' in config:
