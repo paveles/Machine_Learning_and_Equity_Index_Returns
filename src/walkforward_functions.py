@@ -62,10 +62,11 @@ def estimate_walk_forward(config, X, y, start_idx, rolling = False,
     if 'addlags' in config:
         LAGS = config['addlags']
         if (type(LAGS) == int) & (LAGS > 0):
+            temp = X
             for lag in range(1,LAGS+1,1):
-                X = pd.concat([X, X.shift(lag).add_suffix('_L{}'.format(lag))], axis = 1)
-                # temp.iloc[0,(X.shape[1]):] = X.iloc[0,:].values)
-                # X = temp
+                temp = pd.concat([temp, X.shift(lag).add_suffix('_L{}'.format(lag))], axis = 1)
+                temp.iloc[0,(X.shape[1]):] = X.iloc[0,:].values
+            X = temp
     # Define outputs
     models_estimated = pd.Series(index=X.index[start_idx:])
     scores_estimated = pd.Series(index=X.index[start_idx:])

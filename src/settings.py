@@ -36,5 +36,5 @@ else:
 VERBOSE = True
 
 CONFIGS={
-    'poly_enet' : poly_enet_config,
+    'lag_enet' : lag_enet_config,
 }

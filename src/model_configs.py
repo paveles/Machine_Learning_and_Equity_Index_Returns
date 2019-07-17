@@ -182,7 +182,7 @@ pca_enet_config['grid_search'] = GridSearchCV
 #? Enet + Lag  Model
 lag_enet_config = {}
 lag_enet_config['name'] = "lag_enet"
-lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+lag_enet_config['cv'] = DisabledCV # DisabledCV
 lag_enet_config['addlags'] = 1
 
 lag_enet_config['pipeline'] = Pipeline(steps=[
