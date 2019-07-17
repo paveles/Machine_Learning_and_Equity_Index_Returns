@@ -1,5 +1,11 @@
 ,name,r2_oos,msfe_adj,mse_oos,mse_validated,time_begin,time_end,time_diff,start_idx,window_training,window_validation,window,config,period
-0,poly_enet,-0.00020372286024405997,1.539653151439521,20.22332890045091,18.20762017913578,2019-07-11 17:41:53,2019-07-12 05:50:56,0 days 12:09:02.774401000,180,240,24,expanding,"{'name': 'poly_enet', 'cv': <class 'src.transform_cv.TimeSeriesSplitMod'>, 'interactions': True, 'pipeline': Pipeline(memory=None,
-     steps=[('standard', StandardScaler(copy=True, with_mean=True, with_std=True)), ('enet', ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True, l1_ratio=0.5,
-      max_iter=1000, normalize=False, positive=False, precompute=False,
-      random_state=None, selection='cyclic', tol=0.0001, warm_start=False))]), 'param_grid': {'enet__alpha': [0.1, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
+0,poly_enet,-0.0002691357933382044,1.530266150269041,20.224651498267807,18.218652639324766,2019-07-15 19:24:38,2019-07-17 14:13:29,1 days 18:48:50.304664000,180,240,24,expanding,"{'name': 'poly_enet', 'cv': <class 'src.transform_cv.TimeSeriesSplitMod'>, 'interactions': True, 'pipeline': Pipeline(memory=None,
+         steps=[('standard',
+                 StandardScaler(copy=True, with_mean=True, with_std=True)),
+                ('enet',
+                 ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True,
+                            l1_ratio=0.5, max_iter=1000, normalize=False,
+                            positive=False, precompute=False, random_state=None,
+                            selection='cyclic', tol=0.0001,
+                            warm_start=False))],
+         verbose=False), 'param_grid': {'enet__alpha': [0.1, 0.5, 0.7, 0.9, 0.97, 0.99], 'enet__l1_ratio': [0, 0.25, 0.5, 0.75, 1], 'enet__random_state': [0]}, 'scorer': make_scorer(mean_squared_error, greater_is_better=False), 'grid_search': <class 'sklearn.model_selection._search.GridSearchCV'>}",1951
