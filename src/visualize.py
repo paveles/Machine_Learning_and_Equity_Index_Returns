@@ -19,6 +19,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('Agg')
 plt.rcParams['figure.figsize'] = [15, 22.5]
+pd.plotting.register_matplotlib_converters()
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
