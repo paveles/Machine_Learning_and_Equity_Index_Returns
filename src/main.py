@@ -7,10 +7,10 @@ print("Execute src/main.py")
 if __name__ == "__main__":
 
     print("Execute src/data.py")
-    import data
+    import src.data
 
     print("Execute src/train.py")
-    import train
+    import src.train
 
     print("Execute src/visualize.py")
-    import visualize
+    import src.visualize
