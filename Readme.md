@@ -11,6 +11,7 @@ Machine Learning and Equity Index Returns
 - Dockerfile to run the project on any platform or in the cloud
 
 
+
 ## Project Organization
 
     ├── LICENSE
@@ -81,8 +82,8 @@ There are some challenges to install Make on Windows. These steps might help:
 To run this project via Docker:
 - Install [Docker](https://www.docker.com/) on your computer.
 - Build Docker image in the project folder containing the Dockerfile `docker image build --tag=epml .`.
-- To run container with predefined code in `main.py`, type `docker run epml:latest`.
-- Alternatively, run the container iteratively (with the ability to modify files and run make commands described in the workflow above) `docker container run -v Absolute/Path/At/Localhost/out:/code/out/ -it epml:latest bash`. `-v Absolute/Path/On/Localhost/out:/code/out/` ensures that output produced in the Docker container is saved in the `/out/` folder of the project at localhost.
+- To run container with the predefined code in `main.py`, type `docker run -v Absolute/Path/At/Localhost/out:/code/out/ epml:latest`.  The `-v Absolute/Path/On/Localhost/out:/code/out/` part ensures that output produced in the Docker container is saved in the `/out/` folder of the project at your computer (please create this folder beforehand).
+- Alternatively, run the container iteratively (with the ability to modify files and run make commands described in the workflow above inside the container) `docker container run -v Absolute/Path/At/Localhost/out:/code/out/ -it epml:latest bash`.
 --------
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
 
