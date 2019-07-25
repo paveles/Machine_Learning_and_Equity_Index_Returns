@@ -36,5 +36,5 @@ else:
 VERBOSE = True
 
 CONFIGS={
-    'const' : const_config,
+    'enet_nocv' : enet_nocv_config,
 }
