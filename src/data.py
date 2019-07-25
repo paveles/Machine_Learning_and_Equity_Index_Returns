@@ -19,3 +19,4 @@ df.index = df.index.astype(int)
 os.makedirs(dir + '/data/processed/', exist_ok = True)
 df.to_pickle("data/processed/df.pickle")
 
+print("Processed data is saved as" + " data/processed/df.pickle")

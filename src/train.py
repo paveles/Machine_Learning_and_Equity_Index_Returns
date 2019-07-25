@@ -34,8 +34,8 @@ dir = os.getcwd()
 # os.chdir(dir)
 # os.makedirs(dir + '/temp', exist_ok = True)
 os.makedirs(dir + '/out/temp', exist_ok = True)
-os.makedirs(dir + 'out/'+ Models_Folder+'/models/estimated', exist_ok = True)
-os.makedirs(dir + 'out/'+ Models_Folder+'/pickle', exist_ok = True)
+os.makedirs(dir + '/out/'+ Models_Folder+'/models/estimated', exist_ok = True)
+os.makedirs(dir + '/out/'+ Models_Folder+'/pickle', exist_ok = True)
 #%% #--------------------------------------------------
 #* Load Data
 df = pd.read_pickle("data/processed/df.pickle")
@@ -179,7 +179,7 @@ for cname, config in CONFIGS.items():
     model_results['scores_estimated'] = scores_estimated
     model_results.to_csv('out/'+ Models_Folder +'/models/'+ results_dict['name']+'_predictions.csv', index=False)
 
-
+print('Model predictions are produced in' + ' out/'+ Models_Folder +'/models/')
 #%% #--------------------------------------------------
 #* Estimated Models Save in Temp
 
@@ -190,5 +190,6 @@ for cname, config in CONFIGS.items():
             'out/'+ Models_Folder +'/models/estimated/'+ config['name'] +'_estimated.csv',
              header = True)
 # Lambda Function is used because otherwise not all steps are revealed
+print('Estimated model parameters are saved in' + ' out/'+ Models_Folder +'/models/estimated/')
 
 #%% #--------------------------------------------------

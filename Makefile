@@ -26,7 +26,8 @@ requirements: test_environment
 	python -m pip install -r requirements.txt
 
 ## Make Dataset
-data: requirements
+
+data:
 	python src/data.py
 
 ## Make Dataset
@@ -61,7 +62,7 @@ else
 	python -m pip install -q virtualenv virtualenvwrapper
 	@echo ">>> Installing virtualenvwrapper if not already intalled.\nMake sure the following lines are in shell startup file\n\
 	export WORKON_HOME=$$HOME/.virtualenvs\nexport PROJECT_HOME=$$HOME/Devel\nsource /usr/local/bin/virtualenvwrapper.sh\n"
-	@bash -c "source 'which virtualenvwrapper.sh`;mkvirtualenv $(PROJECT_NAME) --python=python"
+	@bash -c "source `which virtualenvwrapper.sh`;mkvirtualenv $(PROJECT_NAME) --python=python"
 	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
 endif
 

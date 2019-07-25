@@ -19,6 +19,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use('Agg')
 plt.rcParams['figure.figsize'] = [15, 22.5]
+pd.plotting.register_matplotlib_converters()
 #%% #--------------------------------------------------
 #* Global Parameters *
 # Add interactions or not
@@ -41,6 +42,8 @@ for cname, config in CONFIGS.items():
      ignore_index =True)
 print(df_config)
 df_config.to_csv('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv')
+
+print('out/'+ Models_Folder +'/models/'+'All_Models'+'.csv'+' is produced')
 
 
 #%% #--------------------------------------------------
