@@ -8,7 +8,7 @@ Machine Learning and Equity Index Returns
 - Domain-tailored statistical tests on the significance of improvement in prediction accuracy.
 - Jupyter notebooks and a [report](/reports/Results.ipynb) that explain and visualize obtained findings.
 - Clear project structure with a makefile based on a data science template.
-
+- Dockerfile to run the project on any platform or in the cloud
 
 
 ## Project Organization
@@ -74,9 +74,15 @@ Machine Learning and Equity Index Returns
 There are some challenges to install Make on Windows. These steps might help:
 - To install Make on Windows use a prebuilt [Installer](https://github.com/swcarpentry/windows-installer/releases/tag/v0.3) from Software Carpentry. Please add the Make directory to the the system environment variable PATH, e.g. `C:\Users\Admin\.swc\lib\make`.
 - You can test Make by accessing help for the Makefile by typing `make` in the project folder.
-- In case Make still does not work please install [MSYS2](https://www.msys2.org/) and add its `bin` directory to the the system environment variable PATH, e.g. `C:\msys64\usr\bin`.
+- In case Make still does not work, please install [MSYS2](https://www.msys2.org/) and add its `bin` directory to the the system environment variable PATH, e.g. `C:\msys64\usr\bin`.
 - Try restarting your computer.
 
+## Alternatively, use Docker
+To run this project via Docker:
+- Install [Docker](https://www.docker.com/) on your computer.
+- Build Docker image in the project folder containing the Dockerfile `docker image build --tag=epml .`.
+- To run container with predefined code in `main.py`, type `docker run epml:latest`.
+- Alternatively, run the container iteratively (with the ability to modify files and run make commands described in the workflow above) `docker container run -it epml:latest bash`
 --------
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
 
