@@ -32,7 +32,7 @@ from sklearn.preprocessing import StandardScaler,MinMaxScaler, PolynomialFeature
 from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.model_selection import  TimeSeriesSplit
-from src.transform_cv import TimeSeriesSplitMod
+from src.transform_cv import RecursiveTimeSeriesSplit
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from src.transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer
@@ -72,7 +72,7 @@ const_config['grid_search'] = GridSearchCV
 #? PCA Models
 pca_config = {}
 pca_config['name'] = "pca"
-pca_config['cv'] = TimeSeriesSplitMod # DisabledCV
+pca_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV
 
 pca_config['pipeline'] = Pipeline(steps=[
    ('pca', PCA()),
@@ -87,7 +87,7 @@ pca_config['grid_search'] = GridSearchCV
 #? Enet  Model
 enet_config = {}
 enet_config['name'] = "enet"
-enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+enet_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV
 
 enet_config['pipeline'] = Pipeline(steps=[
     ('standard', StandardScaler()),
@@ -107,7 +107,7 @@ enet_config['grid_search'] = GridSearchCV
 #? Enet - NoCV  Model
 enet_nocv_config = {}
 enet_nocv_config['name'] = "enet_nocv"
-enet_nocv_config['cv'] = DisabledCV # TimeSeriesSplitMod # DisabledCV
+enet_nocv_config['cv'] = DisabledCV # RecursiveTimeSeriesSplit # DisabledCV
 
 enet_nocv_config['pipeline'] = Pipeline(steps=[
     ('standard', StandardScaler()),
@@ -125,7 +125,7 @@ enet_nocv_config['grid_search'] = GridSearchCV
 #? Enet - 5CV  Model
 enet_5cv_config = {}
 enet_5cv_config['name'] = "enet_5cv"
-enet_5cv_config['cv'] = 5 # TimeSeriesSplitMod # DisabledCV
+enet_5cv_config['cv'] = 5 # RecursiveTimeSeriesSplit # DisabledCV
 
 enet_5cv_config['pipeline'] = Pipeline(steps=[
     ('standard', StandardScaler()),
@@ -144,7 +144,7 @@ enet_5cv_config['grid_search'] = GridSearchCV
 #? Enet - 10cv  Model
 enet_10cv_config = {}
 enet_10cv_config['name'] = "enet_10cv"
-enet_10cv_config['cv'] = 10 # TimeSeriesSplitMod # DisabledCV
+enet_10cv_config['cv'] = 10 # RecursiveTimeSeriesSplit # DisabledCV
 
 enet_10cv_config['pipeline'] = Pipeline(steps=[
     ('standard', StandardScaler()),
@@ -162,7 +162,7 @@ enet_10cv_config['grid_search'] = GridSearchCV
 #? PCA + Enet  Model
 pca_enet_config = {}
 pca_enet_config['name'] = "pca_enet"
-pca_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+pca_enet_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV
 
 pca_enet_config['pipeline'] = Pipeline(steps=[
     ('standard', StandardScaler()),
@@ -182,7 +182,7 @@ pca_enet_config['grid_search'] = GridSearchCV
 #? Enet + Lag  Model
 lag_enet_config = {}
 lag_enet_config['name'] = "lag_enet"
-lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+lag_enet_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV
 lag_enet_config['addlags'] = 1
 
 lag_enet_config['pipeline'] = Pipeline(steps=[
@@ -201,7 +201,7 @@ lag_enet_config['grid_search'] = GridSearchCV
 #? Enet + Interact  Model
 poly_enet_config = {}
 poly_enet_config['name'] = "poly_enet"
-poly_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+poly_enet_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV
 poly_enet_config['interactions']=True
 
 poly_enet_config['pipeline'] = Pipeline(steps=[
@@ -222,7 +222,7 @@ poly_enet_config['grid_search'] = GridSearchCV
 #? Enet + Interact + Lag  Model
 poly_lag_enet_config = {}
 poly_lag_enet_config['name'] = "poly_lag_enet"
-poly_lag_enet_config['cv'] = TimeSeriesSplitMod # DisabledCV
+poly_lag_enet_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV
 poly_lag_enet_config['interactions'] = True
 poly_lag_enet_config['addlags'] = 1
 
@@ -243,7 +243,7 @@ poly_lag_enet_config['grid_search'] = GridSearchCV
 #? Random Forest Model + No CV
 rf_nocv_config = {}
 rf_nocv_config['name'] = "rf_nocv"
-rf_nocv_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
+rf_nocv_config['cv'] = DisabledCV # DisabledCV RecursiveTimeSeriesSplit
 
 rf_nocv_config['pipeline'] = Pipeline(steps=[
     ('rf', RandomForestRegressor())
@@ -261,7 +261,7 @@ rf_nocv_config['grid_search'] = GridSearchCV
 #? AdaBoostRegressor Model + No CV
 adab_nocv_config = {}
 adab_nocv_config['name'] = "adab_nocv"
-adab_nocv_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
+adab_nocv_config['cv'] = DisabledCV # DisabledCV RecursiveTimeSeriesSplit
 
 adab_nocv_config['pipeline'] = Pipeline(steps=[
     ('adab', AdaBoostRegressor())
@@ -278,7 +278,7 @@ adab_nocv_config['grid_search'] = GridSearchCV
 #? GradientBoostingRegressor  Model + No CV
 gbr_nocv_config = {}
 gbr_nocv_config['name'] = "gbr_nocv"
-gbr_nocv_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
+gbr_nocv_config['cv'] = DisabledCV # DisabledCV RecursiveTimeSeriesSplit
 
 gbr_nocv_config['pipeline'] = Pipeline(steps=[
     ('gbr', GradientBoostingRegressor())
@@ -299,7 +299,7 @@ gbr_nocv_config['grid_search'] = GridSearchCV
 #? XGB  Model + No CV
 xgb_nocv_config = {}
 xgb_nocv_config['name'] = "xgb_nocv"
-xgb_nocv_config['cv'] = DisabledCV # DisabledCV TimeSeriesSplitMod
+xgb_nocv_config['cv'] = DisabledCV # DisabledCV RecursiveTimeSeriesSplit
 
 xgb_nocv_config['pipeline'] = Pipeline(steps=[
     ('to_numpy', ToNumpyTransformer()),
@@ -318,7 +318,7 @@ xgb_nocv_config['grid_search'] = GridSearchCV
 #? Random Forest Model 
 rf_config = {}
 rf_config['name'] = "rf"
-rf_config['cv'] = TimeSeriesSplitMod # DisabledCV TimeSeriesSplitMod
+rf_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV RecursiveTimeSeriesSplit
 
 rf_config['pipeline'] = Pipeline(steps=[
     ('rf', RandomForestRegressor())
@@ -338,7 +338,7 @@ rf_config['grid_search'] = GridSearchCV
 #? AdaBoostRegressor Model 
 adab_config = {}
 adab_config['name'] = "adab"
-adab_config['cv'] = TimeSeriesSplitMod # DisabledCV TimeSeriesSplitMod
+adab_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV RecursiveTimeSeriesSplit
 
 adab_config['pipeline'] = Pipeline(steps=[
     ('adab', AdaBoostRegressor())
@@ -358,7 +358,7 @@ adab_config['grid_search'] = GridSearchCV
 #? GradientBoostingRegressor  Model 
 gbr_config = {}
 gbr_config['name'] = "gbr"
-gbr_config['cv'] = TimeSeriesSplitMod # DisabledCV TimeSeriesSplitMod
+gbr_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV RecursiveTimeSeriesSplit
 
 gbr_config['pipeline'] = Pipeline(steps=[
     ('gbr', GradientBoostingRegressor())
@@ -377,7 +377,7 @@ gbr_config['grid_search'] = GridSearchCV
 #? XGB  Model 
 xgb_config = {}
 xgb_config['name'] = "xgb"
-xgb_config['cv'] = TimeSeriesSplitMod # DisabledCV TimeSeriesSplitMod
+xgb_config['cv'] = RecursiveTimeSeriesSplit # DisabledCV RecursiveTimeSeriesSplit
 
 xgb_config['pipeline'] = Pipeline(steps=[
     ('to_numpy', ToNumpyTransformer()),

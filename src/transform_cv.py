@@ -220,7 +220,7 @@ class _BaseKFold(with_metaclass(ABCMeta, BaseCrossValidator)):
         return self.n_splits
 
 # Modify Times Series split
-class TimeSeriesSplitMod(_BaseKFold):
+class RecursiveTimeSeriesSplit(_BaseKFold):
     """ Modified Time Series cross-validator
 
     Provides train/test indices to split time series data samples
@@ -254,7 +254,7 @@ class TimeSeriesSplitMod(_BaseKFold):
     >>> from sklearn.model_selection import TimeSeriesSplit
     >>> X = np.array([[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4]])
     >>> y = np.array([1, 2, 3, 4, 5, 6])
-    >>> tscv = TimeSeriesSplitMod(n_splits=5, start_test_split = 4)
+    >>> tscv = RecursiveTimeSeriesSplit(n_splits=5, start_test_split = 4)
     >>> print(tscv)  # doctest: +NORMALIZE_WHITESPACE
     TimeSeriesSplit(max_train_size=None, n_splits=5)
     >>> for train_index, test_index in tscv.split(X):
@@ -275,7 +275,7 @@ TRAIN: [0 1 2 3 4] TEST: [5]
         if n_splits == 'warn':
             warnings.warn(NSPLIT_WARNING, FutureWarning)
             n_splits = 3
-        super(TimeSeriesSplitMod, self).__init__(n_splits,
+        super(RecursiveTimeSeriesSplit, self).__init__(n_splits,
                                               shuffle=False,
                                               random_state=None)
         self.max_train_size = max_train_size
@@ -347,7 +347,7 @@ TRAIN: [0 1 2 3 4] TEST: [5]
 # from sklearn.model_selection import TimeSeriesSplit
 # X = np.array([[1, 2], [3, 4], [1, 2], [3, 4], [1, 2], [3, 4],[1,2],[3,4]])
 # y = np.array([1, 2, 3, 4, 5, 6, 7, 8])
-# tscv = TimeSeriesSplitMod(n_splits=7, start_test_split=4)
+# tscv = RecursiveTimeSeriesSplit(n_splits=7, start_test_split=4)
 # #tscv = TimeSeriesSplit(n_splits=5)
 # print(tscv)  
 

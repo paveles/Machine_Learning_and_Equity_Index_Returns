@@ -6,7 +6,7 @@ from sklearn.linear_model import  LinearRegression
 from scipy import stats
 from sklearn.metrics import  make_scorer, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV
-from src.transform_cv import TimeSeriesSplitMod
+from src.transform_cv import RecursiveTimeSeriesSplit
 from src.transform_cv import DisabledCV, ToConstantTransformer, ToNumpyTransformer
 import pandas as pd
 from sklearn.preprocessing import  PolynomialFeatures
@@ -88,8 +88,8 @@ def estimate_walk_forward(config, X, y, start_idx, rolling = False,
         if rolling == True:
             X_tr = X.iloc[idx - tr_win : idx]
             y_tr = y.iloc[idx - tr_win : idx]
-            if config['cv'] == TimeSeriesSplitMod:
-                cv = TimeSeriesSplitMod( n_splits =tr_win - 1,
+            if config['cv'] == RecursiveTimeSeriesSplit:
+                cv = RecursiveTimeSeriesSplit( n_splits =tr_win - 1,
                  start_test_split = tr_win-val_win ).split(X_tr,y_tr)
             elif config['cv'] == DisabledCV:
                 cv = DisabledCV().split(X_tr,y_tr)
@@ -102,8 +102,8 @@ def estimate_walk_forward(config, X, y, start_idx, rolling = False,
         else:
             X_tr = X.iloc[0 : idx]
             y_tr = y.iloc[0 : idx]
-            if config['cv'] == TimeSeriesSplitMod:
-                cv = TimeSeriesSplitMod( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
+            if config['cv'] == RecursiveTimeSeriesSplit:
+                cv = RecursiveTimeSeriesSplit( n_splits =idx - 1, start_test_split = start_idx - 1 ).split(X_tr,y_tr)
             elif config['cv'] == DisabledCV:
                 cv = DisabledCV().split(X_tr,y_tr)
             elif type(config['cv'])==int:
@@ -135,7 +135,7 @@ def estimate_walk_forward(config, X, y, start_idx, rolling = False,
 #%% #--------------------------------------------------
 # #* Check How Indexes and Cross-Validation are Calculated
 # idx = len(yo)-1
-# tscv = TimeSeriesSplitMod( n_splits = 180 - 1, start_test_split = 156 ) #( n_splits =idx - 1, start_test_split = start_idx - 1 )
+# tscv = RecursiveTimeSeriesSplit( n_splits = 180 - 1, start_test_split = 156 ) #( n_splits =idx - 1, start_test_split = start_idx - 1 )
 
 # # print(tscv)  
 # X_tr = Xo.iloc[idx - 180 : idx] # Xo[0:idx]
