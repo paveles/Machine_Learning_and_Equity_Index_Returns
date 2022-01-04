@@ -36,7 +36,7 @@ def r2_adj_score(y_true,y_pred,N,K):
     return 1-(1-r2)*(N-1)/(N-K-1)
 
 def estimate_walk_forward(config, X, y, start_idx, rolling = False, train_every=1,
- tr_win = None, val_win = None, verbose = False):
+ tr_win = None, val_win = None, verbose = True):
     """
     Function that esimates walk-forward using expanding or rolling window.
     Cross-validation procedure, and the type of grid-search are determined in the config file.
