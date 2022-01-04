@@ -35,8 +35,8 @@ def r2_adj_score(y_true,y_pred,N,K):
     r2 = r2_score(y_true,y_pred)
     return 1-(1-r2)*(N-1)/(N-K-1)
 
-def estimate_walk_forward(config, X, y, start_idx, rolling = False,
- tr_win = None, val_win = None, verbose = True):
+def estimate_walk_forward(config, X, y, start_idx, rolling = False, train_every=1,
+ tr_win = None, val_win = None, verbose = False):
     """
     Function that esimates walk-forward using expanding or rolling window.
     Cross-validation procedure, and the type of grid-search are determined in the config file.
@@ -112,24 +112,23 @@ def estimate_walk_forward(config, X, y, start_idx, rolling = False,
         # Grid Search Function and Grid of Parameters
         grid_search = config['grid_search']
         param_grid = config['param_grid'] 
-    
-        grid = grid_search(estimator=model_to_estimate, param_grid=param_grid, cv=cv \
-            , scoring = scorer, n_jobs=-1)
-        
-        # Best model, best score and the respective prediction    
-        model = grid.fit(X_tr,y_tr)
-        best_model = model.best_estimator_
-        best_score = model.best_score_
+        if ((idx-start_idx) % train_every) == 0:
+            grid = grid_search(estimator=model_to_estimate, param_grid=param_grid, cv=cv \
+                , scoring = scorer, n_jobs=-1)
+            
+            # Best model, best score and the respective prediction    
+            model = grid.fit(X_tr.values, y_tr.values)
+            best_model = model.best_estimator_
+            best_score = model.best_score_
+            if verbose == True:    
+                print(str(start_idx)+" -> "+str(idx)+" / "+str(max_idx) )
+                print(best_model)
+                print(best_score)
+
         models_estimated.loc[X.index[idx]] = best_model # save the model
         scores_estimated.loc[X.index[idx]] = best_score # save the score
         predictions.loc[X.index[idx]] = model.predict([X.iloc[idx]]) # predict next month 
         
-        if verbose == True:        
-            if ((idx-start_idx) % 10) == 0:
-                print(str(idx)+" / "+str(max_idx) )
-                print(best_model)
-                print(best_score)
-
     return models_estimated,scores_estimated, predictions
     
 #%% #--------------------------------------------------
