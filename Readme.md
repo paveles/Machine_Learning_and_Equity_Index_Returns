@@ -6,7 +6,7 @@ Machine Learning and Equity Index Returns
 - New scikit-learn transformers.
 - New scikit-learn time-series cross-validation methods (one step forward expanding window nested cross-validation).
 - Domain-tailored statistical tests on the significance of improvement in prediction accuracy.
-- Jupyter notebooks and a [report](/reports/Results.ipynb) that explain and visualize obtained findings.
+- [Jupyter notebooks and a report that explain and visualize obtained findings.](/reports/Results.ipynb)
 - Clear project structure with a makefile based on a data science template.
 - Dockerfile to run the project on any platform or in the cloud
 
